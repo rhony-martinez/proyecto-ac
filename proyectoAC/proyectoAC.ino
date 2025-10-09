@@ -1,6 +1,14 @@
 #include "StateMachineLib.h"
 #include "AsyncTaskLib.h"
 
+#define LED_RED 9
+#define LED_BLUE 11
+#define LED_GREEN 10
+
+const int sensorMov = A0;
+const int buzzerPin = 7;//the buzzer pin attach to
+int fre;//set the variable to store the frequence value
+
 // State Alias
 enum State {
   PosicionInicio = 0,
@@ -28,6 +36,19 @@ StateMachine stateMachine(7, 11);
 
 // Stores last user input
 Input input = Unknown;
+
+void runTime(void);
+void turnLed(void);
+AsyncTask TaskTime(2000, false, runTime);
+AsyncTask TaskLed(100, false, turnLed);
+
+void runTime(void) {
+  input = Input::Tiempo;
+}
+
+void turnLed(void) {
+  digitalWrite()
+}
 
 // Setup the State Machine
 void setupStateMachine() {
@@ -73,30 +94,40 @@ void loop() {
 
 // Auxiliar output functions that show the state debug
 void outputInicio() {
+  TaskTime.SetIntervalMillis(7000); // 7s hasta Config si no hay input
+  TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("  X                                                               ");
   Serial.println();
 }
 
 void outputConfig() {
+  TaskTime.SetIntervalMillis(5000); // 5s hasta Monitor
+  TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("            X                                                     ");
   Serial.println();
 }
 
 void outputAlarma() {
+  TaskTime.SetIntervalMillis(4000); // 4s hasta Monitor
+  TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                               X                                  ");
   Serial.println();
 }
 
 void outputBloqueo() {
+  TaskTime.SetIntervalMillis(7000); // 7s hasta Inicio
+  TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                                                              X   ");
   Serial.println();
 }
 
 void outputMonitor() {
+  TaskTime.SetIntervalMillis(3000); // 3s hasta Config
+  TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                     X                                            ");
   Serial.println();
@@ -104,12 +135,16 @@ void outputMonitor() {
 
 
 void outputPMV_Bajo() {
+  TaskTime.SetIntervalMillis(3000); // 3s hasta Monitor
+  TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                                        X                         ");
   Serial.println();
 }
 
 void outputPMV_Alto() {
+  TaskTime.SetIntervalMillis(3000); // 3s hasta Monitor
+  TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                                        X                         ");
   Serial.println();
