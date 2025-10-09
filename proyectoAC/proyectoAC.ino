@@ -170,6 +170,6 @@ void outputPMV_Alto() {
   TaskTime.SetIntervalMillis(4000); // 4 segs hasta monitor si no hay entrada
   TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
-  Serial.println("                                        X                         ");
+  Serial.println("                                                    X             ");
   Serial.println();
 }
