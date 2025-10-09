@@ -1,5 +1,31 @@
 #include "StateMachineLib.h"
 #include "AsyncTaskLib.h"
+#include <LiquidCrystal.h>
+#include <Keypad.h>
+
+#define LED_RED   9
+#define LED_GREEN 10
+#define LED_BLUE  11
+
+const char clave[6] = {'2', '0', '2', '5', '2', 'A'};
+char clave_user[6];
+
+// LCD pins
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+// KEYPAD Definition
+const byte ROWS = 4; // cuatro filas
+const byte COLS = 4; // cuatro columnas
+char keys[ROWS][COLS] = {
+  {'1', '2', '3', 'A'},
+  {'4', '5', '6', 'B'},
+  {'7', '8', '9', 'C'},
+  {'*', '0', '#', 'D'}
+};
+byte rowPins[ROWS] = {40, 42, 44, 46}; // conecta a los pines de las filas del teclado
+byte colPins[COLS] = {48, 50, 52, 53}; // conecta a los pines de las columnas del teclado
+
+Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
 // State Alias
 enum State {
@@ -32,11 +58,38 @@ StateMachine stateMachine(7, 11);
 Input input = Unknown;
 
 // --- Async tasks ---
+// Time Tasks
 void runTime();
 AsyncTask TaskTime(5000, true, runTime); // cada 5 segundos lanza TIEMPO_EXPIRADO
-
 void runTime() {
   input = TIEMPO_EXPIRADO;
+}
+
+// LED toggles ---------------------------------------------------------------------------------
+// Red ----
+void toggleRed();
+AsyncTask TaskLedRed(100, true, toggleRed);  // periodo de 100 ms ON, manejaremos el OFF por ciclo
+
+bool ledState = false;
+unsigned long lastToggle = 0;
+
+void toggleRed() {
+  unsigned long now = millis();
+  
+  // Si el LED está encendido y han pasado 100 ms → apagar
+  if (ledState && (now - lastToggle >= 100)) {
+    ledState = false;
+    digitalWrite(LED_RED, LOW);
+    lastToggle = now;
+    TaskLedRed.SetIntervalMillis(300);  // siguiente ciclo: 300 ms apagado
+  }
+  // Si el LED está apagado y han pasado 300 ms → encender
+  else if (!ledState && (now - lastToggle >= 300)) {
+    ledState = true;
+    digitalWrite(LED_RED, HIGH);
+    lastToggle = now;
+    TaskLedRed.SetIntervalMillis(100);  // siguiente ciclo: 100 ms encendido
+  }
 }
 
 // Setup the State Machine
@@ -75,15 +128,20 @@ void setupStateMachine() {
   stateMachine.SetOnEntering(ALARMA, outputAlarma);
 
   // Add leavings
+  stateMachine.SetOnLeaving(BLOQUEO, onLeavingBloqueo);
 }
 
 void setup() {
   Serial.begin(9600);
+  lcd.begin(16, 2);
+
+  lcd.setCursor(0, 0);
 
   setupStateMachine();
   stateMachine.SetState(INICIO, false, true);
 
   Serial.println("FSM Iniciada");
+  lcd.println("Iniciando...");
 }
 
 void loop() {
@@ -94,12 +152,49 @@ void loop() {
 
   // Actualizar tareas (timers)
   TaskTime.Update();
+  // Actualizar leds (toggles)
+  TaskLedRed.Update();
 
   // Actualizar máquina de estados
   stateMachine.Update();
 
   // Reset input para no disparar de nuevo automáticamente
   input = Unknown;
+}
+
+// K E Y P A D
+// Read password from KEYPAD
+void readPassword() {
+  for (int i = 0; i < 6; i++) {
+    char key = NO_KEY;
+    lcd.clear();
+    lcd.print("Caracter ");
+    lcd.print(i + 1);
+    lcd.setCursor(0, 1);
+    lcd.print("Ingrese clave...");
+    while (key == NO_KEY) {
+      key = keypad.getKey();
+    }
+    clave_user[i] = key;
+    TaskTime.SetIntervalMillis(500);
+    TaskTime.Start(); 
+  }
+}
+
+// Check password
+bool checkPassword() {
+  bool correcta = true;
+  for (int i = 0; i < 6; i++) {
+    if (clave_user[i] != clave[i]) {
+      lcd.print("Clave Incorrecta");
+      digitalWrite(LED_BLUE, HIGH);
+      correcta = false;
+      delay(1000);
+      digitalWrite(LED_BLUE, LOW);
+      break;
+    }
+  }
+  return correcta;
 }
 
 // Auxiliar function that reads the user input
@@ -124,6 +219,21 @@ int readInput() {
 
 // Auxiliar output functions that show the state debug
 void outputInicio() {
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Seguridad");
+  readPassword();
+  if (checkPassword()) {
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Clave correcta");
+    input = CLAVE_CORRECTA;
+  } else {
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Clave incorrecta → BLOQUEO");
+    input = SISTEMA_BLOQUEADO;
+  }
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("  X                                                               ");
   Serial.println();
@@ -144,10 +254,22 @@ void outputAlarma() {
 }
 
 void outputBloqueo() {
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("SISTEMA BLOQUEADO");
+  lcd.setCursor(0, 1);
+  lcd.print("Presione la tecla '*'");
+
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                                                              X   ");
   Serial.println();
+
+  ledState = false;
+  digitalWrite(LED_RED, LOW);
+  lastToggle = millis();
+  TaskLedRed.Start();
 }
+
 
 void outputMonitor() {
   TaskTime.SetIntervalMillis(7000); // 7 segs hasta config si no hay entrada
@@ -172,4 +294,11 @@ void outputPMV_Alto() {
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                                                    X             ");
   Serial.println();
+}
+
+// Functions para leaving
+void onLeavingBloqueo() {
+  TaskLedRed.Stop();
+  digitalWrite(LED_RED, LOW);
+  Serial.println("Saliendo de BLOQUEO, LED apagado");
 }
