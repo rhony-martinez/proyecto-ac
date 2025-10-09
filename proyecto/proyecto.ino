@@ -97,7 +97,7 @@ void outputInicio() {
   TaskTime.SetIntervalMillis(7000); // 7s hasta Config si no hay input
   TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
-  Serial.println("                               X                                  ");
+  Serial.println("  X                                                               ");
   Serial.println();
 }
 
@@ -105,7 +105,7 @@ void outputConfig() {
   TaskTime.SetIntervalMillis(5000); // 5s hasta Monitor
   TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
-  Serial.println("                               X                                  ");
+  Serial.println("            X                                                     ");
   Serial.println();
 }
 
@@ -121,7 +121,7 @@ void outputBloqueo() {
   TaskTime.SetIntervalMillis(7000); // 7s hasta Inicio
   TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
-  Serial.println("                               X                                  ");
+  Serial.println("                                                              X   ");
   Serial.println();
 }
 
@@ -129,7 +129,7 @@ void outputMonitor() {
   TaskTime.SetIntervalMillis(3000); // 3s hasta Config
   TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
-  Serial.println("                               X                                  ");
+  Serial.println("                     X                                            ");
   Serial.println();
 }
 
@@ -138,6 +138,14 @@ void outputPMV_Bajo() {
   TaskTime.SetIntervalMillis(3000); // 3s hasta Monitor
   TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
-  Serial.println("                               X                                  ");
+  Serial.println("                                        X                         ");
+  Serial.println();
+}
+
+void outputPMV_Alto() {
+  TaskTime.SetIntervalMillis(3000); // 3s hasta Monitor
+  TaskTime.Start();
+  Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
+  Serial.println("                                        X                         ");
   Serial.println();
 }
