@@ -28,9 +28,16 @@ enum Input {
 
 // Create new StateMachine
 StateMachine stateMachine(7, 11);
-
 // Stores last user input
 Input input = Unknown;
+
+// --- Async tasks ---
+void runTime();
+AsyncTask TaskTime(5000, true, runTime); // cada 5 segundos lanza TIEMPO_EXPIRADO
+
+void runTime() {
+  input = TIEMPO_EXPIRADO;
+}
 
 // Setup the State Machine
 void setupStateMachine() {
@@ -59,7 +66,13 @@ void setupStateMachine() {
   
 
   // Add enterings
-  
+  stateMachine.SetOnEntering(INICIO, outputInicio);
+  stateMachine.SetOnEntering(BLOQUEO, outputBloqueo);
+  stateMachine.SetOnEntering(CONFIG, outputConfig);
+  stateMachine.SetOnEntering(MONITOR, outputMonitor);
+  stateMachine.SetOnEntering(PMV_BAJO, outputPMV_Bajo);
+  stateMachine.SetOnEntering(PMV_ALTO, outputPMV_Alto);
+  stateMachine.SetOnEntering(ALARMA, outputAlarma);
 
   // Add leavings
 }
@@ -74,7 +87,39 @@ void setup() {
 }
 
 void loop() {
-  
+  // Leer input usuario (por serial)
+  if (input == Unknown) {
+    input = static_cast<Input>(readInput());
+  }
+
+  // Actualizar tareas (timers)
+  TaskTime.Update();
+
+  // Actualizar máquina de estados
+  stateMachine.Update();
+
+  // Reset input para no disparar de nuevo automáticamente
+  input = Unknown;
+}
+
+// Auxiliar function that reads the user input
+int readInput() {
+  Input currentInput = Input::Unknown;
+  if (Serial.available()) {
+    char incomingChar = Serial.read();
+    switch (incomingChar) {
+      case '0': currentInput = Input::SISTEMA_BLOQUEADO; break;
+      case '1': currentInput = Input::TECLA_ASTERISCO;  break;
+      case '2': currentInput = Input::CLAVE_CORRECTA; break;
+      case '3': currentInput = Input::TIEMPO_EXPIRADO; break;
+      case '4': currentInput = Input::PMV_MENOR_QUE_MENOS1; break;
+      case '5': currentInput = Input::PMV_MAYOR_QUE_1; break;
+      case '6': currentInput = Input::TEMP_ALTA_3_INTENTOS; break;
+      case '7': currentInput = Input::SENSOR_INFRARROJO; break;
+      default: break;
+    }
+  }
+  return currentInput;
 }
 
 // Auxiliar output functions that show the state debug
@@ -85,6 +130,8 @@ void outputInicio() {
 }
 
 void outputConfig() {
+  TaskTime.SetIntervalMillis(5000); // 5 Segs hasta monitor si no hay entrada
+  TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("            X                                                     ");
   Serial.println();
@@ -103,6 +150,8 @@ void outputBloqueo() {
 }
 
 void outputMonitor() {
+  TaskTime.SetIntervalMillis(7000); // 7 segs hasta config si no hay entrada
+  TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                     X                                            ");
   Serial.println();
@@ -110,13 +159,17 @@ void outputMonitor() {
 
 
 void outputPMV_Bajo() {
+  TaskTime.SetIntervalMillis(3000); // 3 segs hasta monitor si no hay entrada
+  TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                                        X                         ");
   Serial.println();
 }
 
 void outputPMV_Alto() {
+  TaskTime.SetIntervalMillis(4000); // 4 segs hasta monitor si no hay entrada
+  TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
-  Serial.println("                                        X                         ");
+  Serial.println("                                                    X             ");
   Serial.println();
 }
