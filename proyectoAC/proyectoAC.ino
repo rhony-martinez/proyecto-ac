@@ -2,16 +2,35 @@
 #include "AsyncTaskLib.h"
 #include <LiquidCrystal.h>
 #include <Keypad.h>
+#include "DHT.h"
 
+// RGB led
 #define LED_RED   9
 #define LED_GREEN 10
 #define LED_BLUE  11
+// DHT
+#define DHTPIN 3
+#define DHTTYPE DHT11
+// Sensors
+#define LDR_PIN A3
+#define TEMP_PIN A0
 
+// Password for Keypad
 const char clave[6] = {'2', '0', '2', '5', '2', 'A'};
 char clave_user[6];
 
+// Global variables
+float tempA = 0.0;
+float humedad = 0.0;
+float luz = 0.0;
+float PMV = 0.0;
+float tempR = 0.0;
+
 // LCD pins
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+// DHT
+DHT dht(DHTPIN, DHTTYPTE);
 
 // KEYPAD Definition
 const byte ROWS = 4; // cuatro filas
@@ -134,6 +153,7 @@ void setupStateMachine() {
 void setup() {
   Serial.begin(9600);
   lcd.begin(16, 2);
+  dht.begin();
 
   lcd.setCursor(0, 0);
 
@@ -213,7 +233,7 @@ int readInput() {
   return currentInput;
 }
 
-// Auxiliar output functions that show the state debug
+// Auxiliar output functions that show the state debug-----------------------------------------
 void outputInicio() {
   input = Unknown;
   lcd.clear();
@@ -228,7 +248,9 @@ void outputInicio() {
   } else {
     lcd.clear();
     lcd.setCursor(0, 0);
-    lcd.print("Clave incorrecta → BLOQUEO");
+    lcd.print("Clave incorrecta");
+    lcd.setCursor(0, 1);
+    lcd.print("Sistema Bloqueado");
     input = SISTEMA_BLOQUEADO;
   }
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
@@ -268,15 +290,14 @@ void outputBloqueo() {
   TaskLedRed.Start();
 }
 
-
 void outputMonitor() {
+  
   TaskTime.SetIntervalMillis(7000); // 7 segs hasta config si no hay entrada
   TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                     X                                            ");
   Serial.println();
 }
-
 
 void outputPMV_Bajo() {
   TaskTime.SetIntervalMillis(3000); // 3 segs hasta monitor si no hay entrada
@@ -294,14 +315,15 @@ void outputPMV_Alto() {
   Serial.println();
 }
 
-// Functions para leaving
+// Functions para leaving -----------------------------------------------
 void onLeavingBloqueo() {
   TaskLedRed.Stop();
   digitalWrite(LED_RED, LOW);
   Serial.println("Saliendo de BLOQUEO, LED apagado");
 }
 
-// Auxiliar functions
+// AUXILIAR FUNCTIONS ----------------------------------------------------------
+// Check * to go back to INICIO
 void checkBloqueo() {
   if (stateMachine.GetState() == BLOQUEO) {
       char key = keypad.getKey();
@@ -310,3 +332,37 @@ void checkBloqueo() {
       }
     }
 }
+
+// Read sensors
+void leerSensores() {
+  tempA = dht.readTemperature(); // °C
+  humedad = dht.readHumidity(); // %
+  int rawLuz = analogRead(LDR_PIN);
+  luz = map(rawLuz, 0, 1032, 0, 100); // % aproximado de iluminación
+  tempR = analogRead(TEMP_PIN); // °C
+
+  if (isnan(humidity) || isnan(temperture)) {
+    Serial.println("Failed to read from DHT sensor!");
+    return;
+  }
+
+  lcd.setCursor(0, 0);
+  lcd.print("Tem Amb:");
+  lcd.print(tempA, 1);  //print the temperature on lcd
+  lcd.print(" C");
+  lcd.setCursor(0, 1);
+  lcd.print("Hum:");
+  lcd.print(humedad, 1);  //print the humidity on lcd
+  lcd.print(" %");
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Luz: ");
+  lcd.print(luz, 1);
+  lcd.print("%");
+  lcd.setCursor(0, 1);
+  lcd.print("Tem Rad:");
+  lcd.print(tempR, 1);  //print the temperature on lcd
+  lcd.print(" C");
+}
+
+// Calculating PMV
