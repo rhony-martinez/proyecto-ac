@@ -291,7 +291,14 @@ void outputBloqueo() {
 }
 
 void outputMonitor() {
-  
+  // Actividad ligera (persona de pie o caminando lentamente)
+  float met = 1.2;
+  // Ropa ligera (camisa, pantalón)
+  float clo = 0.5;
+  // Velocidad de aire típica en interior
+  float vel = 0.1;
+  // Calcular PMV
+  float pmv = calcularPMV_Fanger(tempA, tempR, humedad, vel, met, clo);
   TaskTime.SetIntervalMillis(7000); // 7 segs hasta config si no hay entrada
   TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
@@ -365,4 +372,55 @@ void leerSensores() {
   lcd.print(" C");
 }
 
-// Calculating PMV
+// Calculating PMV (Modelo Fanger adaptado a Arduino)
+
+float calcularPMV_Fanger(float ta, float tr, float rh, float vel, float met, float clo) {
+  // Conversión de unidades y constantes base
+  float pa, icl, m, w, fcl, hc, tcl, hl1, hl2, hl3, hl4, hl5, hl6, ts, pmv;
+  float eps = 0.00015;
+
+  // Constantes
+  m = met * 58.15;  // Met -> W/m²
+  w = 0.0;          // Trabajo mecánico (reposo)
+  icl = clo * 0.155; // Aislamiento térmico (m²K/W)
+  pa = rh / 100 * 610.5 * exp(17.27 * ta / (237.3 + ta)); // Presión de vapor (Pa)
+
+  // Factor de área de la ropa
+  if (icl <= 0.078)
+    fcl = 1.0 + 1.29 * icl;
+  else
+    fcl = 1.05 + 0.645 * icl;
+
+  // Temperatura inicial de la superficie de la ropa
+  float tcla = ta + (35.5 - ta) / (3.5 * icl + 0.1);
+
+  // Iteración para hallar tcl
+  int iter = 0;
+  float p1 = icl * fcl;
+  float p2 = icl * 3.96 * pow(10, -8) * fcl;
+  float p3 = icl * fcl * 100.0;
+  float p4 = icl * fcl * 3.96 * pow(10, -8);
+  float tcl1 = tcla;
+  float tcl2 = tcla;
+  do {
+    tcl1 = tcl2;
+    hc = 2.38 * pow(fabs(tcl1 - ta), 0.25);
+    if (hc < 12.1 * sqrt(vel)) hc = 12.1 * sqrt(vel);
+    tcl2 = (35.7 - 0.028 * (m - w) - icl * (fcl * (3.96 * pow(10, -8) * (pow(tcl1 + 273.0, 4) - pow(tr + 273.0, 4)) + fcl * hc * (tcl1 - ta)))) / (1 + icl * fcl * (3.96 * pow(10, -8) * 4 * pow(tcl1 + 273.0, 3) + fcl * hc));
+    iter++;
+  } while (fabs(tcl1 - tcl2) > eps && iter < 150);
+  tcl = tcl2;
+
+  // Cálculo de las pérdidas de calor
+  hl1 = 3.05 * 0.001 * (5733 - 6.99 * (m - w) - pa);
+  hl2 = 0.42 * (m - w - 58.15);
+  hl3 = 1.7 * 0.00001 * m * (5867 - pa);
+  hl4 = 0.0014 * m * (34 - ta);
+  hl5 = 3.96 * 0.00000001 * fcl * (pow(tcl + 273.0, 4) - pow(tr + 273.0, 4));
+  hl6 = fcl * hc * (tcl - ta);
+
+  // Ecuación principal del PMV
+  pmv = (0.303 * exp(-0.036 * m) + 0.028) * ((m - w) - hl1 - hl2 - hl3 - hl4 - hl5 - hl6);
+
+  return constrain(pmv, -3.0, 3.0); // limitar rango típico del índice PMV
+}
