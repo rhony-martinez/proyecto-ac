@@ -189,7 +189,8 @@ bool checkPassword() {
   for (int i = 0; i < 6; i++) {
     if (clave_user[i] != clave[i]) {
       lcd.print("Clave Incorrecta");
-      break;
+      bool correcta = false;
+      return correcta;
     }
   }
   return correcta;
@@ -256,7 +257,7 @@ void outputBloqueo() {
   lcd.setCursor(0, 0);
   lcd.print("SISTEMA BLOQUEADO");
   lcd.setCursor(0, 1);
-  lcd.print("Presione la tecla '*'");
+  lcd.print("Presione '*'");
 
 
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
