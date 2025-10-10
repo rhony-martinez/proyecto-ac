@@ -117,7 +117,7 @@ void setupStateMachine() {
   // Add transitions Alarma
   stateMachine.AddTransition(ALARMA, INICIO, []() { return input == SENSOR_INFRARROJO; }); 
   
-
+  
   // Add enterings
   stateMachine.SetOnEntering(INICIO, outputInicio);
   stateMachine.SetOnEntering(BLOQUEO, outputBloqueo);
@@ -163,34 +163,43 @@ void loop() {
 
 // K E Y P A D
 // Read password from KEYPAD
+// Read password from KEYPAD
 void readPassword() {
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Ingrese clave:");
+  
   for (int i = 0; i < 6; i++) {
+    lcd.setCursor(i, 1);  // Mostrar posición actual
+    lcd.print("_");
+    
     char key = NO_KEY;
-    lcd.clear();
-    lcd.print("Caracter ");
-    lcd.print(i + 1);
-    lcd.setCursor(0, 1);
-    lcd.print("Ingrese clave...");
     while (key == NO_KEY) {
       key = keypad.getKey();
     }
+    
     clave_user[i] = key;
-    TaskTime.SetIntervalMillis(500);
-    TaskTime.Start(); 
+    lcd.setCursor(i, 1);
+    lcd.print("*");  // Mostrar asterisco en lugar del carácter real
+    
+    delay(300); // Pequeño delay entre teclas
   }
 }
 
 // Check password
 bool checkPassword() {
-  bool correcta = true;
   for (int i = 0; i < 6; i++) {
     if (clave_user[i] != clave[i]) {
+      lcd.clear();
+      lcd.setCursor(0, 0);
       lcd.print("Clave Incorrecta");
-      bool correcta = false;
-      return correcta;
+      return false;
     }
   }
-  return correcta;
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Clave Correcta!");
+  return true;
 }
 
 // Auxiliar function that reads the user input
@@ -218,19 +227,32 @@ void outputInicio() {
   input = Unknown;
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("Seguridad");
+  lcd.print("Estado: INICIO");
+  lcd.setCursor(0, 1);
+  lcd.print("Ingrese clave...");
+  
+  // Leer la clave
   readPassword();
+  
+  // Verificar la clave
   if (checkPassword()) {
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print("Clave correcta");
+    lcd.setCursor(0, 1);
+    lcd.print("-> CONFIG");
+    delay(2000); 
     input = CLAVE_CORRECTA;
   } else {
     lcd.clear();
     lcd.setCursor(0, 0);
-    lcd.print("Clave incorrecta → BLOQUEO");
+    lcd.print("Clave incorrecta");
+    lcd.setCursor(0, 1);
+    lcd.print("-> BLOQUEO");
+    delay(2000); 
     input = SISTEMA_BLOQUEADO;
   }
+  
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("  X                                                               ");
   Serial.println();
