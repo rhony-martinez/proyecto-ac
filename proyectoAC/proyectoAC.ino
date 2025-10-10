@@ -3,6 +3,7 @@
 #include <LiquidCrystal.h>
 #include <Keypad.h>
 #include "DHT.h"
+#include <math.h>
 
 // RGB led
 #define LED_RED   9
@@ -19,13 +20,24 @@
 const char clave[6] = {'2', '0', '2', '5', '2', 'A'};
 char clave_user[6];
 
-// Global variables
-float tempA = 0.0;
-float humedad = 0.0;
-float luz = 0.0;
-float PMV = 0.0;
-float tempR = 0.0;
+// structs to calculcate pmv
+struct ComfortParams {
+  float M;          // Tasa metabólica [W/m²]
+  float V;          // Potencia mecánica efectiva [W/m²]
+  float icl;        // Aislamiento de la ropa [m²K/W]
+  float fcl;        // Factor de superficie de la ropa
+  float ta;         // Temperatura del aire [°C]
+  float tr;         // Temperatura radiante media [°C]
+  float vel_ar;        // Velocidad relativa del aire [m/s]
+  float rh;         // Humedad relativa [%]
+};
 
+// Estructura para los resultados
+struct ComfortResult {
+  float PMV;        // Predicted Mean Vote
+  float tcl;        // Temperatura de superficie de la ropa
+  float hcl;        // Coeficiente de transmisión de calor
+};
 // LCD pins
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 
@@ -202,7 +214,8 @@ void readPassword() {
     lcd.setCursor(i, 1);
     lcd.print("*");  // Mostrar asterisco en lugar del carácter real
     
-    delay(300); // Pequeño delay entre teclas
+    TaskTime.SetIntervalMillis(300); // Pequeña pausa entre teclas
+    TaskTime.Start();
   }
 }
 
@@ -313,14 +326,29 @@ void outputBloqueo() {
 }
 
 void outputMonitor() {
+  leerSensores();
   // Actividad ligera (persona de pie o caminando lentamente)
-  float met = 1.2;
+  float M = 100;
   // Ropa ligera (camisa, pantalón)
   float clo = 0.5;
   // Velocidad de aire típica en interior
-  float vel = 0.1;
+  float vel_ar = 0.1;
   // Calcular PMV
-  float pmv = calcularPMV_Fanger(tempA, tempR, humedad, vel, met, clo);
+  float pmv = calcularPMV_Fanger(tempA, tempR, humedad, vel_ar, M, clo);
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("PMV: ");
+  lcd.print(pmv, 2);
+  Serial.print("PMV calculado: ");
+  Serial.println(pmv, 2);
+
+  if (pmv < -1) 
+    input = PMV_MENOR_QUE_MENOS1;
+  else if 
+    (pmv > 1) input = PMV_MAYOR_QUE_1;
+  else 
+    input = TIEMPO_EXPIRADO;
+
   TaskTime.SetIntervalMillis(7000); // 7 segs hasta config si no hay entrada
   TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
@@ -395,54 +423,129 @@ void leerSensores() {
 }
 
 // Calculating PMV (Modelo Fanger adaptado a Arduino)
+// Función auxiliar: calcular presión parcial de vapor
+float calcularPresionVapor(float ta, float rh) {
+  // pa = rh/100 * exp(16.6536 - 4030.183/(ta + 235))
+  float pa = (rh / 100.0) * exp(16.6536 - 4030.183 / (ta + 235.0));
+  return pa;
+}
 
-float calcularPMV_Fanger(float ta, float tr, float rh, float vel, float met, float clo) {
-  // Conversión de unidades y constantes base
-  float pa, icl, m, w, fcl, hc, tcl, hl1, hl2, hl3, hl4, hl5, hl6, ts, pmv;
-  float eps = 0.00015;
+// Función auxiliar: calcular hcl (coeficiente de convección)
+// Parámetros:
+//   tcl: temperatura de superficie de la ropa [°C]
+//   ta: temperatura del aire [°C]
+//   var: velocidad relativa del aire [m/s]
+// Retorna: hcl en W/(m²·K)
+float calcularHcl(float tcl, float ta, float vel_ar) {
+  // Cálculo de convección natural: depende de la diferencia de temperatura
+  // hc_nat = 2.38 * |tcl - ta|^0.25
+  float hc_natural = 2.38 * pow(fabs(tcl - ta), 0.25);
+  
+  // Cálculo de convección forzada: depende de la velocidad del aire
+  // hc_for = 12.1 * √(var)
+  float hc_forzada = 12.1 * sqrt(vel_ar);
+  
+  // Seleccionar el MAYOR de los dos (más dominante)
+  // El aire en movimiento rápido supera la convección natural
+  float hcl;
+  if (hc_natural > hc_forzada) {
+    hcl = hc_natural;  // Domina convección natural (aire quieto)
+  } else {
+    hcl = hc_forzada;  // Domina convección forzada (hay movimiento de aire)
+  }
+  
+  return hcl;
+}
 
-  // Constantes
-  m = met * 58.15;  // Met -> W/m²
-  w = 0.0;          // Trabajo mecánico (reposo)
-  icl = clo * 0.155; // Aislamiento térmico (m²K/W)
-  pa = rh / 100 * 610.5 * exp(17.27 * ta / (237.3 + ta)); // Presión de vapor (Pa)
-
-  // Factor de área de la ropa
-  if (icl <= 0.078)
-    fcl = 1.0 + 1.29 * icl;
-  else
+// Función auxiliar: calcular fcl (factor de superficie)
+float calcularFcl(float icl) {
+  float fcl;
+  
+  if (icl <= 0.078) {
+    fcl = 1.00 + 1.290 * icl;
+  } else {
     fcl = 1.05 + 0.645 * icl;
+  }
+  return fcl;
+}
 
-  // Temperatura inicial de la superficie de la ropa
-  float tcla = ta + (35.5 - ta) / (3.5 * icl + 0.1);
-
-  // Iteración para hallar tcl
-  int iter = 0;
-  float p1 = icl * fcl;
-  float p2 = icl * 3.96 * pow(10, -8) * fcl;
-  float p3 = icl * fcl * 100.0;
-  float p4 = icl * fcl * 3.96 * pow(10, -8);
-  float tcl1 = tcla;
-  float tcl2 = tcla;
+ComfortResult calcularPMV(ComfortParams params) {
+  ComfortResult result;
+  
+  // Parámetros para iteración
+  float tcl = params.ta;           // Temperatura inicial de la superficie de la ropa
+  float tolerance = 0.01;          // Tolerancia de convergencia
+  float max_iterations = 100;
+  int iteration = 0;
+  float tcl_prev;
+  
+  // Constantes
+  const float sigma = 5.67e-8;     // Constante de Stefan-Boltzmann
+  
+  // Paso 1: Calcular fcl
+  float fcl = calcularFcl(params.icl);
+  
+  // Paso 2: Calcular presión de vapor
+  float pa = calcularPresionVapor(params.ta, params.rh);
+  
+  // Paso 3: Iteración para encontrar tcl
+  // Ecuación: tcl = 35.7 - 0.028*(M-V) - icl*{3.96e-8*fcl*[(tcl+273)^4-(tr+273)^4] - fcl*hcl*(tcl-ta)}
+  
   do {
-    tcl1 = tcl2;
-    hc = 2.38 * pow(fabs(tcl1 - ta), 0.25);
-    if (hc < 12.1 * sqrt(vel)) hc = 12.1 * sqrt(vel);
-    tcl2 = (35.7 - 0.028 * (m - w) - icl * (fcl * (3.96 * pow(10, -8) * (pow(tcl1 + 273.0, 4) - pow(tr + 273.0, 4)) + fcl * hc * (tcl1 - ta)))) / (1 + icl * fcl * (3.96 * pow(10, -8) * 4 * pow(tcl1 + 273.0, 3) + fcl * hc));
-    iter++;
-  } while (fabs(tcl1 - tcl2) > eps && iter < 150);
-  tcl = tcl2;
-
-  // Cálculo de las pérdidas de calor
-  hl1 = 3.05 * 0.001 * (5733 - 6.99 * (m - w) - pa);
-  hl2 = 0.42 * (m - w - 58.15);
-  hl3 = 1.7 * 0.00001 * m * (5867 - pa);
-  hl4 = 0.0014 * m * (34 - ta);
-  hl5 = 3.96 * 0.00000001 * fcl * (pow(tcl + 273.0, 4) - pow(tr + 273.0, 4));
-  hl6 = fcl * hc * (tcl - ta);
-
-  // Ecuación principal del PMV
-  pmv = (0.303 * exp(-0.036 * m) + 0.028) * ((m - w) - hl1 - hl2 - hl3 - hl4 - hl5 - hl6);
-
-  return constrain(pmv, -3.0, 3.0); // limitar rango típico del índice PMV
+    tcl_prev = tcl;
+    
+    // Calcular hcl (coeficiente de convección)
+    float C = 5.0 * sqrt(params.vel_ar);
+    if (C < 1.0) C = 1.0;
+    
+    hcl = calcularHcl(tcl, params.ta, params.vel_ar);
+    
+    // Calcular temperatura de superficie de la ropa (tcl)
+    float tr_rad = params.tr + 273.15;
+    float tcl_rad = tcl + 273.15;
+    float ta_c = params.ta + 273.15;
+    
+    float radiation = 3.96e-8 * fcl * (pow(tcl_rad, 4) - pow(tr_rad, 4));
+    float convection = hcl * (tcl - params.ta);
+    
+    tcl = 35.7 - 0.028 * (params.M - params.V) - 
+          params.icl * (radiation - convection);
+    
+    iteration++;
+    
+  } while (fabs(tcl - tcl_prev) > tolerance && iteration < max_iterations);
+  
+  result.tcl = tcl;
+  
+  // Paso 4: Calcular hcl final
+  float hcl_final;
+  if (12.1 * sqrt(params.vel_ar) > 2.38 * pow(fabs(params.icl), 0.25)) {
+    hcl_final = 12.1 * sqrt(params.vel_ar);
+  } else {
+    hcl_final = 2.38 * pow(fabs(params.icl), 0.25);
+  }
+  result.hcl = hcl_final;
+  
+  // Paso 5: Calcular PMV
+  float tr_rad = params.tr + 273.15;
+  float tcl_rad = tcl + 273.15;
+  
+  float radiation = 3.96e-8 * fcl * (pow(tcl_rad, 4) - pow(tr_rad, 4));
+  float convection = hcl_final * (tcl - params.ta);
+  float respiration = 0.0014 * params.M * (34.0 - params.ta);
+  float latent = 1.7e-5 * params.M * (5867.0 - pa);
+  
+  float heat_loss = radiation - convection + respiration + latent;
+  
+  result.PMV = (0.303 * exp(-0.036 * params.M) + 0.028) * 
+               (params.M - params.V - 3.05e-3 * (5733 - 6.99 * (params.M - params.V) - pa) -
+                0.42 * (params.M - params.V - 58.15) - 1.7e-5 * params.M * (5867 - pa) -
+                0.0014 * params.M * (34 - params.ta) - 3.96e-8 * fcl * 
+                (pow(tcl_rad, 4) - pow(tr_rad, 4)) - hcl_final * (tcl - params.ta));
+  
+  // Paso 6: Calcular PPD (Predicted Percentage Dissatisfied)
+  float pmv2 = result.PMV * result.PMV;
+  result.PPD = 100.0 - 95.0 * exp(-0.03353 * pow(result.PMV, 4) - 0.2179 * pmv2);
+  
+  return result;
 }
