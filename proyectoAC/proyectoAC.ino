@@ -155,6 +155,8 @@ void loop() {
   // Actualizar leds (toggles)
   TaskLedRed.Update();
 
+  // Read "*" when we are in BLOQUEO
+  checkBloqueo();
   // Actualizar máquina de estados
   stateMachine.Update();
 
@@ -187,10 +189,6 @@ bool checkPassword() {
   for (int i = 0; i < 6; i++) {
     if (clave_user[i] != clave[i]) {
       lcd.print("Clave Incorrecta");
-      digitalWrite(LED_BLUE, HIGH);
-      correcta = false;
-      delay(1000);
-      digitalWrite(LED_BLUE, LOW);
       break;
     }
   }
@@ -260,6 +258,7 @@ void outputBloqueo() {
   lcd.setCursor(0, 1);
   lcd.print("Presione la tecla '*'");
 
+
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                                                              X   ");
   Serial.println();
@@ -301,4 +300,14 @@ void onLeavingBloqueo() {
   TaskLedRed.Stop();
   digitalWrite(LED_RED, LOW);
   Serial.println("Saliendo de BLOQUEO, LED apagado");
+}
+
+// Auxiliar functions
+void checkBloqueo() {
+  if (stateMachine.GetState() == BLOQUEO) {
+      char key = keypad.getKey();
+      if (key == '*') {
+        input = TECLA_ASTERISCO;
+      }
+    }
 }
