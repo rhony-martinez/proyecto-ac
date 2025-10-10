@@ -241,7 +241,8 @@ void outputInicio() {
     lcd.print("Clave correcta");
     lcd.setCursor(0, 1);
     lcd.print("-> CONFIG");
-    delay(2000); 
+    TaskTime.SetIntervalMillis(5000); // 5 Segs hasta monitor si no hay entrada
+    TaskTime.Start(); 
     input = CLAVE_CORRECTA;
   } else {
     lcd.clear();
@@ -249,8 +250,9 @@ void outputInicio() {
     lcd.print("Clave incorrecta");
     lcd.setCursor(0, 1);
     lcd.print("-> BLOQUEO");
-    delay(2000); 
-    input = SISTEMA_BLOQUEADO;
+    TaskTime.SetIntervalMillis(5000); // 5 Segs hasta monitor si no hay entrada
+    TaskTime.Start(); 
+    input = SISTEMA_BLOQUEADO; //sisas
   }
   
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
