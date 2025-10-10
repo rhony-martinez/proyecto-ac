@@ -159,9 +159,6 @@ void loop() {
   checkBloqueo();
   // Actualizar máquina de estados
   stateMachine.Update();
-
-  // Reset input para no disparar de nuevo automáticamente
-  input = Unknown;
 }
 
 // K E Y P A D
@@ -218,6 +215,7 @@ int readInput() {
 
 // Auxiliar output functions that show the state debug
 void outputInicio() {
+  input = Unknown;
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("Seguridad");
