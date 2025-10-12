@@ -92,24 +92,24 @@ void runTime() {
 void toggleRed();
 AsyncTask TaskLedRed(100, true, toggleRed);  // periodo de 100 ms ON, manejaremos el OFF por ciclo
 
-bool ledState = false;
-unsigned long lastToggle = 0;
+bool ledStateRed = false;
+unsigned long lastToggleRed = 0;
 
 void toggleRed() {
   unsigned long now = millis();
   
   // Si el LED está encendido y han pasado 100 ms → apagar
-  if (ledState && (now - lastToggle >= 100)) {
-    ledState = false;
+  if (ledStateRed && (now - lastToggleRed >= 100)) {
+    ledStateRed = false;
     digitalWrite(LED_RED, LOW);
-    lastToggle = now;
+    lastToggleRed = now;
     TaskLedRed.SetIntervalMillis(300);  // siguiente ciclo: 300 ms apagado
   }
   // Si el LED está apagado y han pasado 300 ms → encender
-  else if (!ledState && (now - lastToggle >= 300)) {
-    ledState = true;
+  else if (!ledStateRed && (now - lastToggleRed >= 300)) {
+    ledStateRed = true;
     digitalWrite(LED_RED, HIGH);
-    lastToggle = now;
+    lastToggleRed = now;
     TaskLedRed.SetIntervalMillis(100);  // siguiente ciclo: 100 ms encendido
   }
 }
@@ -185,7 +185,6 @@ void loop() {
 }
 
 // K E Y P A D
-// Read password from KEYPAD
 // Read password from KEYPAD
 void readPassword() {
   lcd.clear();
@@ -265,7 +264,7 @@ void outputInicio() {
     lcd.print("Clave correcta");
     lcd.setCursor(0, 1);
     lcd.print("-> CONFIG");
-    TaskTime.SetIntervalMillis(5000); // 5 Segs hasta monitor si no hay entrada
+    TaskTime.SetIntervalMillis(5000);
     TaskTime.Start(); 
     input = CLAVE_CORRECTA;
   } else {
@@ -274,7 +273,7 @@ void outputInicio() {
     lcd.print("Clave incorrecta");
     lcd.setCursor(0, 1);
     lcd.print("-> BLOQUEO");
-    TaskTime.SetIntervalMillis(5000); // 5 Segs hasta monitor si no hay entrada
+    TaskTime.SetIntervalMillis(5000);
     TaskTime.Start(); 
     input = SISTEMA_BLOQUEADO;
   }
@@ -310,9 +309,9 @@ void outputBloqueo() {
   Serial.println("                                                              X   ");
   Serial.println();
 
-  ledState = false;
+  ledStateRed = false;
   digitalWrite(LED_RED, LOW);
-  lastToggle = millis();
+  lastToggleRed = millis();
   TaskLedRed.Start();
 }
 
@@ -460,51 +459,52 @@ float calcularFcl(float icl) {
   return fcl;
 }
 
-// ============================================================
 // CALCULAR PMV (Modelo Fanger adaptado a Arduino)
-// ============================================================
-float calcularPMV_Fanger(float ta, float tr, float rh, float vel, float M, float clo) {
+float calcularPMV_Fanger(float ta, float tr, float rh, float vel_ar, float M, float clo) {
   // Conversión de unidades y constantes base
-  float pa, icl, V, fcl, hc, tcl, hl1, hl2, hl3, hl4, hl5, hl6, ts, pmv;
-  float eps = 0.00015;
+  float pa, icl, V, fcl, hc hl1, hl2, hl3, hl4, hl5, hl6, ts, pmv;
+  float tol = 0.0001; // Tolerancia para iteraciones
+  float tcl = ta; // Temperatura inicial de la superficie de la ropa
+  float tcl_prev;
+  int iteracion = 0;
+  int max_iters = 100;
 
   // Constantes
   V = 0.0;          // Trabajo mecánico (reposo)
   icl = clo * 0.155; // Aislamiento térmico (m²K/W)
-  pa = calcularPresionVapor(tempA, humedad); // Presión de vapor (Pa)
+  pa = calcularPresionVapor(ta, rh); // Presión de vapor (Pa)
 
   // Factor de superficie de la ropa
   fcl = calcularFcl(icl);
 
-  // Temperatura inicial de la superficie de la ropa
-  float tcla = ta + (35.5 - ta) / (3.5 * icl + 0.1);
-
   // Iteración para hallar tcl
-  int iter = 0;
-  float p1 = icl * fcl;
-  float p2 = icl * 3.96 * pow(10, -8) * fcl;
-  float p3 = icl * fcl * 100.0;
-  float p4 = icl * fcl * 3.96 * pow(10, -8);
-  float tcl1 = tcla;
-  float tcl2 = tcla;
   do {
-    tcl1 = tcl2;
-    hc = 2.38 * pow(fabs(tcl1 - ta), 0.25);
-    if (hc < 12.1 * sqrt(vel)) hc = 12.1 * sqrt(vel);
-    tcl2 = (35.7 - 0.028 * (M - V) - icl * (fcl * (3.96 * pow(10, -8) * (pow(tcl1 + 273.0, 4) - pow(tr + 273.0, 4)) + fcl * hc * (tcl1 - ta)))) / (1 + icl * fcl * (3.96 * pow(10, -8) * 4 * pow(tcl1 + 273.0, 3) + fcl * hc));
-    iter++;
-  } while (fabs(tcl1 - tcl2) > eps && iter < 150);
-  tcl = tcl2;
+    tcl_prev = tcl;
 
-  // Cálculo de las pérdidas de calor
-  hl1 = 3.05 * 0.001 * (5733 - 6.99 * (M - V) - pa);
-  hl2 = 0.42 * (M - V - 58.15);
-  hl3 = 1.7 * 0.00001 * M * (5867 - pa);
-  hl4 = 0.0014 * M * (34 - ta);
-  hl5 = 3.96 * 0.00000001 * fcl * (pow(tcl + 273.0, 4) - pow(tr + 273.0, 4));
-  hl6 = fcl * hc * (tcl - ta);
+    // Calcular hc
+    hc = calcularHcl(tcl, ta, vel_ar);
 
-  // Ecuación principal del PMV
+    // tcl convertido a grados Kelvin para la fórmula
+    float tr_rad = tr + 273;
+    float tcl_rad = tcl + 273;
+    float ta_c = ta + 273;
+
+    // Calcular la radiación térmica de onda larga (transferencia de calor radiante)
+    float radiation = (3.96 * pow(10, -8)) * fcl * (pow(tcl_rad, 4) - pow(tr_rad, 4));
+    // Calcular la transferencia de calor por convección (aire calentando/enfriando la ropa)
+    float convection = fcl * hc * (tcl - ta);
+
+    tcl = 35.7 - 0.028 * (M - V) - icl * (radiation - convection);
+
+    iteracion++;
+  } while(fabs(tcl - tcl_prev) > tol && iteracion < max_iters);
+
+  // Cálculo de hcl final
+  float hcl_final;
+  hcl_final = calcularHcl(tcl, ta, vel_ar);
+
+  // Cálculo del pmv
+  // QUEDAMOS EN EL PASO 5!!!!!!!!!!!!!!!!!!!
   pmv = (0.303 * exp(-0.036 * M) + 0.028) * ((M - V) - hl1 - hl2 - hl3 - hl4 - hl5 - hl6);
 
   return constrain(pmv, -3.0, 3.0); // limitar rango típico del índice PMV
