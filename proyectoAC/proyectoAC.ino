@@ -483,7 +483,7 @@ float calcularFcl(float icl) {
 // CALCULAR PMV (Modelo Fanger adaptado a Arduino)
 float calcularPMV_Fanger(float ta, float tr, float rh, float vel_ar, float M, float clo) {
   // Conversión de unidades y constantes base
-  float pa, icl, V, fcl, hc hl1, hl2, hl3, hl4, hl5, hl6, ts, pmv;
+  float pa, icl, V, fcl, hc, pmv;
   float tol = 0.0001;  // Tolerancia para iteraciones
   float tcl = ta;      // Temperatura inicial de la superficie de la ropa
   float tcl_prev;
@@ -542,8 +542,7 @@ float calcularPMV_Fanger(float ta, float tr, float rh, float vel_ar, float M, fl
   float heat_loss = latent + respiration + radiation + convection;
 
   pmv = (0.303 * exp(-0.036 * M) + 0.028) * ((M - V) - (3.05 * pow(10, -3))) *
-        (5733.0 - 6.99 * (M - V) - pa) - 0.42((M - V) - 58.15) - heat_loss;
-
+        (5733.0 - 6.99 * (M - V) - pa) - 0.42 * ((M - V) - 58.15) - heat_loss;
 
   return constrain(pmv, -3.0, 3.0); // limitar rango típico del índice PMV
 }
