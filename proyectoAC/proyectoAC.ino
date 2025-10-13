@@ -441,13 +441,13 @@ float calcularPresionVapor(float ta, float rh) {
   return pa;
 }
 
-// Función auxiliar: calcular hcl (coeficiente de convección)
+// Función auxiliar: calcular hc (coeficiente de convección)
 // Parámetros:
 //   tcl: temperatura de superficie de la ropa [°C]
 //   ta: temperatura del aire [°C]
 //   var: velocidad relativa del aire [m/s]
-// Retorna: hcl en W/(m²·K)
-float calcularHcl(float tcl, float ta, float vel_ar) {
+// Retorna: hc en W/(m²·K)
+float calcularHc(float tcl, float ta, float vel_ar) {
   // Cálculo de convección natural: depende de la diferencia de temperatura
   // hc_nat = 2.38 * |tcl - ta|^0.25
   float hc_natural = 2.38 * pow(fabs(tcl - ta), 0.25);
@@ -458,14 +458,14 @@ float calcularHcl(float tcl, float ta, float vel_ar) {
 
   // Seleccionar el MAYOR de los dos (más dominante)
   // El aire en movimiento rápido supera la convección natural
-  float hcl;
+  float hc;
   if (hc_natural > hc_forzada) {
-    hcl = hc_natural;  // Domina convección natural (aire quieto)
+    hc = hc_natural;  // Domina convección natural (aire quieto)
   } else {
-    hcl = hc_forzada;  // Domina convección forzada (hay movimiento de aire)
+    hc = hc_forzada;  // Domina convección forzada (hay movimiento de aire)
   }
 
-  return hcl;
+  return hc;
 }
 
 // Función auxiliar: calcular fcl (factor de superficie)
@@ -482,67 +482,70 @@ float calcularFcl(float icl) {
 
 // CALCULAR PMV (Modelo Fanger adaptado a Arduino)
 float calcularPMV_Fanger(float ta, float tr, float rh, float vel_ar, float M, float clo) {
-  // Conversión de unidades y constantes base
-  float pa, icl, V, fcl, hc, pmv;
-  float tol = 0.0001;  // Tolerancia para iteraciones
-  float tcl = ta;      // Temperatura inicial de la superficie de la ropa
-  float tcl_prev;
-  int iteracion = 0;
-  int max_iters = 100;
-
-  // Constantes
-  V = 0.0;                            // Trabajo mecánico (reposo)
-  icl = clo * 0.155;                  // Aislamiento térmico (m²K/W)
-  pa = calcularPresionVapor(ta, rh);  // Presión de vapor (Pa)
-
-  // Factor de superficie de la ropa
-  fcl = calcularFcl(icl);
-
-  // ------------Iteración para hallar tcl---------------
-  do {
-    tcl_prev = tcl;
-
-    // Calcular hc
-    hc = calcularHcl(tcl, ta, vel_ar);
-
-    // Convertidr a grados Kelvin para la fórmula
-    float tr_rad = tr + 273;
-    float tcl_rad = tcl + 273;
-    float ta_c = ta + 273;
-
-    // Calcular la radiación térmica de onda larga (transferencia de calor radiante)
-    float radiation = (3.96 * pow(10, -8)) * fcl * (pow(tcl_rad, 4) - pow(tr_rad, 4));
-    // Calcular la transferencia de calor por convección (aire calentando/enfriando la ropa)
-    float convection = fcl * hc * (tcl - ta);
-
-    tcl = 35.7 - 0.028 * (M - V) - icl * (radiation - convection);
-
-    iteracion++;
-  } while (fabs(tcl - tcl_prev) > tol && iteracion < max_iters);
-
-  // Cálculo de hcl final
-  float hc_final;
-  hc_final = calcularHcl(tcl, ta, vel_ar);
-
-  // --------------CÁLCULO DEL PMV------------------
-  // Convertidr a grados Kelvin para la fórmula
-  float tr_rad = tr + 273;
-  float tcl_rad = tcl + 273;
-
-  // - - -Calcular las formas de perder calor- - -
-  // Calcular la radiación térmica de onda larga (transferencia de calor radiante)
-  float radiation = (3.96 * pow(10, -8)) * fcl * (pow(tcl_rad, 4) - pow(tr_rad, 4));
-  // Calcular la transferencia de calor por convección (aire calentando/enfriando la ropa)
-  float convection = fcl * hc_final * (tcl - ta);
-  // Calcular la pérdida de calor por respiración
-  float respiration = 0.0014 * M * (34.0 - ta);
-  // Calcular la pérdida de calor por transpiración
-  float latent = (1.7 * pow(10, -5)) * M * (5867.0 - pa);
-  // Pérdida de calor total
-  float heat_loss = latent + respiration + radiation + convection;
-
-  pmv = (0.303 * exp(-0.036 * M) + 0.028) * ((M - V) - (3.05 * pow(10, -3))) *
-        (5733.0 - 6.99 * (M - V) - pa) - 0.42 * ((M - V) - 58.15) - heat_loss;
-
+	// Conversión de unidades y constantes base
+	float pa, icl, V, fcl, hc, pmv;
+	float tol = 0.0001;  // Tolerancia para iteraciones
+	float tcl = ta;      // Temperatura inicial de la superficie de la ropa
+	float tcl_prev;
+	int iteracion = 0;
+	int max_iters = 100;
+	
+	// Constantes
+	V = 0.0;                            // Trabajo mecánico (reposo)
+	icl = clo * 0.155;                  // Aislamiento térmico (m²K/W)
+	pa = calcularPresionVapor(ta, rh);  // Presión de vapor (Pa)
+	
+	// Factor de superficie de la ropa
+	fcl = calcularFcl(icl);
+	
+	// ------------Iteración para hallar tcl---------------
+	do {
+		tcl_prev = tcl;
+		
+		// Calcular hc
+		hc = calcularHc(tcl, ta, vel_ar);
+		
+		// Convertidr a grados Kelvin para la fórmula
+		float tr_rad = tr + 273.0;
+		float tcl_rad = tcl + 273.0;
+		
+		// Calcular la radiación térmica de onda larga (transferencia de calor radiante)
+		float radiation = (3.96 * pow(10, -8)) * fcl * (pow(tcl_rad, 4) - pow(tr_rad, 4));
+		// Calcular la transferencia de calor por convección (aire calentando/enfriando la ropa)
+		float convection = fcl * hc * (tcl - ta);
+		
+		tcl = 35.7 - 0.028 * (M - V) - icl * (radiation - convection);
+		
+		iteracion++;
+	} while (fabs(tcl - tcl_prev) > tol && iteracion < max_iters);
+	
+	// Cálculo de hcl final
+	float hc_final;
+	hc_final = calcularHc(tcl, ta, vel_ar);
+	
+	// --------------CÁLCULO DEL PMV------------------
+	// Convertidr a grados Kelvin para la fórmula
+	float tr_rad = tr + 273.0;
+	float tcl_rad = tcl + 273.0;
+	
+	// - - -Calcular las formas de perder calor- - -
+	// Calcular la radiación térmica de onda larga (transferencia de calor radiante)
+	float radiation = (3.96e-8) * fcl * (pow(tcl_rad, 4) - pow(tr_rad, 4));
+	// Calcular la transferencia de calor por convección (aire calentando/enfriando la ropa)
+	float convection = fcl * hc_final * (tcl - ta);
+	// Calcular la pérdida de calor por respiración
+	float respiration = 0.0014 * M * (34.0 - ta);
+	// Calcular la pérdida de calor por transpiración
+	float latent = (1.7e-5) * M * (5867.0 - pa);
+	// Pérdida de calor total
+	float heat_loss = latent + respiration + radiation + convection;
+	
+	pmv = 	(0.303 * exp(-0.036 * M) + 0.028) * (
+			(M - V)
+			- (3.05e-3) * (5733.0 - 6.99 * (M - V) - pa)
+			- 0.42 * ((M - V) - 58.15)
+			- heat_loss
+			);
+	
   return constrain(pmv, -3.0, 3.0); // limitar rango típico del índice PMV
 }
