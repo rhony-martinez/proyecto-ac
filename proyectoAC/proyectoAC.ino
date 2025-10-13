@@ -6,9 +6,9 @@
 #include <math.h>
 
 // RGB led
-#define LED_RED   9
+#define LED_RED 9
 #define LED_GREEN 10
-#define LED_BLUE  11
+#define LED_BLUE 11
 // DHT
 #define DHTPIN 3
 #define DHTTYPE DHT11
@@ -26,7 +26,7 @@ float humedad = 0.0;
 float luz = 0.0;
 
 // Password for Keypad
-const char clave[6] = {'2', '0', '2', '5', '2', 'A'};
+const char clave[6] = { '2', '0', '2', '5', '2', 'A' };
 char clave_user[6];
 
 // LCD pins
@@ -36,16 +36,16 @@ LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 DHT dht(DHTPIN, DHTTYPE);
 
 // KEYPAD Definition
-const byte ROWS = 4; // cuatro filas
-const byte COLS = 4; // cuatro columnas
+const byte ROWS = 4;  // cuatro filas
+const byte COLS = 4;  // cuatro columnas
 char keys[ROWS][COLS] = {
-  {'1', '2', '3', 'A'},
-  {'4', '5', '6', 'B'},
-  {'7', '8', '9', 'C'},
-  {'*', '0', '#', 'D'}
+  { '1', '2', '3', 'A' },
+  { '4', '5', '6', 'B' },
+  { '7', '8', '9', 'C' },
+  { '*', '0', '#', 'D' }
 };
-byte rowPins[ROWS] = {40, 42, 44, 46}; // conecta a los pines de las filas del teclado
-byte colPins[COLS] = {48, 50, 52, 53}; // conecta a los pines de las columnas del teclado
+byte rowPins[ROWS] = { 40, 42, 44, 46 };  // conecta a los pines de las filas del teclado
+byte colPins[COLS] = { 48, 50, 52, 53 };  // conecta a los pines de las columnas del teclado
 
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
@@ -62,14 +62,14 @@ enum State {
 
 // Input Alias
 enum Input {
-  SISTEMA_BLOQUEADO = 0,      // Se activa cuando se detecta condición de bloqueo (por ejemplo, intentos fallidos)
-  TECLA_ASTERISCO = 1,        // Usuario presiona tecla '*'
-  CLAVE_CORRECTA = 2,         // Clave válida ingresada (autenticación correcta)
-  TIEMPO_EXPIRADO = 3,        // Se cumplió el tiempo definido para el estado actual
-  PMV_MENOR_QUE_MENOS1 = 4,   // Resultado de cálculo PMV < -1
-  PMV_MAYOR_QUE_1 = 5,        // Resultado de cálculo PMV > 1
-  TEMP_ALTA_3_INTENTOS = 6,   // Temperatura > 30 después de 3 intentos consecutivos
-  SENSOR_INFRARROJO = 7,       // Detección de movimiento (para salir de alarma)
+  SISTEMA_BLOQUEADO = 0,     // Se activa cuando se detecta condición de bloqueo (por ejemplo, intentos fallidos)
+  TECLA_ASTERISCO = 1,       // Usuario presiona tecla '*'
+  CLAVE_CORRECTA = 2,        // Clave válida ingresada (autenticación correcta)
+  TIEMPO_EXPIRADO = 3,       // Se cumplió el tiempo definido para el estado actual
+  PMV_MENOR_QUE_MENOS1 = 4,  // Resultado de cálculo PMV < -1
+  PMV_MAYOR_QUE_1 = 5,       // Resultado de cálculo PMV > 1
+  TEMP_ALTA_3_INTENTOS = 6,  // Temperatura > 30 después de 3 intentos consecutivos
+  SENSOR_INFRARROJO = 7,     // Detección de movimiento (para salir de alarma)
   Unknown = 8
 };
 
@@ -82,7 +82,7 @@ Input input = Unknown;
 // --- Async tasks ---
 // Time Tasks
 void runTime();
-AsyncTask TaskTime(5000, true, runTime); // cada 5 segundos lanza TIEMPO_EXPIRADO
+AsyncTask TaskTime(5000, true, runTime);  // cada 5 segundos lanza TIEMPO_EXPIRADO
 void runTime() {
   input = TIEMPO_EXPIRADO;
 }
@@ -97,7 +97,7 @@ unsigned long lastToggleRed = 0;
 
 void toggleRed() {
   unsigned long now = millis();
-  
+
   // Si el LED está encendido y han pasado 100 ms → apagar
   if (ledStateRed && (now - lastToggleRed >= 100)) {
     ledStateRed = false;
@@ -117,29 +117,51 @@ void toggleRed() {
 // Setup the State Machine
 void setupStateMachine() {
   // Add transitions Inicio
-  stateMachine.AddTransition(INICIO, CONFIG, []() { return input == CLAVE_CORRECTA; });
-  stateMachine.AddTransition(INICIO, BLOQUEO, []() { return input == SISTEMA_BLOQUEADO; });
+  stateMachine.AddTransition(INICIO, CONFIG, []() {
+    return input == CLAVE_CORRECTA;
+  });
+  stateMachine.AddTransition(INICIO, BLOQUEO, []() {
+    return input == SISTEMA_BLOQUEADO;
+  });
 
   // Add transitions Bloqueo
-  stateMachine.AddTransition(BLOQUEO, INICIO, []() { return input == TECLA_ASTERISCO; });
+  stateMachine.AddTransition(BLOQUEO, INICIO, []() {
+    return input == TECLA_ASTERISCO;
+  });
 
   // Add transitions Config
-  stateMachine.AddTransition(CONFIG, MONITOR, []() { return input == TIEMPO_EXPIRADO; }); 
+  stateMachine.AddTransition(CONFIG, MONITOR, []() {
+    return input == TIEMPO_EXPIRADO;
+  });
 
   // Add transitions Monitor
-  stateMachine.AddTransition(MONITOR, PMV_BAJO, []() { return input == PMV_MENOR_QUE_MENOS1; }); 
-  stateMachine.AddTransition(MONITOR, PMV_ALTO, []() { return input == PMV_MAYOR_QUE_1; }); 
-  stateMachine.AddTransition(MONITOR, CONFIG, []() { return input == TIEMPO_EXPIRADO; }); 
+  stateMachine.AddTransition(MONITOR, PMV_BAJO, []() {
+    return input == PMV_MENOR_QUE_MENOS1;
+  });
+  stateMachine.AddTransition(MONITOR, PMV_ALTO, []() {
+    return input == PMV_MAYOR_QUE_1;
+  });
+  stateMachine.AddTransition(MONITOR, CONFIG, []() {
+    return input == TIEMPO_EXPIRADO;
+  });
 
   // Add transitions PMV
-  stateMachine.AddTransition(PMV_BAJO, MONITOR, []() { return input == TIEMPO_EXPIRADO; });
-  stateMachine.AddTransition(PMV_ALTO, MONITOR, []() { return input == TIEMPO_EXPIRADO; });
-  stateMachine.AddTransition(PMV_ALTO, ALARMA, []() { return input == TEMP_ALTA_3_INTENTOS; });
+  stateMachine.AddTransition(PMV_BAJO, MONITOR, []() {
+    return input == TIEMPO_EXPIRADO;
+  });
+  stateMachine.AddTransition(PMV_ALTO, MONITOR, []() {
+    return input == TIEMPO_EXPIRADO;
+  });
+  stateMachine.AddTransition(PMV_ALTO, ALARMA, []() {
+    return input == TEMP_ALTA_3_INTENTOS;
+  });
 
   // Add transitions Alarma
-  stateMachine.AddTransition(ALARMA, INICIO, []() { return input == SENSOR_INFRARROJO; }); 
-  
-  
+  stateMachine.AddTransition(ALARMA, INICIO, []() {
+    return input == SENSOR_INFRARROJO;
+  });
+
+
   // Add enterings
   stateMachine.SetOnEntering(INICIO, outputInicio);
   stateMachine.SetOnEntering(BLOQUEO, outputBloqueo);
@@ -190,21 +212,21 @@ void readPassword() {
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("Ingrese clave:");
-  
+
   for (int i = 0; i < 6; i++) {
     lcd.setCursor(i, 1);  // Mostrar posición actual
     lcd.print("_");
-    
+
     char key = NO_KEY;
     while (key == NO_KEY) {
       key = keypad.getKey();
     }
-    
+
     clave_user[i] = key;
     lcd.setCursor(i, 1);
     lcd.print("*");  // Mostrar asterisco en lugar del carácter real
-    
-    TaskTime.SetIntervalMillis(300); // Pequeña pausa entre teclas
+
+    TaskTime.SetIntervalMillis(300);  // Pequeña pausa entre teclas
     TaskTime.Start();
   }
 }
@@ -232,7 +254,7 @@ int readInput() {
     char incomingChar = Serial.read();
     switch (incomingChar) {
       case '0': currentInput = Input::SISTEMA_BLOQUEADO; break;
-      case '1': currentInput = Input::TECLA_ASTERISCO;  break;
+      case '1': currentInput = Input::TECLA_ASTERISCO; break;
       case '2': currentInput = Input::CLAVE_CORRECTA; break;
       case '3': currentInput = Input::TIEMPO_EXPIRADO; break;
       case '4': currentInput = Input::PMV_MENOR_QUE_MENOS1; break;
@@ -253,10 +275,10 @@ void outputInicio() {
   lcd.print("Estado: INICIO");
   lcd.setCursor(0, 1);
   lcd.print("Ingrese clave...");
-  
+
   // Leer la clave
   readPassword();
-  
+
   // Verificar la clave
   if (checkPassword()) {
     lcd.clear();
@@ -265,7 +287,7 @@ void outputInicio() {
     lcd.setCursor(0, 1);
     lcd.print("-> CONFIG");
     TaskTime.SetIntervalMillis(5000);
-    TaskTime.Start(); 
+    TaskTime.Start();
     input = CLAVE_CORRECTA;
   } else {
     lcd.clear();
@@ -274,17 +296,17 @@ void outputInicio() {
     lcd.setCursor(0, 1);
     lcd.print("-> BLOQUEO");
     TaskTime.SetIntervalMillis(5000);
-    TaskTime.Start(); 
+    TaskTime.Start();
     input = SISTEMA_BLOQUEADO;
   }
-  
+
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("  X                                                               ");
   Serial.println();
 }
 
 void outputConfig() {
-  TaskTime.SetIntervalMillis(5000); // 5 Segs hasta monitor si no hay entrada
+  TaskTime.SetIntervalMillis(5000);  // 5 Segs hasta monitor si no hay entrada
   TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("            X                                                     ");
@@ -332,14 +354,13 @@ void outputMonitor() {
   Serial.print("PMV calculado: ");
   Serial.println(pmv, 2);
 
-  if (pmv < -1) 
+  if (pmv < -1)
     input = PMV_MENOR_QUE_MENOS1;
-  else if 
-    (pmv > 1) input = PMV_MAYOR_QUE_1;
-  else 
+  else if (pmv > 1) input = PMV_MAYOR_QUE_1;
+  else
     input = TIEMPO_EXPIRADO;
 
-  TaskTime.SetIntervalMillis(7000); // 7 segs hasta config si no hay entrada
+  TaskTime.SetIntervalMillis(7000);  // 7 segs hasta config si no hay entrada
   TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                     X                                            ");
@@ -347,7 +368,7 @@ void outputMonitor() {
 }
 
 void outputPMV_Bajo() {
-  TaskTime.SetIntervalMillis(3000); // 3 segs hasta monitor si no hay entrada
+  TaskTime.SetIntervalMillis(3000);  // 3 segs hasta monitor si no hay entrada
   TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                                        X                         ");
@@ -355,7 +376,7 @@ void outputPMV_Bajo() {
 }
 
 void outputPMV_Alto() {
-  TaskTime.SetIntervalMillis(4000); // 4 segs hasta monitor si no hay entrada
+  TaskTime.SetIntervalMillis(4000);  // 4 segs hasta monitor si no hay entrada
   TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                                                    X             ");
@@ -373,20 +394,20 @@ void onLeavingBloqueo() {
 // Check * to go back to INICIO
 void checkBloqueo() {
   if (stateMachine.GetState() == BLOQUEO) {
-      char key = keypad.getKey();
-      if (key == '*') {
-        input = TECLA_ASTERISCO;
-      }
+    char key = keypad.getKey();
+    if (key == '*') {
+      input = TECLA_ASTERISCO;
     }
+  }
 }
 
 // Read sensors
 void leerSensores() {
-  tempA = dht.readTemperature(); // °C
-  humedad = dht.readHumidity(); // %
+  tempA = dht.readTemperature();  // °C
+  humedad = dht.readHumidity();   // %
   int rawLuz = analogRead(LDR_PIN);
-  luz = map(rawLuz, 0, 1032, 0, 100); // % aproximado de iluminación
-  tempR = analogRead(TEMP_PIN); // °C
+  luz = map(rawLuz, 0, 1032, 0, 100);  // % aproximado de iluminación
+  tempR = analogRead(TEMP_PIN);        // °C
 
   if (isnan(humedad) || isnan(tempA)) {
     Serial.println("Failed to read from DHT sensor!");
@@ -430,11 +451,11 @@ float calcularHcl(float tcl, float ta, float vel_ar) {
   // Cálculo de convección natural: depende de la diferencia de temperatura
   // hc_nat = 2.38 * |tcl - ta|^0.25
   float hc_natural = 2.38 * pow(fabs(tcl - ta), 0.25);
-  
+
   // Cálculo de convección forzada: depende de la velocidad del aire
   // hc_for = 12.1 * √(var)
   float hc_forzada = 12.1 * sqrt(vel_ar);
-  
+
   // Seleccionar el MAYOR de los dos (más dominante)
   // El aire en movimiento rápido supera la convección natural
   float hcl;
@@ -443,14 +464,14 @@ float calcularHcl(float tcl, float ta, float vel_ar) {
   } else {
     hcl = hc_forzada;  // Domina convección forzada (hay movimiento de aire)
   }
-  
+
   return hcl;
 }
 
 // Función auxiliar: calcular fcl (factor de superficie)
 float calcularFcl(float icl) {
   float fcl;
-  
+
   if (icl <= 0.078) {
     fcl = 1.00 + 1.290 * icl;
   } else {
@@ -463,28 +484,28 @@ float calcularFcl(float icl) {
 float calcularPMV_Fanger(float ta, float tr, float rh, float vel_ar, float M, float clo) {
   // Conversión de unidades y constantes base
   float pa, icl, V, fcl, hc hl1, hl2, hl3, hl4, hl5, hl6, ts, pmv;
-  float tol = 0.0001; // Tolerancia para iteraciones
-  float tcl = ta; // Temperatura inicial de la superficie de la ropa
+  float tol = 0.0001;  // Tolerancia para iteraciones
+  float tcl = ta;      // Temperatura inicial de la superficie de la ropa
   float tcl_prev;
   int iteracion = 0;
   int max_iters = 100;
 
   // Constantes
-  V = 0.0;          // Trabajo mecánico (reposo)
-  icl = clo * 0.155; // Aislamiento térmico (m²K/W)
-  pa = calcularPresionVapor(ta, rh); // Presión de vapor (Pa)
+  V = 0.0;                            // Trabajo mecánico (reposo)
+  icl = clo * 0.155;                  // Aislamiento térmico (m²K/W)
+  pa = calcularPresionVapor(ta, rh);  // Presión de vapor (Pa)
 
   // Factor de superficie de la ropa
   fcl = calcularFcl(icl);
 
-  // Iteración para hallar tcl
+  // ------------Iteración para hallar tcl---------------
   do {
     tcl_prev = tcl;
 
     // Calcular hc
     hc = calcularHcl(tcl, ta, vel_ar);
 
-    // tcl convertido a grados Kelvin para la fórmula
+    // Convertidr a grados Kelvin para la fórmula
     float tr_rad = tr + 273;
     float tcl_rad = tcl + 273;
     float ta_c = ta + 273;
@@ -497,15 +518,32 @@ float calcularPMV_Fanger(float ta, float tr, float rh, float vel_ar, float M, fl
     tcl = 35.7 - 0.028 * (M - V) - icl * (radiation - convection);
 
     iteracion++;
-  } while(fabs(tcl - tcl_prev) > tol && iteracion < max_iters);
+  } while (fabs(tcl - tcl_prev) > tol && iteracion < max_iters);
 
   // Cálculo de hcl final
-  float hcl_final;
-  hcl_final = calcularHcl(tcl, ta, vel_ar);
+  float hc_final;
+  hc_final = calcularHcl(tcl, ta, vel_ar);
 
-  // Cálculo del pmv
-  // QUEDAMOS EN EL PASO 5!!!!!!!!!!!!!!!!!!!
-  pmv = (0.303 * exp(-0.036 * M) + 0.028) * ((M - V) - hl1 - hl2 - hl3 - hl4 - hl5 - hl6);
+  // --------------CÁLCULO DEL PMV------------------
+  // Convertidr a grados Kelvin para la fórmula
+  float tr_rad = tr + 273;
+  float tcl_rad = tcl + 273;
+
+  // - - -Calcular las formas de perder calor- - -
+  // Calcular la radiación térmica de onda larga (transferencia de calor radiante)
+  float radiation = (3.96 * pow(10, -8)) * fcl * (pow(tcl_rad, 4) - pow(tr_rad, 4));
+  // Calcular la transferencia de calor por convección (aire calentando/enfriando la ropa)
+  float convection = fcl * hc_final * (tcl - ta);
+  // Calcular la pérdida de calor por respiración
+  float respiration = 0.0014 * M * (34.0 - ta);
+  // Calcular la pérdida de calor por transpiración
+  float latent = (1.7 * pow(10, -5)) * M * (5867.0 - pa);
+  // Pérdida de calor total
+  float heat_loss = latent + respiration + radiation + convection;
+
+  pmv = (0.303 * exp(-0.036 * M) + 0.028) * ((M - V) - (3.05 * pow(10, -3))) *
+        (5733.0 - 6.99 * (M - V) - pa) - 0.42((M - V) - 58.15) - heat_loss;
+
 
   return constrain(pmv, -3.0, 3.0); // limitar rango típico del índice PMV
 }
