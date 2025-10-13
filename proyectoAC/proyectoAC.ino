@@ -4,6 +4,7 @@
 #include <Keypad.h>
 #include "DHT.h"
 #include <math.h>
+#include <Servo.h>
 
 // RGB led
 #define LED_RED 9
@@ -15,8 +16,13 @@
 // Sensors
 #define LDR_PIN A3
 #define TEMP_PIN A0
+const float BETA = 3950;
+// Servomotor
+#define SERVO_PIN 13
+// Ventilador
 
-// Global variables
+
+// Global variables to calculate PMV and to get through the sensors
 float M = 0.0;
 float clo = 0.5;
 float vel_ar = 0.1;
@@ -25,10 +31,6 @@ float tempR = 0.0;
 float humedad = 0.0;
 float luz = 0.0;
 
-// Password for Keypad
-const char clave[6] = { '2', '0', '2', '5', '2', 'A' };
-char clave_user[6];
-
 // LCD pins
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 
@@ -36,6 +38,10 @@ LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 DHT dht(DHTPIN, DHTTYPE);
 
 // KEYPAD Definition
+// Password for Keypad
+const char clave[6] = { '2', '0', '2', '5', '2', 'A' };
+char clave_user[6];
+
 const byte ROWS = 4;  // cuatro filas
 const byte COLS = 4;  // cuatro columnas
 char keys[ROWS][COLS] = {
@@ -49,6 +55,11 @@ byte colPins[COLS] = { 48, 50, 52, 53 };  // conecta a los pines de las columnas
 
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
+// Servo
+Servo servo;
+int pos = 0;
+
+// STATE MACHINE
 // State Alias
 enum State {
   INICIO = 0,
@@ -95,50 +106,12 @@ AsyncTask TaskLedRed(100, true, toggleRed);  // periodo de 100 ms ON, manejaremo
 bool ledStateRed = false;
 unsigned long lastToggleRed = 0;
 
-void toggleRed() {
-  unsigned long now = millis();
-
-  // Si el LED está encendido y han pasado 100 ms → apagar
-  if (ledStateRed && (now - lastToggleRed >= 100)) {
-    ledStateRed = false;
-    digitalWrite(LED_RED, LOW);
-    lastToggleRed = now;
-    TaskLedRed.SetIntervalMillis(300);  // siguiente ciclo: 300 ms apagado
-  }
-  // Si el LED está apagado y han pasado 300 ms → encender
-  else if (!ledStateRed && (now - lastToggleRed >= 300)) {
-    ledStateRed = true;
-    digitalWrite(LED_RED, HIGH);
-    lastToggleRed = now;
-    TaskLedRed.SetIntervalMillis(100);  // siguiente ciclo: 100 ms encendido
-  }
-}
-
 // Green ----
 void toggleGreen();
 AsyncTask TaskLedGreen(200, true, toggleGreen);  // periodo de 200 ms ON, manejaremos el OFF por ciclo
 
 bool ledStateGreen = false;
 unsigned long lastToggleGreen = 0;
-
-void toggleGreen() {
-  unsigned long now = millis();
-
-  // Si el LED está encendido y han pasado 200 ms → apagar
-  if (ledStateGreen && (now - lastToggleGreen >= 200)) {
-    ledStateGreen = false;
-    digitalWrite(LED_GREEN, LOW);
-    lastToggleGreen = now;
-    TaskLedGreen.SetIntervalMillis(300);  // siguiente ciclo: 300 ms apagado
-  }
-  // Si el LED está apagado y han pasado 300 ms → encender
-  else if (!ledStateGreen && (now - lastToggleGreen >= 300)) {
-    ledStateGreen = true;
-    digitalWrite(LED_GREEN, HIGH);
-    lastToggleGreen = now;
-    TaskLedGreen.SetIntervalMillis(200);  // siguiente ciclo: 200 ms encendido
-  }
-}
 
 // Blue ----
 void toggleBlue();
@@ -147,72 +120,30 @@ AsyncTask TaskLedBlue(300, true, toggleBlue);  // periodo de 300 ms ON, manejare
 bool ledStateBlue = false;
 unsigned long lastToggleBlue = 0;
 
-void toggleBlue() {
-  unsigned long now = millis();
-
-  // Si el LED está encendido y han pasado 300 ms → apagar
-  if (ledStateBlue && (now - lastToggleBlue >= 300)) {
-    ledStateBlue = false;
-    digitalWrite(LED_BLUE, LOW);
-    lastToggleBlue = now;
-    TaskLedBlue.SetIntervalMillis(400);  // siguiente ciclo: 400 ms apagado
-  }
-  // Si el LED está apagado y han pasado 400 ms → encender
-  else if (!ledStateBlue&& (now - lastToggleBlue >= 400)) {
-    ledStateBlue = true;
-    digitalWrite(LED_BLUE, HIGH);
-    lastToggleBlue = now;
-    TaskLedBlue.SetIntervalMillis(300);  // siguiente ciclo: 300 ms encendido
-  }
-}
-
-
 // Setup the State Machine
 void setupStateMachine() {
   // Add transitions Inicio
-  stateMachine.AddTransition(INICIO, CONFIG, []() {
-    return input == CLAVE_CORRECTA;
-  });
-  stateMachine.AddTransition(INICIO, BLOQUEO, []() {
-    return input == SISTEMA_BLOQUEADO;
-  });
+  stateMachine.AddTransition(INICIO, CONFIG, []() { return input == CLAVE_CORRECTA;});
+  stateMachine.AddTransition(INICIO, BLOQUEO, []() { return input == SISTEMA_BLOQUEADO;});
 
   // Add transitions Bloqueo
-  stateMachine.AddTransition(BLOQUEO, INICIO, []() {
-    return input == TECLA_ASTERISCO;
-  });
+  stateMachine.AddTransition(BLOQUEO, INICIO, []() { return input == TECLA_ASTERISCO;});
 
   // Add transitions Config
-  stateMachine.AddTransition(CONFIG, MONITOR, []() {
-    return input == TIEMPO_EXPIRADO;
-  });
+  stateMachine.AddTransition(CONFIG, MONITOR, []() { return input == TIEMPO_EXPIRADO;});
 
   // Add transitions Monitor
-  stateMachine.AddTransition(MONITOR, PMV_BAJO, []() {
-    return input == PMV_MENOR_QUE_MENOS1;
-  });
-  stateMachine.AddTransition(MONITOR, PMV_ALTO, []() {
-    return input == PMV_MAYOR_QUE_1;
-  });
-  stateMachine.AddTransition(MONITOR, CONFIG, []() {
-    return input == TIEMPO_EXPIRADO;
-  });
+  stateMachine.AddTransition(MONITOR, PMV_BAJO, []() { return input == PMV_MENOR_QUE_MENOS1;});
+  stateMachine.AddTransition(MONITOR, PMV_ALTO, []() { return input == PMV_MAYOR_QUE_1;});
+  stateMachine.AddTransition(MONITOR, CONFIG, []() { return input == TIEMPO_EXPIRADO;});
 
   // Add transitions PMV
-  stateMachine.AddTransition(PMV_BAJO, MONITOR, []() {
-    return input == TIEMPO_EXPIRADO;
-  });
-  stateMachine.AddTransition(PMV_ALTO, MONITOR, []() {
-    return input == TIEMPO_EXPIRADO;
-  });
-  stateMachine.AddTransition(PMV_ALTO, ALARMA, []() {
-    return input == TEMP_ALTA_3_INTENTOS;
-  });
+  stateMachine.AddTransition(PMV_BAJO, MONITOR, []() { return input == TIEMPO_EXPIRADO;});
+  stateMachine.AddTransition(PMV_ALTO, MONITOR, []() { return input == TIEMPO_EXPIRADO;});
+  stateMachine.AddTransition(PMV_ALTO, ALARMA, []() { return input == TEMP_ALTA_3_INTENTOS;});
 
   // Add transitions Alarma
-  stateMachine.AddTransition(ALARMA, INICIO, []() {
-    return input == SENSOR_INFRARROJO;
-  });
+  stateMachine.AddTransition(ALARMA, INICIO, []() { return input == SENSOR_INFRARROJO;});
 
 
   // Add enterings
@@ -232,6 +163,7 @@ void setup() {
   Serial.begin(9600);
   lcd.begin(16, 2);
   dht.begin();
+  servo.attach(SERVO_PIN);
 
   lcd.setCursor(0, 0);
 
@@ -245,79 +177,20 @@ void setup() {
 void loop() {
   // Leer input usuario (por serial)
   if (input == Unknown) {
-    input = static_cast<Input>(readInput());
+    input = static_cast<Input>(readInputSerial());
   }
 
   // Actualizar tareas (timers)
   TaskTime.Update();
   // Actualizar leds (toggles)
   TaskLedRed.Update();
+  TaskLedGreen.Update();
+  TaskLedBlue.Update();
 
   // Read "*" when we are in BLOQUEO
   checkBloqueo();
   // Actualizar máquina de estados
   stateMachine.Update();
-}
-
-// K E Y P A D
-// Read password from KEYPAD
-void readPassword() {
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("Ingrese clave:");
-
-  for (int i = 0; i < 6; i++) {
-    lcd.setCursor(i, 1);  // Mostrar posición actual
-    lcd.print("_");
-
-    char key = NO_KEY;
-    while (key == NO_KEY) {
-      key = keypad.getKey();
-    }
-
-    clave_user[i] = key;
-    lcd.setCursor(i, 1);
-    lcd.print("*");  // Mostrar asterisco en lugar del carácter real
-
-    TaskTime.SetIntervalMillis(300);  // Pequeña pausa entre teclas
-    TaskTime.Start();
-  }
-}
-
-// Check password
-bool checkPassword() {
-  for (int i = 0; i < 6; i++) {
-    if (clave_user[i] != clave[i]) {
-      lcd.clear();
-      lcd.setCursor(0, 0);
-      lcd.print("Clave Incorrecta");
-      return false;
-    }
-  }
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("Clave Correcta!");
-  return true;
-}
-
-// Auxiliar function that reads the user input
-int readInput() {
-  Input currentInput = Input::Unknown;
-  if (Serial.available()) {
-    char incomingChar = Serial.read();
-    switch (incomingChar) {
-      case '0': currentInput = Input::SISTEMA_BLOQUEADO; break;
-      case '1': currentInput = Input::TECLA_ASTERISCO; break;
-      case '2': currentInput = Input::CLAVE_CORRECTA; break;
-      case '3': currentInput = Input::TIEMPO_EXPIRADO; break;
-      case '4': currentInput = Input::PMV_MENOR_QUE_MENOS1; break;
-      case '5': currentInput = Input::PMV_MAYOR_QUE_1; break;
-      case '6': currentInput = Input::TEMP_ALTA_3_INTENTOS; break;
-      case '7': currentInput = Input::SENSOR_INFRARROJO; break;
-      default: break;
-    }
-  }
-  return currentInput;
 }
 
 // Auxiliar output functions that show the state debug-----------------------------------------
@@ -409,7 +282,8 @@ void outputMonitor() {
 
   if (pmv < -1)
     input = PMV_MENOR_QUE_MENOS1;
-  else if (pmv > 1) input = PMV_MAYOR_QUE_1;
+  else if (pmv > 1) 
+    input = PMV_MAYOR_QUE_1;
   else
     input = TIEMPO_EXPIRADO;
 
@@ -426,6 +300,13 @@ void outputPMV_Bajo() {
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                                        X                         ");
   Serial.println();
+
+  ledStateGreen = false;
+  digitalWrite(LED_GREEN, LOW);
+  lastToggleGreen = millis();
+  TaskLedGreen.Start();
+
+  girarServo(pos);
 }
 
 void outputPMV_Alto() {
@@ -434,6 +315,11 @@ void outputPMV_Alto() {
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                                                    X             ");
   Serial.println();
+
+  ledStateBlue = false;
+  digitalWrite(LED_BLUE, LOW);
+  lastToggleBlue = millis();
+  TaskLedBlue.Start();
 }
 
 // Functions para leaving -----------------------------------------------
@@ -444,6 +330,126 @@ void onLeavingBloqueo() {
 }
 
 // AUXILIAR FUNCTIONS ----------------------------------------------------------
+// Auxiliar function that reads the user input from Serial
+int readInputSerial() {
+  Input currentInput = Input::Unknown;
+  if (Serial.available()) {
+    char incomingChar = Serial.read();
+    switch (incomingChar) {
+      case '0': currentInput = Input::SISTEMA_BLOQUEADO; break;
+      case '1': currentInput = Input::TECLA_ASTERISCO; break;
+      case '2': currentInput = Input::CLAVE_CORRECTA; break;
+      case '3': currentInput = Input::TIEMPO_EXPIRADO; break;
+      case '4': currentInput = Input::PMV_MENOR_QUE_MENOS1; break;
+      case '5': currentInput = Input::PMV_MAYOR_QUE_1; break;
+      case '6': currentInput = Input::TEMP_ALTA_3_INTENTOS; break;
+      case '7': currentInput = Input::SENSOR_INFRARROJO; break;
+      default: break;
+    }
+  }
+  return currentInput;
+}
+
+// LED toggles ---------------------------------------------------------------------------------
+// Red ----
+void toggleRed() {
+  unsigned long now = millis();
+
+  // Si el LED está encendido y han pasado 100 ms → apagar
+  if (ledStateRed && (now - lastToggleRed >= 100)) {
+    ledStateRed = false;
+    digitalWrite(LED_RED, LOW);
+    lastToggleRed = now;
+    TaskLedRed.SetIntervalMillis(300);  // siguiente ciclo: 300 ms apagado
+  }
+  // Si el LED está apagado y han pasado 300 ms → encender
+  else if (!ledStateRed && (now - lastToggleRed >= 300)) {
+    ledStateRed = true;
+    digitalWrite(LED_RED, HIGH);
+    lastToggleRed = now;
+    TaskLedRed.SetIntervalMillis(100);  // siguiente ciclo: 100 ms encendido
+  }
+}
+// Green ----
+void toggleGreen() {
+  unsigned long now = millis();
+
+  // Si el LED está encendido y han pasado 200 ms → apagar
+  if (ledStateGreen && (now - lastToggleGreen >= 200)) {
+    ledStateGreen = false;
+    digitalWrite(LED_GREEN, LOW);
+    lastToggleGreen = now;
+    TaskLedGreen.SetIntervalMillis(300);  // siguiente ciclo: 300 ms apagado
+  }
+  // Si el LED está apagado y han pasado 300 ms → encender
+  else if (!ledStateGreen && (now - lastToggleGreen >= 300)) {
+    ledStateGreen = true;
+    digitalWrite(LED_GREEN, HIGH);
+    lastToggleGreen = now;
+    TaskLedGreen.SetIntervalMillis(200);  // siguiente ciclo: 200 ms encendido
+  }
+}
+// Blue ----
+void toggleBlue() {
+  unsigned long now = millis();
+
+  // Si el LED está encendido y han pasado 300 ms → apagar
+  if (ledStateBlue && (now - lastToggleBlue >= 300)) {
+    ledStateBlue = false;
+    digitalWrite(LED_BLUE, LOW);
+    lastToggleBlue = now;
+    TaskLedBlue.SetIntervalMillis(400);  // siguiente ciclo: 400 ms apagado
+  }
+  // Si el LED está apagado y han pasado 400 ms → encender
+  else if (!ledStateBlue&& (now - lastToggleBlue >= 400)) {
+    ledStateBlue = true;
+    digitalWrite(LED_BLUE, HIGH);
+    lastToggleBlue = now;
+    TaskLedBlue.SetIntervalMillis(300);  // siguiente ciclo: 300 ms encendido
+  }
+}
+
+// K E Y P A D
+// Read password from KEYPAD
+void readPassword() {
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Ingrese clave:");
+
+  for (int i = 0; i < 6; i++) {
+    lcd.setCursor(i, 1);  // Mostrar posición actual
+    lcd.print("_");
+
+    char key = NO_KEY;
+    while (key == NO_KEY) {
+      key = keypad.getKey();
+    }
+
+    clave_user[i] = key;
+    lcd.setCursor(i, 1);
+    lcd.print("*");  // Mostrar asterisco en lugar del carácter real
+
+    TaskTime.SetIntervalMillis(300);  // Pequeña pausa entre teclas
+    TaskTime.Start();
+  }
+}
+
+// Check password
+bool checkPassword() {
+  for (int i = 0; i < 6; i++) {
+    if (clave_user[i] != clave[i]) {
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Clave Incorrecta");
+      return false;
+    }
+  }
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Clave Correcta!");
+  return true;
+}
+
 // Check * to go back to INICIO
 void checkBloqueo() {
   if (stateMachine.GetState() == BLOQUEO) {
@@ -460,7 +466,8 @@ void leerSensores() {
   humedad = dht.readHumidity();   // %
   int rawLuz = analogRead(LDR_PIN);
   luz = map(rawLuz, 0, 1032, 0, 100);  // % aproximado de iluminación
-  tempR = analogRead(TEMP_PIN);        // °C
+  int analogValue = analogRead(TEMP_PIN);
+  tempR = 1 / (log(1 / (1023. / analogValue - 1)) / BETA + 1.0 / 298.15) - 273.15; // °C        
 
   if (isnan(humedad) || isnan(tempA)) {
     Serial.println("Failed to read from DHT sensor!");
@@ -601,4 +608,20 @@ float calcularPMV_Fanger(float ta, float tr, float rh, float vel_ar, float M, fl
 			);
 	
   return constrain(pmv, -3.0, 3.0); // limitar rango típico del índice PMV
+}
+
+// Move Servo
+void girarServo(int pos) {
+  for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
+  // in steps of 1 degree
+  servo.write(pos); // tell servo to go to position in variable 'pos'
+  TaskTime.SetIntervalMillis(15); // waits 15ms for the servo to reach the position
+  TaskTime.Start();
+  }
+
+  for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
+  servo.write(pos); // tell servo to go to position in variable 'pos'
+  TaskTime.SetIntervalMillis(15); // waits 15ms for the servo to reach the position
+  TaskTime.Start();
+  }
 }
