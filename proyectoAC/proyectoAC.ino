@@ -114,6 +114,59 @@ void toggleRed() {
   }
 }
 
+// Green ----
+void toggleGreen();
+AsyncTask TaskLedGreen(200, true, toggleGreen);  // periodo de 200 ms ON, manejaremos el OFF por ciclo
+
+bool ledStateGreen = false;
+unsigned long lastToggleGreen = 0;
+
+void toggleGreen() {
+  unsigned long now = millis();
+
+  // Si el LED está encendido y han pasado 200 ms → apagar
+  if (ledStateGreen && (now - lastToggleGreen >= 200)) {
+    ledStateGreen = false;
+    digitalWrite(LED_GREEN, LOW);
+    lastToggleGreen = now;
+    TaskLedGreen.SetIntervalMillis(300);  // siguiente ciclo: 300 ms apagado
+  }
+  // Si el LED está apagado y han pasado 300 ms → encender
+  else if (!ledStateGreen && (now - lastToggleGreen >= 300)) {
+    ledStateGreen = true;
+    digitalWrite(LED_GREEN, HIGH);
+    lastToggleGreen = now;
+    TaskLedGreen.SetIntervalMillis(200);  // siguiente ciclo: 200 ms encendido
+  }
+}
+
+// Blue ----
+void toggleBlue();
+AsyncTask TaskLedBlue(300, true, toggleBlue);  // periodo de 300 ms ON, manejaremos el OFF por ciclo
+
+bool ledStateBlue = false;
+unsigned long lastToggleBlue = 0;
+
+void toggleBlue() {
+  unsigned long now = millis();
+
+  // Si el LED está encendido y han pasado 300 ms → apagar
+  if (ledStateBlue && (now - lastToggleBlue >= 300)) {
+    ledStateBlue = false;
+    digitalWrite(LED_BLUE, LOW);
+    lastToggleBlue = now;
+    TaskLedBlue.SetIntervalMillis(400);  // siguiente ciclo: 400 ms apagado
+  }
+  // Si el LED está apagado y han pasado 400 ms → encender
+  else if (!ledStateBlue&& (now - lastToggleBlue >= 400)) {
+    ledStateBlue = true;
+    digitalWrite(LED_BLUE, HIGH);
+    lastToggleBlue = now;
+    TaskLedBlue.SetIntervalMillis(300);  // siguiente ciclo: 300 ms encendido
+  }
+}
+
+
 // Setup the State Machine
 void setupStateMachine() {
   // Add transitions Inicio
