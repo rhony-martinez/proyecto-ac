@@ -6,6 +6,8 @@
 #include <math.h>
 #include <Servo.h>
 
+
+
 // RGB led
 #define LED_RED 8
 #define LED_GREEN 9
@@ -17,11 +19,11 @@
 #define LDR_PIN A3
 #define TEMP_PIN A0
 const float BETA = 3950;
-#define MOV_PIN 26
+#define PIR_SENSOR A5
 // Servomotor
 #define SERVO_PIN 13
 // Ventilador
-
+#define FAN_PIN 38
 // Buzzer
 #define BUZZER_PIN 7
 
@@ -50,6 +52,8 @@ bool buzzerState = false;
 
 void toggleBuzzer();
 AsyncTask TaskBuzzer(200, true, toggleBuzzer);
+
+
 
 // KEYPAD Definition
 // Password for Keypad
@@ -214,14 +218,17 @@ void setup() {
   pinMode(LED_BLUE, OUTPUT);
   pinMode(BUZZER_PIN, OUTPUT);
   digitalWrite(BUZZER_PIN, LOW);
+  pinMode(FAN_PIN, OUTPUT);
+  digitalWrite(FAN_PIN, LOW);
+  pinMode(PIR_SENSOR, INPUT);
 
   lcd.setCursor(0, 0);
 
-  setupStateMachine();
-  stateMachine.SetState(INICIO, false, true);
-
   Serial.println("FSM Iniciada");
   lcd.println("Iniciando...");
+
+  setupStateMachine();
+  stateMachine.SetState(INICIO, false, true);
 }
 
 void loop() {
@@ -245,8 +252,11 @@ void loop() {
   checkBloqueo();
   // Check PMV
   checkPMV();
+  // Check movement
+  checkMovimiento();
   // Actualizar máquina de estados
   stateMachine.Update(); // Revisar esto para BLOQUEO
+
 }
 
 // Auxiliar output functions that show the state debug-----------------------------------------
@@ -301,8 +311,6 @@ void outputAlarma() {
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("!!! ALARMA !!!");
-  lcd.setCursor(0, 1);
-  lcd.print("Movimiento -> reset");
 
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                               X                                  ");
@@ -373,7 +381,7 @@ void outputPMV_Bajo() {
 
 void outputPMV_Alto() {
   input = Unknown;
-  tempA = 31;
+  tempA = dht.readTemperature();
   if (tempA > 30.0) {
     conteoTempAlta++;
     Serial.print("Temperatura alta detectada (");
@@ -396,6 +404,8 @@ void outputPMV_Alto() {
   digitalWrite(LED_BLUE, LOW);
   lastToggleBlue = millis();
   TaskLedBlue.Start();
+
+  digitalWrite(FAN_PIN, HIGH);
 }
 
 // Functions para leaving -----------------------------------------------
@@ -416,6 +426,7 @@ void onLeavingPMV_Bajo() {
 void onLeavingPMV_Alto() {
   TaskLedBlue.Stop();
   digitalWrite(LED_BLUE, LOW);
+  digitalWrite(FAN_PIN, LOW);
   Serial.println("Saliendo de PMV_Alto, LED apagado");
 }
 
@@ -721,7 +732,7 @@ void checkPMV() {
     float M = 100;    // metabolismo
     float clo = 0.5;  // vestimenta
     float vel_ar = 0.1;
-    float pmv = 2.5;
+    float pmv = calcularPMV_Fanger(tempA, tempR, humedad, vel_ar, M, clo);
     Serial.print("PMV calculado: ");
     Serial.println(pmv, 2);
     lcd.clear();
@@ -739,8 +750,19 @@ void checkPMV() {
   }
 }
 
-// Sonido para el buzzer
+// Intermittent sound for the buzzer
 void toggleBuzzer() {
   buzzerState = !buzzerState;
   digitalWrite(BUZZER_PIN, buzzerState);
+}
+
+// Checking movement in ALARMA
+void checkMovimiento() {
+  if (stateMachine.GetState() == ALARMA) {
+    int pirValue = digitalRead(PIR_SENSOR);
+    if (pirValue == LOW) {
+      Serial.println("Movimiento detectado -> Regresando a INICIO");
+      input = SENSOR_INFRARROJO;
+    }
+  }
 }
