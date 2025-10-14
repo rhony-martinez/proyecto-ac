@@ -4,30 +4,42 @@
 #include <Keypad.h>
 #include "DHT.h"
 #include <math.h>
+#include <Servo.h>
+
+
 
 // RGB led
-#define LED_RED 9
-#define LED_GREEN 10
-#define LED_BLUE 11
+#define LED_RED 8
+#define LED_GREEN 9
+#define LED_BLUE 10
 // DHT
-#define DHTPIN 3
+#define DHTPIN 41
 #define DHTTYPE DHT11
 // Sensors
 #define LDR_PIN A3
 #define TEMP_PIN A0
+const float BETA = 3950;
+#define PIR_SENSOR A5
+// Servomotor
+#define SERVO_PIN 13
+// Ventilador
+#define FAN_PIN 38
+// Buzzer
+#define BUZZER_PIN 7
 
-// Global variables
+
+// Global variables to calculate PMV and to get through the sensors
 float M = 0.0;
-float clo = 0.5;
-float vel_ar = 0.1;
+float clo = 0.0;
+float vel_ar = 0.0;
 float tempA = 0.0;
 float tempR = 0.0;
 float humedad = 0.0;
 float luz = 0.0;
 
-// Password for Keypad
-const char clave[6] = { '2', '0', '2', '5', '2', 'A' };
-char clave_user[6];
+// Global aux vars
+int conteoTempAlta = 0;
+bool tiempoMonitorVencido = false;
 
 // LCD pins
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
@@ -35,7 +47,19 @@ LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 // DHT
 DHT dht(DHTPIN, DHTTYPE);
 
+// To the buzzer
+bool buzzerState = false;
+
+void toggleBuzzer();
+AsyncTask TaskBuzzer(200, true, toggleBuzzer);
+
+
+
 // KEYPAD Definition
+// Password for Keypad
+const char clave[6] = { '2', '0', '2', '5', '2', 'A' };
+char clave_user[6];
+
 const byte ROWS = 4;  // cuatro filas
 const byte COLS = 4;  // cuatro columnas
 char keys[ROWS][COLS] = {
@@ -45,10 +69,19 @@ char keys[ROWS][COLS] = {
   { '*', '0', '#', 'D' }
 };
 byte rowPins[ROWS] = { 40, 42, 44, 46 };  // conecta a los pines de las filas del teclado
-byte colPins[COLS] = { 48, 50, 52, 53 };  // conecta a los pines de las columnas del teclado
+byte colPins[COLS] = { 48, 24, 22, 43 };  // conecta a los pines de las columnas del teclado
 
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
+// Servo
+Servo servo;
+int servoPos = 0;         // posición actual del servo
+bool servoUp = true;  
+
+void moverServo();
+AsyncTask TaskServo(15, true, moverServo);
+
+// STATE MACHINE
 // State Alias
 enum State {
   INICIO = 0,
@@ -73,7 +106,6 @@ enum Input {
   Unknown = 8
 };
 
-
 // Create new StateMachine
 StateMachine stateMachine(7, 11);
 // Stores last user input
@@ -84,7 +116,11 @@ Input input = Unknown;
 void runTime();
 AsyncTask TaskTime(5000, true, runTime);  // cada 5 segundos lanza TIEMPO_EXPIRADO
 void runTime() {
-  input = TIEMPO_EXPIRADO;
+  if (stateMachine.GetState() == MONITOR) {
+    tiempoMonitorVencido = true;
+  } else {
+    input = TIEMPO_EXPIRADO;
+  }
 }
 
 // LED toggles ---------------------------------------------------------------------------------
@@ -95,24 +131,19 @@ AsyncTask TaskLedRed(100, true, toggleRed);  // periodo de 100 ms ON, manejaremo
 bool ledStateRed = false;
 unsigned long lastToggleRed = 0;
 
-void toggleRed() {
-  unsigned long now = millis();
+// Green ----
+void toggleGreen();
+AsyncTask TaskLedGreen(200, true, toggleGreen);  // periodo de 200 ms ON, manejaremos el OFF por ciclo
 
-  // Si el LED está encendido y han pasado 100 ms → apagar
-  if (ledStateRed && (now - lastToggleRed >= 100)) {
-    ledStateRed = false;
-    digitalWrite(LED_RED, LOW);
-    lastToggleRed = now;
-    TaskLedRed.SetIntervalMillis(300);  // siguiente ciclo: 300 ms apagado
-  }
-  // Si el LED está apagado y han pasado 300 ms → encender
-  else if (!ledStateRed && (now - lastToggleRed >= 300)) {
-    ledStateRed = true;
-    digitalWrite(LED_RED, HIGH);
-    lastToggleRed = now;
-    TaskLedRed.SetIntervalMillis(100);  // siguiente ciclo: 100 ms encendido
-  }
-}
+bool ledStateGreen = false;
+unsigned long lastToggleGreen = 0;
+
+// Blue ----
+void toggleBlue();
+AsyncTask TaskLedBlue(300, true, toggleBlue);  // periodo de 300 ms ON, manejaremos el OFF por ciclo
+
+bool ledStateBlue = false;
+unsigned long lastToggleBlue = 0;
 
 // Setup the State Machine
 void setupStateMachine() {
@@ -161,7 +192,6 @@ void setupStateMachine() {
     return input == SENSOR_INFRARROJO;
   });
 
-
   // Add enterings
   stateMachine.SetOnEntering(INICIO, outputInicio);
   stateMachine.SetOnEntering(BLOQUEO, outputBloqueo);
@@ -173,98 +203,60 @@ void setupStateMachine() {
 
   // Add leavings
   stateMachine.SetOnLeaving(BLOQUEO, onLeavingBloqueo);
+  stateMachine.SetOnLeaving(ALARMA, []() {TaskBuzzer.Stop(); digitalWrite(BUZZER_PIN, LOW);});
+  stateMachine.SetOnLeaving(PMV_BAJO, onLeavingPMV_Bajo);
+  stateMachine.SetOnLeaving(PMV_ALTO, onLeavingPMV_Alto);
 }
 
 void setup() {
   Serial.begin(9600);
   lcd.begin(16, 2);
   dht.begin();
+  servo.attach(SERVO_PIN);
+  pinMode(LED_RED, OUTPUT);
+  pinMode(LED_GREEN, OUTPUT);
+  pinMode(LED_BLUE, OUTPUT);
+  pinMode(BUZZER_PIN, OUTPUT);
+  digitalWrite(BUZZER_PIN, LOW);
+  pinMode(FAN_PIN, OUTPUT);
+  digitalWrite(FAN_PIN, LOW);
+  pinMode(PIR_SENSOR, INPUT);
 
   lcd.setCursor(0, 0);
 
-  setupStateMachine();
-  stateMachine.SetState(INICIO, false, true);
-
   Serial.println("FSM Iniciada");
   lcd.println("Iniciando...");
+
+  setupStateMachine();
+  stateMachine.SetState(INICIO, false, true);
 }
 
 void loop() {
   // Leer input usuario (por serial)
   if (input == Unknown) {
-    input = static_cast<Input>(readInput());
+    input = static_cast<Input>(readInputSerial());
   }
 
   // Actualizar tareas (timers)
   TaskTime.Update();
   // Actualizar leds (toggles)
   TaskLedRed.Update();
+  TaskLedGreen.Update();
+  TaskLedBlue.Update();
+  // Actualizar buzzer
+  TaskBuzzer.Update();
+  // Actualizar servo
+  TaskServo.Update();
 
   // Read "*" when we are in BLOQUEO
   checkBloqueo();
+  // Check PMV
+  checkPMV();
+  // Check movement
+  checkMovimiento();
   // Actualizar máquina de estados
-  stateMachine.Update();
-}
+  stateMachine.Update(); // Revisar esto para BLOQUEO
 
-// K E Y P A D
-// Read password from KEYPAD
-void readPassword() {
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("Ingrese clave:");
-
-  for (int i = 0; i < 6; i++) {
-    lcd.setCursor(i, 1);  // Mostrar posición actual
-    lcd.print("_");
-
-    char key = NO_KEY;
-    while (key == NO_KEY) {
-      key = keypad.getKey();
-    }
-
-    clave_user[i] = key;
-    lcd.setCursor(i, 1);
-    lcd.print("*");  // Mostrar asterisco en lugar del carácter real
-
-    TaskTime.SetIntervalMillis(300);  // Pequeña pausa entre teclas
-    TaskTime.Start();
-  }
-}
-
-// Check password
-bool checkPassword() {
-  for (int i = 0; i < 6; i++) {
-    if (clave_user[i] != clave[i]) {
-      lcd.clear();
-      lcd.setCursor(0, 0);
-      lcd.print("Clave Incorrecta");
-      return false;
-    }
-  }
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("Clave Correcta!");
-  return true;
-}
-
-// Auxiliar function that reads the user input
-int readInput() {
-  Input currentInput = Input::Unknown;
-  if (Serial.available()) {
-    char incomingChar = Serial.read();
-    switch (incomingChar) {
-      case '0': currentInput = Input::SISTEMA_BLOQUEADO; break;
-      case '1': currentInput = Input::TECLA_ASTERISCO; break;
-      case '2': currentInput = Input::CLAVE_CORRECTA; break;
-      case '3': currentInput = Input::TIEMPO_EXPIRADO; break;
-      case '4': currentInput = Input::PMV_MENOR_QUE_MENOS1; break;
-      case '5': currentInput = Input::PMV_MAYOR_QUE_1; break;
-      case '6': currentInput = Input::TEMP_ALTA_3_INTENTOS; break;
-      case '7': currentInput = Input::SENSOR_INFRARROJO; break;
-      default: break;
-    }
-  }
-  return currentInput;
 }
 
 // Auxiliar output functions that show the state debug-----------------------------------------
@@ -306,6 +298,7 @@ void outputInicio() {
 }
 
 void outputConfig() {
+  input = Unknown;
   TaskTime.SetIntervalMillis(5000);  // 5 Segs hasta monitor si no hay entrada
   TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
@@ -314,18 +307,28 @@ void outputConfig() {
 }
 
 void outputAlarma() {
+  input = Unknown;
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("!!! ALARMA !!!");
+
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                               X                                  ");
   Serial.println();
+
+  buzzerState = false;
+  digitalWrite(BUZZER_PIN, LOW);
+  TaskBuzzer.SetIntervalMillis(400);
+  TaskBuzzer.Start();
 }
 
 void outputBloqueo() {
+  input = Unknown;
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("SISTEMA BLOQUEADO");
   lcd.setCursor(0, 1);
   lcd.print("Presione '*'");
-
 
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                                                              X   ");
@@ -338,49 +341,71 @@ void outputBloqueo() {
 }
 
 void outputMonitor() {
-  leerSensores();
-  // Actividad ligera (persona de pie o caminando lentamente)
-  M = 100;
-  // Ropa ligera (camisa, pantalón)
-  clo = 0.5;
-  // Velocidad de aire típica en interior
-  vel_ar = 0.1;
-  // Calcular PMV
-  float pmv = calcularPMV_Fanger(tempA, tempR, humedad, vel_ar, M, clo);
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("PMV: ");
-  lcd.print(pmv, 2);
-  Serial.print("PMV calculado: ");
-  Serial.println(pmv, 2);
-
-  if (pmv < -1)
-    input = PMV_MENOR_QUE_MENOS1;
-  else if (pmv > 1) input = PMV_MAYOR_QUE_1;
-  else
-    input = TIEMPO_EXPIRADO;
-
+  input = Unknown;
   TaskTime.SetIntervalMillis(7000);  // 7 segs hasta config si no hay entrada
   TaskTime.Start();
+
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("MONITOR");
+  lcd.setCursor(0, 1);
+  lcd.print("Calculando PMV...");
+
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                     X                                            ");
   Serial.println();
 }
 
 void outputPMV_Bajo() {
+  input = Unknown;
   TaskTime.SetIntervalMillis(3000);  // 3 segs hasta monitor si no hay entrada
   TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                                        X                         ");
   Serial.println();
+
+  ledStateGreen = false;
+  digitalWrite(LED_GREEN, LOW);
+  lastToggleGreen = millis();
+  TaskLedGreen.Start();
+
+  // Reiniciar posición y dirección del servo
+  servo.attach(SERVO_PIN);
+  servoPos = 0;
+  servoUp = true;
+  servo.write(servoPos);
+
+  // Iniciar movimiento asíncrono
+  TaskServo.Start();
 }
 
 void outputPMV_Alto() {
+  input = Unknown;
+  tempA = dht.readTemperature();
+  if (tempA > 30.0) {
+    conteoTempAlta++;
+    Serial.print("Temperatura alta detectada (");
+    Serial.print(conteoTempAlta);
+    Serial.println("/3)");
+  } else {
+    conteoTempAlta = 0;  // reset si baja la temperatura
+  }
+  if (conteoTempAlta >= 3) {
+    input = TEMP_ALTA_3_INTENTOS;
+    conteoTempAlta = 0;  // reinicia para futuras detecciones
+  }
   TaskTime.SetIntervalMillis(4000);  // 4 segs hasta monitor si no hay entrada
   TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                                                    X             ");
   Serial.println();
+
+  ledStateBlue = false;
+  digitalWrite(LED_BLUE, LOW);
+  lastToggleBlue = millis();
+  TaskLedBlue.Start();
+
+  digitalWrite(FAN_PIN, HIGH);
 }
 
 // Functions para leaving -----------------------------------------------
@@ -390,7 +415,141 @@ void onLeavingBloqueo() {
   Serial.println("Saliendo de BLOQUEO, LED apagado");
 }
 
+void onLeavingPMV_Bajo() {
+  TaskLedGreen.Stop();
+  digitalWrite(LED_GREEN, LOW);
+  TaskServo.Stop();
+  servo.detach();
+  Serial.println("Saliendo de PMV_Bajo, LED apagado");
+}
+
+void onLeavingPMV_Alto() {
+  TaskLedBlue.Stop();
+  digitalWrite(LED_BLUE, LOW);
+  digitalWrite(FAN_PIN, LOW);
+  Serial.println("Saliendo de PMV_Alto, LED apagado");
+}
+
 // AUXILIAR FUNCTIONS ----------------------------------------------------------
+// Auxiliar function that reads the user input from Serial
+int readInputSerial() {
+  Input currentInput = Input::Unknown;
+  if (Serial.available()) {
+    char incomingChar = Serial.read();
+    switch (incomingChar) {
+      case '0': currentInput = Input::SISTEMA_BLOQUEADO; break;
+      case '1': currentInput = Input::TECLA_ASTERISCO; break;
+      case '2': currentInput = Input::CLAVE_CORRECTA; break;
+      case '3': currentInput = Input::TIEMPO_EXPIRADO; break;
+      case '4': currentInput = Input::PMV_MENOR_QUE_MENOS1; break;
+      case '5': currentInput = Input::PMV_MAYOR_QUE_1; break;
+      case '6': currentInput = Input::TEMP_ALTA_3_INTENTOS; break;
+      case '7': currentInput = Input::SENSOR_INFRARROJO; break;
+      default: break;
+    }
+  }
+  return currentInput;
+}
+
+// LED toggles ---------------------------------------------------------------------------------
+// Red ----
+void toggleRed() {
+  unsigned long now = millis();
+
+  // Si el LED está encendido y han pasado 100 ms → apagar
+  if (ledStateRed && (now - lastToggleRed >= 100)) {
+    ledStateRed = false;
+    digitalWrite(LED_RED, LOW);
+    lastToggleRed = now;
+    TaskLedRed.SetIntervalMillis(300);  // siguiente ciclo: 300 ms apagado
+  }
+  // Si el LED está apagado y han pasado 300 ms → encender
+  else if (!ledStateRed && (now - lastToggleRed >= 300)) {
+    ledStateRed = true;
+    digitalWrite(LED_RED, HIGH);
+    lastToggleRed = now;
+    TaskLedRed.SetIntervalMillis(100);  // siguiente ciclo: 100 ms encendido
+  }
+}
+// Green ----
+void toggleGreen() {
+  unsigned long now = millis();
+
+  // Si el LED está encendido y han pasado 200 ms → apagar
+  if (ledStateGreen && (now - lastToggleGreen >= 200)) {
+    ledStateGreen = false;
+    digitalWrite(LED_GREEN, LOW);
+    lastToggleGreen = now;
+    TaskLedGreen.SetIntervalMillis(300);  // siguiente ciclo: 300 ms apagado
+  }
+  // Si el LED está apagado y han pasado 300 ms → encender
+  else if (!ledStateGreen && (now - lastToggleGreen >= 300)) {
+    ledStateGreen = true;
+    digitalWrite(LED_GREEN, HIGH);
+    lastToggleGreen = now;
+    TaskLedGreen.SetIntervalMillis(200);  // siguiente ciclo: 200 ms encendido
+  }
+}
+// Blue ----
+void toggleBlue() {
+  unsigned long now = millis();
+
+  // Si el LED está encendido y han pasado 300 ms → apagar
+  if (ledStateBlue && (now - lastToggleBlue >= 300)) {
+    ledStateBlue = false;
+    digitalWrite(LED_BLUE, LOW);
+    lastToggleBlue = now;
+    TaskLedBlue.SetIntervalMillis(400);  // siguiente ciclo: 400 ms apagado
+  }
+  // Si el LED está apagado y han pasado 400 ms → encender
+  else if (!ledStateBlue && (now - lastToggleBlue >= 400)) {
+    ledStateBlue = true;
+    digitalWrite(LED_BLUE, HIGH);
+    lastToggleBlue = now;
+    TaskLedBlue.SetIntervalMillis(300);  // siguiente ciclo: 300 ms encendido
+  }
+}
+
+// Read password from KEYPAD
+void readPassword() {
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Ingrese clave:");
+
+  for (int i = 0; i < 6; i++) {
+    lcd.setCursor(i, 1);  // Mostrar posición actual
+    lcd.print("_");
+
+    char key = NO_KEY;
+    while (key == NO_KEY) {
+      key = keypad.getKey();
+    }
+
+    clave_user[i] = key;
+    lcd.setCursor(i, 1);
+    lcd.print("*");  // Mostrar asterisco en lugar del carácter real
+
+    TaskTime.SetIntervalMillis(300);  // Pequeña pausa entre teclas
+    TaskTime.Start();
+  }
+}
+
+// Check password
+bool checkPassword() {
+  for (int i = 0; i < 6; i++) {
+    if (clave_user[i] != clave[i]) {
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Clave Incorrecta");
+      return false;
+    }
+  }
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Clave Correcta!");
+  return true;
+}
+
 // Check * to go back to INICIO
 void checkBloqueo() {
   if (stateMachine.GetState() == BLOQUEO) {
@@ -407,7 +566,8 @@ void leerSensores() {
   humedad = dht.readHumidity();   // %
   int rawLuz = analogRead(LDR_PIN);
   luz = map(rawLuz, 0, 1032, 0, 100);  // % aproximado de iluminación
-  tempR = analogRead(TEMP_PIN);        // °C
+  int analogValue = analogRead(TEMP_PIN);
+  tempR = 1 / (log(1 / (1023. / analogValue - 1)) / BETA + 1.0 / 298.15) - 273.15;  // °C
 
   if (isnan(humedad) || isnan(tempA)) {
     Serial.println("Failed to read from DHT sensor!");
@@ -482,70 +642,127 @@ float calcularFcl(float icl) {
 
 // CALCULAR PMV (Modelo Fanger adaptado a Arduino)
 float calcularPMV_Fanger(float ta, float tr, float rh, float vel_ar, float M, float clo) {
-	// Conversión de unidades y constantes base
-	float pa, icl, V, fcl, hc, pmv;
-	float tol = 0.0001;  // Tolerancia para iteraciones
-	float tcl = ta;      // Temperatura inicial de la superficie de la ropa
-	float tcl_prev;
-	int iteracion = 0;
-	int max_iters = 100;
-	
-	// Constantes
-	V = 0.0;                            // Trabajo mecánico (reposo)
-	icl = clo * 0.155;                  // Aislamiento térmico (m²K/W)
-	pa = calcularPresionVapor(ta, rh);  // Presión de vapor (Pa)
-	
-	// Factor de superficie de la ropa
-	fcl = calcularFcl(icl);
-	
-	// ------------Iteración para hallar tcl---------------
-	do {
-		tcl_prev = tcl;
-		
-		// Calcular hc
-		hc = calcularHc(tcl, ta, vel_ar);
-		
-		// Convertidr a grados Kelvin para la fórmula
-		float tr_rad = tr + 273.0;
-		float tcl_rad = tcl + 273.0;
-		
-		// Calcular la radiación térmica de onda larga (transferencia de calor radiante)
-		float radiation = (3.96 * pow(10, -8)) * fcl * (pow(tcl_rad, 4) - pow(tr_rad, 4));
-		// Calcular la transferencia de calor por convección (aire calentando/enfriando la ropa)
-		float convection = fcl * hc * (tcl - ta);
-		
-		tcl = 35.7 - 0.028 * (M - V) - icl * (radiation - convection);
-		
-		iteracion++;
-	} while (fabs(tcl - tcl_prev) > tol && iteracion < max_iters);
-	
-	// Cálculo de hcl final
-	float hc_final;
-	hc_final = calcularHc(tcl, ta, vel_ar);
-	
-	// --------------CÁLCULO DEL PMV------------------
-	// Convertidr a grados Kelvin para la fórmula
-	float tr_rad = tr + 273.0;
-	float tcl_rad = tcl + 273.0;
-	
-	// - - -Calcular las formas de perder calor- - -
-	// Calcular la radiación térmica de onda larga (transferencia de calor radiante)
-	float radiation = (3.96e-8) * fcl * (pow(tcl_rad, 4) - pow(tr_rad, 4));
-	// Calcular la transferencia de calor por convección (aire calentando/enfriando la ropa)
-	float convection = fcl * hc_final * (tcl - ta);
-	// Calcular la pérdida de calor por respiración
-	float respiration = 0.0014 * M * (34.0 - ta);
-	// Calcular la pérdida de calor por transpiración
-	float latent = (1.7e-5) * M * (5867.0 - pa);
-	// Pérdida de calor total
-	float heat_loss = latent + respiration + radiation + convection;
-	
-	pmv = 	(0.303 * exp(-0.036 * M) + 0.028) * (
-			(M - V)
-			- (3.05e-3) * (5733.0 - 6.99 * (M - V) - pa)
-			- 0.42 * ((M - V) - 58.15)
-			- heat_loss
-			);
-	
-  return constrain(pmv, -3.0, 3.0); // limitar rango típico del índice PMV
+  // Conversión de unidades y constantes base
+  float pa, icl, V, fcl, hc, pmv;
+  float tol = 0.0001;  // Tolerancia para iteraciones
+  float tcl = ta;      // Temperatura inicial de la superficie de la ropa
+  float tcl_prev;
+  int iteracion = 0;
+  int max_iters = 100;
+
+  // Constantes
+  V = 0.0;                            // Trabajo mecánico (reposo)
+  icl = clo * 0.155;                  // Aislamiento térmico (m²K/W)
+  pa = calcularPresionVapor(ta, rh);  // Presión de vapor (Pa)
+
+  // Factor de superficie de la ropa
+  fcl = calcularFcl(icl);
+
+  // ------------Iteración para hallar tcl---------------
+  do {
+    tcl_prev = tcl;
+
+    // Calcular hc
+    hc = calcularHc(tcl, ta, vel_ar);
+
+    // Convertidr a grados Kelvin para la fórmula
+    float tr_rad = tr + 273.0;
+    float tcl_rad = tcl + 273.0;
+
+    // Calcular la radiación térmica de onda larga (transferencia de calor radiante)
+    float radiation = (3.96 * pow(10, -8)) * fcl * (pow(tcl_rad, 4) - pow(tr_rad, 4));
+    // Calcular la transferencia de calor por convección (aire calentando/enfriando la ropa)
+    float convection = fcl * hc * (tcl - ta);
+
+    tcl = 35.7 - 0.028 * (M - V) - icl * (radiation - convection);
+
+    iteracion++;
+  } while (fabs(tcl - tcl_prev) > tol && iteracion < max_iters);
+
+  // Cálculo de hcl final
+  float hc_final;
+  hc_final = calcularHc(tcl, ta, vel_ar);
+
+  // --------------CÁLCULO DEL PMV------------------
+  // Convertidr a grados Kelvin para la fórmula
+  float tr_rad = tr + 273.0;
+  float tcl_rad = tcl + 273.0;
+
+  // - - -Calcular las formas de perder calor- - -
+  // Calcular la radiación térmica de onda larga (transferencia de calor radiante)
+  float radiation = (3.96e-8) * fcl * (pow(tcl_rad, 4) - pow(tr_rad, 4));
+  // Calcular la transferencia de calor por convección (aire calentando/enfriando la ropa)
+  float convection = fcl * hc_final * (tcl - ta);
+  // Calcular la pérdida de calor por respiración
+  float respiration = 0.0014 * M * (34.0 - ta);
+  // Calcular la pérdida de calor por transpiración
+  float latent = (1.7e-5) * M * (5867.0 - pa);
+  // Pérdida de calor total
+  float heat_loss = latent + respiration + radiation + convection;
+
+  pmv = (0.303 * exp(-0.036 * M) + 0.028) * ((M - V) - (3.05e-3) * (5733.0 - 6.99 * (M - V) - pa) - 0.42 * ((M - V) - 58.15) - heat_loss);
+
+  return constrain(pmv, -3.0, 3.0);  // limitar rango típico del índice PMV
+}
+
+// Move Servo
+void moverServo() {
+  if (servoUp) {
+    servoPos++;
+    if (servoPos >= 180) {
+      servoPos = 180;
+      servoUp = false;
+    }
+  } else {
+    servoPos--;
+    if (servoPos <= 0) {
+      servoPos = 0;
+      servoUp = true;
+    }
+  }
+  servo.write(servoPos);
+}
+
+// Check PMV to call in loop
+void checkPMV() {
+  if (stateMachine.GetState() == MONITOR && tiempoMonitorVencido) {
+    tiempoMonitorVencido = false;
+    leerSensores();
+
+    float M = 100;    // metabolismo
+    float clo = 0.5;  // vestimenta
+    float vel_ar = 0.1;
+    float pmv = calcularPMV_Fanger(tempA, tempR, humedad, vel_ar, M, clo);
+    Serial.print("PMV calculado: ");
+    Serial.println(pmv, 2);
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("PMV: ");
+    lcd.print(pmv, 2);
+    if (pmv < -1)
+      input = PMV_MENOR_QUE_MENOS1;
+    else if (pmv > 1)
+      input = PMV_MAYOR_QUE_1;
+    else
+      input = TIEMPO_EXPIRADO;
+    // Reinicia el timer para el siguiente cálculo
+    TaskTime.Start();
+  }
+}
+
+// Intermittent sound for the buzzer
+void toggleBuzzer() {
+  buzzerState = !buzzerState;
+  digitalWrite(BUZZER_PIN, buzzerState);
+}
+
+// Checking movement in ALARMA
+void checkMovimiento() {
+  if (stateMachine.GetState() == ALARMA) {
+    int pirValue = digitalRead(PIR_SENSOR);
+    if (pirValue == LOW) {
+      Serial.println("Movimiento detectado -> Regresando a INICIO");
+      input = SENSOR_INFRARROJO;
+    }
+  }
 }
