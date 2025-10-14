@@ -7,11 +7,11 @@
 #include <Servo.h>
 
 // RGB led
-#define LED_RED 9
-#define LED_GREEN 10
-#define LED_BLUE 11
+#define LED_RED 8
+#define LED_GREEN 9
+#define LED_BLUE 10
 // DHT
-#define DHTPIN 3
+#define DHTPIN 41
 #define DHTTYPE DHT11
 // Sensors
 #define LDR_PIN A3
@@ -21,21 +21,34 @@ const float BETA = 3950;
 #define SERVO_PIN 13
 // Ventilador
 
+// Buzzer
+#define BUZZER_PIN 7
+
 
 // Global variables to calculate PMV and to get through the sensors
 float M = 0.0;
-float clo = 0.5;
-float vel_ar = 0.1;
+float clo = 0.0;
+float vel_ar = 0.0;
 float tempA = 0.0;
 float tempR = 0.0;
 float humedad = 0.0;
 float luz = 0.0;
+
+// Global aux vars
+int conteoTempAlta = 0;
+bool tiempoMonitorVencido = false;
 
 // LCD pins
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 
 // DHT
 DHT dht(DHTPIN, DHTTYPE);
+
+// To the buzzer
+bool buzzerState = false;
+
+void toggleBuzzer();
+AsyncTask TaskBuzzer(200, true, toggleBuzzer);
 
 // KEYPAD Definition
 // Password for Keypad
@@ -57,7 +70,11 @@ Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
 // Servo
 Servo servo;
-int pos = 0;
+int servoPos = 0;         // posición actual del servo
+bool servoUp = true;  
+
+void moverServo();
+AsyncTask TaskServo(15, true, moverServo);
 
 // STATE MACHINE
 // State Alias
@@ -84,7 +101,6 @@ enum Input {
   Unknown = 8
 };
 
-
 // Create new StateMachine
 StateMachine stateMachine(7, 11);
 // Stores last user input
@@ -95,7 +111,11 @@ Input input = Unknown;
 void runTime();
 AsyncTask TaskTime(5000, true, runTime);  // cada 5 segundos lanza TIEMPO_EXPIRADO
 void runTime() {
-  input = TIEMPO_EXPIRADO;
+  if (stateMachine.GetState() == MONITOR) {
+    tiempoMonitorVencido = true;
+  } else {
+    input = TIEMPO_EXPIRADO;
+  }
 }
 
 // LED toggles ---------------------------------------------------------------------------------
@@ -123,28 +143,49 @@ unsigned long lastToggleBlue = 0;
 // Setup the State Machine
 void setupStateMachine() {
   // Add transitions Inicio
-  stateMachine.AddTransition(INICIO, CONFIG, []() { return input == CLAVE_CORRECTA;});
-  stateMachine.AddTransition(INICIO, BLOQUEO, []() { return input == SISTEMA_BLOQUEADO;});
+  stateMachine.AddTransition(INICIO, CONFIG, []() {
+    return input == CLAVE_CORRECTA;
+  });
+  stateMachine.AddTransition(INICIO, BLOQUEO, []() {
+    return input == SISTEMA_BLOQUEADO;
+  });
 
   // Add transitions Bloqueo
-  stateMachine.AddTransition(BLOQUEO, INICIO, []() { return input == TECLA_ASTERISCO;});
+  stateMachine.AddTransition(BLOQUEO, INICIO, []() {
+    return input == TECLA_ASTERISCO;
+  });
 
   // Add transitions Config
-  stateMachine.AddTransition(CONFIG, MONITOR, []() { return input == TIEMPO_EXPIRADO;});
+  stateMachine.AddTransition(CONFIG, MONITOR, []() {
+    return input == TIEMPO_EXPIRADO;
+  });
 
   // Add transitions Monitor
-  stateMachine.AddTransition(MONITOR, PMV_BAJO, []() { return input == PMV_MENOR_QUE_MENOS1;});
-  stateMachine.AddTransition(MONITOR, PMV_ALTO, []() { return input == PMV_MAYOR_QUE_1;});
-  stateMachine.AddTransition(MONITOR, CONFIG, []() { return input == TIEMPO_EXPIRADO;});
+  stateMachine.AddTransition(MONITOR, PMV_BAJO, []() {
+    return input == PMV_MENOR_QUE_MENOS1;
+  });
+  stateMachine.AddTransition(MONITOR, PMV_ALTO, []() {
+    return input == PMV_MAYOR_QUE_1;
+  });
+  stateMachine.AddTransition(MONITOR, CONFIG, []() {
+    return input == TIEMPO_EXPIRADO;
+  });
 
   // Add transitions PMV
-  stateMachine.AddTransition(PMV_BAJO, MONITOR, []() { return input == TIEMPO_EXPIRADO;});
-  stateMachine.AddTransition(PMV_ALTO, MONITOR, []() { return input == TIEMPO_EXPIRADO;});
-  stateMachine.AddTransition(PMV_ALTO, ALARMA, []() { return input == TEMP_ALTA_3_INTENTOS;});
+  stateMachine.AddTransition(PMV_BAJO, MONITOR, []() {
+    return input == TIEMPO_EXPIRADO;
+  });
+  stateMachine.AddTransition(PMV_ALTO, MONITOR, []() {
+    return input == TIEMPO_EXPIRADO;
+  });
+  stateMachine.AddTransition(PMV_ALTO, ALARMA, []() {
+    return input == TEMP_ALTA_3_INTENTOS;
+  });
 
   // Add transitions Alarma
-  stateMachine.AddTransition(ALARMA, INICIO, []() { return input == SENSOR_INFRARROJO;});
-
+  stateMachine.AddTransition(ALARMA, INICIO, []() {
+    return input == SENSOR_INFRARROJO;
+  });
 
   // Add enterings
   stateMachine.SetOnEntering(INICIO, outputInicio);
@@ -157,6 +198,9 @@ void setupStateMachine() {
 
   // Add leavings
   stateMachine.SetOnLeaving(BLOQUEO, onLeavingBloqueo);
+  stateMachine.SetOnLeaving(ALARMA, []() {TaskBuzzer.Stop(); digitalWrite(BUZZER_PIN, LOW);});
+  stateMachine.SetOnLeaving(PMV_BAJO, onLeavingPMV_Bajo);
+  stateMachine.SetOnLeaving(PMV_ALTO, onLeavingPMV_Alto);
 }
 
 void setup() {
@@ -175,6 +219,8 @@ void setup() {
 }
 
 void loop() {
+  pinMode(BUZZER_PIN, OUTPUT);
+  digitalWrite(BUZZER_PIN, LOW);
   // Leer input usuario (por serial)
   if (input == Unknown) {
     input = static_cast<Input>(readInputSerial());
@@ -186,11 +232,19 @@ void loop() {
   TaskLedRed.Update();
   TaskLedGreen.Update();
   TaskLedBlue.Update();
+  // Actualizar buzzer
+  TaskBuzzer.Update();
+  // Actualizar servo
+  TaskServo.Update();
 
   // Read "*" when we are in BLOQUEO
   checkBloqueo();
+  // Check the temperature in PMV_ALTO
+  checkTemperaturaAlta();
+  // Check PMV
+  checkPMV();
   // Actualizar máquina de estados
-  stateMachine.Update();
+  stateMachine.Update(); // Revisar esto para BLOQUEO
 }
 
 // Auxiliar output functions that show the state debug-----------------------------------------
@@ -232,6 +286,7 @@ void outputInicio() {
 }
 
 void outputConfig() {
+  input = Unknown;
   TaskTime.SetIntervalMillis(5000);  // 5 Segs hasta monitor si no hay entrada
   TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
@@ -240,18 +295,29 @@ void outputConfig() {
 }
 
 void outputAlarma() {
+  input = Unknown;
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("!!! ALARMA !!!");
+  lcd.setCursor(0, 1);
+  lcd.print("Movimiento -> reset");
+
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                               X                                  ");
   Serial.println();
+
+  buzzerState = false;
+  digitalWrite(BUZZER_PIN, LOW);
+  TaskBuzzer.Start();
 }
 
 void outputBloqueo() {
+  input = Unknown;
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("SISTEMA BLOQUEADO");
   lcd.setCursor(0, 1);
   lcd.print("Presione '*'");
-
 
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                                                              X   ");
@@ -264,37 +330,23 @@ void outputBloqueo() {
 }
 
 void outputMonitor() {
-  leerSensores();
-  // Actividad ligera (persona de pie o caminando lentamente)
-  M = 100;
-  // Ropa ligera (camisa, pantalón)
-  clo = 0.5;
-  // Velocidad de aire típica en interior
-  vel_ar = 0.1;
-  // Calcular PMV
-  float pmv = calcularPMV_Fanger(tempA, tempR, humedad, vel_ar, M, clo);
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("PMV: ");
-  lcd.print(pmv, 2);
-  Serial.print("PMV calculado: ");
-  Serial.println(pmv, 2);
-
-  if (pmv < -1)
-    input = PMV_MENOR_QUE_MENOS1;
-  else if (pmv > 1) 
-    input = PMV_MAYOR_QUE_1;
-  else
-    input = TIEMPO_EXPIRADO;
-
+  input = Unknown;
   TaskTime.SetIntervalMillis(7000);  // 7 segs hasta config si no hay entrada
   TaskTime.Start();
+
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("MONITOR");
+  lcd.setCursor(0, 1);
+  lcd.print("Calculando PMV...");
+
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                     X                                            ");
   Serial.println();
 }
 
 void outputPMV_Bajo() {
+  input = Unknown;
   TaskTime.SetIntervalMillis(3000);  // 3 segs hasta monitor si no hay entrada
   TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
@@ -306,10 +358,18 @@ void outputPMV_Bajo() {
   lastToggleGreen = millis();
   TaskLedGreen.Start();
 
-  girarServo(pos);
+  // Reiniciar posición y dirección del servo
+  servo.attach(SERVO_PIN);
+  servoPos = 0;
+  servoUp = true;
+  servo.write(servoPos);
+
+  // Iniciar movimiento asíncrono
+  TaskServo.Start();
 }
 
 void outputPMV_Alto() {
+  input = Unknown;
   TaskTime.SetIntervalMillis(4000);  // 4 segs hasta monitor si no hay entrada
   TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
@@ -327,6 +387,20 @@ void onLeavingBloqueo() {
   TaskLedRed.Stop();
   digitalWrite(LED_RED, LOW);
   Serial.println("Saliendo de BLOQUEO, LED apagado");
+}
+
+void onLeavingPMV_Bajo() {
+  TaskLedGreen.Stop();
+  digitalWrite(LED_GREEN, LOW);
+  TaskServo.Stop();
+  servo.detach();
+  Serial.println("Saliendo de PMV_Bajo, LED apagado");
+}
+
+void onLeavingPMV_Alto() {
+  TaskLedBlue.Stop();
+  digitalWrite(LED_BLUE, LOW);
+  Serial.println("Saliendo de PMV_Alto, LED apagado");
 }
 
 // AUXILIAR FUNCTIONS ----------------------------------------------------------
@@ -401,7 +475,7 @@ void toggleBlue() {
     TaskLedBlue.SetIntervalMillis(400);  // siguiente ciclo: 400 ms apagado
   }
   // Si el LED está apagado y han pasado 400 ms → encender
-  else if (!ledStateBlue&& (now - lastToggleBlue >= 400)) {
+  else if (!ledStateBlue && (now - lastToggleBlue >= 400)) {
     ledStateBlue = true;
     digitalWrite(LED_BLUE, HIGH);
     lastToggleBlue = now;
@@ -409,7 +483,6 @@ void toggleBlue() {
   }
 }
 
-// K E Y P A D
 // Read password from KEYPAD
 void readPassword() {
   lcd.clear();
@@ -467,7 +540,7 @@ void leerSensores() {
   int rawLuz = analogRead(LDR_PIN);
   luz = map(rawLuz, 0, 1032, 0, 100);  // % aproximado de iluminación
   int analogValue = analogRead(TEMP_PIN);
-  tempR = 1 / (log(1 / (1023. / analogValue - 1)) / BETA + 1.0 / 298.15) - 273.15; // °C        
+  tempR = 1 / (log(1 / (1023. / analogValue - 1)) / BETA + 1.0 / 298.15) - 273.15;  // °C
 
   if (isnan(humedad) || isnan(tempA)) {
     Serial.println("Failed to read from DHT sensor!");
@@ -542,86 +615,137 @@ float calcularFcl(float icl) {
 
 // CALCULAR PMV (Modelo Fanger adaptado a Arduino)
 float calcularPMV_Fanger(float ta, float tr, float rh, float vel_ar, float M, float clo) {
-	// Conversión de unidades y constantes base
-	float pa, icl, V, fcl, hc, pmv;
-	float tol = 0.0001;  // Tolerancia para iteraciones
-	float tcl = ta;      // Temperatura inicial de la superficie de la ropa
-	float tcl_prev;
-	int iteracion = 0;
-	int max_iters = 100;
-	
-	// Constantes
-	V = 0.0;                            // Trabajo mecánico (reposo)
-	icl = clo * 0.155;                  // Aislamiento térmico (m²K/W)
-	pa = calcularPresionVapor(ta, rh);  // Presión de vapor (Pa)
-	
-	// Factor de superficie de la ropa
-	fcl = calcularFcl(icl);
-	
-	// ------------Iteración para hallar tcl---------------
-	do {
-		tcl_prev = tcl;
-		
-		// Calcular hc
-		hc = calcularHc(tcl, ta, vel_ar);
-		
-		// Convertidr a grados Kelvin para la fórmula
-		float tr_rad = tr + 273.0;
-		float tcl_rad = tcl + 273.0;
-		
-		// Calcular la radiación térmica de onda larga (transferencia de calor radiante)
-		float radiation = (3.96 * pow(10, -8)) * fcl * (pow(tcl_rad, 4) - pow(tr_rad, 4));
-		// Calcular la transferencia de calor por convección (aire calentando/enfriando la ropa)
-		float convection = fcl * hc * (tcl - ta);
-		
-		tcl = 35.7 - 0.028 * (M - V) - icl * (radiation - convection);
-		
-		iteracion++;
-	} while (fabs(tcl - tcl_prev) > tol && iteracion < max_iters);
-	
-	// Cálculo de hcl final
-	float hc_final;
-	hc_final = calcularHc(tcl, ta, vel_ar);
-	
-	// --------------CÁLCULO DEL PMV------------------
-	// Convertidr a grados Kelvin para la fórmula
-	float tr_rad = tr + 273.0;
-	float tcl_rad = tcl + 273.0;
-	
-	// - - -Calcular las formas de perder calor- - -
-	// Calcular la radiación térmica de onda larga (transferencia de calor radiante)
-	float radiation = (3.96e-8) * fcl * (pow(tcl_rad, 4) - pow(tr_rad, 4));
-	// Calcular la transferencia de calor por convección (aire calentando/enfriando la ropa)
-	float convection = fcl * hc_final * (tcl - ta);
-	// Calcular la pérdida de calor por respiración
-	float respiration = 0.0014 * M * (34.0 - ta);
-	// Calcular la pérdida de calor por transpiración
-	float latent = (1.7e-5) * M * (5867.0 - pa);
-	// Pérdida de calor total
-	float heat_loss = latent + respiration + radiation + convection;
-	
-	pmv = 	(0.303 * exp(-0.036 * M) + 0.028) * (
-			(M - V)
-			- (3.05e-3) * (5733.0 - 6.99 * (M - V) - pa)
-			- 0.42 * ((M - V) - 58.15)
-			- heat_loss
-			);
-	
-  return constrain(pmv, -3.0, 3.0); // limitar rango típico del índice PMV
+  // Conversión de unidades y constantes base
+  float pa, icl, V, fcl, hc, pmv;
+  float tol = 0.0001;  // Tolerancia para iteraciones
+  float tcl = ta;      // Temperatura inicial de la superficie de la ropa
+  float tcl_prev;
+  int iteracion = 0;
+  int max_iters = 100;
+
+  // Constantes
+  V = 0.0;                            // Trabajo mecánico (reposo)
+  icl = clo * 0.155;                  // Aislamiento térmico (m²K/W)
+  pa = calcularPresionVapor(ta, rh);  // Presión de vapor (Pa)
+
+  // Factor de superficie de la ropa
+  fcl = calcularFcl(icl);
+
+  // ------------Iteración para hallar tcl---------------
+  do {
+    tcl_prev = tcl;
+
+    // Calcular hc
+    hc = calcularHc(tcl, ta, vel_ar);
+
+    // Convertidr a grados Kelvin para la fórmula
+    float tr_rad = tr + 273.0;
+    float tcl_rad = tcl + 273.0;
+
+    // Calcular la radiación térmica de onda larga (transferencia de calor radiante)
+    float radiation = (3.96 * pow(10, -8)) * fcl * (pow(tcl_rad, 4) - pow(tr_rad, 4));
+    // Calcular la transferencia de calor por convección (aire calentando/enfriando la ropa)
+    float convection = fcl * hc * (tcl - ta);
+
+    tcl = 35.7 - 0.028 * (M - V) - icl * (radiation - convection);
+
+    iteracion++;
+  } while (fabs(tcl - tcl_prev) > tol && iteracion < max_iters);
+
+  // Cálculo de hcl final
+  float hc_final;
+  hc_final = calcularHc(tcl, ta, vel_ar);
+
+  // --------------CÁLCULO DEL PMV------------------
+  // Convertidr a grados Kelvin para la fórmula
+  float tr_rad = tr + 273.0;
+  float tcl_rad = tcl + 273.0;
+
+  // - - -Calcular las formas de perder calor- - -
+  // Calcular la radiación térmica de onda larga (transferencia de calor radiante)
+  float radiation = (3.96e-8) * fcl * (pow(tcl_rad, 4) - pow(tr_rad, 4));
+  // Calcular la transferencia de calor por convección (aire calentando/enfriando la ropa)
+  float convection = fcl * hc_final * (tcl - ta);
+  // Calcular la pérdida de calor por respiración
+  float respiration = 0.0014 * M * (34.0 - ta);
+  // Calcular la pérdida de calor por transpiración
+  float latent = (1.7e-5) * M * (5867.0 - pa);
+  // Pérdida de calor total
+  float heat_loss = latent + respiration + radiation + convection;
+
+  pmv = (0.303 * exp(-0.036 * M) + 0.028) * ((M - V) - (3.05e-3) * (5733.0 - 6.99 * (M - V) - pa) - 0.42 * ((M - V) - 58.15) - heat_loss);
+
+  return constrain(pmv, -3.0, 3.0);  // limitar rango típico del índice PMV
 }
 
 // Move Servo
-void girarServo(int pos) {
-  for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
-  // in steps of 1 degree
-  servo.write(pos); // tell servo to go to position in variable 'pos'
-  TaskTime.SetIntervalMillis(15); // waits 15ms for the servo to reach the position
-  TaskTime.Start();
+void moverServo() {
+  if (servoUp) {
+    servoPos++;
+    if (servoPos >= 180) {
+      servoPos = 180;
+      servoUp = false;
+    }
+  } else {
+    servoPos--;
+    if (servoPos <= 0) {
+      servoPos = 0;
+      servoUp = true;
+    }
   }
+  servo.write(servoPos);
+}
 
-  for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
-  servo.write(pos); // tell servo to go to position in variable 'pos'
-  TaskTime.SetIntervalMillis(15); // waits 15ms for the servo to reach the position
-  TaskTime.Start();
+// Check PMV to call in loop
+void checkPMV() {
+  if (stateMachine.GetState() == MONITOR && tiempoMonitorVencido) {
+    tiempoMonitorVencido = false;
+    leerSensores();
+
+    float M = 100;    // metabolismo
+    float clo = 0.5;  // vestimenta
+    float vel_ar = 0.1;
+    float pmv = calcularPMV_Fanger(tempA, tempR, humedad, vel_ar, M, clo);
+    Serial.print("PMV calculado: ");
+    Serial.println(pmv, 2);
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("PMV: ");
+    lcd.print(pmv, 2);
+    if (pmv < -1)
+      input = PMV_MENOR_QUE_MENOS1;
+    else if (pmv > 1)
+      input = PMV_MAYOR_QUE_1;
+    else
+      input = TIEMPO_EXPIRADO;
+    // Reinicia el timer para el siguiente cálculo
+    TaskTime.Start();
   }
+}
+
+// Check high temperature
+void checkTemperaturaAlta() {
+  if (stateMachine.GetState() == PMV_ALTO) {
+    tempA = dht.readTemperature();  // actualiza tempA
+
+    if (tempA > 30.0) {
+      conteoTempAlta++;
+      Serial.print("Temperatura alta detectada (");
+      Serial.print(conteoTempAlta);
+      Serial.println("/3)");
+    } else {
+      conteoTempAlta = 0;  // reset si baja la temperatura
+    }
+
+    if (conteoTempAlta >= 3) {
+      input = TEMP_ALTA_3_INTENTOS;
+      conteoTempAlta = 0;  // reinicia para futuras detecciones
+    }
+  }
+}
+
+// Sonido para el buzzer
+void toggleBuzzer() {
+  buzzerState = !buzzerState;
+  digitalWrite(BUZZER_PIN, buzzerState);
 }
