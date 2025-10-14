@@ -17,6 +17,7 @@
 #define LDR_PIN A3
 #define TEMP_PIN A0
 const float BETA = 3950;
+#define MOV_PIN 26
 // Servomotor
 #define SERVO_PIN 13
 // Ventilador
@@ -64,7 +65,7 @@ char keys[ROWS][COLS] = {
   { '*', '0', '#', 'D' }
 };
 byte rowPins[ROWS] = { 40, 42, 44, 46 };  // conecta a los pines de las filas del teclado
-byte colPins[COLS] = { 48, 50, 52, 53 };  // conecta a los pines de las columnas del teclado
+byte colPins[COLS] = { 48, 24, 22, 43 };  // conecta a los pines de las columnas del teclado
 
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
@@ -208,6 +209,11 @@ void setup() {
   lcd.begin(16, 2);
   dht.begin();
   servo.attach(SERVO_PIN);
+  pinMode(LED_RED, OUTPUT);
+  pinMode(LED_GREEN, OUTPUT);
+  pinMode(LED_BLUE, OUTPUT);
+  pinMode(BUZZER_PIN, OUTPUT);
+  digitalWrite(BUZZER_PIN, LOW);
 
   lcd.setCursor(0, 0);
 
@@ -219,8 +225,6 @@ void setup() {
 }
 
 void loop() {
-  pinMode(BUZZER_PIN, OUTPUT);
-  digitalWrite(BUZZER_PIN, LOW);
   // Leer input usuario (por serial)
   if (input == Unknown) {
     input = static_cast<Input>(readInputSerial());
@@ -239,8 +243,6 @@ void loop() {
 
   // Read "*" when we are in BLOQUEO
   checkBloqueo();
-  // Check the temperature in PMV_ALTO
-  checkTemperaturaAlta();
   // Check PMV
   checkPMV();
   // Actualizar máquina de estados
@@ -308,6 +310,7 @@ void outputAlarma() {
 
   buzzerState = false;
   digitalWrite(BUZZER_PIN, LOW);
+  TaskBuzzer.SetIntervalMillis(400);
   TaskBuzzer.Start();
 }
 
@@ -370,6 +373,19 @@ void outputPMV_Bajo() {
 
 void outputPMV_Alto() {
   input = Unknown;
+  tempA = 31;
+  if (tempA > 30.0) {
+    conteoTempAlta++;
+    Serial.print("Temperatura alta detectada (");
+    Serial.print(conteoTempAlta);
+    Serial.println("/3)");
+  } else {
+    conteoTempAlta = 0;  // reset si baja la temperatura
+  }
+  if (conteoTempAlta >= 3) {
+    input = TEMP_ALTA_3_INTENTOS;
+    conteoTempAlta = 0;  // reinicia para futuras detecciones
+  }
   TaskTime.SetIntervalMillis(4000);  // 4 segs hasta monitor si no hay entrada
   TaskTime.Start();
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
@@ -705,7 +721,7 @@ void checkPMV() {
     float M = 100;    // metabolismo
     float clo = 0.5;  // vestimenta
     float vel_ar = 0.1;
-    float pmv = calcularPMV_Fanger(tempA, tempR, humedad, vel_ar, M, clo);
+    float pmv = 2.5;
     Serial.print("PMV calculado: ");
     Serial.println(pmv, 2);
     lcd.clear();
@@ -720,27 +736,6 @@ void checkPMV() {
       input = TIEMPO_EXPIRADO;
     // Reinicia el timer para el siguiente cálculo
     TaskTime.Start();
-  }
-}
-
-// Check high temperature
-void checkTemperaturaAlta() {
-  if (stateMachine.GetState() == PMV_ALTO) {
-    tempA = dht.readTemperature();  // actualiza tempA
-
-    if (tempA > 30.0) {
-      conteoTempAlta++;
-      Serial.print("Temperatura alta detectada (");
-      Serial.print(conteoTempAlta);
-      Serial.println("/3)");
-    } else {
-      conteoTempAlta = 0;  // reset si baja la temperatura
-    }
-
-    if (conteoTempAlta >= 3) {
-      input = TEMP_ALTA_3_INTENTOS;
-      conteoTempAlta = 0;  // reinicia para futuras detecciones
-    }
   }
 }
 
