@@ -5,8 +5,9 @@
 #include "DHT.h"
 #include <math.h>
 #include <Servo.h>
-
-
+#include <SPI.h>
+#include <MFRC522.h>
+#include <EEPROM.h>
 
 // RGB led
 #define LED_RED 8
@@ -26,6 +27,13 @@ const float BETA = 3950;
 #define FAN_PIN 38
 // Buzzer
 #define BUZZER_PIN 7
+// Pines del lector MFRC522
+#define SS_PIN  53// Pin SDA
+#define RST_PIN 6   // Pin RST 
+#define MAX_UID_LENGTH   10     // UID puede ser de 4, 7 o 10 bytes
+#define NAME_MAX_LENGTH  16     // Nombre máximo por tarjeta
+#define RECORD_SIZE      (1 + MAX_UID_LENGTH + NAME_MAX_LENGTH)  // [len][UID][nombre]
+#define MAX_RECORDS      10     // Puedes ajustar este número
 
 
 // Global variables to calculate PMV and to get through the sensors
@@ -53,7 +61,11 @@ bool buzzerState = false;
 void toggleBuzzer();
 AsyncTask TaskBuzzer(200, true, toggleBuzzer);
 
+// To RFID
+char nombre[NAME_MAX_LENGTH];
+bool tarjetaProcesada = false;
 
+MFRC522 mfrc522(SS_PIN, RST_PIN);
 
 // KEYPAD Definition
 // Password for Keypad
@@ -221,6 +233,9 @@ void setup() {
   pinMode(FAN_PIN, OUTPUT);
   digitalWrite(FAN_PIN, LOW);
   pinMode(PIR_SENSOR, INPUT);
+  SPI.begin();           // Inicializa bus SPI
+  mfrc522.PCD_Init();    // Inicializa el lector RFID
+
 
   lcd.setCursor(0, 0);
 
@@ -257,6 +272,13 @@ void loop() {
   // Actualizar máquina de estados
   stateMachine.Update(); // Revisar esto para BLOQUEO
 
+  handleConfigRFID();
+
+  // Comandos por serial para gestionar tags (NUEVO)
+  if (Serial.available()) {
+    String command = Serial.readString();
+    command.trim();
+  }
 }
 
 // Auxiliar output functions that show the state debug-----------------------------------------
@@ -301,6 +323,7 @@ void outputConfig() {
   input = Unknown;
   TaskTime.SetIntervalMillis(5000);  // 5 Segs hasta monitor si no hay entrada
   TaskTime.Start();
+  tarjetaProcesada = false;
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("            X                                                     ");
   Serial.println();
@@ -508,6 +531,222 @@ void toggleBlue() {
     lastToggleBlue = now;
     TaskLedBlue.SetIntervalMillis(300);  // siguiente ciclo: 300 ms encendido
   }
+}
+
+bool isEqualArray(byte* arrayA, byte* arrayB, int length)
+{
+  for (int index = 0; index < length; index++)
+  {
+    if (arrayA[index] != arrayB[index]) return false;
+  }
+  return true;
+}
+
+void readName(char* buffer, int maxLen) {
+  int index = 0;
+  while (Serial.available() > 0 && index < maxLen - 1) {
+    char c = Serial.read();
+    if (c == '\n' || c == '\r') break; // fin de línea = fin de nombre
+    buffer[index++] = c;
+  }
+  buffer[index] = '\0'; // fin de cadena
+}
+
+int findUIDInEEPROM(byte* uid, byte uidLength) {
+  for (int recordIndex = 0; recordIndex < MAX_RECORDS; recordIndex++) {
+    int address = recordIndex * RECORD_SIZE;
+    byte storedLen = EEPROM.read(address);
+
+    // Registro vacío → saltar
+    if (storedLen == 0xFF) continue;
+
+    // Si la longitud no coincide → no es la misma tarjeta
+    if (storedLen != uidLength) continue;
+
+    // Comparar byte a byte
+    bool match = true;
+    for (int i = 0; i < uidLength; i++) {
+      byte storedByte = EEPROM.read(address + 1 + i);
+      if (storedByte != uid[i]) {
+        match = false;
+        break;
+      }
+    }
+
+    if (match) {
+      return address; // ✅ encontrado
+    }
+  }
+  return -1; // ❌ no encontrado
+}
+
+
+void saveUIDAndName(byte* uid, byte uidLength, const char* name) {
+  for (int recordIndex = 0; recordIndex < MAX_RECORDS; recordIndex++) {
+    int address = recordIndex * RECORD_SIZE;
+    byte firstByte = EEPROM.read(address);
+
+    if (firstByte == 0xFF) { // posición libre (EEPROM limpia es 0xFF)
+      // Guardar longitud UID
+      EEPROM.write(address, uidLength);
+
+      // Guardar UID
+      for (int i = 0; i < uidLength; i++) {
+        EEPROM.write(address + 1 + i, uid[i]);
+      }
+
+      // Guardar nombre
+      for (int i = 0; i < NAME_MAX_LENGTH; i++) {
+        if (i < strlen(name)) {
+          EEPROM.write(address + 1 + MAX_UID_LENGTH + i, name[i]);
+        } else {
+          EEPROM.write(address + 1 + MAX_UID_LENGTH + i, '\0');
+        }
+      }
+
+      Serial.print("✅ Guardado en registro ");
+      Serial.println(recordIndex);
+      break;
+    }
+  }
+}
+
+// To RFID
+void readNameFromEEPROM(int recordAddress, char* buffer, int maxLen) {
+  int base = recordAddress;
+  for (int i = 0; i < maxLen; i++) {
+    buffer[i] = EEPROM.read(base + 1 + MAX_UID_LENGTH + i);
+    if (buffer[i] == '\0') break;
+  }
+}
+
+void printEEPROMRecords() {
+  Serial.println("========================================");
+  Serial.println("=== Contenido EEPROM ===");
+
+  for (int recordIndex = 0; recordIndex < MAX_RECORDS; recordIndex++) {
+    int address = recordIndex * RECORD_SIZE;
+    byte uidLen = EEPROM.read(address);
+
+    // Registro vacío (EEPROM limpia → 0xFF)
+    if (uidLen == 0xFF) {
+      Serial.print("Registro "); Serial.print(recordIndex);
+      Serial.println(" [VACÍO]");
+      continue;
+    }
+
+    // Leer UID
+    Serial.print("Registro "); Serial.print(recordIndex);
+    Serial.print(" (addr "); Serial.print(address); Serial.print("): UID = ");
+    for (int i = 0; i < uidLen; i++) {
+      byte b = EEPROM.read(address + 1 + i);
+      Serial.print(b < 0x10 ? " 0" : " ");
+      Serial.print(b, HEX);
+    }
+
+    // Leer nombre
+    Serial.print(" | Nombre = ");
+    for (int i = 0; i < NAME_MAX_LENGTH; i++) {
+      char c = EEPROM.read(address + 1 + MAX_UID_LENGTH + i);
+      if (c == '\0') break;
+      Serial.print(c);
+    }
+    Serial.println();
+  }
+  Serial.println("========================================");
+}
+
+
+void handleConfigRFID() {
+  // ✅ Asegurar que estamos en el estado CONFIG
+  if (stateMachine.GetState() != CONFIG) return;
+
+  // ✅ Evitar reprocesar la misma tarjeta en este estado
+  if (tarjetaProcesada) return;
+
+  // ✅ Detectar nueva tarjeta
+  if (!mfrc522.PICC_IsNewCardPresent() || !mfrc522.PICC_ReadCardSerial()) {
+    return;  // No hay tarjeta todavía → seguir esperando
+  }
+
+  byte* uid = mfrc522.uid.uidByte;
+  byte uidLength = mfrc522.uid.size;
+
+  // Buscar si la tarjeta ya existe en EEPROM
+  int recordAddress = findUIDInEEPROM(uid, uidLength);
+  if (recordAddress != -1) {
+    // ✅ Tarjeta ya registrada → leer nombre desde EEPROM
+    readNameFromEEPROM(recordAddress, nombre, NAME_MAX_LENGTH);
+    lcd.clear();
+    lcd.print("Bienvenido:");
+    lcd.setCursor(0, 1);
+    lcd.print(nombre);
+    Serial.print("Nombre leído: ");
+    Serial.println(nombre);
+  } else {
+    // ✅ Nueva tarjeta → solicitar y registrar nombre
+    lcd.clear();
+    lcd.print("Nueva tarjeta");
+    Serial.println("Ingrese nombre para esta tarjeta:");
+
+    // Esperar entrada del nombre por Serial (máx. 15 s)
+    unsigned long start = millis();
+    while (!Serial.available()) {
+      if (millis() - start > 15000) {  // tiempo máximo de espera
+        Serial.println("Tiempo de espera agotado.");
+        lcd.clear();
+        lcd.print("Sin nombre");
+        delay(1500);
+        mfrc522.PICC_HaltA();
+        return; // cancelar registro
+      }
+    }
+
+    // Leer nombre
+    String nombreStr = Serial.readStringUntil('\n');
+    nombreStr.trim();
+
+    if (nombreStr.length() > 0) {
+      // Convertir a char[] y guardar en EEPROM
+      nombreStr.toCharArray(nombre, NAME_MAX_LENGTH);
+      saveUIDAndName(uid, uidLength, nombre);
+
+      lcd.clear();
+      lcd.print("Nombre guardado");
+      Serial.print("Nombre guardado: ");
+      Serial.println(nombreStr);
+      delay(2000);
+    } else {
+      lcd.clear();
+      lcd.print("Nombre invalido");
+      Serial.println("Nombre inválido, no se guardó.");
+      delay(1500);
+      mfrc522.PICC_HaltA();
+      return;  // 🚫 No continuar si el nombre es inválido
+    }
+  }
+
+  // ✅ Marcar tarjeta como procesada y activar temporizador para volver a MONITOR
+  tarjetaProcesada = true;
+
+  // Finalizar comunicación con la tarjeta
+  mfrc522.PICC_HaltA();
+}
+
+
+
+
+String leerNombreDesdeSerial() {
+  unsigned long start = millis();
+  while (!Serial.available()) {
+    if (millis() - start > 10000) {  // tiempo de espera máximo de 10 s
+      Serial.println("Tiempo de espera agotado.");
+      return "";
+    }
+  }
+  String nombre = Serial.readStringUntil('\n');
+  nombre.trim();
+  return nombre;
 }
 
 // Read password from KEYPAD
