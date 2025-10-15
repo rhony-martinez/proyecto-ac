@@ -421,6 +421,11 @@ void outputPMV_Alto() {
     Serial.print("Temperatura alta detectada (");
     Serial.print(conteoTempAlta);
     Serial.println("/3)");
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Temp > 30, Intentos: ");
+    lcd.setCursor(0, 1);
+    lcd.print(conteoTempAlta);
   } else {
     conteoTempAlta = 0;  // reset si baja la temperatura
   }
@@ -707,7 +712,8 @@ void handleConfigRFID() {
         Serial.println("Tiempo de espera agotado.");
         lcd.clear();
         lcd.print("Sin nombre");
-        delay(1500);
+        TaskTime.SetIntervalMillis(1500);
+        TaskTime.Start();
         mfrc522.PICC_HaltA();
         return; // cancelar registro
       }
@@ -726,12 +732,14 @@ void handleConfigRFID() {
       lcd.print("Nombre guardado");
       Serial.print("Nombre guardado: ");
       Serial.println(nombreStr);
-      delay(2000);
+      TaskTime.SetIntervalMillis(2000);
+      TaskTime.Start();
     } else {
       lcd.clear();
       lcd.print("Nombre invalido");
       Serial.println("Nombre inválido, no se guardó.");
-      delay(1500);
+      TaskTime.SetIntervalMillis(1500);
+      TaskTime.Start();
       mfrc522.PICC_HaltA();
       return;  // No continuar si el nombre es inválido
     }
