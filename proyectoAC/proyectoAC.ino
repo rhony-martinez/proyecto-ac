@@ -67,13 +67,6 @@ bool tarjetaProcesada = false;
 
 MFRC522 mfrc522(SS_PIN, RST_PIN);
 
-// // --- Rotación LCD en MONITOR ---
-bool mostrarPMV = false;
-float pmvActual = 0.0;
-
-void toggleMonitorDisplay();
-AsyncTask TaskLCDMonitor(3000, true, toggleMonitorDisplay); // cambia cada 3 segundos
-
 // KEYPAD Definition
 // Password for Keypad
 const char clave[6] = { '2', '0', '2', '5', '2', 'A' };
@@ -225,7 +218,6 @@ void setupStateMachine() {
   stateMachine.SetOnLeaving(ALARMA, []() {TaskBuzzer.Stop(); digitalWrite(BUZZER_PIN, LOW);});
   stateMachine.SetOnLeaving(PMV_BAJO, onLeavingPMV_Bajo);
   stateMachine.SetOnLeaving(PMV_ALTO, onLeavingPMV_Alto);
-  stateMachine.SetOnLeaving(MONITOR, []() {TaskLCDMonitor.Stop(); });
 
 }
 
@@ -271,11 +263,6 @@ void loop() {
   TaskBuzzer.Update();
   // Actualizar servo
   TaskServo.Update();
-  // Rotación LCD para PMV
-  TaskLCDMonitor.Update();
-
-  // --- Mostrar datos dinámicos en MONITOR ---
-  showData();
 
   // Read "*" when we are in BLOQUEO
   checkBloqueo();
@@ -381,21 +368,23 @@ void outputMonitor() {
   input = Unknown;
   leerSensores();
 
-  // --- Calcular PMV ---
-  M = 100;   // actividad ligera
-  clo = 0.5; // ropa ligera
-  vel_ar = 0.1;
-  pmvActual = calcularPMV_Fanger(tempA, tempR, humedad, vel_ar, M, clo);
+  lcd.setCursor(0, 0);
+  lcd.print("T:");
+  lcd.print(tempA, 1);
+  lcd.print("C  H:");
+  lcd.print(humedad, 0);
+  lcd.print("%   "); // limpia residuos si cambian
+  lcd.setCursor(0, 1);
+  lcd.print("Luz:");
+  lcd.print(luz, 0);
+  lcd.print("% Tr:");
+  lcd.print(tempR, 1);
+  lcd.print("  "); // limpiar sobrante
 
   // --- Iniciar temporizadores ---
   TaskTime.SetIntervalMillis(7000);  // 7 segs hasta cambio de estado
   TaskTime.Start();
 
-  mostrarPMV = false;  // comienza mostrando sensores
-  TaskLCDMonitor.Start();
-
-  Serial.print("PMV calculado: ");
-  Serial.println(pmvActual, 2);
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                     X                                            ");
   Serial.println();
@@ -1004,37 +993,6 @@ void checkMovimiento() {
     if (pirValue == LOW) {
       Serial.println("Movimiento detectado -> Regresando a INICIO");
       input = SENSOR_INFRARROJO;
-    }
-  }
-}
-
-// LCD Rotation
-void toggleMonitorDisplay() {
-  mostrarPMV = !mostrarPMV;
-}
-
-// Show dynamic data in MONITOR
-void showData() {
-  if (stateMachine.GetState() == MONITOR) {
-    if (!mostrarPMV) {
-      lcd.setCursor(0, 0);
-      lcd.print("T:");
-      lcd.print(tempA, 1);
-      lcd.print("C  H:");
-      lcd.print(humedad, 0);
-      lcd.print("%   "); // limpia residuos si cambian
-      lcd.setCursor(0, 1);
-      lcd.print("Luz:");
-      lcd.print(luz, 0);
-      lcd.print("% Tr:");
-      lcd.print(tempR, 1);
-      lcd.print("  "); // limpiar sobrante
-    } else {
-      lcd.clear();
-      lcd.setCursor(0, 0);
-      lcd.print("Indice PMV:");
-      lcd.setCursor(0, 1);
-      lcd.print(pmvActual, 2);
     }
   }
 }
