@@ -89,7 +89,7 @@ En función de las condiciones detectadas, el sistema activa actuadores (ventila
 │ ├── proyecto/
 │ │ └── proyecto.ino
 │ ├── FSM_ARQ_A.png
-│ ├── definicion_proyecto.pdf
+│ ├── Definicion.docx
 │ └── README.md
 │
 ├── develop/
@@ -98,7 +98,7 @@ En función de las condiciones detectadas, el sistema activa actuadores (ventila
 │ ├── proyectoAC/
 │ │ └── proyectoAC.ino
 │ ├── FSM_ARQ_A.png
-│ ├── definicion_proyecto.pdf
+│ ├── Definicion.docx
 │ └── README.md
 │
 ├── feature/RM/
@@ -107,7 +107,7 @@ En función de las condiciones detectadas, el sistema activa actuadores (ventila
 │ ├── proyectoAC/
 │ │ └── proyectoAC.ino
 │ ├── FSM_ARQ_A.png
-│ ├── definicion_proyecto.pdf
+│ ├── Definicion.docx
 │ └── README.md
 │
 ├── feature/PIPE/
@@ -116,7 +116,7 @@ En función de las condiciones detectadas, el sistema activa actuadores (ventila
 │ ├── proyectoAC/
 │ │ └── proyectoAC.ino
 │ ├── FSM_ARQ_A.png
-│ ├── definicion_proyecto.pdf
+│ ├── Definicion.docx
 │ └── README.md
 ```
 
