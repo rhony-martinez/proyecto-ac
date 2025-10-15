@@ -87,7 +87,7 @@ Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
 // Servo
 Servo servo;
-int servoPos = 0;         // posición actual del servo
+int servoPos = 20;         // posición actual del servo
 bool servoUp = true;  
 
 void moverServo();
@@ -218,6 +218,7 @@ void setupStateMachine() {
   stateMachine.SetOnLeaving(ALARMA, []() {TaskBuzzer.Stop(); digitalWrite(BUZZER_PIN, LOW);});
   stateMachine.SetOnLeaving(PMV_BAJO, onLeavingPMV_Bajo);
   stateMachine.SetOnLeaving(PMV_ALTO, onLeavingPMV_Alto);
+
 }
 
 void setup() {
@@ -365,14 +366,24 @@ void outputBloqueo() {
 
 void outputMonitor() {
   input = Unknown;
-  TaskTime.SetIntervalMillis(7000);  // 7 segs hasta config si no hay entrada
-  TaskTime.Start();
+  leerSensores();
 
-  lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("MONITOR");
+  lcd.print("T:");
+  lcd.print(tempA, 1);
+  lcd.print("C  H:");
+  lcd.print(humedad, 0);
+  lcd.print("%   "); // limpia residuos si cambian
   lcd.setCursor(0, 1);
-  lcd.print("Calculando PMV...");
+  lcd.print("Luz:");
+  lcd.print(luz, 0);
+  lcd.print("% Tr:");
+  lcd.print(tempR, 1);
+  lcd.print("  "); // limpiar sobrante
+
+  // --- Iniciar temporizadores ---
+  TaskTime.SetIntervalMillis(7000);  // 7 segs hasta cambio de estado
+  TaskTime.Start();
 
   Serial.println("Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo");
   Serial.println("                     X                                            ");
@@ -410,6 +421,11 @@ void outputPMV_Alto() {
     Serial.print("Temperatura alta detectada (");
     Serial.print(conteoTempAlta);
     Serial.println("/3)");
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Temp > 30, Intentos: ");
+    lcd.setCursor(0, 1);
+    lcd.print(conteoTempAlta);
   } else {
     conteoTempAlta = 0;  // reset si baja la temperatura
   }
@@ -574,10 +590,10 @@ int findUIDInEEPROM(byte* uid, byte uidLength) {
     }
 
     if (match) {
-      return address; // ✅ encontrado
+      return address; // encontrado
     }
   }
-  return -1; // ❌ no encontrado
+  return -1; // no encontrado
 }
 
 
@@ -604,7 +620,7 @@ void saveUIDAndName(byte* uid, byte uidLength, const char* name) {
         }
       }
 
-      Serial.print("✅ Guardado en registro ");
+      Serial.print(" Guardado en registro ");
       Serial.println(recordIndex);
       break;
     }
@@ -658,13 +674,13 @@ void printEEPROMRecords() {
 
 
 void handleConfigRFID() {
-  // ✅ Asegurar que estamos en el estado CONFIG
+  //  Asegurar que estamos en el estado CONFIG
   if (stateMachine.GetState() != CONFIG) return;
 
-  // ✅ Evitar reprocesar la misma tarjeta en este estado
+  //  Evitar reprocesar la misma tarjeta en este estado
   if (tarjetaProcesada) return;
 
-  // ✅ Detectar nueva tarjeta
+  //  Detectar nueva tarjeta
   if (!mfrc522.PICC_IsNewCardPresent() || !mfrc522.PICC_ReadCardSerial()) {
     return;  // No hay tarjeta todavía → seguir esperando
   }
@@ -675,7 +691,7 @@ void handleConfigRFID() {
   // Buscar si la tarjeta ya existe en EEPROM
   int recordAddress = findUIDInEEPROM(uid, uidLength);
   if (recordAddress != -1) {
-    // ✅ Tarjeta ya registrada → leer nombre desde EEPROM
+    // Tarjeta ya registrada → leer nombre desde EEPROM
     readNameFromEEPROM(recordAddress, nombre, NAME_MAX_LENGTH);
     lcd.clear();
     lcd.print("Bienvenido:");
@@ -684,7 +700,7 @@ void handleConfigRFID() {
     Serial.print("Nombre leído: ");
     Serial.println(nombre);
   } else {
-    // ✅ Nueva tarjeta → solicitar y registrar nombre
+    // Nueva tarjeta → solicitar y registrar nombre
     lcd.clear();
     lcd.print("Nueva tarjeta");
     Serial.println("Ingrese nombre para esta tarjeta:");
@@ -696,7 +712,8 @@ void handleConfigRFID() {
         Serial.println("Tiempo de espera agotado.");
         lcd.clear();
         lcd.print("Sin nombre");
-        delay(1500);
+        TaskTime.SetIntervalMillis(1500);
+        TaskTime.Start();
         mfrc522.PICC_HaltA();
         return; // cancelar registro
       }
@@ -715,25 +732,25 @@ void handleConfigRFID() {
       lcd.print("Nombre guardado");
       Serial.print("Nombre guardado: ");
       Serial.println(nombreStr);
-      delay(2000);
+      TaskTime.SetIntervalMillis(2000);
+      TaskTime.Start();
     } else {
       lcd.clear();
       lcd.print("Nombre invalido");
       Serial.println("Nombre inválido, no se guardó.");
-      delay(1500);
+      TaskTime.SetIntervalMillis(1500);
+      TaskTime.Start();
       mfrc522.PICC_HaltA();
-      return;  // 🚫 No continuar si el nombre es inválido
+      return;  // No continuar si el nombre es inválido
     }
   }
 
-  // ✅ Marcar tarjeta como procesada y activar temporizador para volver a MONITOR
+  // Marcar tarjeta como procesada y activar temporizador para volver a MONITOR
   tarjetaProcesada = true;
 
   // Finalizar comunicación con la tarjeta
   mfrc522.PICC_HaltA();
 }
-
-
 
 
 String leerNombreDesdeSerial() {
@@ -812,24 +829,6 @@ void leerSensores() {
     Serial.println("Failed to read from DHT sensor!");
     return;
   }
-
-  lcd.setCursor(0, 0);
-  lcd.print("Tem Amb:");
-  lcd.print(tempA, 1);  //print the temperature on lcd
-  lcd.print(" C");
-  lcd.setCursor(0, 1);
-  lcd.print("Hum:");
-  lcd.print(humedad, 1);  //print the humidity on lcd
-  lcd.print(" %");
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("Luz: ");
-  lcd.print(luz, 1);
-  lcd.print("%");
-  lcd.setCursor(0, 1);
-  lcd.print("Tem Rad:");
-  lcd.print(tempR, 1);  //print the temperature on lcd
-  lcd.print(" C");
 }
 
 // Calculating PMV (Modelo Fanger adaptado a Arduino)
@@ -948,14 +947,14 @@ float calcularPMV_Fanger(float ta, float tr, float rh, float vel_ar, float M, fl
 void moverServo() {
   if (servoUp) {
     servoPos++;
-    if (servoPos >= 180) {
-      servoPos = 180;
+    if (servoPos >= 90) {
+      servoPos = 90;
       servoUp = false;
     }
   } else {
     servoPos--;
-    if (servoPos <= 0) {
-      servoPos = 0;
+    if (servoPos <= 20) {
+      servoPos = 20;
       servoUp = true;
     }
   }
