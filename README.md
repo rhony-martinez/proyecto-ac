@@ -84,7 +84,7 @@ En función de las condiciones detectadas, el sistema activa actuadores (ventila
 ---
 
 ## 🗂️ Estructura del repositorio
-
+```
 ├── main/
 │ ├── proyecto/
 │ │ └── proyecto.ino
@@ -118,7 +118,7 @@ En función de las condiciones detectadas, el sistema activa actuadores (ventila
 │ ├── FSM_ARQ_A.png
 │ ├── definicion_proyecto.pdf
 │ └── README.md
-
+```
 
 ---
 
@@ -132,7 +132,7 @@ En función de las condiciones detectadas, el sistema activa actuadores (ventila
 - Daniel Alejandro Vidal Guevara  
 
 **Asignatura:** Arquitectura Computacional  
-**Tutor:** Fulvio Yesid Vivas  
+**Profesor:** Fulvio Yesid Vivas  
 
 ---
 
