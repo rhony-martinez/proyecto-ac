@@ -60,6 +60,7 @@ Si prefiere generar la documentación nuevamente:
 
 ### Nota
 La documentación incluye diagramas FSM, especificaciones técnicas, referencias cruzadas y búsqueda integrada. Se recomienda usar la opción 1 para acceso inmediato.
+Además, en la rama main, en la carpeta proyecto encuentra dos archivos `.ino`, el nombrado `proyecto.ino` tiene únicamente el código que se usó para la ejecución del sistema y el otro: `sistema_confort_termico.ino` contiene el mismo código pero con la documentación doxygen.
 
 ---
 
