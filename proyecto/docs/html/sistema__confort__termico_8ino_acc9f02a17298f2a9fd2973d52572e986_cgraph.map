@@ -1,0 +1,8 @@
+<map id="onLeavingPMV_Alto" name="onLeavingPMV_Alto">
+<area shape="rect" id="Node000001" title="Maneja la salida del estado PMV_ALTO &#45; limpieza de recursos." alt="" coords="5,5,143,32"/>
+<area shape="rect" id="Node000002" href="$group__tareas__grupo.html#ga068cb3aabb9b1e22d9a355f196ab8e89" title=" " alt="" coords="191,5,287,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,16,175,16,175,21,143,21"/>
+<area shape="rect" id="Node000003" href="$group__tareas__grupo.html#ga21dc7f71020a2ca4e192c5561dc5b8bb" title="Tarea para parpadeo asíncrono del LED azul." alt="" coords="335,5,417,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="288,25,319,25,319,30,288,30"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="334,13,303,12,303,7,335,8"/>
+</map>

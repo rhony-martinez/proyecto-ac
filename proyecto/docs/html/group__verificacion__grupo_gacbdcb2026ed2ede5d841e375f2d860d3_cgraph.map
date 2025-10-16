@@ -1,0 +1,5 @@
+<map id="checkMovimiento" name="checkMovimiento">
+<area shape="rect" id="Node000001" title="Detecta movimiento con sensor PIR para desactivar alarma." alt="" coords="5,5,127,32"/>
+<area shape="rect" id="Node000002" href="$group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d" title="Instancia de máquina de estados con 7 estados y 11 transiciones." alt="" coords="175,5,274,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,16,159,16,159,21,127,21"/>
+</map>

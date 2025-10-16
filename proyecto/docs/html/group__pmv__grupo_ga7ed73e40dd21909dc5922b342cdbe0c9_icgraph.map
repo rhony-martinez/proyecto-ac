@@ -1,0 +1,7 @@
+<map id="calcularHc" name="calcularHc">
+<area shape="rect" id="Node000001" title="Calcula el coeficiente de transferencia de calor por convección." alt="" coords="329,5,411,32"/>
+<area shape="rect" id="Node000002" href="$group__pmv__grupo.html#ga010b0d3e4b1c2eb39075406703487960" title="Calcula el índice PMV (Predicted Mean Vote) usando modelo de Fanger." alt="" coords="139,5,281,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="313,21,281,21,281,16,313,16"/>
+<area shape="rect" id="Node000003" href="$group__verificacion__grupo.html#gaec3d803c0bdc0d568fd8ebb776f93dd6" title="Verifica cálculo PMV y determina transiciones desde estado MONITOR." alt="" coords="5,5,91,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="123,21,91,21,91,16,123,16"/>
+</map>

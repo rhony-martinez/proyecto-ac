@@ -1,0 +1,12 @@
+<map id="toggleRed" name="toggleRed">
+<area shape="rect" id="Node000001" title="Tarea para parpadeo asíncrono del LED rojo." alt="" coords="320,56,399,83"/>
+<area shape="rect" id="Node000002" href="$group__tareas__grupo.html#gaeb5ed948d82a3adfc0af3dbcf877c0c2" title=" " alt="" coords="179,56,272,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="304,81,273,81,273,75,305,76"/>
+<area shape="poly" id="edge5_Node000002_Node000001" title=" " alt="" coords="288,58,320,58,319,64,288,63"/>
+<area shape="rect" id="Node000003" href="$sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="45,5,91,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="166,53,90,28,92,23,168,48"/>
+<area shape="rect" id="Node000004" href="$sistema__confort__termico_8ino.html#aa592846580d9f3bebe4adc098ded791d" title="Maneja la salida del estado BLOQUEO &#45; limpieza de recursos." alt="" coords="5,56,131,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="163,72,131,72,131,67,163,67"/>
+<area shape="rect" id="Node000007" href="$group__estados__grupo.html#gae7f7255177511950ea5ff9086d20a9ef" title="Maneja la entrada al estado BLOQUEO &#45; seguridad por fallos." alt="" coords="16,107,120,133"/>
+<area shape="poly" id="edge4_Node000002_Node000007" title=" " alt="" coords="168,91,113,109,111,104,166,85"/>
+</map>

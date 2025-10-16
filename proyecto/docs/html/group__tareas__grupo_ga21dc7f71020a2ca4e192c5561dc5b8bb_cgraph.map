@@ -1,0 +1,6 @@
+<map id="toggleBlue" name="toggleBlue">
+<area shape="rect" id="Node000001" title="Tarea para parpadeo asíncrono del LED azul." alt="" coords="5,5,88,32"/>
+<area shape="rect" id="Node000002" href="$group__tareas__grupo.html#ga068cb3aabb9b1e22d9a355f196ab8e89" title=" " alt="" coords="136,5,232,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="88,24,120,25,120,30,88,30"/>
+<area shape="poly" id="edge2_Node000002_Node000001" title=" " alt="" coords="135,13,103,12,103,7,135,7"/>
+</map>

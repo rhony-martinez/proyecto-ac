@@ -1,0 +1,652 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Confort Térmico Inteligente v3.1: Funciones de Gestión RFID</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Confort Térmico Inteligente v3.1<span id="projectnumber">&#160;3.1 - 2025</span>
+   </div>
+   <div id="projectbrief">Sistema FSM avanzado con PMV, RFID y actuadores completos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('group__rfid__funciones__grupo.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Funciones de Gestión RFID <div class="ingroups"><a class="el" href="group__auxiliares__grupo.html">Funciones Auxiliares del Sistema</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Diagrama de colaboración de Funciones de Gestión RFID:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__rfid__funciones__grupo.png" border="0" usemap="#agroup____rfid____funciones____grupo" loading="lazy" alt=""/></div>
+<map name="agroup____rfid____funciones____grupo" id="agroup____rfid____funciones____grupo">
+<area shape="rect" href="group__auxiliares__grupo.html" title=" " alt="" coords="5,5,148,48"/>
+<area shape="rect" title=" " alt="" coords="196,13,377,40"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:ga84a30a47a4e97fa7e54d5ba8eb68643f" id="r_ga84a30a47a4e97fa7e54d5ba8eb68643f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga84a30a47a4e97fa7e54d5ba8eb68643f">isEqualArray</a> (byte *arrayA, byte *arrayB, int length)</td></tr>
+<tr class="memdesc:ga84a30a47a4e97fa7e54d5ba8eb68643f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compara dos arrays de bytes para verificar igualdad.  <br /></td></tr>
+<tr class="memitem:ga94702e19ac21bf3b8395bd8f2dfa2f4a" id="r_ga94702e19ac21bf3b8395bd8f2dfa2f4a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga94702e19ac21bf3b8395bd8f2dfa2f4a">findUIDInEEPROM</a> (byte *uid, byte uidLength)</td></tr>
+<tr class="memdesc:ga94702e19ac21bf3b8395bd8f2dfa2f4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca un UID en la memoria EEPROM.  <br /></td></tr>
+<tr class="memitem:ga90c02d6c0d88a9d7c56347bd2b1ba6d7" id="r_ga90c02d6c0d88a9d7c56347bd2b1ba6d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga90c02d6c0d88a9d7c56347bd2b1ba6d7">readNameFromEEPROM</a> (int recordAddress, char *buffer, int maxLen)</td></tr>
+<tr class="memdesc:ga90c02d6c0d88a9d7c56347bd2b1ba6d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lee el nombre asociado a un registro desde EEPROM.  <br /></td></tr>
+<tr class="memitem:gadc38582f256dac9b7b764d9526137b39" id="r_gadc38582f256dac9b7b764d9526137b39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gadc38582f256dac9b7b764d9526137b39">saveUIDAndName</a> (byte *uid, byte uidLength, const char *name)</td></tr>
+<tr class="memdesc:gadc38582f256dac9b7b764d9526137b39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda un nuevo UID y nombre en EEPROM.  <br /></td></tr>
+<tr class="memitem:ga4923d433679f80e9b3e2b3b23d98793e" id="r_ga4923d433679f80e9b3e2b3b23d98793e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4923d433679f80e9b3e2b3b23d98793e">printEEPROMRecords</a> ()</td></tr>
+<tr class="memdesc:ga4923d433679f80e9b3e2b3b23d98793e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime por serial todos los registros RFID almacenados en EEPROM.  <br /></td></tr>
+<tr class="memitem:ga6f1cf14a01e70595870c30bd3458a34f" id="r_ga6f1cf14a01e70595870c30bd3458a34f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6f1cf14a01e70595870c30bd3458a34f">handleConfigRFID</a> ()</td></tr>
+<tr class="memdesc:ga6f1cf14a01e70595870c30bd3458a34f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maneja la configuración de tarjetas RFID en estado CONFIG.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descripción detallada</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentación de funciones</h2>
+<a id="ga94702e19ac21bf3b8395bd8f2dfa2f4a" name="ga94702e19ac21bf3b8395bd8f2dfa2f4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga94702e19ac21bf3b8395bd8f2dfa2f4a">&#9670;&#160;</a></span>findUIDInEEPROM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int findUIDInEEPROM </td>
+          <td>(</td>
+          <td class="paramtype">byte *</td>          <td class="paramname"><span class="paramname"><em>uid</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">byte</td>          <td class="paramname"><span class="paramname"><em>uidLength</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Busca un UID en la memoria EEPROM. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uid</td><td>Array de bytes con el UID a buscar </td></tr>
+    <tr><td class="paramname">uidLength</td><td>Longitud del UID </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>int Dirección en EEPROM si se encuentra, -1 si no existe</dd></dl>
+<p>Recorre todos los registros en EEPROM comparando el UID proporcionado con los almacenados. Considera tanto la longitud como cada byte del UID.</p>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="group__rfid__grupo.html#ga475c77257e5782fb60199a7d12a7e53f" title="Número máximo de tarjetas registrables.">MAX_RECORDS</a> </dd>
+<dd>
+<a class="el" href="group__rfid__grupo.html#gaf9fedaf1e9f864ee9393b80201ce6465" title="Tamaño registro EEPROM: [len][UID][nombre].">RECORD_SIZE</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l01131">1131</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1131</span>                                               {</div>
+<div class="line"><span class="lineno"> 1132</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> recordIndex = 0; recordIndex &lt; <a class="code hl_define" href="group__rfid__grupo.html#ga475c77257e5782fb60199a7d12a7e53f">MAX_RECORDS</a>; recordIndex++) {</div>
+<div class="line"><span class="lineno"> 1133</span>    <span class="keywordtype">int</span> address = recordIndex * <a class="code hl_define" href="group__rfid__grupo.html#gaf9fedaf1e9f864ee9393b80201ce6465">RECORD_SIZE</a>;</div>
+<div class="line"><span class="lineno"> 1134</span>    <span class="keywordtype">byte</span> storedLen = EEPROM.read(address);</div>
+<div class="line"><span class="lineno"> 1135</span> </div>
+<div class="line"><span class="lineno"> 1136</span>    <span class="comment">// Registro vacío → saltar</span></div>
+<div class="line"><span class="lineno"> 1137</span>    <span class="keywordflow">if</span> (storedLen == 0xFF) <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno"> 1138</span> </div>
+<div class="line"><span class="lineno"> 1139</span>    <span class="comment">// Si la longitud no coincide → no es la misma tarjeta</span></div>
+<div class="line"><span class="lineno"> 1140</span>    <span class="keywordflow">if</span> (storedLen != uidLength) <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno"> 1141</span> </div>
+<div class="line"><span class="lineno"> 1142</span>    <span class="comment">// Comparar byte a byte</span></div>
+<div class="line"><span class="lineno"> 1143</span>    <span class="keywordtype">bool</span> match = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno"> 1144</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; uidLength; i++) {</div>
+<div class="line"><span class="lineno"> 1145</span>      <span class="keywordtype">byte</span> storedByte = EEPROM.read(address + 1 + i);</div>
+<div class="line"><span class="lineno"> 1146</span>      <span class="keywordflow">if</span> (storedByte != uid[i]) {</div>
+<div class="line"><span class="lineno"> 1147</span>        match = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno"> 1148</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1149</span>      }</div>
+<div class="line"><span class="lineno"> 1150</span>    }</div>
+<div class="line"><span class="lineno"> 1151</span> </div>
+<div class="line"><span class="lineno"> 1152</span>    <span class="keywordflow">if</span> (match) {</div>
+<div class="line"><span class="lineno"> 1153</span>      <span class="keywordflow">return</span> address; <span class="comment">// encontrado</span></div>
+<div class="line"><span class="lineno"> 1154</span>    }</div>
+<div class="line"><span class="lineno"> 1155</span>  }</div>
+<div class="line"><span class="lineno"> 1156</span>  <span class="keywordflow">return</span> -1; <span class="comment">// no encontrado</span></div>
+<div class="line"><span class="lineno"> 1157</span>}</div>
+<div class="ttc" id="agroup__rfid__grupo_html_ga475c77257e5782fb60199a7d12a7e53f"><div class="ttname"><a href="group__rfid__grupo.html#ga475c77257e5782fb60199a7d12a7e53f">MAX_RECORDS</a></div><div class="ttdeci">#define MAX_RECORDS</div><div class="ttdoc">Número máximo de tarjetas registrables.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00150">sistema_confort_termico.ino:150</a></div></div>
+<div class="ttc" id="agroup__rfid__grupo_html_gaf9fedaf1e9f864ee9393b80201ce6465"><div class="ttname"><a href="group__rfid__grupo.html#gaf9fedaf1e9f864ee9393b80201ce6465">RECORD_SIZE</a></div><div class="ttdeci">#define RECORD_SIZE</div><div class="ttdoc">Tamaño registro EEPROM: [len][UID][nombre].</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00149">sistema_confort_termico.ino:149</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00150">MAX_RECORDS</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00149">RECORD_SIZE</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01290">handleConfigRFID()</a>.</p>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__rfid__funciones__grupo_ga94702e19ac21bf3b8395bd8f2dfa2f4a_icgraph.png" border="0" usemap="#agroup__rfid__funciones__grupo_ga94702e19ac21bf3b8395bd8f2dfa2f4a_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__rfid__funciones__grupo_ga94702e19ac21bf3b8395bd8f2dfa2f4a_icgraph" id="agroup__rfid__funciones__grupo_ga94702e19ac21bf3b8395bd8f2dfa2f4a_icgraph">
+<area shape="rect" title="Busca un UID en la memoria EEPROM." alt="" coords="271,5,400,32"/>
+<area shape="rect" href="group__rfid__funciones__grupo.html#ga6f1cf14a01e70595870c30bd3458a34f" title="Maneja la configuración de tarjetas RFID en estado CONFIG." alt="" coords="99,5,223,32"/>
+<area shape="poly" title=" " alt="" coords="256,21,223,21,223,16,256,16"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="5,5,51,32"/>
+<area shape="poly" title=" " alt="" coords="83,21,51,21,51,16,83,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga6f1cf14a01e70595870c30bd3458a34f" name="ga6f1cf14a01e70595870c30bd3458a34f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6f1cf14a01e70595870c30bd3458a34f">&#9670;&#160;</a></span>handleConfigRFID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void handleConfigRFID </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maneja la configuración de tarjetas RFID en estado CONFIG. </p>
+<p>Función principal de gestión RFID que se ejecuta en estado CONFIG:</p><ul>
+<li>Detecta presencia de nuevas tarjetas RFID</li>
+<li>Verifica si la tarjeta ya está registrada</li>
+<li>Si es nueva, solicita nombre y guarda en EEPROM</li>
+<li>Si existe, muestra mensaje de bienvenida personalizado</li>
+<li>Controla el flujo de registro con timeouts</li>
+</ul>
+<p>@condition Solo se ejecuta en estado CONFIG @condition Evita reprocesamiento con flag tarjetaProcesada</p>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="group__estados__grupo.html#ga3d20408bd7a9ca8c795fc543454b4e2d" title="Maneja la entrada al estado CONFIG - configuración del sistema y RFID.">outputConfig()</a> </dd>
+<dd>
+<a class="el" href="#ga94702e19ac21bf3b8395bd8f2dfa2f4a" title="Busca un UID en la memoria EEPROM.">findUIDInEEPROM()</a> </dd>
+<dd>
+<a class="el" href="#gadc38582f256dac9b7b764d9526137b39" title="Guarda un nuevo UID y nombre en EEPROM.">saveUIDAndName()</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l01290">1290</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1290</span>                        {</div>
+<div class="line"><span class="lineno"> 1291</span>  <span class="comment">// Asegurar que estamos en el estado CONFIG</span></div>
+<div class="line"><span class="lineno"> 1292</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.GetState() != <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a702582f7f825ca83bdb076b15b4c0fc2">CONFIG</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno"> 1293</span> </div>
+<div class="line"><span class="lineno"> 1294</span>  <span class="comment">// Evitar reprocesar la misma tarjeta en este estado</span></div>
+<div class="line"><span class="lineno"> 1295</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="group__rfid__grupo.html#ga0c0bf35d8dd60fa5bf86b5abfb1a9241">tarjetaProcesada</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno"> 1296</span> </div>
+<div class="line"><span class="lineno"> 1297</span>  <span class="comment">// Detectar nueva tarjeta</span></div>
+<div class="line"><span class="lineno"> 1298</span>  <span class="keywordflow">if</span> (!<a class="code hl_function" href="group__rfid__grupo.html#gac672f817299d07cc428fe3f456235273">mfrc522</a>.PICC_IsNewCardPresent() || !<a class="code hl_function" href="group__rfid__grupo.html#gac672f817299d07cc428fe3f456235273">mfrc522</a>.PICC_ReadCardSerial()) {</div>
+<div class="line"><span class="lineno"> 1299</span>    <span class="keywordflow">return</span>;  <span class="comment">// No hay tarjeta todavía → seguir esperando</span></div>
+<div class="line"><span class="lineno"> 1300</span>  }</div>
+<div class="line"><span class="lineno"> 1301</span> </div>
+<div class="line"><span class="lineno"> 1302</span>  <span class="keywordtype">byte</span>* uid = <a class="code hl_function" href="group__rfid__grupo.html#gac672f817299d07cc428fe3f456235273">mfrc522</a>.uid.uidByte;</div>
+<div class="line"><span class="lineno"> 1303</span>  <span class="keywordtype">byte</span> uidLength = <a class="code hl_function" href="group__rfid__grupo.html#gac672f817299d07cc428fe3f456235273">mfrc522</a>.uid.size;</div>
+<div class="line"><span class="lineno"> 1304</span> </div>
+<div class="line"><span class="lineno"> 1305</span>  <span class="comment">// Buscar si la tarjeta ya existe en EEPROM</span></div>
+<div class="line"><span class="lineno"> 1306</span>  <span class="keywordtype">int</span> recordAddress = <a class="code hl_function" href="#ga94702e19ac21bf3b8395bd8f2dfa2f4a">findUIDInEEPROM</a>(uid, uidLength);</div>
+<div class="line"><span class="lineno"> 1307</span>  <span class="keywordflow">if</span> (recordAddress != -1) {</div>
+<div class="line"><span class="lineno"> 1308</span>    <span class="comment">// Tarjeta ya registrada → leer nombre desde EEPROM</span></div>
+<div class="line"><span class="lineno"> 1309</span>    <a class="code hl_function" href="#ga90c02d6c0d88a9d7c56347bd2b1ba6d7">readNameFromEEPROM</a>(recordAddress, <a class="code hl_variable" href="group__rfid__grupo.html#ga2f54f8fd2124e16b981df13b383e1232">nombre</a>, <a class="code hl_define" href="group__rfid__grupo.html#gae43c74733b6ab324d038bd944c35ded9">NAME_MAX_LENGTH</a>);</div>
+<div class="line"><span class="lineno"> 1310</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.clear();</div>
+<div class="line"><span class="lineno"> 1311</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;Bienvenido:&quot;</span>);</div>
+<div class="line"><span class="lineno"> 1312</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.setCursor(0, 1);</div>
+<div class="line"><span class="lineno"> 1313</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<a class="code hl_variable" href="group__rfid__grupo.html#ga2f54f8fd2124e16b981df13b383e1232">nombre</a>);</div>
+<div class="line"><span class="lineno"> 1314</span>    Serial.print(<span class="stringliteral">&quot;Nombre leído: &quot;</span>);</div>
+<div class="line"><span class="lineno"> 1315</span>    Serial.println(<a class="code hl_variable" href="group__rfid__grupo.html#ga2f54f8fd2124e16b981df13b383e1232">nombre</a>);</div>
+<div class="line"><span class="lineno"> 1316</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno"> 1317</span>    <span class="comment">// Nueva tarjeta → solicitar y registrar nombre</span></div>
+<div class="line"><span class="lineno"> 1318</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.clear();</div>
+<div class="line"><span class="lineno"> 1319</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;Nueva tarjeta&quot;</span>);</div>
+<div class="line"><span class="lineno"> 1320</span>    Serial.println(<span class="stringliteral">&quot;Ingrese nombre para esta tarjeta:&quot;</span>);</div>
+<div class="line"><span class="lineno"> 1321</span> </div>
+<div class="line"><span class="lineno"> 1322</span>    <span class="comment">// Esperar entrada del nombre por Serial (máx. 15 s)</span></div>
+<div class="line"><span class="lineno"> 1323</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> start = millis();</div>
+<div class="line"><span class="lineno"> 1324</span>    <span class="keywordflow">while</span> (!Serial.available()) {</div>
+<div class="line"><span class="lineno"> 1325</span>      <span class="keywordflow">if</span> (millis() - start &gt; 15000) {  <span class="comment">// tiempo máximo de espera</span></div>
+<div class="line"><span class="lineno"> 1326</span>        Serial.println(<span class="stringliteral">&quot;Tiempo de espera agotado.&quot;</span>);</div>
+<div class="line"><span class="lineno"> 1327</span>        <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.clear();</div>
+<div class="line"><span class="lineno"> 1328</span>        <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;Sin nombre&quot;</span>);</div>
+<div class="line"><span class="lineno"> 1329</span>        <a class="code hl_function" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a>.SetIntervalMillis(1500);</div>
+<div class="line"><span class="lineno"> 1330</span>        <a class="code hl_function" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a>.Start();</div>
+<div class="line"><span class="lineno"> 1331</span>        <a class="code hl_function" href="group__rfid__grupo.html#gac672f817299d07cc428fe3f456235273">mfrc522</a>.PICC_HaltA();</div>
+<div class="line"><span class="lineno"> 1332</span>        <span class="keywordflow">return</span>; <span class="comment">// cancelar registro</span></div>
+<div class="line"><span class="lineno"> 1333</span>      }</div>
+<div class="line"><span class="lineno"> 1334</span>    }</div>
+<div class="line"><span class="lineno"> 1335</span> </div>
+<div class="line"><span class="lineno"> 1336</span>    <span class="comment">// Leer nombre</span></div>
+<div class="line"><span class="lineno"> 1337</span>    String nombreStr = Serial.readStringUntil(<span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><span class="lineno"> 1338</span>    nombreStr.trim();</div>
+<div class="line"><span class="lineno"> 1339</span> </div>
+<div class="line"><span class="lineno"> 1340</span>    <span class="keywordflow">if</span> (nombreStr.length() &gt; 0) {</div>
+<div class="line"><span class="lineno"> 1341</span>      <span class="comment">// Convertir a char[] y guardar en EEPROM</span></div>
+<div class="line"><span class="lineno"> 1342</span>      nombreStr.toCharArray(<a class="code hl_variable" href="group__rfid__grupo.html#ga2f54f8fd2124e16b981df13b383e1232">nombre</a>, <a class="code hl_define" href="group__rfid__grupo.html#gae43c74733b6ab324d038bd944c35ded9">NAME_MAX_LENGTH</a>);</div>
+<div class="line"><span class="lineno"> 1343</span>      <a class="code hl_function" href="#gadc38582f256dac9b7b764d9526137b39">saveUIDAndName</a>(uid, uidLength, <a class="code hl_variable" href="group__rfid__grupo.html#ga2f54f8fd2124e16b981df13b383e1232">nombre</a>);</div>
+<div class="line"><span class="lineno"> 1344</span> </div>
+<div class="line"><span class="lineno"> 1345</span>      <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.clear();</div>
+<div class="line"><span class="lineno"> 1346</span>      <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;Nombre guardado&quot;</span>);</div>
+<div class="line"><span class="lineno"> 1347</span>      Serial.print(<span class="stringliteral">&quot;Nombre guardado: &quot;</span>);</div>
+<div class="line"><span class="lineno"> 1348</span>      Serial.println(nombreStr);</div>
+<div class="line"><span class="lineno"> 1349</span>      <a class="code hl_function" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a>.SetIntervalMillis(2000);</div>
+<div class="line"><span class="lineno"> 1350</span>      <a class="code hl_function" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a>.Start();</div>
+<div class="line"><span class="lineno"> 1351</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno"> 1352</span>      <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.clear();</div>
+<div class="line"><span class="lineno"> 1353</span>      <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;Nombre invalido&quot;</span>);</div>
+<div class="line"><span class="lineno"> 1354</span>      Serial.println(<span class="stringliteral">&quot;Nombre inválido, no se guardó.&quot;</span>);</div>
+<div class="line"><span class="lineno"> 1355</span>      <a class="code hl_function" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a>.SetIntervalMillis(1500);</div>
+<div class="line"><span class="lineno"> 1356</span>      <a class="code hl_function" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a>.Start();</div>
+<div class="line"><span class="lineno"> 1357</span>      <a class="code hl_function" href="group__rfid__grupo.html#gac672f817299d07cc428fe3f456235273">mfrc522</a>.PICC_HaltA();</div>
+<div class="line"><span class="lineno"> 1358</span>      <span class="keywordflow">return</span>;  <span class="comment">// No continuar si el nombre es inválido</span></div>
+<div class="line"><span class="lineno"> 1359</span>    }</div>
+<div class="line"><span class="lineno"> 1360</span>  }</div>
+<div class="line"><span class="lineno"> 1361</span> </div>
+<div class="line"><span class="lineno"> 1362</span>  <span class="comment">// Marcar tarjeta como procesada y activar temporizador para volver a MONITOR</span></div>
+<div class="line"><span class="lineno"> 1363</span>  <a class="code hl_variable" href="group__rfid__grupo.html#ga0c0bf35d8dd60fa5bf86b5abfb1a9241">tarjetaProcesada</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno"> 1364</span> </div>
+<div class="line"><span class="lineno"> 1365</span>  <span class="comment">// Finalizar comunicación con la tarjeta</span></div>
+<div class="line"><span class="lineno"> 1366</span>  <a class="code hl_function" href="group__rfid__grupo.html#gac672f817299d07cc428fe3f456235273">mfrc522</a>.PICC_HaltA();</div>
+<div class="line"><span class="lineno"> 1367</span>}</div>
+<div class="ttc" id="agroup__fsm__grupo_html_ga29b5cbc7a62b025f70547fcb3efd8e2d"><div class="ttname"><a href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a></div><div class="ttdeci">StateMachine stateMachine(7, 11)</div><div class="ttdoc">Instancia de máquina de estados con 7 estados y 11 transiciones.</div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga5d74787dedbc4e11c1ab15bf487e61f8a702582f7f825ca83bdb076b15b4c0fc2"><div class="ttname"><a href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a702582f7f825ca83bdb076b15b4c0fc2">CONFIG</a></div><div class="ttdeci">@ CONFIG</div><div class="ttdoc">Estado de configuración - Inicialización y registro RFID.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00310">sistema_confort_termico.ino:310</a></div></div>
+<div class="ttc" id="agroup__hardware__grupo_html_gaf97afdf00af0e116e9b5957f6a470fc2"><div class="ttname"><a href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a></div><div class="ttdeci">LiquidCrystal lcd(12, 11, 5, 4, 3, 2)</div><div class="ttdoc">Objeto LCD para display 16x2 con configuración de pines.</div></div>
+<div class="ttc" id="agroup__rfid__funciones__grupo_html_ga90c02d6c0d88a9d7c56347bd2b1ba6d7"><div class="ttname"><a href="#ga90c02d6c0d88a9d7c56347bd2b1ba6d7">readNameFromEEPROM</a></div><div class="ttdeci">void readNameFromEEPROM(int recordAddress, char *buffer, int maxLen)</div><div class="ttdoc">Lee el nombre asociado a un registro desde EEPROM.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l01171">sistema_confort_termico.ino:1171</a></div></div>
+<div class="ttc" id="agroup__rfid__funciones__grupo_html_ga94702e19ac21bf3b8395bd8f2dfa2f4a"><div class="ttname"><a href="#ga94702e19ac21bf3b8395bd8f2dfa2f4a">findUIDInEEPROM</a></div><div class="ttdeci">int findUIDInEEPROM(byte *uid, byte uidLength)</div><div class="ttdoc">Busca un UID en la memoria EEPROM.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l01131">sistema_confort_termico.ino:1131</a></div></div>
+<div class="ttc" id="agroup__rfid__funciones__grupo_html_gadc38582f256dac9b7b764d9526137b39"><div class="ttname"><a href="#gadc38582f256dac9b7b764d9526137b39">saveUIDAndName</a></div><div class="ttdeci">void saveUIDAndName(byte *uid, byte uidLength, const char *name)</div><div class="ttdoc">Guarda un nuevo UID y nombre en EEPROM.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l01196">sistema_confort_termico.ino:1196</a></div></div>
+<div class="ttc" id="agroup__rfid__grupo_html_ga0c0bf35d8dd60fa5bf86b5abfb1a9241"><div class="ttname"><a href="group__rfid__grupo.html#ga0c0bf35d8dd60fa5bf86b5abfb1a9241">tarjetaProcesada</a></div><div class="ttdeci">bool tarjetaProcesada</div><div class="ttdoc">Flag para controlar procesamiento único de tarjeta en estado CONFIG.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00160">sistema_confort_termico.ino:160</a></div></div>
+<div class="ttc" id="agroup__rfid__grupo_html_ga2f54f8fd2124e16b981df13b383e1232"><div class="ttname"><a href="group__rfid__grupo.html#ga2f54f8fd2124e16b981df13b383e1232">nombre</a></div><div class="ttdeci">char nombre[NAME_MAX_LENGTH]</div><div class="ttdoc">Buffer para almacenar nombre de usuario de tarjeta RFID.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00155">sistema_confort_termico.ino:155</a></div></div>
+<div class="ttc" id="agroup__rfid__grupo_html_gac672f817299d07cc428fe3f456235273"><div class="ttname"><a href="group__rfid__grupo.html#gac672f817299d07cc428fe3f456235273">mfrc522</a></div><div class="ttdeci">MFRC522 mfrc522(SS_PIN, RST_PIN)</div><div class="ttdoc">Instancia del lector RFID MFRC522.</div></div>
+<div class="ttc" id="agroup__rfid__grupo_html_gae43c74733b6ab324d038bd944c35ded9"><div class="ttname"><a href="group__rfid__grupo.html#gae43c74733b6ab324d038bd944c35ded9">NAME_MAX_LENGTH</a></div><div class="ttdeci">#define NAME_MAX_LENGTH</div><div class="ttdoc">Longitud máxima nombre por tarjeta.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00148">sistema_confort_termico.ino:148</a></div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_gabe10de4c559b3dc44bc3e0858d41553e"><div class="ttname"><a href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a></div><div class="ttdeci">AsyncTask TaskTime(5000, true, runTime)</div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00310">CONFIG</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l01131">findUIDInEEPROM()</a>, <a class="el" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd()</a>, <a class="el" href="group__rfid__grupo.html#gac672f817299d07cc428fe3f456235273">mfrc522()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00148">NAME_MAX_LENGTH</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00155">nombre</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l01171">readNameFromEEPROM()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l01196">saveUIDAndName()</a>, <a class="el" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00160">tarjetaProcesada</a> y <a class="el" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00590">loop()</a>.</p>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__rfid__funciones__grupo_ga6f1cf14a01e70595870c30bd3458a34f_cgraph.png" border="0" usemap="#agroup__rfid__funciones__grupo_ga6f1cf14a01e70595870c30bd3458a34f_cgraph" loading="lazy" alt=""/></div>
+<map name="agroup__rfid__funciones__grupo_ga6f1cf14a01e70595870c30bd3458a34f_cgraph" id="agroup__rfid__funciones__grupo_ga6f1cf14a01e70595870c30bd3458a34f_cgraph">
+<area shape="rect" title="Maneja la configuración de tarjetas RFID en estado CONFIG." alt="" coords="5,157,130,184"/>
+<area shape="rect" href="group__rfid__funciones__grupo.html#ga94702e19ac21bf3b8395bd8f2dfa2f4a" title="Busca un UID en la memoria EEPROM." alt="" coords="197,5,326,32"/>
+<area shape="poly" title=" " alt="" coords="75,155,114,101,143,69,176,42,185,37,188,41,179,46,146,73,118,104,79,159"/>
+<area shape="rect" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2" title="Objeto LCD para display 16x2 con configuración de pines." alt="" coords="242,56,281,83"/>
+<area shape="poly" title=" " alt="" coords="84,155,124,124,177,92,226,74,228,79,179,97,127,128,87,159"/>
+<area shape="rect" href="group__rfid__grupo.html#gac672f817299d07cc428fe3f456235273" title="Instancia del lector RFID MFRC522." alt="" coords="228,107,295,133"/>
+<area shape="poly" title=" " alt="" coords="121,154,212,130,213,135,122,159"/>
+<area shape="rect" href="group__rfid__funciones__grupo.html#ga90c02d6c0d88a9d7c56347bd2b1ba6d7" title="Lee el nombre asociado a un registro desde EEPROM." alt="" coords="178,157,345,184"/>
+<area shape="poly" title=" " alt="" coords="130,168,162,168,162,173,130,173"/>
+<area shape="rect" href="group__rfid__funciones__grupo.html#gadc38582f256dac9b7b764d9526137b39" title="Guarda un nuevo UID y nombre en EEPROM." alt="" coords="199,208,324,235"/>
+<area shape="poly" title=" " alt="" coords="122,182,194,201,193,206,121,187"/>
+<area shape="rect" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d" title="Instancia de máquina de estados con 7 estados y 11 transiciones." alt="" coords="508,284,608,311"/>
+<area shape="poly" title=" " alt="" coords="85,183,126,215,151,231,179,244,261,269,346,285,426,292,493,295,493,301,426,298,346,290,260,274,177,249,149,236,123,219,82,187"/>
+<area shape="rect" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e" title=" " alt="" coords="223,309,300,336"/>
+<area shape="poly" title=" " alt="" coords="80,183,120,234,148,263,179,288,209,304,207,309,176,293,144,267,116,237,76,186"/>
+<area shape="rect" href="group__tareas__grupo.html#ga253c50d22391b4a847c214fe6aa3bd29" title="Tarea de temporizador principal del sistema." alt="" coords="393,309,460,336"/>
+<area shape="poly" title=" " alt="" coords="300,320,377,320,377,325,300,325"/>
+<area shape="poly" title=" " alt="" coords="460,314,492,307,493,313,461,319"/>
+</map>
+</div>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__rfid__funciones__grupo_ga6f1cf14a01e70595870c30bd3458a34f_icgraph.png" border="0" usemap="#agroup__rfid__funciones__grupo_ga6f1cf14a01e70595870c30bd3458a34f_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__rfid__funciones__grupo_ga6f1cf14a01e70595870c30bd3458a34f_icgraph" id="agroup__rfid__funciones__grupo_ga6f1cf14a01e70595870c30bd3458a34f_icgraph">
+<area shape="rect" title="Maneja la configuración de tarjetas RFID en estado CONFIG." alt="" coords="99,5,223,32"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="5,5,51,32"/>
+<area shape="poly" title=" " alt="" coords="83,21,51,21,51,16,83,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga84a30a47a4e97fa7e54d5ba8eb68643f" name="ga84a30a47a4e97fa7e54d5ba8eb68643f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga84a30a47a4e97fa7e54d5ba8eb68643f">&#9670;&#160;</a></span>isEqualArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isEqualArray </td>
+          <td>(</td>
+          <td class="paramtype">byte *</td>          <td class="paramname"><span class="paramname"><em>arrayA</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">byte *</td>          <td class="paramname"><span class="paramname"><em>arrayB</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compara dos arrays de bytes para verificar igualdad. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arrayA</td><td>Primer array a comparar </td></tr>
+    <tr><td class="paramname">arrayB</td><td>Segundo array a comparar <br  />
+ </td></tr>
+    <tr><td class="paramname">length</td><td>Longitud de los arrays a comparar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>true si los arrays son idénticos </dd>
+<dd>
+false si los arrays son diferentes</dd></dl>
+<p>Utilizada para comparar UIDs de tarjetas RFID durante el proceso de identificación y registro. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l01109">1109</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1109</span>                                                          {</div>
+<div class="line"><span class="lineno"> 1110</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> index = 0; index &lt; length; index++) {</div>
+<div class="line"><span class="lineno"> 1111</span>    <span class="keywordflow">if</span> (arrayA[index] != arrayB[index]) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno"> 1112</span>  }</div>
+<div class="line"><span class="lineno"> 1113</span>  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno"> 1114</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ga4923d433679f80e9b3e2b3b23d98793e" name="ga4923d433679f80e9b3e2b3b23d98793e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4923d433679f80e9b3e2b3b23d98793e">&#9670;&#160;</a></span>printEEPROMRecords()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printEEPROMRecords </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imprime por serial todos los registros RFID almacenados en EEPROM. </p>
+<p>Función de diagnóstico que muestra el contenido completo de la EEPROM relacionado con registros RFID. Útil para debugging y verificación del estado del sistema.</p>
+<p>@usage Llamar desde monitor serial para inspeccionar registros </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l01236">1236</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1236</span>                          {</div>
+<div class="line"><span class="lineno"> 1237</span>  Serial.println(<span class="stringliteral">&quot;========================================&quot;</span>);</div>
+<div class="line"><span class="lineno"> 1238</span>  Serial.println(<span class="stringliteral">&quot;=== Contenido EEPROM ===&quot;</span>);</div>
+<div class="line"><span class="lineno"> 1239</span> </div>
+<div class="line"><span class="lineno"> 1240</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> recordIndex = 0; recordIndex &lt; <a class="code hl_define" href="group__rfid__grupo.html#ga475c77257e5782fb60199a7d12a7e53f">MAX_RECORDS</a>; recordIndex++) {</div>
+<div class="line"><span class="lineno"> 1241</span>    <span class="keywordtype">int</span> address = recordIndex * <a class="code hl_define" href="group__rfid__grupo.html#gaf9fedaf1e9f864ee9393b80201ce6465">RECORD_SIZE</a>;</div>
+<div class="line"><span class="lineno"> 1242</span>    <span class="keywordtype">byte</span> uidLen = EEPROM.read(address);</div>
+<div class="line"><span class="lineno"> 1243</span> </div>
+<div class="line"><span class="lineno"> 1244</span>    <span class="comment">// Registro vacío (EEPROM limpia → 0xFF)</span></div>
+<div class="line"><span class="lineno"> 1245</span>    <span class="keywordflow">if</span> (uidLen == 0xFF) {</div>
+<div class="line"><span class="lineno"> 1246</span>      Serial.print(<span class="stringliteral">&quot;Registro &quot;</span>); Serial.print(recordIndex);</div>
+<div class="line"><span class="lineno"> 1247</span>      Serial.println(<span class="stringliteral">&quot; [VACÍO]&quot;</span>);</div>
+<div class="line"><span class="lineno"> 1248</span>      <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno"> 1249</span>    }</div>
+<div class="line"><span class="lineno"> 1250</span> </div>
+<div class="line"><span class="lineno"> 1251</span>    <span class="comment">// Leer UID</span></div>
+<div class="line"><span class="lineno"> 1252</span>    Serial.print(<span class="stringliteral">&quot;Registro &quot;</span>); Serial.print(recordIndex);</div>
+<div class="line"><span class="lineno"> 1253</span>    Serial.print(<span class="stringliteral">&quot; (addr &quot;</span>); Serial.print(address); Serial.print(<span class="stringliteral">&quot;): UID = &quot;</span>);</div>
+<div class="line"><span class="lineno"> 1254</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; uidLen; i++) {</div>
+<div class="line"><span class="lineno"> 1255</span>      <span class="keywordtype">byte</span> b = EEPROM.read(address + 1 + i);</div>
+<div class="line"><span class="lineno"> 1256</span>      Serial.print(b &lt; 0x10 ? <span class="stringliteral">&quot; 0&quot;</span> : <span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line"><span class="lineno"> 1257</span>      Serial.print(b, HEX);</div>
+<div class="line"><span class="lineno"> 1258</span>    }</div>
+<div class="line"><span class="lineno"> 1259</span> </div>
+<div class="line"><span class="lineno"> 1260</span>    <span class="comment">// Leer nombre</span></div>
+<div class="line"><span class="lineno"> 1261</span>    Serial.print(<span class="stringliteral">&quot; | Nombre = &quot;</span>);</div>
+<div class="line"><span class="lineno"> 1262</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="group__rfid__grupo.html#gae43c74733b6ab324d038bd944c35ded9">NAME_MAX_LENGTH</a>; i++) {</div>
+<div class="line"><span class="lineno"> 1263</span>      <span class="keywordtype">char</span> c = EEPROM.read(address + 1 + <a class="code hl_define" href="group__rfid__grupo.html#ga5042e4273edacf8236d70f393cee4c8e">MAX_UID_LENGTH</a> + i);</div>
+<div class="line"><span class="lineno"> 1264</span>      <span class="keywordflow">if</span> (c == <span class="charliteral">&#39;\0&#39;</span>) <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1265</span>      Serial.print(c);</div>
+<div class="line"><span class="lineno"> 1266</span>    }</div>
+<div class="line"><span class="lineno"> 1267</span>    Serial.println();</div>
+<div class="line"><span class="lineno"> 1268</span>  }</div>
+<div class="line"><span class="lineno"> 1269</span>  Serial.println(<span class="stringliteral">&quot;========================================&quot;</span>);</div>
+<div class="line"><span class="lineno"> 1270</span>}</div>
+<div class="ttc" id="agroup__rfid__grupo_html_ga5042e4273edacf8236d70f393cee4c8e"><div class="ttname"><a href="group__rfid__grupo.html#ga5042e4273edacf8236d70f393cee4c8e">MAX_UID_LENGTH</a></div><div class="ttdeci">#define MAX_UID_LENGTH</div><div class="ttdoc">Longitud máxima UID RFID (4, 7 o 10 bytes)</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00147">sistema_confort_termico.ino:147</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00150">MAX_RECORDS</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00147">MAX_UID_LENGTH</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00148">NAME_MAX_LENGTH</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00149">RECORD_SIZE</a>.</p>
+
+</div>
+</div>
+<a id="ga90c02d6c0d88a9d7c56347bd2b1ba6d7" name="ga90c02d6c0d88a9d7c56347bd2b1ba6d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga90c02d6c0d88a9d7c56347bd2b1ba6d7">&#9670;&#160;</a></span>readNameFromEEPROM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void readNameFromEEPROM </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>recordAddress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>maxLen</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lee el nombre asociado a un registro desde EEPROM. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">recordAddress</td><td>Dirección base del registro en EEPROM </td></tr>
+    <tr><td class="paramname">buffer</td><td>Buffer donde almacenar el nombre leído </td></tr>
+    <tr><td class="paramname">maxLen</td><td>Longitud máxima del buffer</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Extrae el campo de nombre de un registro RFID almacenado en EEPROM. El nombre se almacena después del UID en la estructura del registro. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l01171">1171</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1171</span>                                                                     {</div>
+<div class="line"><span class="lineno"> 1172</span>  <span class="keywordtype">int</span> base = recordAddress;</div>
+<div class="line"><span class="lineno"> 1173</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; maxLen; i++) {</div>
+<div class="line"><span class="lineno"> 1174</span>    buffer[i] = EEPROM.read(base + 1 + <a class="code hl_define" href="group__rfid__grupo.html#ga5042e4273edacf8236d70f393cee4c8e">MAX_UID_LENGTH</a> + i);</div>
+<div class="line"><span class="lineno"> 1175</span>    <span class="keywordflow">if</span> (buffer[i] == <span class="charliteral">&#39;\0&#39;</span>) <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1176</span>  }</div>
+<div class="line"><span class="lineno"> 1177</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00147">MAX_UID_LENGTH</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01290">handleConfigRFID()</a>.</p>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__rfid__funciones__grupo_ga90c02d6c0d88a9d7c56347bd2b1ba6d7_icgraph.png" border="0" usemap="#agroup__rfid__funciones__grupo_ga90c02d6c0d88a9d7c56347bd2b1ba6d7_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__rfid__funciones__grupo_ga90c02d6c0d88a9d7c56347bd2b1ba6d7_icgraph" id="agroup__rfid__funciones__grupo_ga90c02d6c0d88a9d7c56347bd2b1ba6d7_icgraph">
+<area shape="rect" title="Lee el nombre asociado a un registro desde EEPROM." alt="" coords="271,5,438,32"/>
+<area shape="rect" href="group__rfid__funciones__grupo.html#ga6f1cf14a01e70595870c30bd3458a34f" title="Maneja la configuración de tarjetas RFID en estado CONFIG." alt="" coords="99,5,223,32"/>
+<area shape="poly" title=" " alt="" coords="256,21,223,21,223,16,256,16"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="5,5,51,32"/>
+<area shape="poly" title=" " alt="" coords="83,21,51,21,51,16,83,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="gadc38582f256dac9b7b764d9526137b39" name="gadc38582f256dac9b7b764d9526137b39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadc38582f256dac9b7b764d9526137b39">&#9670;&#160;</a></span>saveUIDAndName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void saveUIDAndName </td>
+          <td>(</td>
+          <td class="paramtype">byte *</td>          <td class="paramname"><span class="paramname"><em>uid</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">byte</td>          <td class="paramname"><span class="paramname"><em>uidLength</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>name</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Guarda un nuevo UID y nombre en EEPROM. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uid</td><td>Array de bytes con el UID de la tarjeta </td></tr>
+    <tr><td class="paramname">uidLength</td><td>Longitud del UID </td></tr>
+    <tr><td class="paramname">name</td><td>Nombre asociado a la tarjeta</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Busca la primera posición libre en EEPROM y almacena:</p><ul>
+<li>Longitud del UID (1 byte)</li>
+<li>UID completo (hasta MAX_UID_LENGTH bytes)</li>
+<li>Nombre (hasta NAME_MAX_LENGTH caracteres)</li>
+</ul>
+<p>@security Los registros vacíos se identifican por 0xFF </p><dl class="section see"><dt>Ver también</dt><dd><a class="el" href="group__rfid__grupo.html#ga475c77257e5782fb60199a7d12a7e53f" title="Número máximo de tarjetas registrables.">MAX_RECORDS</a> </dd>
+<dd>
+<a class="el" href="group__rfid__grupo.html#gaf9fedaf1e9f864ee9393b80201ce6465" title="Tamaño registro EEPROM: [len][UID][nombre].">RECORD_SIZE</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l01196">1196</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1196</span>                                                                 {</div>
+<div class="line"><span class="lineno"> 1197</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> recordIndex = 0; recordIndex &lt; <a class="code hl_define" href="group__rfid__grupo.html#ga475c77257e5782fb60199a7d12a7e53f">MAX_RECORDS</a>; recordIndex++) {</div>
+<div class="line"><span class="lineno"> 1198</span>    <span class="keywordtype">int</span> address = recordIndex * <a class="code hl_define" href="group__rfid__grupo.html#gaf9fedaf1e9f864ee9393b80201ce6465">RECORD_SIZE</a>;</div>
+<div class="line"><span class="lineno"> 1199</span>    <span class="keywordtype">byte</span> firstByte = EEPROM.read(address);</div>
+<div class="line"><span class="lineno"> 1200</span> </div>
+<div class="line"><span class="lineno"> 1201</span>    <span class="keywordflow">if</span> (firstByte == 0xFF) { <span class="comment">// posición libre (EEPROM limpia es 0xFF)</span></div>
+<div class="line"><span class="lineno"> 1202</span>      <span class="comment">// Guardar longitud UID</span></div>
+<div class="line"><span class="lineno"> 1203</span>      EEPROM.write(address, uidLength);</div>
+<div class="line"><span class="lineno"> 1204</span> </div>
+<div class="line"><span class="lineno"> 1205</span>      <span class="comment">// Guardar UID</span></div>
+<div class="line"><span class="lineno"> 1206</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; uidLength; i++) {</div>
+<div class="line"><span class="lineno"> 1207</span>        EEPROM.write(address + 1 + i, uid[i]);</div>
+<div class="line"><span class="lineno"> 1208</span>      }</div>
+<div class="line"><span class="lineno"> 1209</span> </div>
+<div class="line"><span class="lineno"> 1210</span>      <span class="comment">// Guardar nombre</span></div>
+<div class="line"><span class="lineno"> 1211</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="group__rfid__grupo.html#gae43c74733b6ab324d038bd944c35ded9">NAME_MAX_LENGTH</a>; i++) {</div>
+<div class="line"><span class="lineno"> 1212</span>        <span class="keywordflow">if</span> (i &lt; strlen(name)) {</div>
+<div class="line"><span class="lineno"> 1213</span>          EEPROM.write(address + 1 + <a class="code hl_define" href="group__rfid__grupo.html#ga5042e4273edacf8236d70f393cee4c8e">MAX_UID_LENGTH</a> + i, name[i]);</div>
+<div class="line"><span class="lineno"> 1214</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno"> 1215</span>          EEPROM.write(address + 1 + <a class="code hl_define" href="group__rfid__grupo.html#ga5042e4273edacf8236d70f393cee4c8e">MAX_UID_LENGTH</a> + i, <span class="charliteral">&#39;\0&#39;</span>);</div>
+<div class="line"><span class="lineno"> 1216</span>        }</div>
+<div class="line"><span class="lineno"> 1217</span>      }</div>
+<div class="line"><span class="lineno"> 1218</span> </div>
+<div class="line"><span class="lineno"> 1219</span>      Serial.print(<span class="stringliteral">&quot; Guardado en registro &quot;</span>);</div>
+<div class="line"><span class="lineno"> 1220</span>      Serial.println(recordIndex);</div>
+<div class="line"><span class="lineno"> 1221</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1222</span>    }</div>
+<div class="line"><span class="lineno"> 1223</span>  }</div>
+<div class="line"><span class="lineno"> 1224</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00150">MAX_RECORDS</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00147">MAX_UID_LENGTH</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00148">NAME_MAX_LENGTH</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00149">RECORD_SIZE</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01290">handleConfigRFID()</a>.</p>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__rfid__funciones__grupo_gadc38582f256dac9b7b764d9526137b39_icgraph.png" border="0" usemap="#agroup__rfid__funciones__grupo_gadc38582f256dac9b7b764d9526137b39_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__rfid__funciones__grupo_gadc38582f256dac9b7b764d9526137b39_icgraph" id="agroup__rfid__funciones__grupo_gadc38582f256dac9b7b764d9526137b39_icgraph">
+<area shape="rect" title="Guarda un nuevo UID y nombre en EEPROM." alt="" coords="271,5,396,32"/>
+<area shape="rect" href="group__rfid__funciones__grupo.html#ga6f1cf14a01e70595870c30bd3458a34f" title="Maneja la configuración de tarjetas RFID en estado CONFIG." alt="" coords="99,5,223,32"/>
+<area shape="poly" title=" " alt="" coords="255,21,223,21,223,16,255,16"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="5,5,51,32"/>
+<area shape="poly" title=" " alt="" coords="83,21,51,21,51,16,83,16"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generado el <span class="timestamp"></span> para Sistema de Confort Térmico Inteligente v3.1 por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

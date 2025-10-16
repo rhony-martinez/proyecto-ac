@@ -1,0 +1,491 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Confort Térmico Inteligente v3.1: Cálculo PMV según Modelo de Fanger</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Confort Térmico Inteligente v3.1<span id="projectnumber">&#160;3.1 - 2025</span>
+   </div>
+   <div id="projectbrief">Sistema FSM avanzado con PMV, RFID y actuadores completos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('group__pmv__grupo.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Cálculo PMV según Modelo de Fanger <div class="ingroups"><a class="el" href="group__auxiliares__grupo.html">Funciones Auxiliares del Sistema</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Diagrama de colaboración de Cálculo PMV según Modelo de Fanger:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__pmv__grupo.png" border="0" usemap="#agroup____pmv____grupo" loading="lazy" alt=""/></div>
+<map name="agroup____pmv____grupo" id="agroup____pmv____grupo">
+<area shape="rect" href="group__auxiliares__grupo.html" title=" " alt="" coords="5,5,148,48"/>
+<area shape="rect" title=" " alt="" coords="196,5,332,48"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:ga9c12005928a2d38bbbe11e7e703b5007" id="r_ga9c12005928a2d38bbbe11e7e703b5007"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9c12005928a2d38bbbe11e7e703b5007">calcularPresionVapor</a> (float ta, float rh)</td></tr>
+<tr class="memdesc:ga9c12005928a2d38bbbe11e7e703b5007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula la presión parcial de vapor de agua en el aire.  <br /></td></tr>
+<tr class="memitem:ga7ed73e40dd21909dc5922b342cdbe0c9" id="r_ga7ed73e40dd21909dc5922b342cdbe0c9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7ed73e40dd21909dc5922b342cdbe0c9">calcularHc</a> (float tcl, float ta, float <a class="el" href="group__variables__grupo.html#ga23d3d189bb77135c9088b454b5a1e457">vel_ar</a>)</td></tr>
+<tr class="memdesc:ga7ed73e40dd21909dc5922b342cdbe0c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula el coeficiente de transferencia de calor por convección.  <br /></td></tr>
+<tr class="memitem:ga0c0597b90e05b7eb8c2808f644c95a61" id="r_ga0c0597b90e05b7eb8c2808f644c95a61"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0c0597b90e05b7eb8c2808f644c95a61">calcularFcl</a> (float icl)</td></tr>
+<tr class="memdesc:ga0c0597b90e05b7eb8c2808f644c95a61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula el factor de superficie de la ropa.  <br /></td></tr>
+<tr class="memitem:ga010b0d3e4b1c2eb39075406703487960" id="r_ga010b0d3e4b1c2eb39075406703487960"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga010b0d3e4b1c2eb39075406703487960">calcularPMV_Fanger</a> (float ta, float tr, float rh, float <a class="el" href="group__variables__grupo.html#ga23d3d189bb77135c9088b454b5a1e457">vel_ar</a>, float <a class="el" href="group__variables__grupo.html#ga036e77f98fbf5ae1d19ec8dc38433c03">M</a>, float <a class="el" href="group__variables__grupo.html#gae739b5a639d79f73dd4c556eaaec18b2">clo</a>)</td></tr>
+<tr class="memdesc:ga010b0d3e4b1c2eb39075406703487960"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula el índice PMV (Predicted Mean Vote) usando modelo de Fanger.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descripción detallada</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentación de funciones</h2>
+<a id="ga0c0597b90e05b7eb8c2808f644c95a61" name="ga0c0597b90e05b7eb8c2808f644c95a61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0c0597b90e05b7eb8c2808f644c95a61">&#9670;&#160;</a></span>calcularFcl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float calcularFcl </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>icl</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcula el factor de superficie de la ropa. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">icl</td><td>Aislamiento térmico de la ropa [m²K/W] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>float Factor de superficie fcl [adimensional]</dd></dl>
+<ul>
+<li>Para icl ≤ 0.078: fcl = 1.00 + 1.290 * icl</li>
+<li>Para icl &gt; 0.078: fcl = 1.05 + 0.645 * icl</li>
+</ul>
+<p>@reference ISO 7730:2005 - Annex D </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l01572">1572</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1572</span>                             {</div>
+<div class="line"><span class="lineno"> 1573</span>  <span class="keywordtype">float</span> fcl;</div>
+<div class="line"><span class="lineno"> 1574</span>  <span class="keywordflow">if</span> (icl &lt;= 0.078) {</div>
+<div class="line"><span class="lineno"> 1575</span>    fcl = 1.00 + 1.290 * icl;</div>
+<div class="line"><span class="lineno"> 1576</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno"> 1577</span>    fcl = 1.05 + 0.645 * icl;</div>
+<div class="line"><span class="lineno"> 1578</span>  }</div>
+<div class="line"><span class="lineno"> 1579</span>  <span class="keywordflow">return</span> fcl;</div>
+<div class="line"><span class="lineno"> 1580</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01612">calcularPMV_Fanger()</a>.</p>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__pmv__grupo_ga0c0597b90e05b7eb8c2808f644c95a61_icgraph.png" border="0" usemap="#agroup__pmv__grupo_ga0c0597b90e05b7eb8c2808f644c95a61_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__pmv__grupo_ga0c0597b90e05b7eb8c2808f644c95a61_icgraph" id="agroup__pmv__grupo_ga0c0597b90e05b7eb8c2808f644c95a61_icgraph">
+<area shape="rect" title="Calcula el factor de superficie de la ropa." alt="" coords="329,5,413,32"/>
+<area shape="rect" href="group__pmv__grupo.html#ga010b0d3e4b1c2eb39075406703487960" title="Calcula el índice PMV (Predicted Mean Vote) usando modelo de Fanger." alt="" coords="139,5,281,32"/>
+<area shape="poly" title=" " alt="" coords="313,21,281,21,281,16,313,16"/>
+<area shape="rect" href="group__verificacion__grupo.html#gaec3d803c0bdc0d568fd8ebb776f93dd6" title="Verifica cálculo PMV y determina transiciones desde estado MONITOR." alt="" coords="5,5,91,32"/>
+<area shape="poly" title=" " alt="" coords="123,21,91,21,91,16,123,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga7ed73e40dd21909dc5922b342cdbe0c9" name="ga7ed73e40dd21909dc5922b342cdbe0c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7ed73e40dd21909dc5922b342cdbe0c9">&#9670;&#160;</a></span>calcularHc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float calcularHc </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>tcl</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>ta</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>vel_ar</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcula el coeficiente de transferencia de calor por convección. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tcl</td><td>Temperatura de superficie de la ropa [°C] </td></tr>
+    <tr><td class="paramname">ta</td><td>Temperatura del aire [°C] </td></tr>
+    <tr><td class="paramname">vel_ar</td><td>Velocidad relativa del aire [m/s] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>float Coeficiente de convección hc [W/(m²·K)]</dd></dl>
+<p>Calcula ambos mecanismos y selecciona el mayor:</p><ul>
+<li>Convección natural: hc_nat = 2.38 * |tcl - ta|^0.25</li>
+<li>Convección forzada: hc_for = 12.1 * √(vel_ar)</li>
+</ul>
+<p>@equation $$ h_c = \max\left(2.38 \times |t_{cl} - t_a|^{0.25},\ 12.1 \times \sqrt{v_{ar}}\right) $$</p>
+<p>@reference Fanger (1970) - Thermal Comfort </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l01552">1552</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1552</span>                                                    {</div>
+<div class="line"><span class="lineno"> 1553</span>  <span class="keywordtype">float</span> hc_natural = 2.38 * pow(fabs(tcl - ta), 0.25);</div>
+<div class="line"><span class="lineno"> 1554</span>  <span class="keywordtype">float</span> hc_forzada = 12.1 * sqrt(<a class="code hl_variable" href="group__variables__grupo.html#ga23d3d189bb77135c9088b454b5a1e457">vel_ar</a>);</div>
+<div class="line"><span class="lineno"> 1555</span>  </div>
+<div class="line"><span class="lineno"> 1556</span>  <span class="keywordtype">float</span> hc = (hc_natural &gt; hc_forzada) ? hc_natural : hc_forzada;</div>
+<div class="line"><span class="lineno"> 1557</span>  <span class="keywordflow">return</span> hc;</div>
+<div class="line"><span class="lineno"> 1558</span>}</div>
+<div class="ttc" id="agroup__variables__grupo_html_ga23d3d189bb77135c9088b454b5a1e457"><div class="ttname"><a href="group__variables__grupo.html#ga23d3d189bb77135c9088b454b5a1e457">vel_ar</a></div><div class="ttdeci">float vel_ar</div><div class="ttdoc">Velocidad del aire en el ambiente [m/s].</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00190">sistema_confort_termico.ino:190</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00190">vel_ar</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01612">calcularPMV_Fanger()</a>.</p>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__pmv__grupo_ga7ed73e40dd21909dc5922b342cdbe0c9_icgraph.png" border="0" usemap="#agroup__pmv__grupo_ga7ed73e40dd21909dc5922b342cdbe0c9_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__pmv__grupo_ga7ed73e40dd21909dc5922b342cdbe0c9_icgraph" id="agroup__pmv__grupo_ga7ed73e40dd21909dc5922b342cdbe0c9_icgraph">
+<area shape="rect" title="Calcula el coeficiente de transferencia de calor por convección." alt="" coords="329,5,411,32"/>
+<area shape="rect" href="group__pmv__grupo.html#ga010b0d3e4b1c2eb39075406703487960" title="Calcula el índice PMV (Predicted Mean Vote) usando modelo de Fanger." alt="" coords="139,5,281,32"/>
+<area shape="poly" title=" " alt="" coords="313,21,281,21,281,16,313,16"/>
+<area shape="rect" href="group__verificacion__grupo.html#gaec3d803c0bdc0d568fd8ebb776f93dd6" title="Verifica cálculo PMV y determina transiciones desde estado MONITOR." alt="" coords="5,5,91,32"/>
+<area shape="poly" title=" " alt="" coords="123,21,91,21,91,16,123,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga010b0d3e4b1c2eb39075406703487960" name="ga010b0d3e4b1c2eb39075406703487960"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga010b0d3e4b1c2eb39075406703487960">&#9670;&#160;</a></span>calcularPMV_Fanger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float calcularPMV_Fanger </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>ta</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>tr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>rh</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>vel_ar</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>M</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>clo</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcula el índice PMV (Predicted Mean Vote) usando modelo de Fanger. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ta</td><td>Temperatura del aire [°C] </td></tr>
+    <tr><td class="paramname">tr</td><td>Temperatura radiante media [°C] </td></tr>
+    <tr><td class="paramname">rh</td><td>Humedad relativa [%] </td></tr>
+    <tr><td class="paramname">vel_ar</td><td>Velocidad del aire [m/s] </td></tr>
+    <tr><td class="paramname">M</td><td>Tasa metabólica [W/m²] </td></tr>
+    <tr><td class="paramname">clo</td><td>Aislamiento térmico de la ropa [clo] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>float Índice PMV en escala de -3 a +3</dd></dl>
+<p>Implementa el modelo completo de Fanger para cálculo de confort térmico:</p><ul>
+<li>-3: Muy frío | -2: Frío | -1: Ligeramente frío</li>
+<li>0: Neutral (confort óptimo)</li>
+<li>+1: Ligeramente cálido | +2: Cálido | +3: Muy cálido</li>
+</ul>
+<p>@algorithm</p><ol type="1">
+<li>Conversión de unidades y constantes base</li>
+<li>Iteración para hallar temperatura de superficie de ropa (tcl)</li>
+<li>Cálculo de pérdidas de calor (radiación, convección, respiración)</li>
+<li>Cálculo final del índice PMV</li>
+</ol>
+<p>@equation PMV = (0.303 × e^{-0.036M} + 0.028) × (M - W - H)</p>
+<dl class="section warning"><dt>Atención</dt><dd>Resultado limitado al rango [-3, +3] según estándar ISO 7730</dd></dl>
+<p>@reference Fanger, P. O. (1970). Thermal Comfort. Danish Technical Press. @reference ISO 7730:2005 - Ergonomics of the thermal environment </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l01612">1612</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1612</span>                                                                                         {</div>
+<div class="line"><span class="lineno"> 1613</span>  <span class="comment">// Conversión de unidades y constantes base</span></div>
+<div class="line"><span class="lineno"> 1614</span>  <span class="keywordtype">float</span> pa, icl, V, fcl, hc, pmv;</div>
+<div class="line"><span class="lineno"> 1615</span>  <span class="keywordtype">float</span> tol = 0.0001;      <span class="comment">// Tolerancia para iteraciones</span></div>
+<div class="line"><span class="lineno"> 1616</span>  <span class="keywordtype">float</span> tcl = ta;          <span class="comment">// Temperatura inicial de la superficie de la ropa</span></div>
+<div class="line"><span class="lineno"> 1617</span>  <span class="keywordtype">float</span> tcl_prev;</div>
+<div class="line"><span class="lineno"> 1618</span>  <span class="keywordtype">int</span> iteracion = 0;</div>
+<div class="line"><span class="lineno"> 1619</span>  <span class="keywordtype">int</span> max_iters = 100;</div>
+<div class="line"><span class="lineno"> 1620</span> </div>
+<div class="line"><span class="lineno"> 1621</span>  <span class="comment">// Constantes del modelo</span></div>
+<div class="line"><span class="lineno"> 1622</span>  V = 0.0;                            <span class="comment">// Trabajo mecánico (reposo) [W/m²]</span></div>
+<div class="line"><span class="lineno"> 1623</span>  icl = <a class="code hl_variable" href="group__variables__grupo.html#gae739b5a639d79f73dd4c556eaaec18b2">clo</a> * 0.155;                  <span class="comment">// Conversión clo a m²K/W</span></div>
+<div class="line"><span class="lineno"> 1624</span>  pa = <a class="code hl_function" href="#ga9c12005928a2d38bbbe11e7e703b5007">calcularPresionVapor</a>(ta, rh);  <span class="comment">// Presión de vapor [Pa]</span></div>
+<div class="line"><span class="lineno"> 1625</span> </div>
+<div class="line"><span class="lineno"> 1626</span>  <span class="comment">// Factor de superficie de la ropa</span></div>
+<div class="line"><span class="lineno"> 1627</span>  fcl = <a class="code hl_function" href="#ga0c0597b90e05b7eb8c2808f644c95a61">calcularFcl</a>(icl);</div>
+<div class="line"><span class="lineno"> 1628</span> </div>
+<div class="line"><span class="lineno"> 1629</span>  <span class="comment">// ------------ Iteración para hallar tcl ------------</span></div>
+<div class="line"><span class="lineno"> 1630</span>  <span class="keywordflow">do</span> {</div>
+<div class="line"><span class="lineno"> 1631</span>    tcl_prev = tcl;</div>
+<div class="line"><span class="lineno"> 1632</span> </div>
+<div class="line"><span class="lineno"> 1633</span>    <span class="comment">// Calcular coeficiente de convección</span></div>
+<div class="line"><span class="lineno"> 1634</span>    hc = <a class="code hl_function" href="#ga7ed73e40dd21909dc5922b342cdbe0c9">calcularHc</a>(tcl, ta, <a class="code hl_variable" href="group__variables__grupo.html#ga23d3d189bb77135c9088b454b5a1e457">vel_ar</a>);</div>
+<div class="line"><span class="lineno"> 1635</span> </div>
+<div class="line"><span class="lineno"> 1636</span>    <span class="comment">// Conversión a Kelvin para fórmulas radiativas</span></div>
+<div class="line"><span class="lineno"> 1637</span>    <span class="keywordtype">float</span> tr_rad = tr + 273.0;</div>
+<div class="line"><span class="lineno"> 1638</span>    <span class="keywordtype">float</span> tcl_rad = tcl + 273.0;</div>
+<div class="line"><span class="lineno"> 1639</span> </div>
+<div class="line"><span class="lineno"> 1640</span>    <span class="comment">// Cálculo de transferencia de calor radiante</span></div>
+<div class="line"><span class="lineno"> 1641</span>    <span class="keywordtype">float</span> radiation = (3.96 * pow(10, -8)) * fcl * (pow(tcl_rad, 4) - pow(tr_rad, 4));</div>
+<div class="line"><span class="lineno"> 1642</span>    <span class="comment">// Cálculo de transferencia de calor por convección</span></div>
+<div class="line"><span class="lineno"> 1643</span>    <span class="keywordtype">float</span> convection = fcl * hc * (tcl - ta);</div>
+<div class="line"><span class="lineno"> 1644</span> </div>
+<div class="line"><span class="lineno"> 1645</span>    <span class="comment">// Ecuación de balance térmico para tcl</span></div>
+<div class="line"><span class="lineno"> 1646</span>    tcl = 35.7 - 0.028 * (<a class="code hl_variable" href="group__variables__grupo.html#ga036e77f98fbf5ae1d19ec8dc38433c03">M</a> - V) - icl * (radiation - convection);</div>
+<div class="line"><span class="lineno"> 1647</span> </div>
+<div class="line"><span class="lineno"> 1648</span>    iteracion++;</div>
+<div class="line"><span class="lineno"> 1649</span>  } <span class="keywordflow">while</span> (fabs(tcl - tcl_prev) &gt; tol &amp;&amp; iteracion &lt; max_iters);</div>
+<div class="line"><span class="lineno"> 1650</span> </div>
+<div class="line"><span class="lineno"> 1651</span>  <span class="comment">// Cálculo final de coeficiente de convección</span></div>
+<div class="line"><span class="lineno"> 1652</span>  <span class="keywordtype">float</span> hc_final = <a class="code hl_function" href="#ga7ed73e40dd21909dc5922b342cdbe0c9">calcularHc</a>(tcl, ta, <a class="code hl_variable" href="group__variables__grupo.html#ga23d3d189bb77135c9088b454b5a1e457">vel_ar</a>);</div>
+<div class="line"><span class="lineno"> 1653</span> </div>
+<div class="line"><span class="lineno"> 1654</span>  <span class="comment">// -------------- CÁLCULO FINAL DEL PMV --------------</span></div>
+<div class="line"><span class="lineno"> 1655</span>  <span class="comment">// Conversión a Kelvin</span></div>
+<div class="line"><span class="lineno"> 1656</span>  <span class="keywordtype">float</span> tr_rad = tr + 273.0;</div>
+<div class="line"><span class="lineno"> 1657</span>  <span class="keywordtype">float</span> tcl_rad = tcl + 273.0;</div>
+<div class="line"><span class="lineno"> 1658</span> </div>
+<div class="line"><span class="lineno"> 1659</span>  <span class="comment">// Cálculo de todas las pérdidas de calor</span></div>
+<div class="line"><span class="lineno"> 1660</span>  <span class="keywordtype">float</span> radiation = (3.96e-8) * fcl * (pow(tcl_rad, 4) - pow(tr_rad, 4));</div>
+<div class="line"><span class="lineno"> 1661</span>  <span class="keywordtype">float</span> convection = fcl * hc_final * (tcl - ta);</div>
+<div class="line"><span class="lineno"> 1662</span>  <span class="keywordtype">float</span> respiration = 0.0014 * <a class="code hl_variable" href="group__variables__grupo.html#ga036e77f98fbf5ae1d19ec8dc38433c03">M</a> * (34.0 - ta);</div>
+<div class="line"><span class="lineno"> 1663</span>  <span class="keywordtype">float</span> latent = (1.7e-5) * <a class="code hl_variable" href="group__variables__grupo.html#ga036e77f98fbf5ae1d19ec8dc38433c03">M</a> * (5867.0 - pa);</div>
+<div class="line"><span class="lineno"> 1664</span>  <span class="keywordtype">float</span> heat_loss = latent + respiration + radiation + convection;</div>
+<div class="line"><span class="lineno"> 1665</span> </div>
+<div class="line"><span class="lineno"> 1666</span>  <span class="comment">// Ecuación final del PMV</span></div>
+<div class="line"><span class="lineno"> 1667</span>  pmv = (0.303 * exp(-0.036 * <a class="code hl_variable" href="group__variables__grupo.html#ga036e77f98fbf5ae1d19ec8dc38433c03">M</a>) + 0.028) * (</div>
+<div class="line"><span class="lineno"> 1668</span>    (<a class="code hl_variable" href="group__variables__grupo.html#ga036e77f98fbf5ae1d19ec8dc38433c03">M</a> - V)</div>
+<div class="line"><span class="lineno"> 1669</span>    - (3.05e-3) * (5733.0 - 6.99 * (<a class="code hl_variable" href="group__variables__grupo.html#ga036e77f98fbf5ae1d19ec8dc38433c03">M</a> - V) - pa)</div>
+<div class="line"><span class="lineno"> 1670</span>    - 0.42 * ((<a class="code hl_variable" href="group__variables__grupo.html#ga036e77f98fbf5ae1d19ec8dc38433c03">M</a> - V) - 58.15)</div>
+<div class="line"><span class="lineno"> 1671</span>    - heat_loss</div>
+<div class="line"><span class="lineno"> 1672</span>  );</div>
+<div class="line"><span class="lineno"> 1673</span> </div>
+<div class="line"><span class="lineno"> 1674</span>  <span class="comment">// Limitar resultado al rango estándar [-3, +3]</span></div>
+<div class="line"><span class="lineno"> 1675</span>  <span class="keywordflow">return</span> constrain(pmv, -3.0, 3.0);</div>
+<div class="line"><span class="lineno"> 1676</span>}</div>
+<div class="ttc" id="agroup__pmv__grupo_html_ga0c0597b90e05b7eb8c2808f644c95a61"><div class="ttname"><a href="#ga0c0597b90e05b7eb8c2808f644c95a61">calcularFcl</a></div><div class="ttdeci">float calcularFcl(float icl)</div><div class="ttdoc">Calcula el factor de superficie de la ropa.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l01572">sistema_confort_termico.ino:1572</a></div></div>
+<div class="ttc" id="agroup__pmv__grupo_html_ga7ed73e40dd21909dc5922b342cdbe0c9"><div class="ttname"><a href="#ga7ed73e40dd21909dc5922b342cdbe0c9">calcularHc</a></div><div class="ttdeci">float calcularHc(float tcl, float ta, float vel_ar)</div><div class="ttdoc">Calcula el coeficiente de transferencia de calor por convección.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l01552">sistema_confort_termico.ino:1552</a></div></div>
+<div class="ttc" id="agroup__pmv__grupo_html_ga9c12005928a2d38bbbe11e7e703b5007"><div class="ttname"><a href="#ga9c12005928a2d38bbbe11e7e703b5007">calcularPresionVapor</a></div><div class="ttdeci">float calcularPresionVapor(float ta, float rh)</div><div class="ttdoc">Calcula la presión parcial de vapor de agua en el aire.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l01530">sistema_confort_termico.ino:1530</a></div></div>
+<div class="ttc" id="agroup__variables__grupo_html_ga036e77f98fbf5ae1d19ec8dc38433c03"><div class="ttname"><a href="group__variables__grupo.html#ga036e77f98fbf5ae1d19ec8dc38433c03">M</a></div><div class="ttdeci">float M</div><div class="ttdoc">Tasa metabólica de referencia [W/m²].</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00181">sistema_confort_termico.ino:181</a></div></div>
+<div class="ttc" id="agroup__variables__grupo_html_gae739b5a639d79f73dd4c556eaaec18b2"><div class="ttname"><a href="group__variables__grupo.html#gae739b5a639d79f73dd4c556eaaec18b2">clo</a></div><div class="ttdeci">float clo</div><div class="ttdoc">Aislamiento térmico de la ropa [clo].</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00188">sistema_confort_termico.ino:188</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l01572">calcularFcl()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l01552">calcularHc()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l01530">calcularPresionVapor()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00188">clo</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00181">M</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00190">vel_ar</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01757">checkPMV()</a>.</p>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__pmv__grupo_ga010b0d3e4b1c2eb39075406703487960_cgraph.png" border="0" usemap="#agroup__pmv__grupo_ga010b0d3e4b1c2eb39075406703487960_cgraph" loading="lazy" alt=""/></div>
+<map name="agroup__pmv__grupo_ga010b0d3e4b1c2eb39075406703487960_cgraph" id="agroup__pmv__grupo_ga010b0d3e4b1c2eb39075406703487960_cgraph">
+<area shape="rect" title="Calcula el índice PMV (Predicted Mean Vote) usando modelo de Fanger." alt="" coords="5,56,148,83"/>
+<area shape="rect" href="group__pmv__grupo.html#ga0c0597b90e05b7eb8c2808f644c95a61" title="Calcula el factor de superficie de la ropa." alt="" coords="226,5,310,32"/>
+<area shape="poly" title=" " alt="" coords="129,53,210,31,212,36,131,58"/>
+<area shape="rect" href="group__pmv__grupo.html#ga7ed73e40dd21909dc5922b342cdbe0c9" title="Calcula el coeficiente de transferencia de calor por convección." alt="" coords="227,56,309,83"/>
+<area shape="poly" title=" " alt="" coords="148,67,211,67,211,72,148,72"/>
+<area shape="rect" href="group__pmv__grupo.html#ga9c12005928a2d38bbbe11e7e703b5007" title="Calcula la presión parcial de vapor de agua en el aire." alt="" coords="196,107,340,133"/>
+<area shape="poly" title=" " alt="" coords="131,81,201,100,199,105,129,86"/>
+</map>
+</div>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__pmv__grupo_ga010b0d3e4b1c2eb39075406703487960_icgraph.png" border="0" usemap="#agroup__pmv__grupo_ga010b0d3e4b1c2eb39075406703487960_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__pmv__grupo_ga010b0d3e4b1c2eb39075406703487960_icgraph" id="agroup__pmv__grupo_ga010b0d3e4b1c2eb39075406703487960_icgraph">
+<area shape="rect" title="Calcula el índice PMV (Predicted Mean Vote) usando modelo de Fanger." alt="" coords="232,5,374,32"/>
+<area shape="rect" href="group__verificacion__grupo.html#gaec3d803c0bdc0d568fd8ebb776f93dd6" title="Verifica cálculo PMV y determina transiciones desde estado MONITOR." alt="" coords="99,5,184,32"/>
+<area shape="poly" title=" " alt="" coords="216,21,184,21,184,16,216,16"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="5,5,51,32"/>
+<area shape="poly" title=" " alt="" coords="83,21,51,21,51,16,83,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga9c12005928a2d38bbbe11e7e703b5007" name="ga9c12005928a2d38bbbe11e7e703b5007"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9c12005928a2d38bbbe11e7e703b5007">&#9670;&#160;</a></span>calcularPresionVapor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float calcularPresionVapor </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>ta</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>rh</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcula la presión parcial de vapor de agua en el aire. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ta</td><td>Temperatura del aire [°C] </td></tr>
+    <tr><td class="paramname">rh</td><td>Humedad relativa [%] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>float Presión parcial de vapor [Pa]</dd></dl>
+<p>Calcula usando la fórmula de Magnus-Tetens: pa = (rh/100) * exp(16.6536 - 4030.183/(ta + 235))</p>
+<p>@equation $$ p_a = \frac{rh}{100} \times e^{\left(16.6536 - \frac{4030.183}{t_a + 235}\right)} $$</p>
+<p>@reference ASHRAE Fundamentals 2001 </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l01530">1530</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1530</span>                                               {</div>
+<div class="line"><span class="lineno"> 1531</span>  <span class="keywordtype">float</span> pa = (rh / 100.0) * exp(16.6536 - 4030.183 / (ta + 235.0));</div>
+<div class="line"><span class="lineno"> 1532</span>  <span class="keywordflow">return</span> pa;</div>
+<div class="line"><span class="lineno"> 1533</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01612">calcularPMV_Fanger()</a>.</p>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__pmv__grupo_ga9c12005928a2d38bbbe11e7e703b5007_icgraph.png" border="0" usemap="#agroup__pmv__grupo_ga9c12005928a2d38bbbe11e7e703b5007_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__pmv__grupo_ga9c12005928a2d38bbbe11e7e703b5007_icgraph" id="agroup__pmv__grupo_ga9c12005928a2d38bbbe11e7e703b5007_icgraph">
+<area shape="rect" title="Calcula la presión parcial de vapor de agua en el aire." alt="" coords="329,5,473,32"/>
+<area shape="rect" href="group__pmv__grupo.html#ga010b0d3e4b1c2eb39075406703487960" title="Calcula el índice PMV (Predicted Mean Vote) usando modelo de Fanger." alt="" coords="139,5,281,32"/>
+<area shape="poly" title=" " alt="" coords="313,21,281,21,281,16,313,16"/>
+<area shape="rect" href="group__verificacion__grupo.html#gaec3d803c0bdc0d568fd8ebb776f93dd6" title="Verifica cálculo PMV y determina transiciones desde estado MONITOR." alt="" coords="5,5,91,32"/>
+<area shape="poly" title=" " alt="" coords="123,21,91,21,91,16,123,16"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generado el <span class="timestamp"></span> para Sistema de Confort Térmico Inteligente v3.1 por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

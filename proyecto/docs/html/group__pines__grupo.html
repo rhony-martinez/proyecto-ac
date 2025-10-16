@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Confort Térmico Inteligente v3.1: Configuración de Pines Hardware</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Confort Térmico Inteligente v3.1<span id="projectnumber">&#160;3.1 - 2025</span>
+   </div>
+   <div id="projectbrief">Sistema FSM avanzado con PMV, RFID y actuadores completos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('group__pines__grupo.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Configuración de Pines Hardware </div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:ga31e20330f8ce94e0dd10b005a15c5898" id="r_ga31e20330f8ce94e0dd10b005a15c5898"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga31e20330f8ce94e0dd10b005a15c5898">LED_RED</a>&#160;&#160;&#160;8</td></tr>
+<tr class="memdesc:ga31e20330f8ce94e0dd10b005a15c5898"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin digital para canal rojo del LED RGB - Indicador de BLOQUEO/ALARMA.  <br /></td></tr>
+<tr class="memitem:gaca338dbd19d7940923334629f6e5f3b7" id="r_gaca338dbd19d7940923334629f6e5f3b7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaca338dbd19d7940923334629f6e5f3b7">LED_GREEN</a>&#160;&#160;&#160;9</td></tr>
+<tr class="memdesc:gaca338dbd19d7940923334629f6e5f3b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin digital para canal verde del LED RGB - Indicador de PMV_BAJO.  <br /></td></tr>
+<tr class="memitem:gae2e40566d27689f8581d7b0f12271d45" id="r_gae2e40566d27689f8581d7b0f12271d45"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae2e40566d27689f8581d7b0f12271d45">LED_BLUE</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:gae2e40566d27689f8581d7b0f12271d45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin digital para canal azul del LED RGB - Indicador de PMV_ALTO.  <br /></td></tr>
+<tr class="memitem:ga757bb4e2bff6148de6ef3989b32a0126" id="r_ga757bb4e2bff6148de6ef3989b32a0126"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga757bb4e2bff6148de6ef3989b32a0126">DHTPIN</a>&#160;&#160;&#160;41</td></tr>
+<tr class="memdesc:ga757bb4e2bff6148de6ef3989b32a0126"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin digital para sensor DHT11 - Temperatura y humedad ambiente.  <br /></td></tr>
+<tr class="memitem:ga2c509dba12bba99883a5be9341b7a0c5" id="r_ga2c509dba12bba99883a5be9341b7a0c5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2c509dba12bba99883a5be9341b7a0c5">DHTTYPE</a>&#160;&#160;&#160;DHT11</td></tr>
+<tr class="memdesc:ga2c509dba12bba99883a5be9341b7a0c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tipo de sensor DHT configurado.  <br /></td></tr>
+<tr class="memitem:ga51fd859df7f54aaa2ef64c36c97b548a" id="r_ga51fd859df7f54aaa2ef64c36c97b548a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga51fd859df7f54aaa2ef64c36c97b548a">LDR_PIN</a>&#160;&#160;&#160;A3</td></tr>
+<tr class="memdesc:ga51fd859df7f54aaa2ef64c36c97b548a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin analógico para sensor LDR - Medición de luminosidad ambiental.  <br /></td></tr>
+<tr class="memitem:ga00f0342506a37776704c9bf59a4039db" id="r_ga00f0342506a37776704c9bf59a4039db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga00f0342506a37776704c9bf59a4039db">TEMP_PIN</a>&#160;&#160;&#160;A0</td></tr>
+<tr class="memdesc:ga00f0342506a37776704c9bf59a4039db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin analógico para termistor NTC - Temperatura radiante.  <br /></td></tr>
+<tr class="memitem:ga379c6aca42757cab67a55b21ecb59f21" id="r_ga379c6aca42757cab67a55b21ecb59f21"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga379c6aca42757cab67a55b21ecb59f21">PIR_SENSOR</a>&#160;&#160;&#160;A5</td></tr>
+<tr class="memdesc:ga379c6aca42757cab67a55b21ecb59f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin analógico para sensor PIR - Detección de movimiento.  <br /></td></tr>
+<tr class="memitem:ga5218f89aa292654356a48989319aafb1" id="r_ga5218f89aa292654356a48989319aafb1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5218f89aa292654356a48989319aafb1">SERVO_PIN</a>&#160;&#160;&#160;13</td></tr>
+<tr class="memdesc:ga5218f89aa292654356a48989319aafb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin PWM para servomotor SG90 - Control de persianas/ventilación.  <br /></td></tr>
+<tr class="memitem:ga2659364744f6d57a126d7199e3e11343" id="r_ga2659364744f6d57a126d7199e3e11343"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2659364744f6d57a126d7199e3e11343">FAN_PIN</a>&#160;&#160;&#160;38</td></tr>
+<tr class="memdesc:ga2659364744f6d57a126d7199e3e11343"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin digital para control de ventilador DC - Sistema de enfriamiento.  <br /></td></tr>
+<tr class="memitem:gab61d0981ed42df9e18211b273d22cfcd" id="r_gab61d0981ed42df9e18211b273d22cfcd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab61d0981ed42df9e18211b273d22cfcd">BUZZER_PIN</a>&#160;&#160;&#160;7</td></tr>
+<tr class="memdesc:gab61d0981ed42df9e18211b273d22cfcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin digital para buzzer pasivo - Sistema de alertas audibles.  <br /></td></tr>
+<tr class="memitem:ga86fac98c9b4c98a3e50fc45440878391" id="r_ga86fac98c9b4c98a3e50fc45440878391"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga86fac98c9b4c98a3e50fc45440878391">SS_PIN</a>&#160;&#160;&#160;53</td></tr>
+<tr class="memdesc:ga86fac98c9b4c98a3e50fc45440878391"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin Slave Select para módulo RFID MFRC522.  <br /></td></tr>
+<tr class="memitem:ga36932b0e869e0114f32e255f61306d6b" id="r_ga36932b0e869e0114f32e255f61306d6b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga36932b0e869e0114f32e255f61306d6b">RST_PIN</a>&#160;&#160;&#160;6</td></tr>
+<tr class="memdesc:ga36932b0e869e0114f32e255f61306d6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin Reset para módulo RFID MFRC522.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:gab4f64a073a2588034b92bb788790dec5" id="r_gab4f64a073a2588034b92bb788790dec5"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab4f64a073a2588034b92bb788790dec5">BETA</a> = 3950</td></tr>
+<tr class="memdesc:gab4f64a073a2588034b92bb788790dec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coeficiente beta del termistor NTC.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descripción detallada</h2>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Documentación de «define»</h2>
+<a id="gab61d0981ed42df9e18211b273d22cfcd" name="gab61d0981ed42df9e18211b273d22cfcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab61d0981ed42df9e18211b273d22cfcd">&#9670;&#160;</a></span>BUZZER_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BUZZER_PIN&#160;&#160;&#160;7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pin digital para buzzer pasivo - Sistema de alertas audibles. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00125">125</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00720">outputAlarma()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00537">setup()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00448">setupStateMachine()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l01726">toggleBuzzer()</a>.</p>
+
+</div>
+</div>
+<a id="ga757bb4e2bff6148de6ef3989b32a0126" name="ga757bb4e2bff6148de6ef3989b32a0126"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga757bb4e2bff6148de6ef3989b32a0126">&#9670;&#160;</a></span>DHTPIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DHTPIN&#160;&#160;&#160;41</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pin digital para sensor DHT11 - Temperatura y humedad ambiente. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00118">118</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="group__hardware__grupo.html#gad7a1df263f6f823242a112ec11297434">dht()</a>.</p>
+
+</div>
+</div>
+<a id="ga2c509dba12bba99883a5be9341b7a0c5" name="ga2c509dba12bba99883a5be9341b7a0c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2c509dba12bba99883a5be9341b7a0c5">&#9670;&#160;</a></span>DHTTYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DHTTYPE&#160;&#160;&#160;DHT11</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tipo de sensor DHT configurado. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00119">119</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="group__hardware__grupo.html#gad7a1df263f6f823242a112ec11297434">dht()</a>.</p>
+
+</div>
+</div>
+<a id="ga2659364744f6d57a126d7199e3e11343" name="ga2659364744f6d57a126d7199e3e11343"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2659364744f6d57a126d7199e3e11343">&#9670;&#160;</a></span>FAN_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FAN_PIN&#160;&#160;&#160;38</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pin digital para control de ventilador DC - Sistema de enfriamiento. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00124">124</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00954">onLeavingPMV_Alto()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00862">outputPMV_Alto()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00537">setup()</a>.</p>
+
+</div>
+</div>
+<a id="ga51fd859df7f54aaa2ef64c36c97b548a" name="ga51fd859df7f54aaa2ef64c36c97b548a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga51fd859df7f54aaa2ef64c36c97b548a">&#9670;&#160;</a></span>LDR_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LDR_PIN&#160;&#160;&#160;A3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pin analógico para sensor LDR - Medición de luminosidad ambiental. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00120">120</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01488">leerSensores()</a>.</p>
+
+</div>
+</div>
+<a id="gae2e40566d27689f8581d7b0f12271d45" name="gae2e40566d27689f8581d7b0f12271d45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae2e40566d27689f8581d7b0f12271d45">&#9670;&#160;</a></span>LED_BLUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LED_BLUE&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pin digital para canal azul del LED RGB - Indicador de PMV_ALTO. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00117">117</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00954">onLeavingPMV_Alto()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00862">outputPMV_Alto()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00537">setup()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l01070">toggleBlue()</a>.</p>
+
+</div>
+</div>
+<a id="gaca338dbd19d7940923334629f6e5f3b7" name="gaca338dbd19d7940923334629f6e5f3b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaca338dbd19d7940923334629f6e5f3b7">&#9670;&#160;</a></span>LED_GREEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LED_GREEN&#160;&#160;&#160;9</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pin digital para canal verde del LED RGB - Indicador de PMV_BAJO. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00116">116</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00935">onLeavingPMV_Bajo()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00824">outputPMV_Bajo()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00537">setup()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l01045">toggleGreen()</a>.</p>
+
+</div>
+</div>
+<a id="ga31e20330f8ce94e0dd10b005a15c5898" name="ga31e20330f8ce94e0dd10b005a15c5898"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga31e20330f8ce94e0dd10b005a15c5898">&#9670;&#160;</a></span>LED_RED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LED_RED&#160;&#160;&#160;8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pin digital para canal rojo del LED RGB - Indicador de BLOQUEO/ALARMA. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00115">115</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00918">onLeavingBloqueo()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00749">outputBloqueo()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00537">setup()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l01020">toggleRed()</a>.</p>
+
+</div>
+</div>
+<a id="ga379c6aca42757cab67a55b21ecb59f21" name="ga379c6aca42757cab67a55b21ecb59f21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga379c6aca42757cab67a55b21ecb59f21">&#9670;&#160;</a></span>PIR_SENSOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PIR_SENSOR&#160;&#160;&#160;A5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pin analógico para sensor PIR - Detección de movimiento. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00122">122</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01805">checkMovimiento()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00537">setup()</a>.</p>
+
+</div>
+</div>
+<a id="ga36932b0e869e0114f32e255f61306d6b" name="ga36932b0e869e0114f32e255f61306d6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga36932b0e869e0114f32e255f61306d6b">&#9670;&#160;</a></span>RST_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RST_PIN&#160;&#160;&#160;6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pin Reset para módulo RFID MFRC522. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00129">129</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="group__rfid__grupo.html#gac672f817299d07cc428fe3f456235273">mfrc522()</a>.</p>
+
+</div>
+</div>
+<a id="ga5218f89aa292654356a48989319aafb1" name="ga5218f89aa292654356a48989319aafb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5218f89aa292654356a48989319aafb1">&#9670;&#160;</a></span>SERVO_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SERVO_PIN&#160;&#160;&#160;13</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pin PWM para servomotor SG90 - Control de persianas/ventilación. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00123">123</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00824">outputPMV_Bajo()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00537">setup()</a>.</p>
+
+</div>
+</div>
+<a id="ga86fac98c9b4c98a3e50fc45440878391" name="ga86fac98c9b4c98a3e50fc45440878391"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga86fac98c9b4c98a3e50fc45440878391">&#9670;&#160;</a></span>SS_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SS_PIN&#160;&#160;&#160;53</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pin Slave Select para módulo RFID MFRC522. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00128">128</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="group__rfid__grupo.html#gac672f817299d07cc428fe3f456235273">mfrc522()</a>.</p>
+
+</div>
+</div>
+<a id="ga00f0342506a37776704c9bf59a4039db" name="ga00f0342506a37776704c9bf59a4039db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga00f0342506a37776704c9bf59a4039db">&#9670;&#160;</a></span>TEMP_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEMP_PIN&#160;&#160;&#160;A0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pin analógico para termistor NTC - Temperatura radiante. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00121">121</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01488">leerSensores()</a>.</p>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentación de variables</h2>
+<a id="gab4f64a073a2588034b92bb788790dec5" name="gab4f64a073a2588034b92bb788790dec5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab4f64a073a2588034b92bb788790dec5">&#9670;&#160;</a></span>BETA</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float BETA = 3950</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Coeficiente beta del termistor NTC. </p>
+<p>Valor característico del termistor para cálculo de temperatura @reference Datasheet NTC Thermistor 3950K </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00136">136</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01488">leerSensores()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generado el <span class="timestamp"></span> para Sistema de Confort Térmico Inteligente v3.1 por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

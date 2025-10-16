@@ -1,0 +1,1477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Confort Térmico Inteligente v3.1: Referencia del archivo sistema_confort_termico.ino</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Confort Térmico Inteligente v3.1<span id="projectnumber">&#160;3.1 - 2025</span>
+   </div>
+   <div id="projectbrief">Sistema FSM avanzado con PMV, RFID y actuadores completos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('sistema__confort__termico_8ino.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referencia del archivo sistema_confort_termico.ino</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Sistema de Confort Térmico Inteligente con Actuadores Complejos y RFID.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &quot;StateMachineLib.h&quot;</code><br />
+<code>#include &quot;AsyncTaskLib.h&quot;</code><br />
+<code>#include &lt;LiquidCrystal.h&gt;</code><br />
+<code>#include &lt;Keypad.h&gt;</code><br />
+<code>#include &quot;DHT.h&quot;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;Servo.h&gt;</code><br />
+<code>#include &lt;SPI.h&gt;</code><br />
+<code>#include &lt;MFRC522.h&gt;</code><br />
+<code>#include &lt;EEPROM.h&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de dependencias incluidas en sistema_confort_termico.ino:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="sistema__confort__termico_8ino__incl.png" border="0" usemap="#asistema__confort__termico_8ino" loading="lazy" alt=""/></div>
+<map name="asistema__confort__termico_8ino" id="asistema__confort__termico_8ino">
+<area shape="rect" title="Sistema de Confort Térmico Inteligente con Actuadores Complejos y RFID." alt="" coords="506,5,690,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,135,107"/>
+<area shape="poly" title=" " alt="" coords="506,34,151,82,150,77,505,29"/>
+<area shape="rect" title=" " alt="" coords="158,80,273,107"/>
+<area shape="poly" title=" " alt="" coords="531,35,288,81,287,76,530,30"/>
+<area shape="rect" title=" " alt="" coords="296,80,404,107"/>
+<area shape="poly" title=" " alt="" coords="556,35,409,78,407,73,554,30"/>
+<area shape="rect" title=" " alt="" coords="428,80,504,107"/>
+<area shape="poly" title=" " alt="" coords="576,35,503,75,501,70,574,30"/>
+<area shape="rect" title=" " alt="" coords="528,80,585,107"/>
+<area shape="poly" title=" " alt="" coords="593,34,574,68,569,65,588,31"/>
+<area shape="rect" title=" " alt="" coords="610,80,671,107"/>
+<area shape="poly" title=" " alt="" coords="608,31,628,65,623,68,603,34"/>
+<area shape="rect" title=" " alt="" coords="695,80,760,107"/>
+<area shape="poly" title=" " alt="" coords="622,30,693,70,690,74,619,35"/>
+<area shape="rect" title=" " alt="" coords="783,80,837,107"/>
+<area shape="poly" title=" " alt="" coords="636,30,769,75,768,80,634,35"/>
+<area shape="rect" title=" " alt="" coords="861,80,951,107"/>
+<area shape="poly" title=" " alt="" coords="653,30,846,75,845,81,651,35"/>
+<area shape="rect" title=" " alt="" coords="975,80,1064,107"/>
+<area shape="poly" title=" " alt="" coords="682,30,960,77,959,82,682,35"/>
+</map>
+</div>
+</div>
+<p><a href="sistema__confort__termico_8ino_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:ga31e20330f8ce94e0dd10b005a15c5898" id="r_ga31e20330f8ce94e0dd10b005a15c5898"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pines__grupo.html#ga31e20330f8ce94e0dd10b005a15c5898">LED_RED</a>&#160;&#160;&#160;8</td></tr>
+<tr class="memdesc:ga31e20330f8ce94e0dd10b005a15c5898"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin digital para canal rojo del LED RGB - Indicador de BLOQUEO/ALARMA.  <br /></td></tr>
+<tr class="memitem:gaca338dbd19d7940923334629f6e5f3b7" id="r_gaca338dbd19d7940923334629f6e5f3b7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pines__grupo.html#gaca338dbd19d7940923334629f6e5f3b7">LED_GREEN</a>&#160;&#160;&#160;9</td></tr>
+<tr class="memdesc:gaca338dbd19d7940923334629f6e5f3b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin digital para canal verde del LED RGB - Indicador de PMV_BAJO.  <br /></td></tr>
+<tr class="memitem:gae2e40566d27689f8581d7b0f12271d45" id="r_gae2e40566d27689f8581d7b0f12271d45"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pines__grupo.html#gae2e40566d27689f8581d7b0f12271d45">LED_BLUE</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:gae2e40566d27689f8581d7b0f12271d45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin digital para canal azul del LED RGB - Indicador de PMV_ALTO.  <br /></td></tr>
+<tr class="memitem:ga757bb4e2bff6148de6ef3989b32a0126" id="r_ga757bb4e2bff6148de6ef3989b32a0126"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pines__grupo.html#ga757bb4e2bff6148de6ef3989b32a0126">DHTPIN</a>&#160;&#160;&#160;41</td></tr>
+<tr class="memdesc:ga757bb4e2bff6148de6ef3989b32a0126"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin digital para sensor DHT11 - Temperatura y humedad ambiente.  <br /></td></tr>
+<tr class="memitem:ga2c509dba12bba99883a5be9341b7a0c5" id="r_ga2c509dba12bba99883a5be9341b7a0c5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pines__grupo.html#ga2c509dba12bba99883a5be9341b7a0c5">DHTTYPE</a>&#160;&#160;&#160;DHT11</td></tr>
+<tr class="memdesc:ga2c509dba12bba99883a5be9341b7a0c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tipo de sensor DHT configurado.  <br /></td></tr>
+<tr class="memitem:ga51fd859df7f54aaa2ef64c36c97b548a" id="r_ga51fd859df7f54aaa2ef64c36c97b548a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pines__grupo.html#ga51fd859df7f54aaa2ef64c36c97b548a">LDR_PIN</a>&#160;&#160;&#160;A3</td></tr>
+<tr class="memdesc:ga51fd859df7f54aaa2ef64c36c97b548a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin analógico para sensor LDR - Medición de luminosidad ambiental.  <br /></td></tr>
+<tr class="memitem:ga00f0342506a37776704c9bf59a4039db" id="r_ga00f0342506a37776704c9bf59a4039db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pines__grupo.html#ga00f0342506a37776704c9bf59a4039db">TEMP_PIN</a>&#160;&#160;&#160;A0</td></tr>
+<tr class="memdesc:ga00f0342506a37776704c9bf59a4039db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin analógico para termistor NTC - Temperatura radiante.  <br /></td></tr>
+<tr class="memitem:ga379c6aca42757cab67a55b21ecb59f21" id="r_ga379c6aca42757cab67a55b21ecb59f21"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pines__grupo.html#ga379c6aca42757cab67a55b21ecb59f21">PIR_SENSOR</a>&#160;&#160;&#160;A5</td></tr>
+<tr class="memdesc:ga379c6aca42757cab67a55b21ecb59f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin analógico para sensor PIR - Detección de movimiento.  <br /></td></tr>
+<tr class="memitem:ga5218f89aa292654356a48989319aafb1" id="r_ga5218f89aa292654356a48989319aafb1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pines__grupo.html#ga5218f89aa292654356a48989319aafb1">SERVO_PIN</a>&#160;&#160;&#160;13</td></tr>
+<tr class="memdesc:ga5218f89aa292654356a48989319aafb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin PWM para servomotor SG90 - Control de persianas/ventilación.  <br /></td></tr>
+<tr class="memitem:ga2659364744f6d57a126d7199e3e11343" id="r_ga2659364744f6d57a126d7199e3e11343"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pines__grupo.html#ga2659364744f6d57a126d7199e3e11343">FAN_PIN</a>&#160;&#160;&#160;38</td></tr>
+<tr class="memdesc:ga2659364744f6d57a126d7199e3e11343"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin digital para control de ventilador DC - Sistema de enfriamiento.  <br /></td></tr>
+<tr class="memitem:gab61d0981ed42df9e18211b273d22cfcd" id="r_gab61d0981ed42df9e18211b273d22cfcd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pines__grupo.html#gab61d0981ed42df9e18211b273d22cfcd">BUZZER_PIN</a>&#160;&#160;&#160;7</td></tr>
+<tr class="memdesc:gab61d0981ed42df9e18211b273d22cfcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin digital para buzzer pasivo - Sistema de alertas audibles.  <br /></td></tr>
+<tr class="memitem:ga86fac98c9b4c98a3e50fc45440878391" id="r_ga86fac98c9b4c98a3e50fc45440878391"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pines__grupo.html#ga86fac98c9b4c98a3e50fc45440878391">SS_PIN</a>&#160;&#160;&#160;53</td></tr>
+<tr class="memdesc:ga86fac98c9b4c98a3e50fc45440878391"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin Slave Select para módulo RFID MFRC522.  <br /></td></tr>
+<tr class="memitem:ga36932b0e869e0114f32e255f61306d6b" id="r_ga36932b0e869e0114f32e255f61306d6b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pines__grupo.html#ga36932b0e869e0114f32e255f61306d6b">RST_PIN</a>&#160;&#160;&#160;6</td></tr>
+<tr class="memdesc:ga36932b0e869e0114f32e255f61306d6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin Reset para módulo RFID MFRC522.  <br /></td></tr>
+<tr class="memitem:ga5042e4273edacf8236d70f393cee4c8e" id="r_ga5042e4273edacf8236d70f393cee4c8e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rfid__grupo.html#ga5042e4273edacf8236d70f393cee4c8e">MAX_UID_LENGTH</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:ga5042e4273edacf8236d70f393cee4c8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Longitud máxima UID RFID (4, 7 o 10 bytes)  <br /></td></tr>
+<tr class="memitem:gae43c74733b6ab324d038bd944c35ded9" id="r_gae43c74733b6ab324d038bd944c35ded9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rfid__grupo.html#gae43c74733b6ab324d038bd944c35ded9">NAME_MAX_LENGTH</a>&#160;&#160;&#160;16</td></tr>
+<tr class="memdesc:gae43c74733b6ab324d038bd944c35ded9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Longitud máxima nombre por tarjeta.  <br /></td></tr>
+<tr class="memitem:gaf9fedaf1e9f864ee9393b80201ce6465" id="r_gaf9fedaf1e9f864ee9393b80201ce6465"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rfid__grupo.html#gaf9fedaf1e9f864ee9393b80201ce6465">RECORD_SIZE</a>&#160;&#160;&#160;(1 + <a class="el" href="group__rfid__grupo.html#ga5042e4273edacf8236d70f393cee4c8e">MAX_UID_LENGTH</a> + <a class="el" href="group__rfid__grupo.html#gae43c74733b6ab324d038bd944c35ded9">NAME_MAX_LENGTH</a>)</td></tr>
+<tr class="memdesc:gaf9fedaf1e9f864ee9393b80201ce6465"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tamaño registro EEPROM: [len][UID][nombre].  <br /></td></tr>
+<tr class="memitem:ga475c77257e5782fb60199a7d12a7e53f" id="r_ga475c77257e5782fb60199a7d12a7e53f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rfid__grupo.html#ga475c77257e5782fb60199a7d12a7e53f">MAX_RECORDS</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:ga475c77257e5782fb60199a7d12a7e53f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Número máximo de tarjetas registrables.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumeraciones</h2></td></tr>
+<tr class="memitem:ga5d74787dedbc4e11c1ab15bf487e61f8" id="r_ga5d74787dedbc4e11c1ab15bf487e61f8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fsm__grupo.html#ga5d74787dedbc4e11c1ab15bf487e61f8">State</a> { <br />
+&#160;&#160;<a class="el" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8af6e4a90a4a7e46c98a5a12b965fb8354">INICIO</a> = 0
+, <a class="el" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a702582f7f825ca83bdb076b15b4c0fc2">CONFIG</a> = 1
+, <a class="el" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a074349c9e60d68fa3f5a29ff3c91194c">ALARMA</a> = 2
+, <a class="el" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a92e8e1033650c9fd30199df2d6ec23e7">MONITOR</a> = 3
+, <br />
+&#160;&#160;<a class="el" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a7b7eab4ff8ecba6e3566d75815f318fc">BLOQUEO</a> = 4
+, <a class="el" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a72e6a374f575b0815315e1c012a5c6d9">PMV_ALTO</a> = 5
+, <a class="el" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a9cd0933478d7b716e4a87f4d3f3055e8">PMV_BAJO</a> = 6
+<br />
+ }</td></tr>
+<tr class="memdesc:ga5d74787dedbc4e11c1ab15bf487e61f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeración de estados del sistema FSM.  <a href="group__fsm__grupo.html#ga5d74787dedbc4e11c1ab15bf487e61f8">Más...</a><br /></td></tr>
+<tr class="memitem:ga080a822f0093973313bd644e517a5090" id="r_ga080a822f0093973313bd644e517a5090"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fsm__grupo.html#ga080a822f0093973313bd644e517a5090">Input</a> { <br />
+&#160;&#160;<a class="el" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090ab652af68661ddf57916254db968b28eb">SISTEMA_BLOQUEADO</a> = 0
+, <a class="el" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090af6ac79524f6fe1d95e4acebe357ea706">TECLA_ASTERISCO</a> = 1
+, <a class="el" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a398b625d64c410187ddeac0ed88bc986">CLAVE_CORRECTA</a> = 2
+, <a class="el" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a1b2a320ec55c121b96574e682f8ff73c">TIEMPO_EXPIRADO</a> = 3
+, <br />
+&#160;&#160;<a class="el" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a2b0381e4ee70ef37ce71420bbcac30b6">PMV_MENOR_QUE_MENOS1</a> = 4
+, <a class="el" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090ad9d2a3689996042933580a10cfb2ee25">PMV_MAYOR_QUE_1</a> = 5
+, <a class="el" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a223d7803a7d9575e01e4b1cef3b3b9bd">TEMP_ALTA_3_INTENTOS</a> = 6
+, <a class="el" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090ac644d7581577480f8b109e28d9d26b1a">SENSOR_INFRARROJO</a> = 7
+, <br />
+&#160;&#160;<a class="el" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a4e81c184ac3ad48a389cd4454c4a05bb">Unknown</a> = 8
+<br />
+ }</td></tr>
+<tr class="memdesc:ga080a822f0093973313bd644e517a5090"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeración de entradas que disparan transiciones de estado.  <a href="group__fsm__grupo.html#ga080a822f0093973313bd644e517a5090">Más...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:gac672f817299d07cc428fe3f456235273" id="r_gac672f817299d07cc428fe3f456235273"><td class="memItemLeft" align="right" valign="top">MFRC522&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rfid__grupo.html#gac672f817299d07cc428fe3f456235273">mfrc522</a> (<a class="el" href="group__pines__grupo.html#ga86fac98c9b4c98a3e50fc45440878391">SS_PIN</a>, <a class="el" href="group__pines__grupo.html#ga36932b0e869e0114f32e255f61306d6b">RST_PIN</a>)</td></tr>
+<tr class="memdesc:gac672f817299d07cc428fe3f456235273"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instancia del lector RFID MFRC522.  <br /></td></tr>
+<tr class="memitem:gaf97afdf00af0e116e9b5957f6a470fc2" id="r_gaf97afdf00af0e116e9b5957f6a470fc2"><td class="memItemLeft" align="right" valign="top">LiquidCrystal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a> (12, 11, 5, 4, 3, 2)</td></tr>
+<tr class="memdesc:gaf97afdf00af0e116e9b5957f6a470fc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Objeto LCD para display 16x2 con configuración de pines.  <br /></td></tr>
+<tr class="memitem:gad7a1df263f6f823242a112ec11297434" id="r_gad7a1df263f6f823242a112ec11297434"><td class="memItemLeft" align="right" valign="top">DHT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hardware__grupo.html#gad7a1df263f6f823242a112ec11297434">dht</a> (<a class="el" href="group__pines__grupo.html#ga757bb4e2bff6148de6ef3989b32a0126">DHTPIN</a>, <a class="el" href="group__pines__grupo.html#ga2c509dba12bba99883a5be9341b7a0c5">DHTTYPE</a>)</td></tr>
+<tr class="memdesc:gad7a1df263f6f823242a112ec11297434"><td class="mdescLeft">&#160;</td><td class="mdescRight">Objeto sensor DHT11 para medición de temperatura y humedad.  <br /></td></tr>
+<tr class="memitem:ga61e006dee30fabbb8d28229f5e593a63" id="r_ga61e006dee30fabbb8d28229f5e593a63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__actuadores__grupo.html#ga61e006dee30fabbb8d28229f5e593a63">toggleBuzzer</a> ()</td></tr>
+<tr class="memdesc:ga61e006dee30fabbb8d28229f5e593a63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tarea asíncrona para control del buzzer.  <br /></td></tr>
+<tr class="memitem:aeaef1f2203865f944eb917d96e5f9020" id="r_aeaef1f2203865f944eb917d96e5f9020"><td class="memItemLeft" align="right" valign="top">AsyncTask&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeaef1f2203865f944eb917d96e5f9020">TaskBuzzer</a> (200, true, <a class="el" href="group__actuadores__grupo.html#ga61e006dee30fabbb8d28229f5e593a63">toggleBuzzer</a>)</td></tr>
+<tr class="memitem:ga5fafd22b7f249c280b80241309bbe9d7" id="r_ga5fafd22b7f249c280b80241309bbe9d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__actuadores__grupo.html#ga5fafd22b7f249c280b80241309bbe9d7">moverServo</a> ()</td></tr>
+<tr class="memdesc:ga5fafd22b7f249c280b80241309bbe9d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tarea asíncrona para control del servomotor.  <br /></td></tr>
+<tr class="memitem:a15dee89810d496920bfd1ba815e97426" id="r_a15dee89810d496920bfd1ba815e97426"><td class="memItemLeft" align="right" valign="top">AsyncTask&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15dee89810d496920bfd1ba815e97426">TaskServo</a> (15, true, <a class="el" href="group__actuadores__grupo.html#ga5fafd22b7f249c280b80241309bbe9d7">moverServo</a>)</td></tr>
+<tr class="memitem:ga29b5cbc7a62b025f70547fcb3efd8e2d" id="r_ga29b5cbc7a62b025f70547fcb3efd8e2d"><td class="memItemLeft" align="right" valign="top">StateMachine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a> (7, 11)</td></tr>
+<tr class="memdesc:ga29b5cbc7a62b025f70547fcb3efd8e2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instancia de máquina de estados con 7 estados y 11 transiciones.  <br /></td></tr>
+<tr class="memitem:ga253c50d22391b4a847c214fe6aa3bd29" id="r_ga253c50d22391b4a847c214fe6aa3bd29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tareas__grupo.html#ga253c50d22391b4a847c214fe6aa3bd29">runTime</a> ()</td></tr>
+<tr class="memdesc:ga253c50d22391b4a847c214fe6aa3bd29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tarea de temporizador principal del sistema.  <br /></td></tr>
+<tr class="memitem:gabe10de4c559b3dc44bc3e0858d41553e" id="r_gabe10de4c559b3dc44bc3e0858d41553e"><td class="memItemLeft" align="right" valign="top">AsyncTask&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a> (5000, true, <a class="el" href="group__tareas__grupo.html#ga253c50d22391b4a847c214fe6aa3bd29">runTime</a>)</td></tr>
+<tr class="memitem:ga4fb27879b90fd24b957b6b6a358737af" id="r_ga4fb27879b90fd24b957b6b6a358737af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tareas__grupo.html#ga4fb27879b90fd24b957b6b6a358737af">toggleRed</a> ()</td></tr>
+<tr class="memdesc:ga4fb27879b90fd24b957b6b6a358737af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tarea para parpadeo asíncrono del LED rojo.  <br /></td></tr>
+<tr class="memitem:gaeb5ed948d82a3adfc0af3dbcf877c0c2" id="r_gaeb5ed948d82a3adfc0af3dbcf877c0c2"><td class="memItemLeft" align="right" valign="top">AsyncTask&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tareas__grupo.html#gaeb5ed948d82a3adfc0af3dbcf877c0c2">TaskLedRed</a> (100, true, <a class="el" href="group__tareas__grupo.html#ga4fb27879b90fd24b957b6b6a358737af">toggleRed</a>)</td></tr>
+<tr class="memitem:gae75eb2ac3e3c9bac42e767dac6393359" id="r_gae75eb2ac3e3c9bac42e767dac6393359"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tareas__grupo.html#gae75eb2ac3e3c9bac42e767dac6393359">toggleGreen</a> ()</td></tr>
+<tr class="memdesc:gae75eb2ac3e3c9bac42e767dac6393359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tarea para parpadeo asíncrono del LED verde.  <br /></td></tr>
+<tr class="memitem:gafe8f90ba92b8e8513fc99081a7cce5ee" id="r_gafe8f90ba92b8e8513fc99081a7cce5ee"><td class="memItemLeft" align="right" valign="top">AsyncTask&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tareas__grupo.html#gafe8f90ba92b8e8513fc99081a7cce5ee">TaskLedGreen</a> (200, true, <a class="el" href="group__tareas__grupo.html#gae75eb2ac3e3c9bac42e767dac6393359">toggleGreen</a>)</td></tr>
+<tr class="memitem:ga21dc7f71020a2ca4e192c5561dc5b8bb" id="r_ga21dc7f71020a2ca4e192c5561dc5b8bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tareas__grupo.html#ga21dc7f71020a2ca4e192c5561dc5b8bb">toggleBlue</a> ()</td></tr>
+<tr class="memdesc:ga21dc7f71020a2ca4e192c5561dc5b8bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tarea para parpadeo asíncrono del LED azul.  <br /></td></tr>
+<tr class="memitem:ga068cb3aabb9b1e22d9a355f196ab8e89" id="r_ga068cb3aabb9b1e22d9a355f196ab8e89"><td class="memItemLeft" align="right" valign="top">AsyncTask&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tareas__grupo.html#ga068cb3aabb9b1e22d9a355f196ab8e89">TaskLedBlue</a> (300, true, <a class="el" href="group__tareas__grupo.html#ga21dc7f71020a2ca4e192c5561dc5b8bb">toggleBlue</a>)</td></tr>
+<tr class="memitem:a0f66d65ae208fa0a707755d77441dd5f" id="r_a0f66d65ae208fa0a707755d77441dd5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f66d65ae208fa0a707755d77441dd5f">setupStateMachine</a> ()</td></tr>
+<tr class="memdesc:a0f66d65ae208fa0a707755d77441dd5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configura todas las transiciones y callbacks de la FSM.  <br /></td></tr>
+<tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d" id="r_a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fc01d736fe50cf5b977f755b675f11d">setup</a> ()</td></tr>
+<tr class="memdesc:a4fc01d736fe50cf5b977f755b675f11d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función de inicialización del sistema Arduino.  <br /></td></tr>
+<tr class="memitem:afe461d27b9c48d5921c00d521181f12f" id="r_afe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe461d27b9c48d5921c00d521181f12f">loop</a> ()</td></tr>
+<tr class="memdesc:afe461d27b9c48d5921c00d521181f12f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bucle principal del sistema - Ejecución continua.  <br /></td></tr>
+<tr class="memitem:ga390833d0072e6440c9707a25c053dfb3" id="r_ga390833d0072e6440c9707a25c053dfb3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__estados__grupo.html#ga390833d0072e6440c9707a25c053dfb3">outputInicio</a> ()</td></tr>
+<tr class="memdesc:ga390833d0072e6440c9707a25c053dfb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maneja la entrada al estado INICIO - autenticación de usuario.  <br /></td></tr>
+<tr class="memitem:ga3d20408bd7a9ca8c795fc543454b4e2d" id="r_ga3d20408bd7a9ca8c795fc543454b4e2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__estados__grupo.html#ga3d20408bd7a9ca8c795fc543454b4e2d">outputConfig</a> ()</td></tr>
+<tr class="memdesc:ga3d20408bd7a9ca8c795fc543454b4e2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maneja la entrada al estado CONFIG - configuración del sistema y RFID.  <br /></td></tr>
+<tr class="memitem:gaab9c5b060d49c9eae5717f5303a1984d" id="r_gaab9c5b060d49c9eae5717f5303a1984d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__estados__grupo.html#gaab9c5b060d49c9eae5717f5303a1984d">outputAlarma</a> ()</td></tr>
+<tr class="memdesc:gaab9c5b060d49c9eae5717f5303a1984d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maneja la entrada al estado ALARMA - condiciones críticas.  <br /></td></tr>
+<tr class="memitem:gae7f7255177511950ea5ff9086d20a9ef" id="r_gae7f7255177511950ea5ff9086d20a9ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__estados__grupo.html#gae7f7255177511950ea5ff9086d20a9ef">outputBloqueo</a> ()</td></tr>
+<tr class="memdesc:gae7f7255177511950ea5ff9086d20a9ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maneja la entrada al estado BLOQUEO - seguridad por fallos.  <br /></td></tr>
+<tr class="memitem:gac6e2aedfa62714338c55314abed3975a" id="r_gac6e2aedfa62714338c55314abed3975a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__estados__grupo.html#gac6e2aedfa62714338c55314abed3975a">outputMonitor</a> ()</td></tr>
+<tr class="memdesc:gac6e2aedfa62714338c55314abed3975a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maneja la entrada al estado MONITOR - monitoreo principal.  <br /></td></tr>
+<tr class="memitem:ga02260e7a04347651d07c76eacf47b8b7" id="r_ga02260e7a04347651d07c76eacf47b8b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__estados__grupo.html#ga02260e7a04347651d07c76eacf47b8b7">outputPMV_Bajo</a> ()</td></tr>
+<tr class="memdesc:ga02260e7a04347651d07c76eacf47b8b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maneja la entrada al estado PMV_BAJO - condiciones frías.  <br /></td></tr>
+<tr class="memitem:ga7c048c997648ce81c01c9a5cc03e4734" id="r_ga7c048c997648ce81c01c9a5cc03e4734"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__estados__grupo.html#ga7c048c997648ce81c01c9a5cc03e4734">outputPMV_Alto</a> ()</td></tr>
+<tr class="memdesc:ga7c048c997648ce81c01c9a5cc03e4734"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maneja la entrada al estado PMV_ALTO - condiciones cálidas.  <br /></td></tr>
+<tr class="memitem:aa592846580d9f3bebe4adc098ded791d" id="r_aa592846580d9f3bebe4adc098ded791d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa592846580d9f3bebe4adc098ded791d">onLeavingBloqueo</a> ()</td></tr>
+<tr class="memdesc:aa592846580d9f3bebe4adc098ded791d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maneja la salida del estado BLOQUEO - limpieza de recursos.  <br /></td></tr>
+<tr class="memitem:aba650bcc5cc3ea0d7fb891fd4f5b21fe" id="r_aba650bcc5cc3ea0d7fb891fd4f5b21fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba650bcc5cc3ea0d7fb891fd4f5b21fe">onLeavingPMV_Bajo</a> ()</td></tr>
+<tr class="memdesc:aba650bcc5cc3ea0d7fb891fd4f5b21fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maneja la salida del estado PMV_BAJO - limpieza de recursos.  <br /></td></tr>
+<tr class="memitem:acc9f02a17298f2a9fd2973d52572e986" id="r_acc9f02a17298f2a9fd2973d52572e986"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc9f02a17298f2a9fd2973d52572e986">onLeavingPMV_Alto</a> ()</td></tr>
+<tr class="memdesc:acc9f02a17298f2a9fd2973d52572e986"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maneja la salida del estado PMV_ALTO - limpieza de recursos.  <br /></td></tr>
+<tr class="memitem:ga60fb856dfde931eb206fe822fd5aba1c" id="r_ga60fb856dfde931eb206fe822fd5aba1c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__auxiliares__grupo.html#ga60fb856dfde931eb206fe822fd5aba1c">readInputSerial</a> ()</td></tr>
+<tr class="memdesc:ga60fb856dfde931eb206fe822fd5aba1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lee entrada del usuario desde el puerto serial.  <br /></td></tr>
+<tr class="memitem:ga84a30a47a4e97fa7e54d5ba8eb68643f" id="r_ga84a30a47a4e97fa7e54d5ba8eb68643f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rfid__funciones__grupo.html#ga84a30a47a4e97fa7e54d5ba8eb68643f">isEqualArray</a> (byte *arrayA, byte *arrayB, int length)</td></tr>
+<tr class="memdesc:ga84a30a47a4e97fa7e54d5ba8eb68643f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compara dos arrays de bytes para verificar igualdad.  <br /></td></tr>
+<tr class="memitem:ga94702e19ac21bf3b8395bd8f2dfa2f4a" id="r_ga94702e19ac21bf3b8395bd8f2dfa2f4a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rfid__funciones__grupo.html#ga94702e19ac21bf3b8395bd8f2dfa2f4a">findUIDInEEPROM</a> (byte *uid, byte uidLength)</td></tr>
+<tr class="memdesc:ga94702e19ac21bf3b8395bd8f2dfa2f4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca un UID en la memoria EEPROM.  <br /></td></tr>
+<tr class="memitem:ga90c02d6c0d88a9d7c56347bd2b1ba6d7" id="r_ga90c02d6c0d88a9d7c56347bd2b1ba6d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rfid__funciones__grupo.html#ga90c02d6c0d88a9d7c56347bd2b1ba6d7">readNameFromEEPROM</a> (int recordAddress, char *buffer, int maxLen)</td></tr>
+<tr class="memdesc:ga90c02d6c0d88a9d7c56347bd2b1ba6d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lee el nombre asociado a un registro desde EEPROM.  <br /></td></tr>
+<tr class="memitem:gadc38582f256dac9b7b764d9526137b39" id="r_gadc38582f256dac9b7b764d9526137b39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rfid__funciones__grupo.html#gadc38582f256dac9b7b764d9526137b39">saveUIDAndName</a> (byte *uid, byte uidLength, const char *name)</td></tr>
+<tr class="memdesc:gadc38582f256dac9b7b764d9526137b39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda un nuevo UID y nombre en EEPROM.  <br /></td></tr>
+<tr class="memitem:ga4923d433679f80e9b3e2b3b23d98793e" id="r_ga4923d433679f80e9b3e2b3b23d98793e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rfid__funciones__grupo.html#ga4923d433679f80e9b3e2b3b23d98793e">printEEPROMRecords</a> ()</td></tr>
+<tr class="memdesc:ga4923d433679f80e9b3e2b3b23d98793e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime por serial todos los registros RFID almacenados en EEPROM.  <br /></td></tr>
+<tr class="memitem:ga6f1cf14a01e70595870c30bd3458a34f" id="r_ga6f1cf14a01e70595870c30bd3458a34f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rfid__funciones__grupo.html#ga6f1cf14a01e70595870c30bd3458a34f">handleConfigRFID</a> ()</td></tr>
+<tr class="memdesc:ga6f1cf14a01e70595870c30bd3458a34f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maneja la configuración de tarjetas RFID en estado CONFIG.  <br /></td></tr>
+<tr class="memitem:ga451fb754ff1057f95e36210846ea0aca" id="r_ga451fb754ff1057f95e36210846ea0aca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__auxiliares__grupo.html#ga451fb754ff1057f95e36210846ea0aca">readPassword</a> ()</td></tr>
+<tr class="memdesc:ga451fb754ff1057f95e36210846ea0aca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lee la contraseña del keypad con feedback visual en LCD.  <br /></td></tr>
+<tr class="memitem:gaf8626fd53a9fd252db6f253207b78b87" id="r_gaf8626fd53a9fd252db6f253207b78b87"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__auxiliares__grupo.html#gaf8626fd53a9fd252db6f253207b78b87">checkPassword</a> ()</td></tr>
+<tr class="memdesc:gaf8626fd53a9fd252db6f253207b78b87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valida la contraseña ingresada contra la clave predefinida.  <br /></td></tr>
+<tr class="memitem:gaad5c2beac548774ab4b7b6f10afd2c64" id="r_gaad5c2beac548774ab4b7b6f10afd2c64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__auxiliares__grupo.html#gaad5c2beac548774ab4b7b6f10afd2c64">checkBloqueo</a> ()</td></tr>
+<tr class="memdesc:gaad5c2beac548774ab4b7b6f10afd2c64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica entrada de desbloqueo en estado BLOQUEO.  <br /></td></tr>
+<tr class="memitem:ga6488153c8ee9b1f1a7ef5db4ff81ca88" id="r_ga6488153c8ee9b1f1a7ef5db4ff81ca88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__auxiliares__grupo.html#ga6488153c8ee9b1f1a7ef5db4ff81ca88">leerSensores</a> ()</td></tr>
+<tr class="memdesc:ga6488153c8ee9b1f1a7ef5db4ff81ca88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lee y procesa datos de todos los sensores del sistema.  <br /></td></tr>
+<tr class="memitem:ga9c12005928a2d38bbbe11e7e703b5007" id="r_ga9c12005928a2d38bbbe11e7e703b5007"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pmv__grupo.html#ga9c12005928a2d38bbbe11e7e703b5007">calcularPresionVapor</a> (float ta, float rh)</td></tr>
+<tr class="memdesc:ga9c12005928a2d38bbbe11e7e703b5007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula la presión parcial de vapor de agua en el aire.  <br /></td></tr>
+<tr class="memitem:ga7ed73e40dd21909dc5922b342cdbe0c9" id="r_ga7ed73e40dd21909dc5922b342cdbe0c9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pmv__grupo.html#ga7ed73e40dd21909dc5922b342cdbe0c9">calcularHc</a> (float tcl, float ta, float <a class="el" href="group__variables__grupo.html#ga23d3d189bb77135c9088b454b5a1e457">vel_ar</a>)</td></tr>
+<tr class="memdesc:ga7ed73e40dd21909dc5922b342cdbe0c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula el coeficiente de transferencia de calor por convección.  <br /></td></tr>
+<tr class="memitem:ga0c0597b90e05b7eb8c2808f644c95a61" id="r_ga0c0597b90e05b7eb8c2808f644c95a61"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pmv__grupo.html#ga0c0597b90e05b7eb8c2808f644c95a61">calcularFcl</a> (float icl)</td></tr>
+<tr class="memdesc:ga0c0597b90e05b7eb8c2808f644c95a61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula el factor de superficie de la ropa.  <br /></td></tr>
+<tr class="memitem:ga010b0d3e4b1c2eb39075406703487960" id="r_ga010b0d3e4b1c2eb39075406703487960"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pmv__grupo.html#ga010b0d3e4b1c2eb39075406703487960">calcularPMV_Fanger</a> (float ta, float tr, float rh, float <a class="el" href="group__variables__grupo.html#ga23d3d189bb77135c9088b454b5a1e457">vel_ar</a>, float <a class="el" href="group__variables__grupo.html#ga036e77f98fbf5ae1d19ec8dc38433c03">M</a>, float <a class="el" href="group__variables__grupo.html#gae739b5a639d79f73dd4c556eaaec18b2">clo</a>)</td></tr>
+<tr class="memdesc:ga010b0d3e4b1c2eb39075406703487960"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula el índice PMV (Predicted Mean Vote) usando modelo de Fanger.  <br /></td></tr>
+<tr class="memitem:gaec3d803c0bdc0d568fd8ebb776f93dd6" id="r_gaec3d803c0bdc0d568fd8ebb776f93dd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__verificacion__grupo.html#gaec3d803c0bdc0d568fd8ebb776f93dd6">checkPMV</a> ()</td></tr>
+<tr class="memdesc:gaec3d803c0bdc0d568fd8ebb776f93dd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica cálculo PMV y determina transiciones desde estado MONITOR.  <br /></td></tr>
+<tr class="memitem:gacbdcb2026ed2ede5d841e375f2d860d3" id="r_gacbdcb2026ed2ede5d841e375f2d860d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__verificacion__grupo.html#gacbdcb2026ed2ede5d841e375f2d860d3">checkMovimiento</a> ()</td></tr>
+<tr class="memdesc:gacbdcb2026ed2ede5d841e375f2d860d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detecta movimiento con sensor PIR para desactivar alarma.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:gab4f64a073a2588034b92bb788790dec5" id="r_gab4f64a073a2588034b92bb788790dec5"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pines__grupo.html#gab4f64a073a2588034b92bb788790dec5">BETA</a> = 3950</td></tr>
+<tr class="memdesc:gab4f64a073a2588034b92bb788790dec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coeficiente beta del termistor NTC.  <br /></td></tr>
+<tr class="memitem:ga2f54f8fd2124e16b981df13b383e1232" id="r_ga2f54f8fd2124e16b981df13b383e1232"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rfid__grupo.html#ga2f54f8fd2124e16b981df13b383e1232">nombre</a> [<a class="el" href="group__rfid__grupo.html#gae43c74733b6ab324d038bd944c35ded9">NAME_MAX_LENGTH</a>]</td></tr>
+<tr class="memdesc:ga2f54f8fd2124e16b981df13b383e1232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer para almacenar nombre de usuario de tarjeta RFID.  <br /></td></tr>
+<tr class="memitem:ga0c0bf35d8dd60fa5bf86b5abfb1a9241" id="r_ga0c0bf35d8dd60fa5bf86b5abfb1a9241"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rfid__grupo.html#ga0c0bf35d8dd60fa5bf86b5abfb1a9241">tarjetaProcesada</a> = false</td></tr>
+<tr class="memdesc:ga0c0bf35d8dd60fa5bf86b5abfb1a9241"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag para controlar procesamiento único de tarjeta en estado CONFIG.  <br /></td></tr>
+<tr class="memitem:ga036e77f98fbf5ae1d19ec8dc38433c03" id="r_ga036e77f98fbf5ae1d19ec8dc38433c03"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__variables__grupo.html#ga036e77f98fbf5ae1d19ec8dc38433c03">M</a> = 0.0</td></tr>
+<tr class="memdesc:ga036e77f98fbf5ae1d19ec8dc38433c03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tasa metabólica de referencia [W/m²].  <br /></td></tr>
+<tr class="memitem:gae739b5a639d79f73dd4c556eaaec18b2" id="r_gae739b5a639d79f73dd4c556eaaec18b2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__variables__grupo.html#gae739b5a639d79f73dd4c556eaaec18b2">clo</a> = 0.0</td></tr>
+<tr class="memdesc:gae739b5a639d79f73dd4c556eaaec18b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aislamiento térmico de la ropa [clo].  <br /></td></tr>
+<tr class="memitem:ga23d3d189bb77135c9088b454b5a1e457" id="r_ga23d3d189bb77135c9088b454b5a1e457"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__variables__grupo.html#ga23d3d189bb77135c9088b454b5a1e457">vel_ar</a> = 0.0</td></tr>
+<tr class="memdesc:ga23d3d189bb77135c9088b454b5a1e457"><td class="mdescLeft">&#160;</td><td class="mdescRight">Velocidad del aire en el ambiente [m/s].  <br /></td></tr>
+<tr class="memitem:gac3170cbfa9a8c8b0c3d2ee9d0765c293" id="r_gac3170cbfa9a8c8b0c3d2ee9d0765c293"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__variables__grupo.html#gac3170cbfa9a8c8b0c3d2ee9d0765c293">tempA</a> = 0.0</td></tr>
+<tr class="memdesc:gac3170cbfa9a8c8b0c3d2ee9d0765c293"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperatura del aire ambiente [°C] - Sensor DHT11.  <br /></td></tr>
+<tr class="memitem:gab35f43c7567f70886ccbc1870761fd13" id="r_gab35f43c7567f70886ccbc1870761fd13"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__variables__grupo.html#gab35f43c7567f70886ccbc1870761fd13">tempR</a> = 0.0</td></tr>
+<tr class="memdesc:gab35f43c7567f70886ccbc1870761fd13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperatura radiante media [°C] - Sensor NTC.  <br /></td></tr>
+<tr class="memitem:ga34280c09711b9f4f72211e5c467b57bf" id="r_ga34280c09711b9f4f72211e5c467b57bf"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__variables__grupo.html#ga34280c09711b9f4f72211e5c467b57bf">humedad</a> = 0.0</td></tr>
+<tr class="memdesc:ga34280c09711b9f4f72211e5c467b57bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Humedad relativa del ambiente [%] - Sensor DHT11.  <br /></td></tr>
+<tr class="memitem:gaa22435b55a8b84bf16cf00696cefbad1" id="r_gaa22435b55a8b84bf16cf00696cefbad1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__variables__grupo.html#gaa22435b55a8b84bf16cf00696cefbad1">luz</a> = 0.0</td></tr>
+<tr class="memdesc:gaa22435b55a8b84bf16cf00696cefbad1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nivel de luminosidad ambiental [%] - Sensor LDR.  <br /></td></tr>
+<tr class="memitem:ga9f4f1908548616eb629643bc9cc956af" id="r_ga9f4f1908548616eb629643bc9cc956af"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__variables__grupo.html#ga9f4f1908548616eb629643bc9cc956af">conteoTempAlta</a> = 0</td></tr>
+<tr class="memdesc:ga9f4f1908548616eb629643bc9cc956af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contador de temperaturas altas consecutivas.  <br /></td></tr>
+<tr class="memitem:ga5d521eacd7a2fee907e0573ddc6f34ee" id="r_ga5d521eacd7a2fee907e0573ddc6f34ee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__variables__grupo.html#ga5d521eacd7a2fee907e0573ddc6f34ee">tiempoMonitorVencido</a> = false</td></tr>
+<tr class="memdesc:ga5d521eacd7a2fee907e0573ddc6f34ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag de timeout del estado MONITOR.  <br /></td></tr>
+<tr class="memitem:ga79efceea669fb85a732c30f47cf7e59c" id="r_ga79efceea669fb85a732c30f47cf7e59c"><td class="memItemLeft" align="right" valign="top">Servo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hardware__grupo.html#ga79efceea669fb85a732c30f47cf7e59c">servo</a></td></tr>
+<tr class="memdesc:ga79efceea669fb85a732c30f47cf7e59c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Objeto servomotor para control de actuadores mecánicos.  <br /></td></tr>
+<tr class="memitem:aaab9d356ed5059cf1cab3515c86893fb" id="r_aaab9d356ed5059cf1cab3515c86893fb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaab9d356ed5059cf1cab3515c86893fb">buzzerState</a> = false</td></tr>
+<tr class="memdesc:aaab9d356ed5059cf1cab3515c86893fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estado actual del buzzer.  <br /></td></tr>
+<tr class="memitem:a96680a0788cd42f837c8962b9cf89a83" id="r_a96680a0788cd42f837c8962b9cf89a83"><td class="memItemLeft" align="right" valign="top">const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96680a0788cd42f837c8962b9cf89a83">clave</a> [6] = {'2', '0', '2', '5', '2', 'A'}</td></tr>
+<tr class="memdesc:a96680a0788cd42f837c8962b9cf89a83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clave de acceso predefinida para autenticación.  <br /></td></tr>
+<tr class="memitem:a87806aa7f4565584aaf628f4dc5b18fd" id="r_a87806aa7f4565584aaf628f4dc5b18fd"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87806aa7f4565584aaf628f4dc5b18fd">clave_user</a> [6]</td></tr>
+<tr class="memdesc:a87806aa7f4565584aaf628f4dc5b18fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer para almacenar clave ingresada por usuario.  <br /></td></tr>
+<tr class="memitem:a829655a147df70dd4cc94eae40a2204e" id="r_a829655a147df70dd4cc94eae40a2204e"><td class="memItemLeft" align="right" valign="top">const byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a829655a147df70dd4cc94eae40a2204e">ROWS</a> = 4</td></tr>
+<tr class="memdesc:a829655a147df70dd4cc94eae40a2204e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuración del teclado matricial 4x4.  <br /></td></tr>
+<tr class="memitem:aefd90f1160eaa105bc910d4d7c46b815" id="r_aefd90f1160eaa105bc910d4d7c46b815"><td class="memItemLeft" align="right" valign="top">const byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aefd90f1160eaa105bc910d4d7c46b815">COLS</a> = 4</td></tr>
+<tr class="memdesc:aefd90f1160eaa105bc910d4d7c46b815"><td class="mdescLeft">&#160;</td><td class="mdescRight">Número de columnas del keypad.  <br /></td></tr>
+<tr class="memitem:a856e873a1d14012d57ddb813c4a1e40a" id="r_a856e873a1d14012d57ddb813c4a1e40a"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a856e873a1d14012d57ddb813c4a1e40a">keys</a> [<a class="el" href="#a829655a147df70dd4cc94eae40a2204e">ROWS</a>][<a class="el" href="#aefd90f1160eaa105bc910d4d7c46b815">COLS</a>]</td></tr>
+<tr class="memitem:a6d6753e0ae098b31e2f84d4024e361cf" id="r_a6d6753e0ae098b31e2f84d4024e361cf"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d6753e0ae098b31e2f84d4024e361cf">rowPins</a> [<a class="el" href="#a829655a147df70dd4cc94eae40a2204e">ROWS</a>] = {40, 42, 44, 46}</td></tr>
+<tr class="memdesc:a6d6753e0ae098b31e2f84d4024e361cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pines de conexión para filas del keypad.  <br /></td></tr>
+<tr class="memitem:aa9fece7b062124080e4b2976f9a8b675" id="r_aa9fece7b062124080e4b2976f9a8b675"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9fece7b062124080e4b2976f9a8b675">colPins</a> [<a class="el" href="#aefd90f1160eaa105bc910d4d7c46b815">COLS</a>] = {48, 24, 22, 43}</td></tr>
+<tr class="memdesc:aa9fece7b062124080e4b2976f9a8b675"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pines de conexión para columnas del keypad.  <br /></td></tr>
+<tr class="memitem:a0e6c3cc7e8c762ab0ca1fa2296d7bbfe" id="r_a0e6c3cc7e8c762ab0ca1fa2296d7bbfe"><td class="memItemLeft" align="right" valign="top">Keypad&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e6c3cc7e8c762ab0ca1fa2296d7bbfe">keypad</a> = Keypad(makeKeymap(<a class="el" href="#a856e873a1d14012d57ddb813c4a1e40a">keys</a>), <a class="el" href="#a6d6753e0ae098b31e2f84d4024e361cf">rowPins</a>, <a class="el" href="#aa9fece7b062124080e4b2976f9a8b675">colPins</a>, <a class="el" href="#a829655a147df70dd4cc94eae40a2204e">ROWS</a>, <a class="el" href="#aefd90f1160eaa105bc910d4d7c46b815">COLS</a>)</td></tr>
+<tr class="memitem:a7520f05cd691de2ef11bb2b9ffff9259" id="r_a7520f05cd691de2ef11bb2b9ffff9259"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7520f05cd691de2ef11bb2b9ffff9259">servoPos</a> = 20</td></tr>
+<tr class="memdesc:a7520f05cd691de2ef11bb2b9ffff9259"><td class="mdescLeft">&#160;</td><td class="mdescRight">Posición actual del servomotor [grados].  <br /></td></tr>
+<tr class="memitem:a9760bca109bb5cd6f1b9a24854385ad0" id="r_a9760bca109bb5cd6f1b9a24854385ad0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9760bca109bb5cd6f1b9a24854385ad0">servoUp</a> = true</td></tr>
+<tr class="memdesc:a9760bca109bb5cd6f1b9a24854385ad0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dirección actual del movimiento del servomotor.  <br /></td></tr>
+<tr class="memitem:gad4db59ccea8946af2bb70f8269e99eeb" id="r_gad4db59ccea8946af2bb70f8269e99eeb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__fsm__grupo.html#ga080a822f0093973313bd644e517a5090">Input</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> = <a class="el" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a4e81c184ac3ad48a389cd4454c4a05bb">Unknown</a></td></tr>
+<tr class="memdesc:gad4db59ccea8946af2bb70f8269e99eeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Almacena la última entrada del usuario para procesamiento FSM.  <br /></td></tr>
+<tr class="memitem:gaf84bc50f2d359647caf6731d9fc6be7b" id="r_gaf84bc50f2d359647caf6731d9fc6be7b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tareas__grupo.html#gaf84bc50f2d359647caf6731d9fc6be7b">ledStateRed</a> = false</td></tr>
+<tr class="memdesc:gaf84bc50f2d359647caf6731d9fc6be7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estado actual del LED rojo.  <br /></td></tr>
+<tr class="memitem:gafde4ee9769ef5f5eae24c6cc5b84685d" id="r_gafde4ee9769ef5f5eae24c6cc5b84685d"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tareas__grupo.html#gafde4ee9769ef5f5eae24c6cc5b84685d">lastToggleRed</a> = 0</td></tr>
+<tr class="memdesc:gafde4ee9769ef5f5eae24c6cc5b84685d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Último tiempo de cambio del LED rojo.  <br /></td></tr>
+<tr class="memitem:ga515ef8202ac1b878bb16cea448ec3758" id="r_ga515ef8202ac1b878bb16cea448ec3758"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tareas__grupo.html#ga515ef8202ac1b878bb16cea448ec3758">ledStateGreen</a> = false</td></tr>
+<tr class="memdesc:ga515ef8202ac1b878bb16cea448ec3758"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estado actual del LED verde.  <br /></td></tr>
+<tr class="memitem:ga7770eb34a2eeb2ff5bd41b0d8b39dfc7" id="r_ga7770eb34a2eeb2ff5bd41b0d8b39dfc7"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tareas__grupo.html#ga7770eb34a2eeb2ff5bd41b0d8b39dfc7">lastToggleGreen</a> = 0</td></tr>
+<tr class="memdesc:ga7770eb34a2eeb2ff5bd41b0d8b39dfc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Último tiempo de cambio del LED verde.  <br /></td></tr>
+<tr class="memitem:gaec1357aab980bd99f6562ef8e6c06284" id="r_gaec1357aab980bd99f6562ef8e6c06284"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tareas__grupo.html#gaec1357aab980bd99f6562ef8e6c06284">ledStateBlue</a> = false</td></tr>
+<tr class="memdesc:gaec1357aab980bd99f6562ef8e6c06284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estado actual del LED azul.  <br /></td></tr>
+<tr class="memitem:ga3102648c9fe07b65fb17bba9932389a4" id="r_ga3102648c9fe07b65fb17bba9932389a4"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__tareas__grupo.html#ga3102648c9fe07b65fb17bba9932389a4">lastToggleBlue</a> = 0</td></tr>
+<tr class="memdesc:ga3102648c9fe07b65fb17bba9932389a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Último tiempo de cambio del LED azul.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Sistema de Confort Térmico Inteligente con Actuadores Complejos y RFID. </p>
+<dl class="section author"><dt>Autor</dt><dd>Jonatan David Bolaños, Rhony Daniel Martinez, Juan Esteban Moscoso, Andres Felipe Obando, Daniel Alejandro Vidal </dd></dl>
+<dl class="section date"><dt>Fecha</dt><dd>2025 </dd></dl>
+<dl class="section version"><dt>Versión</dt><dd>3.1</dd></dl>
+<p>Sistema avanzado de confort térmico que implementa máquina de estados finitos, cálculo PMV según modelo de Fanger, sistema RFID para identificación de usuarios y sistema completo de actuadores (servomotor, ventilador, buzzer, LEDs RGB) para regulación automática del ambiente.</p>
+<h1 class="doxsection"><a class="anchor" id="features_sec"></a>
+Características Principales</h1>
+<ul>
+<li>Control de acceso mediante keypad matricial 4x4 y sistema RFID MFRC522</li>
+<li>Monitoreo en tiempo real con DHT11, LDR, termistor NTC y sensor PIR</li>
+<li>Cálculo automático del índice PMV para evaluación científica de confort térmico</li>
+<li>Sistema de actuadores: servomotor (persianas), ventilador DC, buzzer (alarma), LEDs RGB</li>
+<li>Interfaz visual con LCD 16x2 para feedback al usuario</li>
+<li>Máquina de estados robusta con 7 estados y transiciones asíncronas</li>
+<li>Sistema de identificación por tarjetas RFID con almacenamiento en EEPROM</li>
+<li>Detección de condiciones críticas y sistema de alarma con sensor de movimiento</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="states_sec"></a>
+Estados del Sistema FSM</h1>
+<ul>
+<li>INICIO: Autenticación de usuario mediante clave de seguridad</li>
+<li>CONFIG: Configuración inicial y registro de tarjetas RFID</li>
+<li>MONITOR: Monitoreo continuo de sensores y cálculo PMV</li>
+<li>PMV_ALTO: Activación de sistemas de enfriamiento (PMV &gt; 1)</li>
+<li>PMV_BAJO: Activación de sistemas de calefacción (PMV &lt; -1)</li>
+<li>ALARMA: Estado de emergencia por temperaturas críticas persistentes</li>
+<li>BLOQUEO: Seguridad por intentos fallidos de autenticación</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="hardware_sec"></a>
+Hardware Integrado</h1>
+<ul>
+<li>Arduino Mega 2560 como unidad de control principal</li>
+<li>LCD 16x2 para interfaz de usuario</li>
+<li>Keypad 4x4 para entrada de credenciales</li>
+<li>Módulo RFID MFRC522 para identificación de usuarios</li>
+<li>Sensor DHT11 (temperatura y humedad ambiente)</li>
+<li>Sensor LDR (luminosidad ambiental)</li>
+<li>Termistor NTC (temperatura radiante)</li>
+<li>Sensor PIR (detección de movimiento)</li>
+<li>LED RGB para indicación visual de estados</li>
+<li>Buzzer pasivo para alertas audibles</li>
+<li>Servomotor SG90 para control de persianas/ventilación</li>
+<li>Módulo de ventilador DC para control de flujo de aire</li>
+<li>Memoria EEPROM para almacenamiento de datos de tarjetas RFID</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="pmv_sec"></a>
+Cálculo PMV (Predicted Mean Vote)</h1>
+<p>Implementa el modelo termofisiológico de Fanger para evaluación científica del confort térmico según normas ISO 7730:2005</p><ul>
+<li>PMV &lt; -1: Condiciones frías - Activa calefacción y cierra persianas</li>
+<li>PMV &gt; +1: Condiciones cálidas - Activa ventilación y abre persianas</li>
+<li>PMV entre -1 y +1: Condiciones óptimas - Mantiene estado neutral</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="rfid_sec"></a>
+Sistema de Identificación RFID</h1>
+<ul>
+<li>Registro y reconocimiento de tarjetas RFID</li>
+<li>Almacenamiento seguro en EEPROM con nombres de usuario</li>
+<li>Gestión de hasta 10 tarjetas diferentes</li>
+<li>Interfaz serial para administración de tarjetas</li>
+</ul>
+<div class="dotgraph">
+<img src="dot_inline_dotgraph_1.png" alt="dot_inline_dotgraph_1.png" border="0" usemap="#dot_inline_dotgraph_1.map"/>
+</div>
+<p>@references</p><ul>
+<li>Fanger, P. O. (1970). Thermal Comfort. Danish Technical Press.</li>
+<li>ISO 7730:2005 - Ergonomics of the thermal environment</li>
+<li>ASHRAE Standard 55-2020 - Thermal Environmental Conditions for Human Occupancy</li>
+<li>MFRC522 Datasheet - NFC/RFID Reader Module </li>
+</ul>
+
+<p class="definition">Definición en el archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentación de funciones</h2>
+<a id="afe461d27b9c48d5921c00d521181f12f" name="afe461d27b9c48d5921c00d521181f12f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe461d27b9c48d5921c00d521181f12f">&#9670;&#160;</a></span>loop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void loop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Bucle principal del sistema - Ejecución continua. </p>
+<p>Ejecuta continuamente las siguientes tareas en cada iteración:</p><ul>
+<li>Lectura de entradas del usuario (serial y keypad)</li>
+<li>Actualización de todas las tareas asíncronas (temporizadores, LEDs, buzzer, servo)</li>
+<li>Verificación de condiciones de bloqueo y temperatura</li>
+<li>Evaluación de cálculo PMV en estado MONITOR</li>
+<li>Detección de movimiento para desactivación de alarma</li>
+<li>Gestión de configuración RFID en estado CONFIG</li>
+<li>Actualización de la máquina de estados</li>
+</ul>
+<dl class="section remark"><dt>Comentarios</dt><dd>Esta función se ejecuta indefinidamente después de <a class="el" href="#a4fc01d736fe50cf5b977f755b675f11d" title="Función de inicialización del sistema Arduino.">setup()</a> @frequency Aproximadamente 50-100 iteraciones por segundo dependiendo de carga</dd></dl>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="#a4fc01d736fe50cf5b977f755b675f11d" title="Función de inicialización del sistema Arduino.">setup()</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00590">590</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  590</span>            {</div>
+<div class="line"><span class="lineno">  591</span>  <span class="comment">// Leer input usuario (por serial)</span></div>
+<div class="line"><span class="lineno">  592</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> == <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a4e81c184ac3ad48a389cd4454c4a05bb">Unknown</a>) {</div>
+<div class="line"><span class="lineno">  593</span>    <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> = <span class="keyword">static_cast&lt;</span><a class="code hl_enumeration" href="group__fsm__grupo.html#ga080a822f0093973313bd644e517a5090">Input</a><span class="keyword">&gt;</span>(<a class="code hl_function" href="group__auxiliares__grupo.html#ga60fb856dfde931eb206fe822fd5aba1c">readInputSerial</a>());</div>
+<div class="line"><span class="lineno">  594</span>  }</div>
+<div class="line"><span class="lineno">  595</span> </div>
+<div class="line"><span class="lineno">  596</span>  <span class="comment">// Actualizar todas las tareas asíncronas</span></div>
+<div class="line"><span class="lineno">  597</span>  <a class="code hl_function" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a>.Update();</div>
+<div class="line"><span class="lineno">  598</span>  <a class="code hl_function" href="group__tareas__grupo.html#gaeb5ed948d82a3adfc0af3dbcf877c0c2">TaskLedRed</a>.Update();</div>
+<div class="line"><span class="lineno">  599</span>  <a class="code hl_function" href="group__tareas__grupo.html#gafe8f90ba92b8e8513fc99081a7cce5ee">TaskLedGreen</a>.Update();</div>
+<div class="line"><span class="lineno">  600</span>  <a class="code hl_function" href="group__tareas__grupo.html#ga068cb3aabb9b1e22d9a355f196ab8e89">TaskLedBlue</a>.Update();</div>
+<div class="line"><span class="lineno">  601</span>  <a class="code hl_function" href="#aeaef1f2203865f944eb917d96e5f9020">TaskBuzzer</a>.Update();</div>
+<div class="line"><span class="lineno">  602</span>  <a class="code hl_function" href="#a15dee89810d496920bfd1ba815e97426">TaskServo</a>.Update();</div>
+<div class="line"><span class="lineno">  603</span> </div>
+<div class="line"><span class="lineno">  604</span>  <span class="comment">// Verificaciones de estado específicas</span></div>
+<div class="line"><span class="lineno">  605</span>  <a class="code hl_function" href="group__auxiliares__grupo.html#gaad5c2beac548774ab4b7b6f10afd2c64">checkBloqueo</a>();</div>
+<div class="line"><span class="lineno">  606</span>  <a class="code hl_function" href="group__verificacion__grupo.html#gaec3d803c0bdc0d568fd8ebb776f93dd6">checkPMV</a>();</div>
+<div class="line"><span class="lineno">  607</span>  <a class="code hl_function" href="group__verificacion__grupo.html#gacbdcb2026ed2ede5d841e375f2d860d3">checkMovimiento</a>();</div>
+<div class="line"><span class="lineno">  608</span>  </div>
+<div class="line"><span class="lineno">  609</span>  <span class="comment">// Actualizar máquina de estados</span></div>
+<div class="line"><span class="lineno">  610</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.Update();</div>
+<div class="line"><span class="lineno">  611</span> </div>
+<div class="line"><span class="lineno">  612</span>  <span class="comment">// Gestión de configuración RFID (solo en estado CONFIG)</span></div>
+<div class="line"><span class="lineno">  613</span>  <a class="code hl_function" href="group__rfid__funciones__grupo.html#ga6f1cf14a01e70595870c30bd3458a34f">handleConfigRFID</a>();</div>
+<div class="line"><span class="lineno">  614</span> </div>
+<div class="line"><span class="lineno">  615</span>  <span class="comment">// Comandos por serial para gestión de tags RFID</span></div>
+<div class="line"><span class="lineno">  616</span>  <span class="keywordflow">if</span> (Serial.available()) {</div>
+<div class="line"><span class="lineno">  617</span>    String command = Serial.readString();</div>
+<div class="line"><span class="lineno">  618</span>    command.trim();</div>
+<div class="line"><span class="lineno">  619</span>    <span class="comment">// Aquí se pueden implementar comandos adicionales para gestión RFID</span></div>
+<div class="line"><span class="lineno">  620</span>  }</div>
+<div class="line"><span class="lineno">  621</span>}</div>
+<div class="ttc" id="agroup__auxiliares__grupo_html_ga60fb856dfde931eb206fe822fd5aba1c"><div class="ttname"><a href="group__auxiliares__grupo.html#ga60fb856dfde931eb206fe822fd5aba1c">readInputSerial</a></div><div class="ttdeci">int readInputSerial()</div><div class="ttdoc">Lee entrada del usuario desde el puerto serial.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00991">sistema_confort_termico.ino:991</a></div></div>
+<div class="ttc" id="agroup__auxiliares__grupo_html_gaad5c2beac548774ab4b7b6f10afd2c64"><div class="ttname"><a href="group__auxiliares__grupo.html#gaad5c2beac548774ab4b7b6f10afd2c64">checkBloqueo</a></div><div class="ttdeci">void checkBloqueo()</div><div class="ttdoc">Verifica entrada de desbloqueo en estado BLOQUEO.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l01457">sistema_confort_termico.ino:1457</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_ga080a822f0093973313bd644e517a5090"><div class="ttname"><a href="group__fsm__grupo.html#ga080a822f0093973313bd644e517a5090">Input</a></div><div class="ttdeci">Input</div><div class="ttdoc">Enumeración de entradas que disparan transiciones de estado.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00323">sistema_confort_termico.ino:323</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_ga29b5cbc7a62b025f70547fcb3efd8e2d"><div class="ttname"><a href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a></div><div class="ttdeci">StateMachine stateMachine(7, 11)</div><div class="ttdoc">Instancia de máquina de estados con 7 estados y 11 transiciones.</div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gad4db59ccea8946af2bb70f8269e99eeb"><div class="ttname"><a href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a></div><div class="ttdeci">Input input</div><div class="ttdoc">Almacena la última entrada del usuario para procesamiento FSM.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00336">sistema_confort_termico.ino:336</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga080a822f0093973313bd644e517a5090a4e81c184ac3ad48a389cd4454c4a05bb"><div class="ttname"><a href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a4e81c184ac3ad48a389cd4454c4a05bb">Unknown</a></div><div class="ttdeci">@ Unknown</div><div class="ttdoc">Entrada desconocida o no definida.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00332">sistema_confort_termico.ino:332</a></div></div>
+<div class="ttc" id="agroup__rfid__funciones__grupo_html_ga6f1cf14a01e70595870c30bd3458a34f"><div class="ttname"><a href="group__rfid__funciones__grupo.html#ga6f1cf14a01e70595870c30bd3458a34f">handleConfigRFID</a></div><div class="ttdeci">void handleConfigRFID()</div><div class="ttdoc">Maneja la configuración de tarjetas RFID en estado CONFIG.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l01290">sistema_confort_termico.ino:1290</a></div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_ga068cb3aabb9b1e22d9a355f196ab8e89"><div class="ttname"><a href="group__tareas__grupo.html#ga068cb3aabb9b1e22d9a355f196ab8e89">TaskLedBlue</a></div><div class="ttdeci">AsyncTask TaskLedBlue(300, true, toggleBlue)</div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_gabe10de4c559b3dc44bc3e0858d41553e"><div class="ttname"><a href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a></div><div class="ttdeci">AsyncTask TaskTime(5000, true, runTime)</div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_gaeb5ed948d82a3adfc0af3dbcf877c0c2"><div class="ttname"><a href="group__tareas__grupo.html#gaeb5ed948d82a3adfc0af3dbcf877c0c2">TaskLedRed</a></div><div class="ttdeci">AsyncTask TaskLedRed(100, true, toggleRed)</div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_gafe8f90ba92b8e8513fc99081a7cce5ee"><div class="ttname"><a href="group__tareas__grupo.html#gafe8f90ba92b8e8513fc99081a7cce5ee">TaskLedGreen</a></div><div class="ttdeci">AsyncTask TaskLedGreen(200, true, toggleGreen)</div></div>
+<div class="ttc" id="agroup__verificacion__grupo_html_gacbdcb2026ed2ede5d841e375f2d860d3"><div class="ttname"><a href="group__verificacion__grupo.html#gacbdcb2026ed2ede5d841e375f2d860d3">checkMovimiento</a></div><div class="ttdeci">void checkMovimiento()</div><div class="ttdoc">Detecta movimiento con sensor PIR para desactivar alarma.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l01805">sistema_confort_termico.ino:1805</a></div></div>
+<div class="ttc" id="agroup__verificacion__grupo_html_gaec3d803c0bdc0d568fd8ebb776f93dd6"><div class="ttname"><a href="group__verificacion__grupo.html#gaec3d803c0bdc0d568fd8ebb776f93dd6">checkPMV</a></div><div class="ttdeci">void checkPMV()</div><div class="ttdoc">Verifica cálculo PMV y determina transiciones desde estado MONITOR.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l01757">sistema_confort_termico.ino:1757</a></div></div>
+<div class="ttc" id="asistema__confort__termico_8ino_html_a15dee89810d496920bfd1ba815e97426"><div class="ttname"><a href="#a15dee89810d496920bfd1ba815e97426">TaskServo</a></div><div class="ttdeci">AsyncTask TaskServo(15, true, moverServo)</div></div>
+<div class="ttc" id="asistema__confort__termico_8ino_html_aeaef1f2203865f944eb917d96e5f9020"><div class="ttname"><a href="#aeaef1f2203865f944eb917d96e5f9020">TaskBuzzer</a></div><div class="ttdeci">AsyncTask TaskBuzzer(200, true, toggleBuzzer)</div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l01457">checkBloqueo()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l01805">checkMovimiento()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l01757">checkPMV()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l01290">handleConfigRFID()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00336">input</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00991">readInputSerial()</a>, <a class="el" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine()</a>, <a class="el" href="#aeaef1f2203865f944eb917d96e5f9020">TaskBuzzer()</a>, <a class="el" href="group__tareas__grupo.html#ga068cb3aabb9b1e22d9a355f196ab8e89">TaskLedBlue()</a>, <a class="el" href="group__tareas__grupo.html#gafe8f90ba92b8e8513fc99081a7cce5ee">TaskLedGreen()</a>, <a class="el" href="group__tareas__grupo.html#gaeb5ed948d82a3adfc0af3dbcf877c0c2">TaskLedRed()</a>, <a class="el" href="#a15dee89810d496920bfd1ba815e97426">TaskServo()</a>, <a class="el" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00332">Unknown</a>.</p>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="sistema__confort__termico_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph.png" border="0" usemap="#asistema__confort__termico_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph" loading="lazy" alt=""/></div>
+<map name="asistema__confort__termico_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph" id="asistema__confort__termico_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph">
+<area shape="rect" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="5,286,51,313"/>
+<area shape="rect" href="group__auxiliares__grupo.html#gaad5c2beac548774ab4b7b6f10afd2c64" title="Verifica entrada de desbloqueo en estado BLOQUEO." alt="" coords="109,58,213,85"/>
+<area shape="poly" title=" " alt="" coords="28,286,32,249,43,198,64,144,79,118,97,95,100,92,104,96,101,99,83,121,69,146,49,200,37,250,33,286"/>
+<area shape="rect" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d" title="Instancia de máquina de estados con 7 estados y 11 transiciones." alt="" coords="305,8,404,34"/>
+<area shape="poly" title=" " alt="" coords="28,286,50,160,71,90,83,62,97,44,118,29,142,18,192,6,243,3,290,6,289,12,243,8,193,11,144,23,121,34,101,48,87,65,76,91,56,161,34,287"/>
+<area shape="rect" href="group__verificacion__grupo.html#gacbdcb2026ed2ede5d841e375f2d860d3" title="Detecta movimiento con sensor PIR para desactivar alarma." alt="" coords="100,109,222,136"/>
+<area shape="poly" title=" " alt="" coords="29,285,50,220,69,181,97,146,101,142,104,146,101,150,74,183,55,222,35,287"/>
+<area shape="rect" href="group__verificacion__grupo.html#gaec3d803c0bdc0d568fd8ebb776f93dd6" title="Verifica cálculo PMV y determina transiciones desde estado MONITOR." alt="" coords="118,160,204,186"/>
+<area shape="poly" title=" " alt="" coords="34,284,59,245,97,203,112,192,115,196,100,207,64,249,39,287"/>
+<area shape="rect" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e" title=" " alt="" coords="316,210,393,237"/>
+<area shape="poly" title=" " alt="" coords="42,284,66,264,98,247,150,231,204,222,300,218,301,224,205,228,151,236,100,251,69,268,45,288"/>
+<area shape="rect" href="group__rfid__funciones__grupo.html#ga6f1cf14a01e70595870c30bd3458a34f" title="Maneja la configuración de tarjetas RFID en estado CONFIG." alt="" coords="99,261,223,288"/>
+<area shape="poly" title=" " alt="" coords="50,293,83,287,84,292,51,298"/>
+<area shape="rect" href="group__auxiliares__grupo.html#ga60fb856dfde931eb206fe822fd5aba1c" title="Lee entrada del usuario desde el puerto serial." alt="" coords="107,312,215,338"/>
+<area shape="poly" title=" " alt="" coords="51,301,92,309,91,314,50,306"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#aeaef1f2203865f944eb917d96e5f9020" title=" " alt="" coords="116,413,206,440"/>
+<area shape="poly" title=" " alt="" coords="45,311,136,400,132,404,41,315"/>
+<area shape="rect" href="group__tareas__grupo.html#ga068cb3aabb9b1e22d9a355f196ab8e89" title=" " alt="" coords="113,514,209,541"/>
+<area shape="poly" title=" " alt="" coords="37,313,62,374,101,450,139,501,135,504,96,453,57,376,32,315"/>
+<area shape="rect" href="group__tareas__grupo.html#gafe8f90ba92b8e8513fc99081a7cce5ee" title=" " alt="" coords="108,565,214,592"/>
+<area shape="poly" title=" " alt="" coords="32,313,34,358,43,421,63,490,80,522,101,551,103,554,99,557,97,555,75,525,58,492,37,422,28,358,26,313"/>
+<area shape="rect" href="group__tareas__grupo.html#gaeb5ed948d82a3adfc0af3dbcf877c0c2" title=" " alt="" coords="114,616,208,642"/>
+<area shape="poly" title=" " alt="" coords="33,313,55,461,75,546,87,579,101,602,103,605,100,609,97,605,83,581,70,547,50,462,28,314"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a15dee89810d496920bfd1ba815e97426" title=" " alt="" coords="120,666,202,693"/>
+<area shape="poly" title=" " alt="" coords="33,313,39,384,52,485,73,586,86,626,101,653,109,660,105,664,97,656,81,628,67,587,47,486,34,384,28,314"/>
+<area shape="poly" title=" " alt="" coords="212,56,289,35,290,40,214,61"/>
+<area shape="poly" title=" " alt="" coords="201,106,221,95,236,82,245,70,254,57,270,44,289,34,292,39,272,49,258,61,249,73,240,86,225,99,203,111"/>
+<area shape="poly" title=" " alt="" coords="202,158,221,146,238,121,244,96,250,70,257,57,269,44,289,32,292,36,273,48,262,60,255,72,249,97,243,123,225,150,205,163"/>
+<area shape="rect" href="group__pmv__grupo.html#ga010b0d3e4b1c2eb39075406703487960" title="Calcula el índice PMV (Predicted Mean Vote) usando modelo de Fanger." alt="" coords="284,58,426,85"/>
+<area shape="poly" title=" " alt="" coords="201,157,221,145,236,133,245,120,254,108,270,95,279,89,282,94,272,99,258,111,249,123,240,136,225,150,203,162"/>
+<area shape="rect" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2" title="Objeto LCD para display 16x2 con configuración de pines." alt="" coords="335,160,374,186"/>
+<area shape="poly" title=" " alt="" coords="204,170,320,170,320,176,204,176"/>
+<area shape="rect" href="group__auxiliares__grupo.html#ga6488153c8ee9b1f1a7ef5db4ff81ca88" title="Lee y procesa datos de todos los sensores del sistema." alt="" coords="306,109,403,136"/>
+<area shape="poly" title=" " alt="" coords="203,159,290,136,291,142,205,164"/>
+<area shape="poly" title=" " alt="" coords="205,182,301,207,300,212,203,187"/>
+<area shape="poly" title=" " alt="" coords="174,259,198,231,221,197,230,175,235,155,238,117,244,82,254,63,269,44,289,31,292,35,273,48,258,66,250,83,243,118,240,156,235,177,225,200,202,234,178,262"/>
+<area shape="poly" title=" " alt="" coords="177,258,218,227,270,196,319,178,321,183,272,201,221,232,180,263"/>
+<area shape="poly" title=" " alt="" coords="214,258,301,235,302,240,216,263"/>
+<area shape="rect" href="group__rfid__funciones__grupo.html#ga94702e19ac21bf3b8395bd8f2dfa2f4a" title="Busca un UID en la memoria EEPROM." alt="" coords="290,362,419,389"/>
+<area shape="poly" title=" " alt="" coords="203,286,225,297,240,311,249,324,258,336,272,348,282,353,279,358,270,353,254,340,245,327,236,314,221,302,201,290"/>
+<area shape="rect" href="group__rfid__grupo.html#gac672f817299d07cc428fe3f456235273" title="Instancia del lector RFID MFRC522." alt="" coords="321,413,388,440"/>
+<area shape="poly" title=" " alt="" coords="208,286,225,298,243,324,249,350,255,375,262,387,273,399,289,409,307,416,305,421,286,414,269,403,257,390,250,377,244,352,238,326,221,302,205,290"/>
+<area shape="rect" href="group__rfid__funciones__grupo.html#ga90c02d6c0d88a9d7c56347bd2b1ba6d7" title="Lee el nombre asociado a un registro desde EEPROM." alt="" coords="271,261,438,288"/>
+<area shape="poly" title=" " alt="" coords="223,272,256,272,256,277,223,277"/>
+<area shape="rect" href="group__rfid__funciones__grupo.html#gadc38582f256dac9b7b764d9526137b39" title="Guarda un nuevo UID y nombre en EEPROM." alt="" coords="292,312,417,338"/>
+<area shape="poly" title=" " alt="" coords="216,286,287,305,286,310,214,291"/>
+<area shape="rect" href="group__actuadores__grupo.html#ga61e006dee30fabbb8d28229f5e593a63" title="Tarea asíncrona para control del buzzer." alt="" coords="306,464,403,490"/>
+<area shape="poly" title=" " alt="" coords="207,436,291,458,290,463,206,441"/>
+<area shape="rect" href="group__tareas__grupo.html#ga21dc7f71020a2ca4e192c5561dc5b8bb" title="Tarea para parpadeo asíncrono del LED azul." alt="" coords="314,514,396,541"/>
+<area shape="poly" title=" " alt="" coords="209,533,298,533,298,539,209,538"/>
+<area shape="poly" title=" " alt="" coords="313,523,225,522,225,517,313,518"/>
+<area shape="rect" href="group__tareas__grupo.html#gae75eb2ac3e3c9bac42e767dac6393359" title="Tarea para parpadeo asíncrono del LED verde." alt="" coords="309,565,400,592"/>
+<area shape="poly" title=" " alt="" coords="214,584,293,584,293,589,214,589"/>
+<area shape="poly" title=" " alt="" coords="309,573,229,572,229,567,309,568"/>
+<area shape="rect" href="group__tareas__grupo.html#ga4fb27879b90fd24b957b6b6a358737af" title="Tarea para parpadeo asíncrono del LED rojo." alt="" coords="315,616,394,642"/>
+<area shape="poly" title=" " alt="" coords="208,634,299,635,299,640,208,639"/>
+<area shape="poly" title=" " alt="" coords="314,624,223,623,223,618,314,619"/>
+<area shape="rect" href="group__actuadores__grupo.html#ga5fafd22b7f249c280b80241309bbe9d7" title="Tarea asíncrona para control del servomotor." alt="" coords="311,666,398,693"/>
+<area shape="poly" title=" " alt="" coords="202,677,295,677,295,682,202,682"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa592846580d9f3bebe4adc098ded791d" name="aa592846580d9f3bebe4adc098ded791d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa592846580d9f3bebe4adc098ded791d">&#9670;&#160;</a></span>onLeavingBloqueo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void onLeavingBloqueo </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maneja la salida del estado BLOQUEO - limpieza de recursos. </p>
+<ul>
+<li>Detiene el parpadeo del LED rojo</li>
+<li>Apaga completamente el LED rojo</li>
+<li>Limpia recursos del estado de bloqueo</li>
+<li>Prepara sistema para retornar a estado normal</li>
+</ul>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="group__estados__grupo.html#gae7f7255177511950ea5ff9086d20a9ef" title="Maneja la entrada al estado BLOQUEO - seguridad por fallos.">outputBloqueo()</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00918">918</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  918</span>                        {</div>
+<div class="line"><span class="lineno">  919</span>  <a class="code hl_function" href="group__tareas__grupo.html#gaeb5ed948d82a3adfc0af3dbcf877c0c2">TaskLedRed</a>.Stop();</div>
+<div class="line"><span class="lineno">  920</span>  digitalWrite(<a class="code hl_define" href="group__pines__grupo.html#ga31e20330f8ce94e0dd10b005a15c5898">LED_RED</a>, LOW);</div>
+<div class="line"><span class="lineno">  921</span>  Serial.println(<span class="stringliteral">&quot;Saliendo de BLOQUEO, LED apagado&quot;</span>);</div>
+<div class="line"><span class="lineno">  922</span>}</div>
+<div class="ttc" id="agroup__pines__grupo_html_ga31e20330f8ce94e0dd10b005a15c5898"><div class="ttname"><a href="group__pines__grupo.html#ga31e20330f8ce94e0dd10b005a15c5898">LED_RED</a></div><div class="ttdeci">#define LED_RED</div><div class="ttdoc">Pin digital para canal rojo del LED RGB - Indicador de BLOQUEO/ALARMA.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00115">sistema_confort_termico.ino:115</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00115">LED_RED</a> y <a class="el" href="group__tareas__grupo.html#gaeb5ed948d82a3adfc0af3dbcf877c0c2">TaskLedRed()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00448">setupStateMachine()</a>.</p>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="sistema__confort__termico_8ino_aa592846580d9f3bebe4adc098ded791d_cgraph.png" border="0" usemap="#asistema__confort__termico_8ino_aa592846580d9f3bebe4adc098ded791d_cgraph" loading="lazy" alt=""/></div>
+<map name="asistema__confort__termico_8ino_aa592846580d9f3bebe4adc098ded791d_cgraph" id="asistema__confort__termico_8ino_aa592846580d9f3bebe4adc098ded791d_cgraph">
+<area shape="rect" title="Maneja la salida del estado BLOQUEO &#45; limpieza de recursos." alt="" coords="5,5,131,32"/>
+<area shape="rect" href="group__tareas__grupo.html#gaeb5ed948d82a3adfc0af3dbcf877c0c2" title=" " alt="" coords="179,5,272,32"/>
+<area shape="poly" title=" " alt="" coords="131,16,163,16,163,21,131,21"/>
+<area shape="rect" href="group__tareas__grupo.html#ga4fb27879b90fd24b957b6b6a358737af" title="Tarea para parpadeo asíncrono del LED rojo." alt="" coords="320,5,399,32"/>
+<area shape="poly" title=" " alt="" coords="272,25,305,25,305,30,272,30"/>
+<area shape="poly" title=" " alt="" coords="320,13,288,12,288,7,320,8"/>
+</map>
+</div>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="sistema__confort__termico_8ino_aa592846580d9f3bebe4adc098ded791d_icgraph.png" border="0" usemap="#asistema__confort__termico_8ino_aa592846580d9f3bebe4adc098ded791d_icgraph" loading="lazy" alt=""/></div>
+<map name="asistema__confort__termico_8ino_aa592846580d9f3bebe4adc098ded791d_icgraph" id="asistema__confort__termico_8ino_aa592846580d9f3bebe4adc098ded791d_icgraph">
+<area shape="rect" title="Maneja la salida del estado BLOQUEO &#45; limpieza de recursos." alt="" coords="288,5,413,32"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="107,5,240,32"/>
+<area shape="poly" title=" " alt="" coords="273,21,240,21,240,16,273,16"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Función de inicialización del sistema Arduino." alt="" coords="5,5,59,32"/>
+<area shape="poly" title=" " alt="" coords="91,21,59,21,59,16,91,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="acc9f02a17298f2a9fd2973d52572e986" name="acc9f02a17298f2a9fd2973d52572e986"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc9f02a17298f2a9fd2973d52572e986">&#9670;&#160;</a></span>onLeavingPMV_Alto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void onLeavingPMV_Alto </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maneja la salida del estado PMV_ALTO - limpieza de recursos. </p>
+<ul>
+<li>Detiene el parpadeo del LED azul</li>
+<li>Apaga completamente el LED azul</li>
+<li>Desactiva el ventilador DC</li>
+<li>Prepara sistema para retorno a monitoreo</li>
+</ul>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="group__estados__grupo.html#ga7c048c997648ce81c01c9a5cc03e4734" title="Maneja la entrada al estado PMV_ALTO - condiciones cálidas.">outputPMV_Alto()</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00954">954</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  954</span>                         {</div>
+<div class="line"><span class="lineno">  955</span>  <a class="code hl_function" href="group__tareas__grupo.html#ga068cb3aabb9b1e22d9a355f196ab8e89">TaskLedBlue</a>.Stop();</div>
+<div class="line"><span class="lineno">  956</span>  digitalWrite(<a class="code hl_define" href="group__pines__grupo.html#gae2e40566d27689f8581d7b0f12271d45">LED_BLUE</a>, LOW);</div>
+<div class="line"><span class="lineno">  957</span>  digitalWrite(<a class="code hl_define" href="group__pines__grupo.html#ga2659364744f6d57a126d7199e3e11343">FAN_PIN</a>, LOW);</div>
+<div class="line"><span class="lineno">  958</span>  Serial.println(<span class="stringliteral">&quot;Saliendo de PMV_Alto, LED apagado&quot;</span>);</div>
+<div class="line"><span class="lineno">  959</span>}</div>
+<div class="ttc" id="agroup__pines__grupo_html_ga2659364744f6d57a126d7199e3e11343"><div class="ttname"><a href="group__pines__grupo.html#ga2659364744f6d57a126d7199e3e11343">FAN_PIN</a></div><div class="ttdeci">#define FAN_PIN</div><div class="ttdoc">Pin digital para control de ventilador DC - Sistema de enfriamiento.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00124">sistema_confort_termico.ino:124</a></div></div>
+<div class="ttc" id="agroup__pines__grupo_html_gae2e40566d27689f8581d7b0f12271d45"><div class="ttname"><a href="group__pines__grupo.html#gae2e40566d27689f8581d7b0f12271d45">LED_BLUE</a></div><div class="ttdeci">#define LED_BLUE</div><div class="ttdoc">Pin digital para canal azul del LED RGB - Indicador de PMV_ALTO.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00117">sistema_confort_termico.ino:117</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00124">FAN_PIN</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00117">LED_BLUE</a> y <a class="el" href="group__tareas__grupo.html#ga068cb3aabb9b1e22d9a355f196ab8e89">TaskLedBlue()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00448">setupStateMachine()</a>.</p>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="sistema__confort__termico_8ino_acc9f02a17298f2a9fd2973d52572e986_cgraph.png" border="0" usemap="#asistema__confort__termico_8ino_acc9f02a17298f2a9fd2973d52572e986_cgraph" loading="lazy" alt=""/></div>
+<map name="asistema__confort__termico_8ino_acc9f02a17298f2a9fd2973d52572e986_cgraph" id="asistema__confort__termico_8ino_acc9f02a17298f2a9fd2973d52572e986_cgraph">
+<area shape="rect" title="Maneja la salida del estado PMV_ALTO &#45; limpieza de recursos." alt="" coords="5,5,143,32"/>
+<area shape="rect" href="group__tareas__grupo.html#ga068cb3aabb9b1e22d9a355f196ab8e89" title=" " alt="" coords="191,5,287,32"/>
+<area shape="poly" title=" " alt="" coords="143,16,175,16,175,21,143,21"/>
+<area shape="rect" href="group__tareas__grupo.html#ga21dc7f71020a2ca4e192c5561dc5b8bb" title="Tarea para parpadeo asíncrono del LED azul." alt="" coords="335,5,417,32"/>
+<area shape="poly" title=" " alt="" coords="288,25,319,25,319,30,288,30"/>
+<area shape="poly" title=" " alt="" coords="334,13,303,12,303,7,335,8"/>
+</map>
+</div>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="sistema__confort__termico_8ino_acc9f02a17298f2a9fd2973d52572e986_icgraph.png" border="0" usemap="#asistema__confort__termico_8ino_acc9f02a17298f2a9fd2973d52572e986_icgraph" loading="lazy" alt=""/></div>
+<map name="asistema__confort__termico_8ino_acc9f02a17298f2a9fd2973d52572e986_icgraph" id="asistema__confort__termico_8ino_acc9f02a17298f2a9fd2973d52572e986_icgraph">
+<area shape="rect" title="Maneja la salida del estado PMV_ALTO &#45; limpieza de recursos." alt="" coords="288,5,425,32"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="107,5,240,32"/>
+<area shape="poly" title=" " alt="" coords="273,21,240,21,240,16,273,16"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Función de inicialización del sistema Arduino." alt="" coords="5,5,59,32"/>
+<area shape="poly" title=" " alt="" coords="91,21,59,21,59,16,91,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aba650bcc5cc3ea0d7fb891fd4f5b21fe" name="aba650bcc5cc3ea0d7fb891fd4f5b21fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba650bcc5cc3ea0d7fb891fd4f5b21fe">&#9670;&#160;</a></span>onLeavingPMV_Bajo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void onLeavingPMV_Bajo </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maneja la salida del estado PMV_BAJO - limpieza de recursos. </p>
+<ul>
+<li>Detiene el parpadeo del LED verde</li>
+<li>Apaga completamente el LED verde</li>
+<li>Detiene el movimiento del servomotor</li>
+<li>Desconecta el servomotor para ahorro energético</li>
+</ul>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="group__estados__grupo.html#ga02260e7a04347651d07c76eacf47b8b7" title="Maneja la entrada al estado PMV_BAJO - condiciones frías.">outputPMV_Bajo()</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00935">935</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  935</span>                         {</div>
+<div class="line"><span class="lineno">  936</span>  <a class="code hl_function" href="group__tareas__grupo.html#gafe8f90ba92b8e8513fc99081a7cce5ee">TaskLedGreen</a>.Stop();</div>
+<div class="line"><span class="lineno">  937</span>  digitalWrite(<a class="code hl_define" href="group__pines__grupo.html#gaca338dbd19d7940923334629f6e5f3b7">LED_GREEN</a>, LOW);</div>
+<div class="line"><span class="lineno">  938</span>  <a class="code hl_function" href="#a15dee89810d496920bfd1ba815e97426">TaskServo</a>.Stop();</div>
+<div class="line"><span class="lineno">  939</span>  <a class="code hl_variable" href="group__hardware__grupo.html#ga79efceea669fb85a732c30f47cf7e59c">servo</a>.detach();</div>
+<div class="line"><span class="lineno">  940</span>  Serial.println(<span class="stringliteral">&quot;Saliendo de PMV_Bajo, LED apagado&quot;</span>);</div>
+<div class="line"><span class="lineno">  941</span>}</div>
+<div class="ttc" id="agroup__hardware__grupo_html_ga79efceea669fb85a732c30f47cf7e59c"><div class="ttname"><a href="group__hardware__grupo.html#ga79efceea669fb85a732c30f47cf7e59c">servo</a></div><div class="ttdeci">Servo servo</div><div class="ttdoc">Objeto servomotor para control de actuadores mecánicos.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00220">sistema_confort_termico.ino:220</a></div></div>
+<div class="ttc" id="agroup__pines__grupo_html_gaca338dbd19d7940923334629f6e5f3b7"><div class="ttname"><a href="group__pines__grupo.html#gaca338dbd19d7940923334629f6e5f3b7">LED_GREEN</a></div><div class="ttdeci">#define LED_GREEN</div><div class="ttdoc">Pin digital para canal verde del LED RGB - Indicador de PMV_BAJO.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00116">sistema_confort_termico.ino:116</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00116">LED_GREEN</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00220">servo</a>, <a class="el" href="group__tareas__grupo.html#gafe8f90ba92b8e8513fc99081a7cce5ee">TaskLedGreen()</a> y <a class="el" href="#a15dee89810d496920bfd1ba815e97426">TaskServo()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00448">setupStateMachine()</a>.</p>
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="sistema__confort__termico_8ino_aba650bcc5cc3ea0d7fb891fd4f5b21fe_cgraph.png" border="0" usemap="#asistema__confort__termico_8ino_aba650bcc5cc3ea0d7fb891fd4f5b21fe_cgraph" loading="lazy" alt=""/></div>
+<map name="asistema__confort__termico_8ino_aba650bcc5cc3ea0d7fb891fd4f5b21fe_cgraph" id="asistema__confort__termico_8ino_aba650bcc5cc3ea0d7fb891fd4f5b21fe_cgraph">
+<area shape="rect" title="Maneja la salida del estado PMV_BAJO &#45; limpieza de recursos." alt="" coords="5,31,146,57"/>
+<area shape="rect" href="group__tareas__grupo.html#gafe8f90ba92b8e8513fc99081a7cce5ee" title=" " alt="" coords="194,5,299,32"/>
+<area shape="poly" title=" " alt="" coords="146,31,178,26,179,31,147,36"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a15dee89810d496920bfd1ba815e97426" title=" " alt="" coords="206,56,287,83"/>
+<area shape="poly" title=" " alt="" coords="147,52,190,58,190,64,146,57"/>
+<area shape="rect" href="group__tareas__grupo.html#gae75eb2ac3e3c9bac42e767dac6393359" title="Tarea para parpadeo asíncrono del LED verde." alt="" coords="347,5,438,32"/>
+<area shape="poly" title=" " alt="" coords="300,25,332,25,331,30,300,30"/>
+<area shape="poly" title=" " alt="" coords="347,13,315,12,315,7,347,8"/>
+<area shape="rect" href="group__actuadores__grupo.html#ga5fafd22b7f249c280b80241309bbe9d7" title="Tarea asíncrona para control del servomotor." alt="" coords="349,56,436,83"/>
+<area shape="poly" title=" " alt="" coords="287,67,334,67,334,72,287,72"/>
+</map>
+</div>
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="sistema__confort__termico_8ino_aba650bcc5cc3ea0d7fb891fd4f5b21fe_icgraph.png" border="0" usemap="#asistema__confort__termico_8ino_aba650bcc5cc3ea0d7fb891fd4f5b21fe_icgraph" loading="lazy" alt=""/></div>
+<map name="asistema__confort__termico_8ino_aba650bcc5cc3ea0d7fb891fd4f5b21fe_icgraph" id="asistema__confort__termico_8ino_aba650bcc5cc3ea0d7fb891fd4f5b21fe_icgraph">
+<area shape="rect" title="Maneja la salida del estado PMV_BAJO &#45; limpieza de recursos." alt="" coords="288,5,428,32"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="107,5,240,32"/>
+<area shape="poly" title=" " alt="" coords="272,21,240,21,240,16,272,16"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Función de inicialización del sistema Arduino." alt="" coords="5,5,59,32"/>
+<area shape="poly" title=" " alt="" coords="91,21,59,21,59,16,91,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4fc01d736fe50cf5b977f755b675f11d" name="a4fc01d736fe50cf5b977f755b675f11d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fc01d736fe50cf5b977f755b675f11d">&#9670;&#160;</a></span>setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setup </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función de inicialización del sistema Arduino. </p>
+<p>Configuración inicial que se ejecuta una vez al iniciar el sistema:</p><ul>
+<li>Inicializa comunicación serial a 9600 baudios para monitoreo y debugging</li>
+<li>Configura display LCD 16x2 con pines específicos</li>
+<li>Inicializa sensor DHT11 para lectura de temperatura y humedad</li>
+<li>Configura servomotor en pin PWM específico</li>
+<li>Establece estado inicial de la FSM en INICIO</li>
+<li>Configura pines de LEDs RGB, buzzer, ventilador y sensor PIR como salidas</li>
+<li>Inicializa sistema SPI y módulo RFID MFRC522</li>
+<li>Configura sistema de tareas asíncronas</li>
+</ul>
+<dl class="section pre"><dt>Precondición</dt><dd>Todos los componentes deben estar correctamente conectados según diagrama </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Sistema listo para ejecutar loop principal y procesamiento FSM</dd></dl>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM.">setupStateMachine()</a> </dd>
+<dd>
+<a class="el" href="#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema - Ejecución continua.">loop()</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00537">537</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  537</span>             {</div>
+<div class="line"><span class="lineno">  538</span>  Serial.begin(9600);</div>
+<div class="line"><span class="lineno">  539</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.begin(16, 2);</div>
+<div class="line"><span class="lineno">  540</span>  <a class="code hl_function" href="group__hardware__grupo.html#gad7a1df263f6f823242a112ec11297434">dht</a>.begin();</div>
+<div class="line"><span class="lineno">  541</span>  <a class="code hl_variable" href="group__hardware__grupo.html#ga79efceea669fb85a732c30f47cf7e59c">servo</a>.attach(<a class="code hl_define" href="group__pines__grupo.html#ga5218f89aa292654356a48989319aafb1">SERVO_PIN</a>);</div>
+<div class="line"><span class="lineno">  542</span> </div>
+<div class="line"><span class="lineno">  543</span>  <span class="comment">// Configuración de pines de salida</span></div>
+<div class="line"><span class="lineno">  544</span>  pinMode(<a class="code hl_define" href="group__pines__grupo.html#ga31e20330f8ce94e0dd10b005a15c5898">LED_RED</a>, OUTPUT);</div>
+<div class="line"><span class="lineno">  545</span>  pinMode(<a class="code hl_define" href="group__pines__grupo.html#gaca338dbd19d7940923334629f6e5f3b7">LED_GREEN</a>, OUTPUT);</div>
+<div class="line"><span class="lineno">  546</span>  pinMode(<a class="code hl_define" href="group__pines__grupo.html#gae2e40566d27689f8581d7b0f12271d45">LED_BLUE</a>, OUTPUT);</div>
+<div class="line"><span class="lineno">  547</span>  pinMode(<a class="code hl_define" href="group__pines__grupo.html#gab61d0981ed42df9e18211b273d22cfcd">BUZZER_PIN</a>, OUTPUT);</div>
+<div class="line"><span class="lineno">  548</span>  pinMode(<a class="code hl_define" href="group__pines__grupo.html#ga2659364744f6d57a126d7199e3e11343">FAN_PIN</a>, OUTPUT);</div>
+<div class="line"><span class="lineno">  549</span>  pinMode(<a class="code hl_define" href="group__pines__grupo.html#ga379c6aca42757cab67a55b21ecb59f21">PIR_SENSOR</a>, INPUT);</div>
+<div class="line"><span class="lineno">  550</span> </div>
+<div class="line"><span class="lineno">  551</span>  <span class="comment">// Inicialización segura de actuadores</span></div>
+<div class="line"><span class="lineno">  552</span>  digitalWrite(<a class="code hl_define" href="group__pines__grupo.html#gab61d0981ed42df9e18211b273d22cfcd">BUZZER_PIN</a>, LOW);</div>
+<div class="line"><span class="lineno">  553</span>  digitalWrite(<a class="code hl_define" href="group__pines__grupo.html#ga2659364744f6d57a126d7199e3e11343">FAN_PIN</a>, LOW);</div>
+<div class="line"><span class="lineno">  554</span> </div>
+<div class="line"><span class="lineno">  555</span>  <span class="comment">// Inicialización del sistema RFID</span></div>
+<div class="line"><span class="lineno">  556</span>  SPI.begin();           <span class="comment">// Inicializa bus SPI</span></div>
+<div class="line"><span class="lineno">  557</span>  <a class="code hl_function" href="group__rfid__grupo.html#gac672f817299d07cc428fe3f456235273">mfrc522</a>.PCD_Init();    <span class="comment">// Inicializa el lector RFID</span></div>
+<div class="line"><span class="lineno">  558</span> </div>
+<div class="line"><span class="lineno">  559</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.setCursor(0, 0);</div>
+<div class="line"><span class="lineno">  560</span> </div>
+<div class="line"><span class="lineno">  561</span>  <a class="code hl_function" href="#a0f66d65ae208fa0a707755d77441dd5f">setupStateMachine</a>();</div>
+<div class="line"><span class="lineno">  562</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.SetState(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8af6e4a90a4a7e46c98a5a12b965fb8354">INICIO</a>, <span class="keyword">false</span>, <span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">  563</span> </div>
+<div class="line"><span class="lineno">  564</span>  Serial.println(<span class="stringliteral">&quot;FSM Iniciada - Sistema de Confort Térmico v3.1 con RFID&quot;</span>);</div>
+<div class="line"><span class="lineno">  565</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.println(<span class="stringliteral">&quot;Iniciando...&quot;</span>);</div>
+<div class="line"><span class="lineno">  566</span>}</div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga5d74787dedbc4e11c1ab15bf487e61f8af6e4a90a4a7e46c98a5a12b965fb8354"><div class="ttname"><a href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8af6e4a90a4a7e46c98a5a12b965fb8354">INICIO</a></div><div class="ttdeci">@ INICIO</div><div class="ttdoc">Estado inicial - Autenticación de usuario mediante keypad.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00309">sistema_confort_termico.ino:309</a></div></div>
+<div class="ttc" id="agroup__hardware__grupo_html_gad7a1df263f6f823242a112ec11297434"><div class="ttname"><a href="group__hardware__grupo.html#gad7a1df263f6f823242a112ec11297434">dht</a></div><div class="ttdeci">DHT dht(DHTPIN, DHTTYPE)</div><div class="ttdoc">Objeto sensor DHT11 para medición de temperatura y humedad.</div></div>
+<div class="ttc" id="agroup__hardware__grupo_html_gaf97afdf00af0e116e9b5957f6a470fc2"><div class="ttname"><a href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a></div><div class="ttdeci">LiquidCrystal lcd(12, 11, 5, 4, 3, 2)</div><div class="ttdoc">Objeto LCD para display 16x2 con configuración de pines.</div></div>
+<div class="ttc" id="agroup__pines__grupo_html_ga379c6aca42757cab67a55b21ecb59f21"><div class="ttname"><a href="group__pines__grupo.html#ga379c6aca42757cab67a55b21ecb59f21">PIR_SENSOR</a></div><div class="ttdeci">#define PIR_SENSOR</div><div class="ttdoc">Pin analógico para sensor PIR - Detección de movimiento.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00122">sistema_confort_termico.ino:122</a></div></div>
+<div class="ttc" id="agroup__pines__grupo_html_ga5218f89aa292654356a48989319aafb1"><div class="ttname"><a href="group__pines__grupo.html#ga5218f89aa292654356a48989319aafb1">SERVO_PIN</a></div><div class="ttdeci">#define SERVO_PIN</div><div class="ttdoc">Pin PWM para servomotor SG90 - Control de persianas/ventilación.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00123">sistema_confort_termico.ino:123</a></div></div>
+<div class="ttc" id="agroup__pines__grupo_html_gab61d0981ed42df9e18211b273d22cfcd"><div class="ttname"><a href="group__pines__grupo.html#gab61d0981ed42df9e18211b273d22cfcd">BUZZER_PIN</a></div><div class="ttdeci">#define BUZZER_PIN</div><div class="ttdoc">Pin digital para buzzer pasivo - Sistema de alertas audibles.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00125">sistema_confort_termico.ino:125</a></div></div>
+<div class="ttc" id="agroup__rfid__grupo_html_gac672f817299d07cc428fe3f456235273"><div class="ttname"><a href="group__rfid__grupo.html#gac672f817299d07cc428fe3f456235273">mfrc522</a></div><div class="ttdeci">MFRC522 mfrc522(SS_PIN, RST_PIN)</div><div class="ttdoc">Instancia del lector RFID MFRC522.</div></div>
+<div class="ttc" id="asistema__confort__termico_8ino_html_a0f66d65ae208fa0a707755d77441dd5f"><div class="ttname"><a href="#a0f66d65ae208fa0a707755d77441dd5f">setupStateMachine</a></div><div class="ttdeci">void setupStateMachine()</div><div class="ttdoc">Configura todas las transiciones y callbacks de la FSM.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00448">sistema_confort_termico.ino:448</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00125">BUZZER_PIN</a>, <a class="el" href="group__hardware__grupo.html#gad7a1df263f6f823242a112ec11297434">dht()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00124">FAN_PIN</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00309">INICIO</a>, <a class="el" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00117">LED_BLUE</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00116">LED_GREEN</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00115">LED_RED</a>, <a class="el" href="group__rfid__grupo.html#gac672f817299d07cc428fe3f456235273">mfrc522()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00122">PIR_SENSOR</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00220">servo</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00123">SERVO_PIN</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00448">setupStateMachine()</a> y <a class="el" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine()</a>.</p>
+<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="sistema__confort__termico_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph.png" border="0" usemap="#asistema__confort__termico_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph" loading="lazy" alt=""/></div>
+<map name="asistema__confort__termico_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph" id="asistema__confort__termico_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph">
+<area shape="rect" title="Función de inicialización del sistema Arduino." alt="" coords="5,309,59,336"/>
+<area shape="rect" href="group__hardware__grupo.html#gad7a1df263f6f823242a112ec11297434" title="Objeto sensor DHT11 para medición de temperatura y humedad." alt="" coords="502,5,541,32"/>
+<area shape="poly" title=" " alt="" coords="32,308,39,272,52,222,73,168,105,118,146,75,185,47,229,29,287,12,326,5,358,5,429,12,486,14,486,19,428,17,357,11,327,10,289,17,231,34,187,52,149,79,109,122,78,171,57,224,44,273,38,309"/>
+<area shape="rect" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2" title="Objeto LCD para display 16x2 con configuración de pines." alt="" coords="502,259,541,285"/>
+<area shape="poly" title=" " alt="" coords="38,308,69,254,123,179,157,139,196,101,240,68,287,42,326,26,360,19,393,23,430,42,453,62,472,86,499,141,514,196,521,243,516,243,509,198,494,142,468,89,449,65,427,46,392,28,360,24,328,31,289,46,242,72,200,105,161,142,127,182,73,257,43,311"/>
+<area shape="rect" href="group__rfid__grupo.html#gac672f817299d07cc428fe3f456235273" title="Instancia del lector RFID MFRC522." alt="" coords="140,411,207,437"/>
+<area shape="poly" title=" " alt="" coords="47,334,74,362,108,390,127,401,124,406,105,394,70,365,43,338"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="107,309,240,336"/>
+<area shape="poly" title=" " alt="" coords="59,320,91,320,91,325,59,325"/>
+<area shape="rect" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d" title="Instancia de máquina de estados con 7 estados y 11 transiciones." alt="" coords="309,613,408,640"/>
+<area shape="poly" title=" " alt="" coords="60,329,242,397,260,423,267,449,269,475,267,500,265,525,266,550,273,574,290,600,297,606,293,610,286,603,268,577,261,551,259,525,261,500,263,475,262,450,255,426,238,401,58,334"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#aa592846580d9f3bebe4adc098ded791d" title="Maneja la salida del estado BLOQUEO &#45; limpieza de recursos." alt="" coords="296,512,421,539"/>
+<area shape="poly" title=" " alt="" coords="217,334,242,353,255,371,262,389,266,424,271,457,277,474,290,492,302,502,298,506,286,495,273,477,266,459,261,424,257,391,250,374,238,357,214,339"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#acc9f02a17298f2a9fd2973d52572e986" title="Maneja la salida del estado PMV_ALTO &#45; limpieza de recursos." alt="" coords="290,563,427,589"/>
+<area shape="poly" title=" " alt="" coords="219,335,242,353,258,379,265,405,265,454,264,478,266,501,273,525,290,549,292,551,288,555,286,552,269,527,261,502,259,478,260,454,260,406,253,381,238,356,215,339"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#aba650bcc5cc3ea0d7fb891fd4f5b21fe" title="Maneja la salida del estado PMV_BAJO &#45; limpieza de recursos." alt="" coords="288,107,428,133"/>
+<area shape="poly" title=" " alt="" coords="177,308,192,275,215,231,246,184,286,143,292,139,295,143,290,147,251,188,219,234,196,277,182,310"/>
+<area shape="rect" href="group__estados__grupo.html#gaab9c5b060d49c9eae5717f5303a1984d" title="Maneja la entrada al estado ALARMA &#45; condiciones críticas." alt="" coords="309,411,407,437"/>
+<area shape="poly" title=" " alt="" coords="209,334,242,353,265,375,290,396,299,402,296,406,286,401,262,379,238,357,206,339"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#aeaef1f2203865f944eb917d96e5f9020" title=" " alt="" coords="476,436,567,463"/>
+<area shape="poly" title=" " alt="" coords="215,334,242,353,258,379,264,405,271,428,278,438,289,447,331,464,375,470,420,469,461,463,462,468,421,474,375,476,329,469,287,452,274,441,266,430,259,406,254,381,238,357,212,339"/>
+<area shape="rect" href="group__estados__grupo.html#gae7f7255177511950ea5ff9086d20a9ef" title="Maneja la entrada al estado BLOQUEO &#45; seguridad por fallos." alt="" coords="306,360,410,387"/>
+<area shape="poly" title=" " alt="" coords="226,334,293,353,292,358,224,339"/>
+<area shape="rect" href="group__estados__grupo.html#ga3d20408bd7a9ca8c795fc543454b4e2d" title="Maneja la entrada al estado CONFIG &#45; configuración del sistema y RFID." alt="" coords="312,157,405,184"/>
+<area shape="poly" title=" " alt="" coords="181,307,223,253,253,221,286,194,296,188,299,193,290,198,256,225,227,256,186,310"/>
+<area shape="rect" href="group__estados__grupo.html#ga390833d0072e6440c9707a25c053dfb3" title="Maneja la entrada al estado INICIO &#45; autenticación de usuario." alt="" coords="315,208,402,235"/>
+<area shape="poly" title=" " alt="" coords="191,307,233,276,287,244,299,239,301,243,289,249,236,281,194,311"/>
+<area shape="rect" href="group__estados__grupo.html#gac6e2aedfa62714338c55314abed3975a" title="Maneja la entrada al estado MONITOR &#45; monitoreo principal." alt="" coords="308,309,408,336"/>
+<area shape="poly" title=" " alt="" coords="240,320,293,320,293,325,240,325"/>
+<area shape="rect" href="group__estados__grupo.html#ga7c048c997648ce81c01c9a5cc03e4734" title="Maneja la entrada al estado PMV_ALTO &#45; condiciones cálidas." alt="" coords="300,56,416,83"/>
+<area shape="poly" title=" " alt="" coords="175,308,187,266,208,209,241,147,262,118,286,93,291,89,294,93,290,97,266,122,245,150,213,211,192,268,180,309"/>
+<area shape="rect" href="group__estados__grupo.html#ga02260e7a04347651d07c76eacf47b8b7" title="Maneja la entrada al estado PMV_BAJO &#45; condiciones frías." alt="" coords="299,259,418,285"/>
+<area shape="poly" title=" " alt="" coords="224,306,292,287,293,292,226,311"/>
+<area shape="poly" title=" " alt="" coords="219,335,242,353,261,386,269,418,269,449,265,480,262,509,262,539,270,569,290,600,297,606,293,610,286,603,266,571,257,540,256,509,260,479,263,449,263,419,256,388,238,356,216,339"/>
+<area shape="poly" title=" " alt="" coords="406,408,427,397,451,374,473,348,504,298,509,301,477,351,455,378,430,401,409,413"/>
+<area shape="poly" title=" " alt="" coords="408,429,461,437,460,443,407,434"/>
+<area shape="poly" title=" " alt="" coords="403,357,427,346,463,321,494,294,498,298,467,325,430,350,405,362"/>
+<area shape="poly" title=" " alt="" coords="403,232,488,259,487,264,401,237"/>
+<area shape="poly" title=" " alt="" coords="403,306,487,280,488,285,405,311"/>
+<area shape="poly" title=" " alt="" coords="403,53,486,27,488,32,405,58"/>
+<area shape="poly" title=" " alt="" coords="412,81,430,93,461,128,486,169,503,209,515,243,510,245,498,211,481,171,457,131,427,97,409,85"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0f66d65ae208fa0a707755d77441dd5f" name="a0f66d65ae208fa0a707755d77441dd5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f66d65ae208fa0a707755d77441dd5f">&#9670;&#160;</a></span>setupStateMachine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setupStateMachine </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configura todas las transiciones y callbacks de la FSM. </p>
+<p>Define la lógica completa del sistema mediante:</p><ul>
+<li>Transiciones entre estados basadas en condiciones de entrada</li>
+<li>Callbacks de entrada (OnEntering) para inicialización de estados</li>
+<li>Callbacks de salida (OnLeaving) para limpieza de recursos</li>
+<li>Funciones lambda para evaluación de condiciones en tiempo de ejecución</li>
+</ul>
+<div class="dotgraph">
+<img src="dot_inline_dotgraph_2.png" alt="dot_inline_dotgraph_2.png" border="0" usemap="#dot_inline_dotgraph_2.map"/>
+</div>
+<dl class="section note"><dt>Nota</dt><dd>Cada transición es evaluada en cada ciclo del loop principal </dd></dl>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="group__fsm__grupo.html#ga5d74787dedbc4e11c1ab15bf487e61f8" title="Enumeración de estados del sistema FSM.">State</a> </dd>
+<dd>
+<a class="el" href="group__fsm__grupo.html#ga080a822f0093973313bd644e517a5090" title="Enumeración de entradas que disparan transiciones de estado.">Input</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00448">448</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  448</span>                         {</div>
+<div class="line"><span class="lineno">  449</span>  <span class="comment">// ==================== TRANSICIONES DESDE INICIO ====================</span></div>
+<div class="line"><span class="lineno">  450</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.AddTransition(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8af6e4a90a4a7e46c98a5a12b965fb8354">INICIO</a>, <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a702582f7f825ca83bdb076b15b4c0fc2">CONFIG</a>, []() {</div>
+<div class="line"><span class="lineno">  451</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> == <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a398b625d64c410187ddeac0ed88bc986">CLAVE_CORRECTA</a>;</div>
+<div class="line"><span class="lineno">  452</span>  });</div>
+<div class="line"><span class="lineno">  453</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.AddTransition(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8af6e4a90a4a7e46c98a5a12b965fb8354">INICIO</a>, <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a7b7eab4ff8ecba6e3566d75815f318fc">BLOQUEO</a>, []() {</div>
+<div class="line"><span class="lineno">  454</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> == <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090ab652af68661ddf57916254db968b28eb">SISTEMA_BLOQUEADO</a>;</div>
+<div class="line"><span class="lineno">  455</span>  });</div>
+<div class="line"><span class="lineno">  456</span> </div>
+<div class="line"><span class="lineno">  457</span>  <span class="comment">// ==================== TRANSICIONES DESDE BLOQUEO ====================</span></div>
+<div class="line"><span class="lineno">  458</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.AddTransition(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a7b7eab4ff8ecba6e3566d75815f318fc">BLOQUEO</a>, <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8af6e4a90a4a7e46c98a5a12b965fb8354">INICIO</a>, []() {</div>
+<div class="line"><span class="lineno">  459</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> == <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090af6ac79524f6fe1d95e4acebe357ea706">TECLA_ASTERISCO</a>;</div>
+<div class="line"><span class="lineno">  460</span>  });</div>
+<div class="line"><span class="lineno">  461</span> </div>
+<div class="line"><span class="lineno">  462</span>  <span class="comment">// ==================== TRANSICIONES DESDE CONFIG ====================</span></div>
+<div class="line"><span class="lineno">  463</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.AddTransition(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a702582f7f825ca83bdb076b15b4c0fc2">CONFIG</a>, <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a92e8e1033650c9fd30199df2d6ec23e7">MONITOR</a>, []() {</div>
+<div class="line"><span class="lineno">  464</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> == <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a1b2a320ec55c121b96574e682f8ff73c">TIEMPO_EXPIRADO</a>;</div>
+<div class="line"><span class="lineno">  465</span>  });</div>
+<div class="line"><span class="lineno">  466</span> </div>
+<div class="line"><span class="lineno">  467</span>  <span class="comment">// ==================== TRANSICIONES DESDE MONITOR ====================</span></div>
+<div class="line"><span class="lineno">  468</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.AddTransition(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a92e8e1033650c9fd30199df2d6ec23e7">MONITOR</a>, <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a9cd0933478d7b716e4a87f4d3f3055e8">PMV_BAJO</a>, []() {</div>
+<div class="line"><span class="lineno">  469</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> == <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a2b0381e4ee70ef37ce71420bbcac30b6">PMV_MENOR_QUE_MENOS1</a>;</div>
+<div class="line"><span class="lineno">  470</span>  });</div>
+<div class="line"><span class="lineno">  471</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.AddTransition(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a92e8e1033650c9fd30199df2d6ec23e7">MONITOR</a>, <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a72e6a374f575b0815315e1c012a5c6d9">PMV_ALTO</a>, []() {</div>
+<div class="line"><span class="lineno">  472</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> == <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090ad9d2a3689996042933580a10cfb2ee25">PMV_MAYOR_QUE_1</a>;</div>
+<div class="line"><span class="lineno">  473</span>  });</div>
+<div class="line"><span class="lineno">  474</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.AddTransition(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a92e8e1033650c9fd30199df2d6ec23e7">MONITOR</a>, <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a702582f7f825ca83bdb076b15b4c0fc2">CONFIG</a>, []() {</div>
+<div class="line"><span class="lineno">  475</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> == <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a1b2a320ec55c121b96574e682f8ff73c">TIEMPO_EXPIRADO</a>;</div>
+<div class="line"><span class="lineno">  476</span>  });</div>
+<div class="line"><span class="lineno">  477</span> </div>
+<div class="line"><span class="lineno">  478</span>  <span class="comment">// ==================== TRANSICIONES DESDE ESTADOS PMV ====================</span></div>
+<div class="line"><span class="lineno">  479</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.AddTransition(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a9cd0933478d7b716e4a87f4d3f3055e8">PMV_BAJO</a>, <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a92e8e1033650c9fd30199df2d6ec23e7">MONITOR</a>, []() {</div>
+<div class="line"><span class="lineno">  480</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> == <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a1b2a320ec55c121b96574e682f8ff73c">TIEMPO_EXPIRADO</a>;</div>
+<div class="line"><span class="lineno">  481</span>  });</div>
+<div class="line"><span class="lineno">  482</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.AddTransition(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a72e6a374f575b0815315e1c012a5c6d9">PMV_ALTO</a>, <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a92e8e1033650c9fd30199df2d6ec23e7">MONITOR</a>, []() {</div>
+<div class="line"><span class="lineno">  483</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> == <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a1b2a320ec55c121b96574e682f8ff73c">TIEMPO_EXPIRADO</a>;</div>
+<div class="line"><span class="lineno">  484</span>  });</div>
+<div class="line"><span class="lineno">  485</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.AddTransition(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a72e6a374f575b0815315e1c012a5c6d9">PMV_ALTO</a>, <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a074349c9e60d68fa3f5a29ff3c91194c">ALARMA</a>, []() {</div>
+<div class="line"><span class="lineno">  486</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> == <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a223d7803a7d9575e01e4b1cef3b3b9bd">TEMP_ALTA_3_INTENTOS</a>;</div>
+<div class="line"><span class="lineno">  487</span>  });</div>
+<div class="line"><span class="lineno">  488</span> </div>
+<div class="line"><span class="lineno">  489</span>  <span class="comment">// ==================== TRANSICIONES DESDE ALARMA ====================</span></div>
+<div class="line"><span class="lineno">  490</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.AddTransition(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a074349c9e60d68fa3f5a29ff3c91194c">ALARMA</a>, <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8af6e4a90a4a7e46c98a5a12b965fb8354">INICIO</a>, []() {</div>
+<div class="line"><span class="lineno">  491</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> == <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090ac644d7581577480f8b109e28d9d26b1a">SENSOR_INFRARROJO</a>;</div>
+<div class="line"><span class="lineno">  492</span>  });</div>
+<div class="line"><span class="lineno">  493</span> </div>
+<div class="line"><span class="lineno">  494</span>  <span class="comment">// ==================== CONFIGURACIÓN DE CALLBACKS DE ENTRADA ====================</span></div>
+<div class="line"><span class="lineno">  495</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.SetOnEntering(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8af6e4a90a4a7e46c98a5a12b965fb8354">INICIO</a>, <a class="code hl_function" href="group__estados__grupo.html#ga390833d0072e6440c9707a25c053dfb3">outputInicio</a>);</div>
+<div class="line"><span class="lineno">  496</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.SetOnEntering(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a7b7eab4ff8ecba6e3566d75815f318fc">BLOQUEO</a>, <a class="code hl_function" href="group__estados__grupo.html#gae7f7255177511950ea5ff9086d20a9ef">outputBloqueo</a>);</div>
+<div class="line"><span class="lineno">  497</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.SetOnEntering(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a702582f7f825ca83bdb076b15b4c0fc2">CONFIG</a>, <a class="code hl_function" href="group__estados__grupo.html#ga3d20408bd7a9ca8c795fc543454b4e2d">outputConfig</a>);</div>
+<div class="line"><span class="lineno">  498</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.SetOnEntering(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a92e8e1033650c9fd30199df2d6ec23e7">MONITOR</a>, <a class="code hl_function" href="group__estados__grupo.html#gac6e2aedfa62714338c55314abed3975a">outputMonitor</a>);</div>
+<div class="line"><span class="lineno">  499</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.SetOnEntering(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a9cd0933478d7b716e4a87f4d3f3055e8">PMV_BAJO</a>, <a class="code hl_function" href="group__estados__grupo.html#ga02260e7a04347651d07c76eacf47b8b7">outputPMV_Bajo</a>);</div>
+<div class="line"><span class="lineno">  500</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.SetOnEntering(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a72e6a374f575b0815315e1c012a5c6d9">PMV_ALTO</a>, <a class="code hl_function" href="group__estados__grupo.html#ga7c048c997648ce81c01c9a5cc03e4734">outputPMV_Alto</a>);</div>
+<div class="line"><span class="lineno">  501</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.SetOnEntering(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a074349c9e60d68fa3f5a29ff3c91194c">ALARMA</a>, <a class="code hl_function" href="group__estados__grupo.html#gaab9c5b060d49c9eae5717f5303a1984d">outputAlarma</a>);</div>
+<div class="line"><span class="lineno">  502</span> </div>
+<div class="line"><span class="lineno">  503</span>  <span class="comment">// ==================== CONFIGURACIÓN DE CALLBACKS DE SALIDA ====================</span></div>
+<div class="line"><span class="lineno">  504</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.SetOnLeaving(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a7b7eab4ff8ecba6e3566d75815f318fc">BLOQUEO</a>, <a class="code hl_function" href="#aa592846580d9f3bebe4adc098ded791d">onLeavingBloqueo</a>);</div>
+<div class="line"><span class="lineno">  505</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.SetOnLeaving(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a074349c9e60d68fa3f5a29ff3c91194c">ALARMA</a>, []() {</div>
+<div class="line"><span class="lineno">  506</span>    <a class="code hl_function" href="#aeaef1f2203865f944eb917d96e5f9020">TaskBuzzer</a>.Stop(); </div>
+<div class="line"><span class="lineno">  507</span>    digitalWrite(<a class="code hl_define" href="group__pines__grupo.html#gab61d0981ed42df9e18211b273d22cfcd">BUZZER_PIN</a>, LOW);</div>
+<div class="line"><span class="lineno">  508</span>  });</div>
+<div class="line"><span class="lineno">  509</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.SetOnLeaving(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a9cd0933478d7b716e4a87f4d3f3055e8">PMV_BAJO</a>, <a class="code hl_function" href="#aba650bcc5cc3ea0d7fb891fd4f5b21fe">onLeavingPMV_Bajo</a>);</div>
+<div class="line"><span class="lineno">  510</span>  <a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.SetOnLeaving(<a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a72e6a374f575b0815315e1c012a5c6d9">PMV_ALTO</a>, <a class="code hl_function" href="#acc9f02a17298f2a9fd2973d52572e986">onLeavingPMV_Alto</a>);</div>
+<div class="line"><span class="lineno">  511</span>}</div>
+<div class="ttc" id="agroup__estados__grupo_html_ga02260e7a04347651d07c76eacf47b8b7"><div class="ttname"><a href="group__estados__grupo.html#ga02260e7a04347651d07c76eacf47b8b7">outputPMV_Bajo</a></div><div class="ttdeci">void outputPMV_Bajo()</div><div class="ttdoc">Maneja la entrada al estado PMV_BAJO - condiciones frías.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00824">sistema_confort_termico.ino:824</a></div></div>
+<div class="ttc" id="agroup__estados__grupo_html_ga390833d0072e6440c9707a25c053dfb3"><div class="ttname"><a href="group__estados__grupo.html#ga390833d0072e6440c9707a25c053dfb3">outputInicio</a></div><div class="ttdeci">void outputInicio()</div><div class="ttdoc">Maneja la entrada al estado INICIO - autenticación de usuario.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00646">sistema_confort_termico.ino:646</a></div></div>
+<div class="ttc" id="agroup__estados__grupo_html_ga3d20408bd7a9ca8c795fc543454b4e2d"><div class="ttname"><a href="group__estados__grupo.html#ga3d20408bd7a9ca8c795fc543454b4e2d">outputConfig</a></div><div class="ttdeci">void outputConfig()</div><div class="ttdoc">Maneja la entrada al estado CONFIG - configuración del sistema y RFID.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00696">sistema_confort_termico.ino:696</a></div></div>
+<div class="ttc" id="agroup__estados__grupo_html_ga7c048c997648ce81c01c9a5cc03e4734"><div class="ttname"><a href="group__estados__grupo.html#ga7c048c997648ce81c01c9a5cc03e4734">outputPMV_Alto</a></div><div class="ttdeci">void outputPMV_Alto()</div><div class="ttdoc">Maneja la entrada al estado PMV_ALTO - condiciones cálidas.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00862">sistema_confort_termico.ino:862</a></div></div>
+<div class="ttc" id="agroup__estados__grupo_html_gaab9c5b060d49c9eae5717f5303a1984d"><div class="ttname"><a href="group__estados__grupo.html#gaab9c5b060d49c9eae5717f5303a1984d">outputAlarma</a></div><div class="ttdeci">void outputAlarma()</div><div class="ttdoc">Maneja la entrada al estado ALARMA - condiciones críticas.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00720">sistema_confort_termico.ino:720</a></div></div>
+<div class="ttc" id="agroup__estados__grupo_html_gac6e2aedfa62714338c55314abed3975a"><div class="ttname"><a href="group__estados__grupo.html#gac6e2aedfa62714338c55314abed3975a">outputMonitor</a></div><div class="ttdeci">void outputMonitor()</div><div class="ttdoc">Maneja la entrada al estado MONITOR - monitoreo principal.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00783">sistema_confort_termico.ino:783</a></div></div>
+<div class="ttc" id="agroup__estados__grupo_html_gae7f7255177511950ea5ff9086d20a9ef"><div class="ttname"><a href="group__estados__grupo.html#gae7f7255177511950ea5ff9086d20a9ef">outputBloqueo</a></div><div class="ttdeci">void outputBloqueo()</div><div class="ttdoc">Maneja la entrada al estado BLOQUEO - seguridad por fallos.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00749">sistema_confort_termico.ino:749</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga080a822f0093973313bd644e517a5090a1b2a320ec55c121b96574e682f8ff73c"><div class="ttname"><a href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a1b2a320ec55c121b96574e682f8ff73c">TIEMPO_EXPIRADO</a></div><div class="ttdeci">@ TIEMPO_EXPIRADO</div><div class="ttdoc">Temporizador expirado - Transiciones automáticas.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00327">sistema_confort_termico.ino:327</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga080a822f0093973313bd644e517a5090a223d7803a7d9575e01e4b1cef3b3b9bd"><div class="ttname"><a href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a223d7803a7d9575e01e4b1cef3b3b9bd">TEMP_ALTA_3_INTENTOS</a></div><div class="ttdeci">@ TEMP_ALTA_3_INTENTOS</div><div class="ttdoc">Temperatura crítica persistente - Activa alarma.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00330">sistema_confort_termico.ino:330</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga080a822f0093973313bd644e517a5090a2b0381e4ee70ef37ce71420bbcac30b6"><div class="ttname"><a href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a2b0381e4ee70ef37ce71420bbcac30b6">PMV_MENOR_QUE_MENOS1</a></div><div class="ttdeci">@ PMV_MENOR_QUE_MENOS1</div><div class="ttdoc">Condición PMV &lt; -1 detectada - Requiere calefacción.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00328">sistema_confort_termico.ino:328</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga080a822f0093973313bd644e517a5090a398b625d64c410187ddeac0ed88bc986"><div class="ttname"><a href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a398b625d64c410187ddeac0ed88bc986">CLAVE_CORRECTA</a></div><div class="ttdeci">@ CLAVE_CORRECTA</div><div class="ttdoc">Clave válida ingresada - Autenticación exitosa.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00326">sistema_confort_termico.ino:326</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga080a822f0093973313bd644e517a5090ab652af68661ddf57916254db968b28eb"><div class="ttname"><a href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090ab652af68661ddf57916254db968b28eb">SISTEMA_BLOQUEADO</a></div><div class="ttdeci">@ SISTEMA_BLOQUEADO</div><div class="ttdoc">Activación por condición de bloqueo de seguridad.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00324">sistema_confort_termico.ino:324</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga080a822f0093973313bd644e517a5090ac644d7581577480f8b109e28d9d26b1a"><div class="ttname"><a href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090ac644d7581577480f8b109e28d9d26b1a">SENSOR_INFRARROJO</a></div><div class="ttdeci">@ SENSOR_INFRARROJO</div><div class="ttdoc">Detección de movimiento - Desactiva alarma.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00331">sistema_confort_termico.ino:331</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga080a822f0093973313bd644e517a5090ad9d2a3689996042933580a10cfb2ee25"><div class="ttname"><a href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090ad9d2a3689996042933580a10cfb2ee25">PMV_MAYOR_QUE_1</a></div><div class="ttdeci">@ PMV_MAYOR_QUE_1</div><div class="ttdoc">Condición PMV &gt; 1 detectada - Requiere ventilación.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00329">sistema_confort_termico.ino:329</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga080a822f0093973313bd644e517a5090af6ac79524f6fe1d95e4acebe357ea706"><div class="ttname"><a href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090af6ac79524f6fe1d95e4acebe357ea706">TECLA_ASTERISCO</a></div><div class="ttdeci">@ TECLA_ASTERISCO</div><div class="ttdoc">Usuario presiona tecla &#39;*&#39; para desbloquear sistema.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00325">sistema_confort_termico.ino:325</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga5d74787dedbc4e11c1ab15bf487e61f8a074349c9e60d68fa3f5a29ff3c91194c"><div class="ttname"><a href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a074349c9e60d68fa3f5a29ff3c91194c">ALARMA</a></div><div class="ttdeci">@ ALARMA</div><div class="ttdoc">Estado de alarma - Condiciones críticas detectadas.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00311">sistema_confort_termico.ino:311</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga5d74787dedbc4e11c1ab15bf487e61f8a702582f7f825ca83bdb076b15b4c0fc2"><div class="ttname"><a href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a702582f7f825ca83bdb076b15b4c0fc2">CONFIG</a></div><div class="ttdeci">@ CONFIG</div><div class="ttdoc">Estado de configuración - Inicialización y registro RFID.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00310">sistema_confort_termico.ino:310</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga5d74787dedbc4e11c1ab15bf487e61f8a72e6a374f575b0815315e1c012a5c6d9"><div class="ttname"><a href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a72e6a374f575b0815315e1c012a5c6d9">PMV_ALTO</a></div><div class="ttdeci">@ PMV_ALTO</div><div class="ttdoc">Estado PMV alto - Activación de sistemas de enfriamiento.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00314">sistema_confort_termico.ino:314</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga5d74787dedbc4e11c1ab15bf487e61f8a7b7eab4ff8ecba6e3566d75815f318fc"><div class="ttname"><a href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a7b7eab4ff8ecba6e3566d75815f318fc">BLOQUEO</a></div><div class="ttdeci">@ BLOQUEO</div><div class="ttdoc">Estado de bloqueo - Seguridad por autenticación fallida.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00313">sistema_confort_termico.ino:313</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga5d74787dedbc4e11c1ab15bf487e61f8a92e8e1033650c9fd30199df2d6ec23e7"><div class="ttname"><a href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a92e8e1033650c9fd30199df2d6ec23e7">MONITOR</a></div><div class="ttdeci">@ MONITOR</div><div class="ttdoc">Estado de monitoreo - Lectura de sensores y cálculo PMV.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00312">sistema_confort_termico.ino:312</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga5d74787dedbc4e11c1ab15bf487e61f8a9cd0933478d7b716e4a87f4d3f3055e8"><div class="ttname"><a href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a9cd0933478d7b716e4a87f4d3f3055e8">PMV_BAJO</a></div><div class="ttdeci">@ PMV_BAJO</div><div class="ttdoc">Estado PMV bajo - Activación de sistemas de calefacción.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00315">sistema_confort_termico.ino:315</a></div></div>
+<div class="ttc" id="asistema__confort__termico_8ino_html_aa592846580d9f3bebe4adc098ded791d"><div class="ttname"><a href="#aa592846580d9f3bebe4adc098ded791d">onLeavingBloqueo</a></div><div class="ttdeci">void onLeavingBloqueo()</div><div class="ttdoc">Maneja la salida del estado BLOQUEO - limpieza de recursos.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00918">sistema_confort_termico.ino:918</a></div></div>
+<div class="ttc" id="asistema__confort__termico_8ino_html_aba650bcc5cc3ea0d7fb891fd4f5b21fe"><div class="ttname"><a href="#aba650bcc5cc3ea0d7fb891fd4f5b21fe">onLeavingPMV_Bajo</a></div><div class="ttdeci">void onLeavingPMV_Bajo()</div><div class="ttdoc">Maneja la salida del estado PMV_BAJO - limpieza de recursos.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00935">sistema_confort_termico.ino:935</a></div></div>
+<div class="ttc" id="asistema__confort__termico_8ino_html_acc9f02a17298f2a9fd2973d52572e986"><div class="ttname"><a href="#acc9f02a17298f2a9fd2973d52572e986">onLeavingPMV_Alto</a></div><div class="ttdeci">void onLeavingPMV_Alto()</div><div class="ttdoc">Maneja la salida del estado PMV_ALTO - limpieza de recursos.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00954">sistema_confort_termico.ino:954</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00311">ALARMA</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00313">BLOQUEO</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00125">BUZZER_PIN</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00326">CLAVE_CORRECTA</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00310">CONFIG</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00309">INICIO</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00336">input</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00312">MONITOR</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00918">onLeavingBloqueo()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00954">onLeavingPMV_Alto()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00935">onLeavingPMV_Bajo()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00720">outputAlarma()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00749">outputBloqueo()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00696">outputConfig()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00646">outputInicio()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00783">outputMonitor()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00862">outputPMV_Alto()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00824">outputPMV_Bajo()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00314">PMV_ALTO</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00315">PMV_BAJO</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00329">PMV_MAYOR_QUE_1</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00328">PMV_MENOR_QUE_MENOS1</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00331">SENSOR_INFRARROJO</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00324">SISTEMA_BLOQUEADO</a>, <a class="el" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine()</a>, <a class="el" href="#aeaef1f2203865f944eb917d96e5f9020">TaskBuzzer()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00325">TECLA_ASTERISCO</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00330">TEMP_ALTA_3_INTENTOS</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00327">TIEMPO_EXPIRADO</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00537">setup()</a>.</p>
+<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="sistema__confort__termico_8ino_a0f66d65ae208fa0a707755d77441dd5f_cgraph.png" border="0" usemap="#asistema__confort__termico_8ino_a0f66d65ae208fa0a707755d77441dd5f_cgraph" loading="lazy" alt=""/></div>
+<map name="asistema__confort__termico_8ino_a0f66d65ae208fa0a707755d77441dd5f_cgraph" id="asistema__confort__termico_8ino_a0f66d65ae208fa0a707755d77441dd5f_cgraph">
+<area shape="rect" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="5,487,139,513"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#aa592846580d9f3bebe4adc098ded791d" title="Maneja la salida del estado BLOQUEO &#45; limpieza de recursos." alt="" coords="194,5,320,32"/>
+<area shape="poly" title=" " alt="" coords="72,486,85,398,108,265,124,196,142,132,162,79,185,42,187,40,191,43,189,46,167,81,147,133,129,197,113,266,90,399,78,487"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#acc9f02a17298f2a9fd2973d52572e986" title="Maneja la salida del estado PMV_ALTO &#45; limpieza de recursos." alt="" coords="188,613,326,640"/>
+<area shape="poly" title=" " alt="" coords="88,512,130,554,158,578,188,599,197,604,195,609,185,604,155,582,126,558,84,516"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#aba650bcc5cc3ea0d7fb891fd4f5b21fe" title="Maneja la salida del estado PMV_BAJO &#45; limpieza de recursos." alt="" coords="187,752,327,779"/>
+<area shape="poly" title=" " alt="" coords="81,513,118,602,150,659,189,713,221,741,218,745,185,716,145,662,114,604,76,515"/>
+<area shape="rect" href="group__estados__grupo.html#gaab9c5b060d49c9eae5717f5303a1984d" title="Maneja la entrada al estado ALARMA &#45; condiciones críticas." alt="" coords="208,360,306,387"/>
+<area shape="poly" title=" " alt="" coords="86,484,129,445,185,403,206,391,209,396,188,408,132,450,89,488"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#aeaef1f2203865f944eb917d96e5f9020" title=" " alt="" coords="388,360,478,387"/>
+<area shape="poly" title=" " alt="" coords="101,484,186,447,284,413,372,387,373,392,285,418,188,452,103,489"/>
+<area shape="rect" href="group__estados__grupo.html#gae7f7255177511950ea5ff9086d20a9ef" title="Maneja la entrada al estado BLOQUEO &#45; seguridad por fallos." alt="" coords="205,56,309,83"/>
+<area shape="poly" title=" " alt="" coords="75,486,116,365,148,280,184,195,237,95,242,97,189,197,153,282,121,367,80,487"/>
+<area shape="rect" href="group__estados__grupo.html#ga3d20408bd7a9ca8c795fc543454b4e2d" title="Maneja la entrada al estado CONFIG &#45; configuración del sistema y RFID." alt="" coords="210,563,304,589"/>
+<area shape="poly" title=" " alt="" coords="108,511,209,554,207,559,106,516"/>
+<area shape="rect" href="group__estados__grupo.html#ga390833d0072e6440c9707a25c053dfb3" title="Maneja la entrada al estado INICIO &#45; autenticación de usuario." alt="" coords="213,208,301,235"/>
+<area shape="poly" title=" " alt="" coords="80,485,236,246,240,249,85,488"/>
+<area shape="rect" href="group__estados__grupo.html#gac6e2aedfa62714338c55314abed3975a" title="Maneja la entrada al estado MONITOR &#45; monitoreo principal." alt="" coords="207,461,307,488"/>
+<area shape="poly" title=" " alt="" coords="139,488,191,481,192,486,139,493"/>
+<area shape="rect" href="group__estados__grupo.html#ga7c048c997648ce81c01c9a5cc03e4734" title="Maneja la entrada al estado PMV_ALTO &#45; condiciones cálidas." alt="" coords="375,512,491,539"/>
+<area shape="poly" title=" " alt="" coords="139,502,360,518,360,523,139,507"/>
+<area shape="rect" href="group__estados__grupo.html#ga02260e7a04347651d07c76eacf47b8b7" title="Maneja la entrada al estado PMV_BAJO &#45; condiciones frías." alt="" coords="197,676,317,703"/>
+<area shape="poly" title=" " alt="" coords="83,512,124,576,154,615,188,650,211,666,208,670,185,654,150,618,119,579,79,515"/>
+<area shape="rect" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d" title="Instancia de máquina de estados con 7 estados y 11 transiciones." alt="" coords="207,803,307,829"/>
+<area shape="poly" title=" " alt="" coords="77,513,85,564,104,638,119,678,137,718,160,756,189,789,195,794,192,798,185,793,156,759,133,721,114,680,99,640,80,565,72,514"/>
+<area shape="rect" href="group__tareas__grupo.html#gaeb5ed948d82a3adfc0af3dbcf877c0c2" title=" " alt="" coords="387,5,480,32"/>
+<area shape="poly" title=" " alt="" coords="320,16,371,16,371,21,320,21"/>
+<area shape="rect" href="group__tareas__grupo.html#ga068cb3aabb9b1e22d9a355f196ab8e89" title=" " alt="" coords="539,664,636,691"/>
+<area shape="poly" title=" " alt="" coords="327,635,525,665,524,670,326,640"/>
+<area shape="rect" href="group__tareas__grupo.html#gafe8f90ba92b8e8513fc99081a7cce5ee" title=" " alt="" coords="381,765,486,792"/>
+<area shape="poly" title=" " alt="" coords="328,768,365,771,365,776,327,773"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a15dee89810d496920bfd1ba815e97426" title=" " alt="" coords="393,816,474,843"/>
+<area shape="poly" title=" " alt="" coords="297,777,328,788,381,808,379,813,326,793,295,782"/>
+<area shape="rect" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2" title="Objeto LCD para display 16x2 con configuración de pines." alt="" coords="568,208,607,235"/>
+<area shape="poly" title=" " alt="" coords="287,357,553,234,555,239,289,362"/>
+<area shape="poly" title=" " alt="" coords="307,371,373,371,373,376,307,376"/>
+<area shape="poly" title=" " alt="" coords="305,53,371,34,372,39,307,58"/>
+<area shape="poly" title=" " alt="" coords="309,61,351,60,398,63,447,73,493,92,521,114,544,140,576,193,572,196,540,143,517,118,490,97,445,78,398,69,351,65,310,66"/>
+<area shape="rect" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e" title=" " alt="" coords="549,563,626,589"/>
+<area shape="poly" title=" " alt="" coords="304,582,375,592,433,595,491,592,533,586,534,591,492,597,433,601,375,597,304,588"/>
+<area shape="poly" title=" " alt="" coords="301,207,375,193,433,189,492,193,554,208,553,213,491,199,433,194,375,199,302,212"/>
+<area shape="poly" title=" " alt="" coords="302,231,347,247,399,271,450,304,493,346,509,370,517,392,522,434,525,476,531,499,542,524,561,550,557,553,537,527,525,501,520,477,517,434,512,393,504,372,489,350,447,308,396,276,345,252,300,236"/>
+<area shape="rect" href="group__auxiliares__grupo.html#gaf8626fd53a9fd252db6f253207b78b87" title="Valida la contraseña ingresada contra la clave predefinida." alt="" coords="377,107,490,133"/>
+<area shape="poly" title=" " alt="" coords="280,205,374,150,392,139,395,144,376,154,283,210"/>
+<area shape="rect" href="group__auxiliares__grupo.html#ga451fb754ff1057f95e36210846ea0aca" title="Lee la contraseña del keypad con feedback visual en LCD." alt="" coords="382,208,485,235"/>
+<area shape="poly" title=" " alt="" coords="301,219,367,219,367,224,301,224"/>
+<area shape="poly" title=" " alt="" coords="462,131,493,150,558,196,555,201,490,154,459,136"/>
+<area shape="poly" title=" " alt="" coords="485,219,553,219,553,224,485,224"/>
+<area shape="poly" title=" " alt="" coords="449,233,472,264,494,303,506,336,512,365,516,416,520,466,528,493,542,524,561,550,557,553,537,527,523,495,515,467,510,416,507,365,500,337,489,305,467,267,444,237"/>
+<area shape="poly" title=" " alt="" coords="307,461,410,432,458,414,490,397,521,362,546,323,564,283,576,249,581,251,569,285,550,325,525,366,493,401,460,419,412,437,308,466"/>
+<area shape="poly" title=" " alt="" coords="276,487,319,519,347,535,376,548,416,560,457,567,533,574,533,579,457,573,415,565,374,553,344,540,316,523,273,491"/>
+<area shape="rect" href="group__auxiliares__grupo.html#ga6488153c8ee9b1f1a7ef5db4ff81ca88" title="Lee y procesa datos de todos los sensores del sistema." alt="" coords="385,461,482,488"/>
+<area shape="poly" title=" " alt="" coords="307,472,369,472,369,477,307,477"/>
+<area shape="rect" href="group__hardware__grupo.html#gad7a1df263f6f823242a112ec11297434" title="Objeto sensor DHT11 para medición de temperatura y humedad." alt="" coords="568,487,607,513"/>
+<area shape="poly" title=" " alt="" coords="483,480,553,492,552,497,482,485"/>
+<area shape="poly" title=" " alt="" coords="450,537,564,651,560,655,446,541"/>
+<area shape="poly" title=" " alt="" coords="475,510,489,498,512,469,531,437,558,367,574,302,581,250,587,250,579,303,563,369,536,439,516,472,493,502,478,514"/>
+<area shape="poly" title=" " alt="" coords="477,537,535,556,533,561,476,542"/>
+<area shape="poly" title=" " alt="" coords="491,513,552,503,553,508,492,518"/>
+<area shape="poly" title=" " alt="" coords="287,701,393,755,390,760,284,706"/>
+<area shape="poly" title=" " alt="" coords="282,701,329,738,343,756,352,772,361,787,377,802,382,806,379,810,373,806,357,790,348,774,339,759,325,742,278,705"/>
+<area shape="poly" title=" " alt="" coords="298,673,533,591,535,596,299,678"/>
+</map>
+</div>
+<div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="sistema__confort__termico_8ino_a0f66d65ae208fa0a707755d77441dd5f_icgraph.png" border="0" usemap="#asistema__confort__termico_8ino_a0f66d65ae208fa0a707755d77441dd5f_icgraph" loading="lazy" alt=""/></div>
+<map name="asistema__confort__termico_8ino_a0f66d65ae208fa0a707755d77441dd5f_icgraph" id="asistema__confort__termico_8ino_a0f66d65ae208fa0a707755d77441dd5f_icgraph">
+<area shape="rect" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="107,5,240,32"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Función de inicialización del sistema Arduino." alt="" coords="5,5,59,32"/>
+<area shape="poly" title=" " alt="" coords="91,21,59,21,59,16,91,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aeaef1f2203865f944eb917d96e5f9020" name="aeaef1f2203865f944eb917d96e5f9020"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaef1f2203865f944eb917d96e5f9020">&#9670;&#160;</a></span>TaskBuzzer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AsyncTask TaskBuzzer </td>
+          <td>(</td>
+          <td class="paramtype">200</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">true</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__actuadores__grupo.html#ga61e006dee30fabbb8d28229f5e593a63">toggleBuzzer</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l01726">toggleBuzzer()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00590">loop()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00720">outputAlarma()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00448">setupStateMachine()</a>.</p>
+<div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="sistema__confort__termico_8ino_aeaef1f2203865f944eb917d96e5f9020_cgraph.png" border="0" usemap="#asistema__confort__termico_8ino_aeaef1f2203865f944eb917d96e5f9020_cgraph" loading="lazy" alt=""/></div>
+<map name="asistema__confort__termico_8ino_aeaef1f2203865f944eb917d96e5f9020_cgraph" id="asistema__confort__termico_8ino_aeaef1f2203865f944eb917d96e5f9020_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,96,32"/>
+<area shape="rect" href="group__actuadores__grupo.html#ga61e006dee30fabbb8d28229f5e593a63" title="Tarea asíncrona para control del buzzer." alt="" coords="144,5,241,32"/>
+<area shape="poly" title=" " alt="" coords="96,16,128,16,128,21,96,21"/>
+</map>
+</div>
+<div id="dynsection-12" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="sistema__confort__termico_8ino_aeaef1f2203865f944eb917d96e5f9020_icgraph.png" border="0" usemap="#asistema__confort__termico_8ino_aeaef1f2203865f944eb917d96e5f9020_icgraph" loading="lazy" alt=""/></div>
+<map name="asistema__confort__termico_8ino_aeaef1f2203865f944eb917d96e5f9020_icgraph" id="asistema__confort__termico_8ino_aeaef1f2203865f944eb917d96e5f9020_icgraph">
+<area shape="rect" title=" " alt="" coords="333,56,423,83"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="213,5,259,32"/>
+<area shape="poly" title=" " alt="" coords="323,53,258,29,260,24,325,48"/>
+<area shape="rect" href="group__estados__grupo.html#gaab9c5b060d49c9eae5717f5303a1984d" title="Maneja la entrada al estado ALARMA &#45; condiciones críticas." alt="" coords="187,56,285,83"/>
+<area shape="poly" title=" " alt="" coords="317,72,285,72,285,67,317,67"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="5,81,139,108"/>
+<area shape="poly" title=" " alt="" coords="322,90,285,97,210,103,139,102,139,97,209,97,285,92,321,85"/>
+<area shape="poly" title=" " alt="" coords="171,82,139,87,139,82,171,77"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a15dee89810d496920bfd1ba815e97426" name="a15dee89810d496920bfd1ba815e97426"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15dee89810d496920bfd1ba815e97426">&#9670;&#160;</a></span>TaskServo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AsyncTask TaskServo </td>
+          <td>(</td>
+          <td class="paramtype">15</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">true</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__actuadores__grupo.html#ga5fafd22b7f249c280b80241309bbe9d7">moverServo</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l01699">moverServo()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00590">loop()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00935">onLeavingPMV_Bajo()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00824">outputPMV_Bajo()</a>.</p>
+<div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="sistema__confort__termico_8ino_a15dee89810d496920bfd1ba815e97426_cgraph.png" border="0" usemap="#asistema__confort__termico_8ino_a15dee89810d496920bfd1ba815e97426_cgraph" loading="lazy" alt=""/></div>
+<map name="asistema__confort__termico_8ino_a15dee89810d496920bfd1ba815e97426_cgraph" id="asistema__confort__termico_8ino_a15dee89810d496920bfd1ba815e97426_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,87,32"/>
+<area shape="rect" href="group__actuadores__grupo.html#ga5fafd22b7f249c280b80241309bbe9d7" title="Tarea asíncrona para control del servomotor." alt="" coords="135,5,222,32"/>
+<area shape="poly" title=" " alt="" coords="87,16,119,16,119,21,87,21"/>
+</map>
+</div>
+<div id="dynsection-14" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="sistema__confort__termico_8ino_a15dee89810d496920bfd1ba815e97426_icgraph.png" border="0" usemap="#asistema__confort__termico_8ino_a15dee89810d496920bfd1ba815e97426_icgraph" loading="lazy" alt=""/></div>
+<map name="asistema__confort__termico_8ino_a15dee89810d496920bfd1ba815e97426_icgraph" id="asistema__confort__termico_8ino_a15dee89810d496920bfd1ba815e97426_icgraph">
+<area shape="rect" title=" " alt="" coords="375,56,456,83"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="234,5,280,32"/>
+<area shape="poly" title=" " alt="" coords="359,54,279,28,281,23,361,49"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#aba650bcc5cc3ea0d7fb891fd4f5b21fe" title="Maneja la salida del estado PMV_BAJO &#45; limpieza de recursos." alt="" coords="187,56,327,83"/>
+<area shape="poly" title=" " alt="" coords="359,72,328,72,328,67,359,67"/>
+<area shape="rect" href="group__estados__grupo.html#ga02260e7a04347651d07c76eacf47b8b7" title="Maneja la entrada al estado PMV_BAJO &#45; condiciones frías." alt="" coords="197,107,317,133"/>
+<area shape="poly" title=" " alt="" coords="361,89,302,109,300,104,359,84"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="5,81,139,108"/>
+<area shape="poly" title=" " alt="" coords="171,84,139,88,139,83,171,78"/>
+<area shape="poly" title=" " alt="" coords="181,112,138,106,139,101,182,107"/>
+</map>
+</div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentación de variables</h2>
+<a id="aaab9d356ed5059cf1cab3515c86893fb" name="aaab9d356ed5059cf1cab3515c86893fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaab9d356ed5059cf1cab3515c86893fb">&#9670;&#160;</a></span>buzzerState</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool buzzerState = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estado actual del buzzer. </p>
+<p>Controla el estado de activación/desactivación del buzzer </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00232">232</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00720">outputAlarma()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l01726">toggleBuzzer()</a>.</p>
+
+</div>
+</div>
+<a id="a96680a0788cd42f837c8962b9cf89a83" name="a96680a0788cd42f837c8962b9cf89a83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96680a0788cd42f837c8962b9cf89a83">&#9670;&#160;</a></span>clave</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char clave[6] = {'2', '0', '2', '5', '2', 'A'}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clave de acceso predefinida para autenticación. </p>
+<p>Secuencia de 6 caracteres requerida para desbloquear el sistema @security Almacenada en memoria flash - No modificable en tiempo de ejecución </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00250">250</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  250</span>{<span class="charliteral">&#39;2&#39;</span>, <span class="charliteral">&#39;0&#39;</span>, <span class="charliteral">&#39;2&#39;</span>, <span class="charliteral">&#39;5&#39;</span>, <span class="charliteral">&#39;2&#39;</span>, <span class="charliteral">&#39;A&#39;</span>};</div>
+</div><!-- fragment -->
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01429">checkPassword()</a>.</p>
+
+</div>
+</div>
+<a id="a87806aa7f4565584aaf628f4dc5b18fd" name="a87806aa7f4565584aaf628f4dc5b18fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87806aa7f4565584aaf628f4dc5b18fd">&#9670;&#160;</a></span>clave_user</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char clave_user[6]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Buffer para almacenar clave ingresada por usuario. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00251">251</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01429">checkPassword()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l01390">readPassword()</a>.</p>
+
+</div>
+</div>
+<a id="aa9fece7b062124080e4b2976f9a8b675" name="aa9fece7b062124080e4b2976f9a8b675"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9fece7b062124080e4b2976f9a8b675">&#9670;&#160;</a></span>colPins</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">byte colPins[<a class="el" href="#aefd90f1160eaa105bc910d4d7c46b815">COLS</a>] = {48, 24, 22, 43}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pines de conexión para columnas del keypad. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00269">269</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  269</span>{48, 24, 22, 43}; <span class="comment">/**&lt; Pines de conexión para columnas del keypad */</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aefd90f1160eaa105bc910d4d7c46b815" name="aefd90f1160eaa105bc910d4d7c46b815"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefd90f1160eaa105bc910d4d7c46b815">&#9670;&#160;</a></span>COLS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const byte COLS = 4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Número de columnas del keypad. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00258">258</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+</div>
+</div>
+<a id="a0e6c3cc7e8c762ab0ca1fa2296d7bbfe" name="a0e6c3cc7e8c762ab0ca1fa2296d7bbfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e6c3cc7e8c762ab0ca1fa2296d7bbfe">&#9670;&#160;</a></span>keypad</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Keypad keypad = Keypad(makeKeymap(<a class="el" href="#a856e873a1d14012d57ddb813c4a1e40a">keys</a>), <a class="el" href="#a6d6753e0ae098b31e2f84d4024e361cf">rowPins</a>, <a class="el" href="#aa9fece7b062124080e4b2976f9a8b675">colPins</a>, <a class="el" href="#a829655a147df70dd4cc94eae40a2204e">ROWS</a>, <a class="el" href="#aefd90f1160eaa105bc910d4d7c46b815">COLS</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00271">271</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01457">checkBloqueo()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l01390">readPassword()</a>.</p>
+
+</div>
+</div>
+<a id="a856e873a1d14012d57ddb813c4a1e40a" name="a856e873a1d14012d57ddb813c4a1e40a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a856e873a1d14012d57ddb813c4a1e40a">&#9670;&#160;</a></span>keys</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char keys[<a class="el" href="#a829655a147df70dd4cc94eae40a2204e">ROWS</a>][<a class="el" href="#aefd90f1160eaa105bc910d4d7c46b815">COLS</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor inicial:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">  {<span class="charliteral">&#39;1&#39;</span>, <span class="charliteral">&#39;2&#39;</span>, <span class="charliteral">&#39;3&#39;</span>, <span class="charliteral">&#39;A&#39;</span>},</div>
+<div class="line">  {<span class="charliteral">&#39;4&#39;</span>, <span class="charliteral">&#39;5&#39;</span>, <span class="charliteral">&#39;6&#39;</span>, <span class="charliteral">&#39;B&#39;</span>},</div>
+<div class="line">  {<span class="charliteral">&#39;7&#39;</span>, <span class="charliteral">&#39;8&#39;</span>, <span class="charliteral">&#39;9&#39;</span>, <span class="charliteral">&#39;C&#39;</span>},</div>
+<div class="line">  {<span class="charliteral">&#39;*&#39;</span>, <span class="charliteral">&#39;0&#39;</span>, <span class="charliteral">&#39;#&#39;</span>, <span class="charliteral">&#39;D&#39;</span>}</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00261">261</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  261</span>                        {</div>
+<div class="line"><span class="lineno">  262</span>  {<span class="charliteral">&#39;1&#39;</span>, <span class="charliteral">&#39;2&#39;</span>, <span class="charliteral">&#39;3&#39;</span>, <span class="charliteral">&#39;A&#39;</span>},</div>
+<div class="line"><span class="lineno">  263</span>  {<span class="charliteral">&#39;4&#39;</span>, <span class="charliteral">&#39;5&#39;</span>, <span class="charliteral">&#39;6&#39;</span>, <span class="charliteral">&#39;B&#39;</span>},</div>
+<div class="line"><span class="lineno">  264</span>  {<span class="charliteral">&#39;7&#39;</span>, <span class="charliteral">&#39;8&#39;</span>, <span class="charliteral">&#39;9&#39;</span>, <span class="charliteral">&#39;C&#39;</span>},</div>
+<div class="line"><span class="lineno">  265</span>  {<span class="charliteral">&#39;*&#39;</span>, <span class="charliteral">&#39;0&#39;</span>, <span class="charliteral">&#39;#&#39;</span>, <span class="charliteral">&#39;D&#39;</span>}</div>
+<div class="line"><span class="lineno">  266</span>};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a6d6753e0ae098b31e2f84d4024e361cf" name="a6d6753e0ae098b31e2f84d4024e361cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d6753e0ae098b31e2f84d4024e361cf">&#9670;&#160;</a></span>rowPins</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">byte rowPins[<a class="el" href="#a829655a147df70dd4cc94eae40a2204e">ROWS</a>] = {40, 42, 44, 46}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pines de conexión para filas del keypad. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00268">268</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  268</span>{40, 42, 44, 46}; <span class="comment">/**&lt; Pines de conexión para filas del keypad */</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a829655a147df70dd4cc94eae40a2204e" name="a829655a147df70dd4cc94eae40a2204e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a829655a147df70dd4cc94eae40a2204e">&#9670;&#160;</a></span>ROWS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const byte ROWS = 4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configuración del teclado matricial 4x4. </p>
+<p>Mapeo completo de teclas y configuración de pines de conexión Número de filas del keypad </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00257">257</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+</div>
+</div>
+<a id="a7520f05cd691de2ef11bb2b9ffff9259" name="a7520f05cd691de2ef11bb2b9ffff9259"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7520f05cd691de2ef11bb2b9ffff9259">&#9670;&#160;</a></span>servoPos</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int servoPos = 20</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Posición actual del servomotor [grados]. </p>
+<p>Rango de 20° (mínimo) a 90° (máximo) para control de persianas </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00281">281</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01699">moverServo()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00824">outputPMV_Bajo()</a>.</p>
+
+</div>
+</div>
+<a id="a9760bca109bb5cd6f1b9a24854385ad0" name="a9760bca109bb5cd6f1b9a24854385ad0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9760bca109bb5cd6f1b9a24854385ad0">&#9670;&#160;</a></span>servoUp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool servoUp = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dirección actual del movimiento del servomotor. </p>
+<p>true = incrementando (hacia 90°), false = decrementando (hacia 20°) </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00287">287</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01699">moverServo()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00824">outputPMV_Bajo()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="sistema__confort__termico_8ino.html">sistema_confort_termico.ino</a></li>
+    <li class="footer">Generado el <span class="timestamp"></span> para Sistema de Confort Térmico Inteligente v3.1 por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,857 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Confort Térmico Inteligente v3.1: Sistema de Tareas Asíncronas y Temporizadores</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Confort Térmico Inteligente v3.1<span id="projectnumber">&#160;3.1 - 2025</span>
+   </div>
+   <div id="projectbrief">Sistema FSM avanzado con PMV, RFID y actuadores completos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('group__tareas__grupo.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Sistema de Tareas Asíncronas y Temporizadores </div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:ga253c50d22391b4a847c214fe6aa3bd29" id="r_ga253c50d22391b4a847c214fe6aa3bd29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga253c50d22391b4a847c214fe6aa3bd29">runTime</a> ()</td></tr>
+<tr class="memdesc:ga253c50d22391b4a847c214fe6aa3bd29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tarea de temporizador principal del sistema.  <br /></td></tr>
+<tr class="memitem:gabe10de4c559b3dc44bc3e0858d41553e" id="r_gabe10de4c559b3dc44bc3e0858d41553e"><td class="memItemLeft" align="right" valign="top">AsyncTask&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a> (5000, true, <a class="el" href="#ga253c50d22391b4a847c214fe6aa3bd29">runTime</a>)</td></tr>
+<tr class="memitem:ga4fb27879b90fd24b957b6b6a358737af" id="r_ga4fb27879b90fd24b957b6b6a358737af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4fb27879b90fd24b957b6b6a358737af">toggleRed</a> ()</td></tr>
+<tr class="memdesc:ga4fb27879b90fd24b957b6b6a358737af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tarea para parpadeo asíncrono del LED rojo.  <br /></td></tr>
+<tr class="memitem:gaeb5ed948d82a3adfc0af3dbcf877c0c2" id="r_gaeb5ed948d82a3adfc0af3dbcf877c0c2"><td class="memItemLeft" align="right" valign="top">AsyncTask&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaeb5ed948d82a3adfc0af3dbcf877c0c2">TaskLedRed</a> (100, true, <a class="el" href="#ga4fb27879b90fd24b957b6b6a358737af">toggleRed</a>)</td></tr>
+<tr class="memitem:gae75eb2ac3e3c9bac42e767dac6393359" id="r_gae75eb2ac3e3c9bac42e767dac6393359"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae75eb2ac3e3c9bac42e767dac6393359">toggleGreen</a> ()</td></tr>
+<tr class="memdesc:gae75eb2ac3e3c9bac42e767dac6393359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tarea para parpadeo asíncrono del LED verde.  <br /></td></tr>
+<tr class="memitem:gafe8f90ba92b8e8513fc99081a7cce5ee" id="r_gafe8f90ba92b8e8513fc99081a7cce5ee"><td class="memItemLeft" align="right" valign="top">AsyncTask&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gafe8f90ba92b8e8513fc99081a7cce5ee">TaskLedGreen</a> (200, true, <a class="el" href="#gae75eb2ac3e3c9bac42e767dac6393359">toggleGreen</a>)</td></tr>
+<tr class="memitem:ga21dc7f71020a2ca4e192c5561dc5b8bb" id="r_ga21dc7f71020a2ca4e192c5561dc5b8bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga21dc7f71020a2ca4e192c5561dc5b8bb">toggleBlue</a> ()</td></tr>
+<tr class="memdesc:ga21dc7f71020a2ca4e192c5561dc5b8bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tarea para parpadeo asíncrono del LED azul.  <br /></td></tr>
+<tr class="memitem:ga068cb3aabb9b1e22d9a355f196ab8e89" id="r_ga068cb3aabb9b1e22d9a355f196ab8e89"><td class="memItemLeft" align="right" valign="top">AsyncTask&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga068cb3aabb9b1e22d9a355f196ab8e89">TaskLedBlue</a> (300, true, <a class="el" href="#ga21dc7f71020a2ca4e192c5561dc5b8bb">toggleBlue</a>)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:gaf84bc50f2d359647caf6731d9fc6be7b" id="r_gaf84bc50f2d359647caf6731d9fc6be7b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf84bc50f2d359647caf6731d9fc6be7b">ledStateRed</a> = false</td></tr>
+<tr class="memdesc:gaf84bc50f2d359647caf6731d9fc6be7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estado actual del LED rojo.  <br /></td></tr>
+<tr class="memitem:gafde4ee9769ef5f5eae24c6cc5b84685d" id="r_gafde4ee9769ef5f5eae24c6cc5b84685d"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gafde4ee9769ef5f5eae24c6cc5b84685d">lastToggleRed</a> = 0</td></tr>
+<tr class="memdesc:gafde4ee9769ef5f5eae24c6cc5b84685d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Último tiempo de cambio del LED rojo.  <br /></td></tr>
+<tr class="memitem:ga515ef8202ac1b878bb16cea448ec3758" id="r_ga515ef8202ac1b878bb16cea448ec3758"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga515ef8202ac1b878bb16cea448ec3758">ledStateGreen</a> = false</td></tr>
+<tr class="memdesc:ga515ef8202ac1b878bb16cea448ec3758"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estado actual del LED verde.  <br /></td></tr>
+<tr class="memitem:ga7770eb34a2eeb2ff5bd41b0d8b39dfc7" id="r_ga7770eb34a2eeb2ff5bd41b0d8b39dfc7"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7770eb34a2eeb2ff5bd41b0d8b39dfc7">lastToggleGreen</a> = 0</td></tr>
+<tr class="memdesc:ga7770eb34a2eeb2ff5bd41b0d8b39dfc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Último tiempo de cambio del LED verde.  <br /></td></tr>
+<tr class="memitem:gaec1357aab980bd99f6562ef8e6c06284" id="r_gaec1357aab980bd99f6562ef8e6c06284"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaec1357aab980bd99f6562ef8e6c06284">ledStateBlue</a> = false</td></tr>
+<tr class="memdesc:gaec1357aab980bd99f6562ef8e6c06284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estado actual del LED azul.  <br /></td></tr>
+<tr class="memitem:ga3102648c9fe07b65fb17bba9932389a4" id="r_ga3102648c9fe07b65fb17bba9932389a4"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3102648c9fe07b65fb17bba9932389a4">lastToggleBlue</a> = 0</td></tr>
+<tr class="memdesc:ga3102648c9fe07b65fb17bba9932389a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Último tiempo de cambio del LED azul.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descripción detallada</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentación de funciones</h2>
+<a id="ga253c50d22391b4a847c214fe6aa3bd29" name="ga253c50d22391b4a847c214fe6aa3bd29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga253c50d22391b4a847c214fe6aa3bd29">&#9670;&#160;</a></span>runTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void runTime </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tarea de temporizador principal del sistema. </p>
+<p>Función callback para temporizador principal.</p>
+<p>Gestiona timeouts y transiciones automáticas entre estados</p>
+<p>Maneja comportamientos específicos según el estado actual </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00358">358</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  358</span>               {</div>
+<div class="line"><span class="lineno">  359</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.GetState() == <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a92e8e1033650c9fd30199df2d6ec23e7">MONITOR</a>) {</div>
+<div class="line"><span class="lineno">  360</span>    <a class="code hl_variable" href="group__variables__grupo.html#ga5d521eacd7a2fee907e0573ddc6f34ee">tiempoMonitorVencido</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  361</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  362</span>    <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> = <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a1b2a320ec55c121b96574e682f8ff73c">TIEMPO_EXPIRADO</a>;</div>
+<div class="line"><span class="lineno">  363</span>  }</div>
+<div class="line"><span class="lineno">  364</span>}</div>
+<div class="ttc" id="agroup__fsm__grupo_html_ga29b5cbc7a62b025f70547fcb3efd8e2d"><div class="ttname"><a href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a></div><div class="ttdeci">StateMachine stateMachine(7, 11)</div><div class="ttdoc">Instancia de máquina de estados con 7 estados y 11 transiciones.</div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gad4db59ccea8946af2bb70f8269e99eeb"><div class="ttname"><a href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a></div><div class="ttdeci">Input input</div><div class="ttdoc">Almacena la última entrada del usuario para procesamiento FSM.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00336">sistema_confort_termico.ino:336</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga080a822f0093973313bd644e517a5090a1b2a320ec55c121b96574e682f8ff73c"><div class="ttname"><a href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a1b2a320ec55c121b96574e682f8ff73c">TIEMPO_EXPIRADO</a></div><div class="ttdeci">@ TIEMPO_EXPIRADO</div><div class="ttdoc">Temporizador expirado - Transiciones automáticas.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00327">sistema_confort_termico.ino:327</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga5d74787dedbc4e11c1ab15bf487e61f8a92e8e1033650c9fd30199df2d6ec23e7"><div class="ttname"><a href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a92e8e1033650c9fd30199df2d6ec23e7">MONITOR</a></div><div class="ttdeci">@ MONITOR</div><div class="ttdoc">Estado de monitoreo - Lectura de sensores y cálculo PMV.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00312">sistema_confort_termico.ino:312</a></div></div>
+<div class="ttc" id="agroup__variables__grupo_html_ga5d521eacd7a2fee907e0573ddc6f34ee"><div class="ttname"><a href="group__variables__grupo.html#ga5d521eacd7a2fee907e0573ddc6f34ee">tiempoMonitorVencido</a></div><div class="ttdeci">bool tiempoMonitorVencido</div><div class="ttdoc">Flag de timeout del estado MONITOR.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00207">sistema_confort_termico.ino:207</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00336">input</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00312">MONITOR</a>, <a class="el" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00327">TIEMPO_EXPIRADO</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00207">tiempoMonitorVencido</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime()</a>.</p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__tareas__grupo_ga253c50d22391b4a847c214fe6aa3bd29_cgraph.png" border="0" usemap="#agroup__tareas__grupo_ga253c50d22391b4a847c214fe6aa3bd29_cgraph" loading="lazy" alt=""/></div>
+<map name="agroup__tareas__grupo_ga253c50d22391b4a847c214fe6aa3bd29_cgraph" id="agroup__tareas__grupo_ga253c50d22391b4a847c214fe6aa3bd29_cgraph">
+<area shape="rect" title="Tarea de temporizador principal del sistema." alt="" coords="5,5,73,32"/>
+<area shape="rect" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d" title="Instancia de máquina de estados con 7 estados y 11 transiciones." alt="" coords="121,5,220,32"/>
+<area shape="poly" title=" " alt="" coords="73,16,105,16,105,21,73,21"/>
+</map>
+</div>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__tareas__grupo_ga253c50d22391b4a847c214fe6aa3bd29_icgraph.png" border="0" usemap="#agroup__tareas__grupo_ga253c50d22391b4a847c214fe6aa3bd29_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__tareas__grupo_ga253c50d22391b4a847c214fe6aa3bd29_icgraph" id="agroup__tareas__grupo_ga253c50d22391b4a847c214fe6aa3bd29_icgraph">
+<area shape="rect" title="Tarea de temporizador principal del sistema." alt="" coords="438,208,506,235"/>
+<area shape="rect" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e" title=" " alt="" coords="313,208,390,235"/>
+<area shape="poly" title=" " alt="" coords="423,224,391,224,391,219,423,219"/>
+<area shape="rect" href="group__verificacion__grupo.html#gaec3d803c0bdc0d568fd8ebb776f93dd6" title="Verifica cálculo PMV y determina transiciones desde estado MONITOR." alt="" coords="160,5,246,32"/>
+<area shape="poly" title=" " alt="" coords="340,194,312,125,290,87,263,53,238,35,241,30,267,49,295,84,317,123,345,192"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="26,56,72,83"/>
+<area shape="poly" title=" " alt="" coords="338,195,309,143,289,117,264,97,240,85,214,76,160,67,111,66,72,69,72,64,110,61,161,62,215,71,242,80,266,92,293,114,314,140,342,192"/>
+<area shape="rect" href="group__rfid__funciones__grupo.html#ga6f1cf14a01e70595870c30bd3458a34f" title="Maneja la configuración de tarjetas RFID en estado CONFIG." alt="" coords="141,107,265,133"/>
+<area shape="poly" title=" " alt="" coords="325,199,297,172,264,148,242,136,244,132,266,143,300,168,329,195"/>
+<area shape="rect" href="group__estados__grupo.html#ga3d20408bd7a9ca8c795fc543454b4e2d" title="Maneja la entrada al estado CONFIG &#45; configuración del sistema y RFID." alt="" coords="156,157,250,184"/>
+<area shape="poly" title=" " alt="" coords="297,206,243,187,245,182,299,201"/>
+<area shape="rect" href="group__estados__grupo.html#ga390833d0072e6440c9707a25c053dfb3" title="Maneja la entrada al estado INICIO &#45; autenticación de usuario." alt="" coords="5,309,93,336"/>
+<area shape="poly" title=" " alt="" coords="298,222,222,228,181,236,142,249,118,262,96,279,63,311,60,307,93,275,115,258,140,244,179,231,221,222,297,217"/>
+<area shape="rect" href="group__estados__grupo.html#gac6e2aedfa62714338c55314abed3975a" title="Maneja la entrada al estado MONITOR &#45; monitoreo principal." alt="" coords="153,259,253,285"/>
+<area shape="poly" title=" " alt="" coords="299,242,245,261,243,256,297,237"/>
+<area shape="rect" href="group__estados__grupo.html#ga7c048c997648ce81c01c9a5cc03e4734" title="Maneja la entrada al estado PMV_ALTO &#45; condiciones cálidas." alt="" coords="145,309,261,336"/>
+<area shape="poly" title=" " alt="" coords="329,248,300,274,266,300,244,311,242,306,264,295,297,270,325,244"/>
+<area shape="rect" href="group__estados__grupo.html#ga02260e7a04347651d07c76eacf47b8b7" title="Maneja la entrada al estado PMV_BAJO &#45; condiciones frías." alt="" coords="143,360,263,387"/>
+<area shape="poly" title=" " alt="" coords="340,250,311,300,290,327,267,350,248,362,245,357,263,346,286,323,306,297,336,247"/>
+<area shape="rect" href="group__auxiliares__grupo.html#ga451fb754ff1057f95e36210846ea0aca" title="Lee la contraseña del keypad con feedback visual en LCD." alt="" coords="151,411,255,437"/>
+<area shape="poly" title=" " alt="" coords="346,250,336,284,319,324,297,365,267,401,250,412,247,408,263,397,292,362,314,322,331,282,341,248"/>
+<area shape="poly" title=" " alt="" coords="146,40,73,64,71,59,144,35"/>
+<area shape="poly" title=" " alt="" coords="144,104,71,79,73,74,146,99"/>
+<area shape="poly" title=" " alt="" coords="148,406,139,401,96,369,62,338,66,335,99,365,142,396,151,401"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga068cb3aabb9b1e22d9a355f196ab8e89" name="ga068cb3aabb9b1e22d9a355f196ab8e89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga068cb3aabb9b1e22d9a355f196ab8e89">&#9670;&#160;</a></span>TaskLedBlue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AsyncTask TaskLedBlue </td>
+          <td>(</td>
+          <td class="paramtype">300</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">true</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ga21dc7f71020a2ca4e192c5561dc5b8bb">toggleBlue</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l01070">toggleBlue()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00590">loop()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00954">onLeavingPMV_Alto()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00862">outputPMV_Alto()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l01070">toggleBlue()</a>.</p>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__tareas__grupo_ga068cb3aabb9b1e22d9a355f196ab8e89_cgraph.png" border="0" usemap="#agroup__tareas__grupo_ga068cb3aabb9b1e22d9a355f196ab8e89_cgraph" loading="lazy" alt=""/></div>
+<map name="agroup__tareas__grupo_ga068cb3aabb9b1e22d9a355f196ab8e89_cgraph" id="agroup__tareas__grupo_ga068cb3aabb9b1e22d9a355f196ab8e89_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,102,32"/>
+<area shape="rect" href="group__tareas__grupo.html#ga21dc7f71020a2ca4e192c5561dc5b8bb" title="Tarea para parpadeo asíncrono del LED azul." alt="" coords="150,5,232,32"/>
+<area shape="poly" title=" " alt="" coords="102,25,134,25,134,30,102,30"/>
+<area shape="poly" title=" " alt="" coords="149,13,117,12,117,7,149,8"/>
+</map>
+</div>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__tareas__grupo_ga068cb3aabb9b1e22d9a355f196ab8e89_icgraph.png" border="0" usemap="#agroup__tareas__grupo_ga068cb3aabb9b1e22d9a355f196ab8e89_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__tareas__grupo_ga068cb3aabb9b1e22d9a355f196ab8e89_icgraph" id="agroup__tareas__grupo_ga068cb3aabb9b1e22d9a355f196ab8e89_icgraph">
+<area shape="rect" title=" " alt="" coords="372,107,468,133"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="233,5,278,32"/>
+<area shape="poly" title=" " alt="" coords="392,98,360,72,323,46,277,27,279,22,325,42,363,67,395,94"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#acc9f02a17298f2a9fd2973d52572e986" title="Maneja la salida del estado PMV_ALTO &#45; limpieza de recursos." alt="" coords="187,56,324,83"/>
+<area shape="poly" title=" " alt="" coords="359,104,300,86,302,81,361,99"/>
+<area shape="rect" href="group__estados__grupo.html#ga7c048c997648ce81c01c9a5cc03e4734" title="Maneja la entrada al estado PMV_ALTO &#45; condiciones cálidas." alt="" coords="197,107,314,133"/>
+<area shape="poly" title=" " alt="" coords="356,123,314,123,314,117,356,117"/>
+<area shape="rect" href="group__tareas__grupo.html#ga21dc7f71020a2ca4e192c5561dc5b8bb" title="Tarea para parpadeo asíncrono del LED azul." alt="" coords="214,157,297,184"/>
+<area shape="poly" title=" " alt="" coords="382,142,297,169,296,164,380,137"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="5,81,139,108"/>
+<area shape="poly" title=" " alt="" coords="172,84,139,88,139,83,171,78"/>
+<area shape="poly" title=" " alt="" coords="181,113,139,107,139,101,182,107"/>
+<area shape="poly" title=" " alt="" coords="294,149,371,124,372,129,295,154"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="gafe8f90ba92b8e8513fc99081a7cce5ee" name="gafe8f90ba92b8e8513fc99081a7cce5ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafe8f90ba92b8e8513fc99081a7cce5ee">&#9670;&#160;</a></span>TaskLedGreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AsyncTask TaskLedGreen </td>
+          <td>(</td>
+          <td class="paramtype">200</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">true</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#gae75eb2ac3e3c9bac42e767dac6393359">toggleGreen</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l01045">toggleGreen()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00590">loop()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00935">onLeavingPMV_Bajo()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00824">outputPMV_Bajo()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l01045">toggleGreen()</a>.</p>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__tareas__grupo_gafe8f90ba92b8e8513fc99081a7cce5ee_cgraph.png" border="0" usemap="#agroup__tareas__grupo_gafe8f90ba92b8e8513fc99081a7cce5ee_cgraph" loading="lazy" alt=""/></div>
+<map name="agroup__tareas__grupo_gafe8f90ba92b8e8513fc99081a7cce5ee_cgraph" id="agroup__tareas__grupo_gafe8f90ba92b8e8513fc99081a7cce5ee_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,111,32"/>
+<area shape="rect" href="group__tareas__grupo.html#gae75eb2ac3e3c9bac42e767dac6393359" title="Tarea para parpadeo asíncrono del LED verde." alt="" coords="159,5,250,32"/>
+<area shape="poly" title=" " alt="" coords="111,25,143,25,143,30,111,30"/>
+<area shape="poly" title=" " alt="" coords="158,13,126,12,126,7,158,8"/>
+</map>
+</div>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__tareas__grupo_gafe8f90ba92b8e8513fc99081a7cce5ee_icgraph.png" border="0" usemap="#agroup__tareas__grupo_gafe8f90ba92b8e8513fc99081a7cce5ee_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__tareas__grupo_gafe8f90ba92b8e8513fc99081a7cce5ee_icgraph" id="agroup__tareas__grupo_gafe8f90ba92b8e8513fc99081a7cce5ee_icgraph">
+<area shape="rect" title=" " alt="" coords="375,107,480,133"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="234,5,280,32"/>
+<area shape="poly" title=" " alt="" coords="398,98,365,72,326,46,279,27,281,22,328,42,368,67,401,94"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#aba650bcc5cc3ea0d7fb891fd4f5b21fe" title="Maneja la salida del estado PMV_BAJO &#45; limpieza de recursos." alt="" coords="187,56,327,83"/>
+<area shape="poly" title=" " alt="" coords="365,104,304,86,305,81,366,99"/>
+<area shape="rect" href="group__estados__grupo.html#ga02260e7a04347651d07c76eacf47b8b7" title="Maneja la entrada al estado PMV_BAJO &#45; condiciones frías." alt="" coords="197,107,317,133"/>
+<area shape="poly" title=" " alt="" coords="359,123,317,123,317,117,359,117"/>
+<area shape="rect" href="group__tareas__grupo.html#gae75eb2ac3e3c9bac42e767dac6393359" title="Tarea para parpadeo asíncrono del LED verde." alt="" coords="211,157,303,184"/>
+<area shape="poly" title=" " alt="" coords="388,142,304,168,302,163,387,137"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="5,81,139,108"/>
+<area shape="poly" title=" " alt="" coords="171,84,139,88,139,83,171,78"/>
+<area shape="poly" title=" " alt="" coords="181,112,138,106,139,101,182,107"/>
+<area shape="poly" title=" " alt="" coords="296,149,374,125,375,130,297,154"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="gaeb5ed948d82a3adfc0af3dbcf877c0c2" name="gaeb5ed948d82a3adfc0af3dbcf877c0c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaeb5ed948d82a3adfc0af3dbcf877c0c2">&#9670;&#160;</a></span>TaskLedRed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AsyncTask TaskLedRed </td>
+          <td>(</td>
+          <td class="paramtype">100</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">true</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ga4fb27879b90fd24b957b6b6a358737af">toggleRed</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l01020">toggleRed()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00590">loop()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00918">onLeavingBloqueo()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00749">outputBloqueo()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l01020">toggleRed()</a>.</p>
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__tareas__grupo_gaeb5ed948d82a3adfc0af3dbcf877c0c2_cgraph.png" border="0" usemap="#agroup__tareas__grupo_gaeb5ed948d82a3adfc0af3dbcf877c0c2_cgraph" loading="lazy" alt=""/></div>
+<map name="agroup__tareas__grupo_gaeb5ed948d82a3adfc0af3dbcf877c0c2_cgraph" id="agroup__tareas__grupo_gaeb5ed948d82a3adfc0af3dbcf877c0c2_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,99,32"/>
+<area shape="rect" href="group__tareas__grupo.html#ga4fb27879b90fd24b957b6b6a358737af" title="Tarea para parpadeo asíncrono del LED rojo." alt="" coords="147,5,226,32"/>
+<area shape="poly" title=" " alt="" coords="99,25,131,25,131,30,99,30"/>
+<area shape="poly" title=" " alt="" coords="146,13,114,12,114,7,146,8"/>
+</map>
+</div>
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__tareas__grupo_gaeb5ed948d82a3adfc0af3dbcf877c0c2_icgraph.png" border="0" usemap="#agroup__tareas__grupo_gaeb5ed948d82a3adfc0af3dbcf877c0c2_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__tareas__grupo_gaeb5ed948d82a3adfc0af3dbcf877c0c2_icgraph" id="agroup__tareas__grupo_gaeb5ed948d82a3adfc0af3dbcf877c0c2_icgraph">
+<area shape="rect" title=" " alt="" coords="360,107,453,133"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="227,5,272,32"/>
+<area shape="poly" title=" " alt="" coords="378,98,347,72,311,46,271,28,274,23,313,42,350,67,382,94"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#aa592846580d9f3bebe4adc098ded791d" title="Maneja la salida del estado BLOQUEO &#45; limpieza de recursos." alt="" coords="187,56,312,83"/>
+<area shape="poly" title=" " alt="" coords="348,104,292,86,294,81,349,99"/>
+<area shape="rect" href="group__estados__grupo.html#gae7f7255177511950ea5ff9086d20a9ef" title="Maneja la entrada al estado BLOQUEO &#45; seguridad por fallos." alt="" coords="197,107,302,133"/>
+<area shape="poly" title=" " alt="" coords="344,123,302,123,302,117,344,117"/>
+<area shape="rect" href="group__tareas__grupo.html#ga4fb27879b90fd24b957b6b6a358737af" title="Tarea para parpadeo asíncrono del LED rojo." alt="" coords="210,157,289,184"/>
+<area shape="poly" title=" " alt="" coords="370,142,290,168,289,163,368,137"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="5,81,139,108"/>
+<area shape="poly" title=" " alt="" coords="172,83,139,88,139,82,171,78"/>
+<area shape="poly" title=" " alt="" coords="181,113,138,107,139,102,182,108"/>
+<area shape="poly" title=" " alt="" coords="286,149,358,124,360,129,288,154"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="gabe10de4c559b3dc44bc3e0858d41553e" name="gabe10de4c559b3dc44bc3e0858d41553e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabe10de4c559b3dc44bc3e0858d41553e">&#9670;&#160;</a></span>TaskTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AsyncTask TaskTime </td>
+          <td>(</td>
+          <td class="paramtype">5000</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">true</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ga253c50d22391b4a847c214fe6aa3bd29">runTime</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00358">runTime()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01757">checkPMV()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l01290">handleConfigRFID()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00590">loop()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00696">outputConfig()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00646">outputInicio()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00783">outputMonitor()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00862">outputPMV_Alto()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00824">outputPMV_Bajo()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l01390">readPassword()</a>.</p>
+<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__tareas__grupo_gabe10de4c559b3dc44bc3e0858d41553e_cgraph.png" border="0" usemap="#agroup__tareas__grupo_gabe10de4c559b3dc44bc3e0858d41553e_cgraph" loading="lazy" alt=""/></div>
+<map name="agroup__tareas__grupo_gabe10de4c559b3dc44bc3e0858d41553e_cgraph" id="agroup__tareas__grupo_gabe10de4c559b3dc44bc3e0858d41553e_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,83,32"/>
+<area shape="rect" href="group__tareas__grupo.html#ga253c50d22391b4a847c214fe6aa3bd29" title="Tarea de temporizador principal del sistema." alt="" coords="131,5,198,32"/>
+<area shape="poly" title=" " alt="" coords="83,16,115,16,115,21,83,21"/>
+<area shape="rect" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d" title="Instancia de máquina de estados con 7 estados y 11 transiciones." alt="" coords="246,5,345,32"/>
+<area shape="poly" title=" " alt="" coords="198,16,231,16,231,21,198,21"/>
+</map>
+</div>
+<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__tareas__grupo_gabe10de4c559b3dc44bc3e0858d41553e_icgraph.png" border="0" usemap="#agroup__tareas__grupo_gabe10de4c559b3dc44bc3e0858d41553e_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__tareas__grupo_gabe10de4c559b3dc44bc3e0858d41553e_icgraph" id="agroup__tareas__grupo_gabe10de4c559b3dc44bc3e0858d41553e_icgraph">
+<area shape="rect" title=" " alt="" coords="526,208,604,235"/>
+<area shape="rect" href="group__verificacion__grupo.html#gaec3d803c0bdc0d568fd8ebb776f93dd6" title="Verifica cálculo PMV y determina transiciones desde estado MONITOR." alt="" coords="374,5,459,32"/>
+<area shape="poly" title=" " alt="" coords="553,194,525,125,504,87,476,53,451,35,454,30,480,49,508,84,530,123,558,192"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="224,56,269,83"/>
+<area shape="poly" title=" " alt="" coords="551,195,523,143,502,117,477,97,451,84,423,75,365,66,311,65,270,69,269,63,311,60,365,60,424,70,453,79,480,92,506,114,527,140,556,193"/>
+<area shape="rect" href="group__rfid__funciones__grupo.html#ga6f1cf14a01e70595870c30bd3458a34f" title="Maneja la configuración de tarjetas RFID en estado CONFIG." alt="" coords="354,107,478,133"/>
+<area shape="poly" title=" " alt="" coords="536,200,477,154,445,136,448,132,480,150,539,196"/>
+<area shape="rect" href="group__estados__grupo.html#ga3d20408bd7a9ca8c795fc543454b4e2d" title="Maneja la entrada al estado CONFIG &#45; configuración del sistema y RFID." alt="" coords="200,183,293,209"/>
+<area shape="poly" title=" " alt="" coords="511,211,478,205,379,198,293,197,293,192,380,193,479,200,511,206"/>
+<area shape="rect" href="group__estados__grupo.html#ga390833d0072e6440c9707a25c053dfb3" title="Maneja la entrada al estado INICIO &#45; autenticación de usuario." alt="" coords="203,259,290,285"/>
+<area shape="poly" title=" " alt="" coords="512,229,354,249,291,263,290,258,354,244,511,223"/>
+<area shape="rect" href="group__estados__grupo.html#gac6e2aedfa62714338c55314abed3975a" title="Maneja la entrada al estado MONITOR &#45; monitoreo principal." alt="" coords="366,309,466,336"/>
+<area shape="poly" title=" " alt="" coords="542,248,514,274,480,300,458,311,455,306,477,295,510,270,539,244"/>
+<area shape="rect" href="group__estados__grupo.html#ga7c048c997648ce81c01c9a5cc03e4734" title="Maneja la entrada al estado PMV_ALTO &#45; condiciones cálidas." alt="" coords="188,360,305,387"/>
+<area shape="poly" title=" " alt="" coords="556,250,527,303,506,329,480,350,437,369,391,379,346,383,305,383,305,377,345,378,390,374,435,364,477,346,502,325,523,300,551,248"/>
+<area shape="rect" href="group__estados__grupo.html#ga02260e7a04347651d07c76eacf47b8b7" title="Maneja la entrada al estado PMV_BAJO &#45; condiciones frías." alt="" coords="187,411,306,437"/>
+<area shape="poly" title=" " alt="" coords="560,250,550,283,534,320,511,357,480,387,438,410,393,423,348,429,306,431,306,425,347,424,392,418,436,405,477,383,506,354,529,318,545,281,555,249"/>
+<area shape="rect" href="group__auxiliares__grupo.html#ga451fb754ff1057f95e36210846ea0aca" title="Lee la contraseña del keypad con feedback visual en LCD." alt="" coords="365,259,468,285"/>
+<area shape="poly" title=" " alt="" coords="512,242,458,261,457,256,511,237"/>
+<area shape="poly" title=" " alt="" coords="359,38,270,65,269,60,358,33"/>
+<area shape="poly" title=" " alt="" coords="353,104,268,78,270,73,355,99"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="5,309,139,336"/>
+<area shape="poly" title=" " alt="" coords="216,221,94,311,91,307,213,216"/>
+<area shape="poly" title=" " alt="" coords="188,292,121,311,120,306,187,286"/>
+<area shape="poly" title=" " alt="" coords="350,325,139,325,139,320,350,320"/>
+<area shape="poly" title=" " alt="" coords="182,358,120,339,121,334,184,352"/>
+<area shape="poly" title=" " alt="" coords="195,406,185,401,133,369,90,339,93,334,136,364,188,396,198,401"/>
+<area shape="poly" title=" " alt="" coords="349,275,290,275,290,269,349,269"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga21dc7f71020a2ca4e192c5561dc5b8bb" name="ga21dc7f71020a2ca4e192c5561dc5b8bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga21dc7f71020a2ca4e192c5561dc5b8bb">&#9670;&#160;</a></span>toggleBlue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toggleBlue </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tarea para parpadeo asíncrono del LED azul. </p>
+<p>Controla el parpadeo del LED azul con patrón asíncrono.</p>
+<p>Indicador visual para estado PMV_ALTO (condiciones cálidas)</p>
+<p>Implementa patrón: 300ms encendido, 400ms apagado @pattern ON: 300ms, OFF: 400ms @usage Estado PMV_ALTO (condiciones cálidas) </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l01070">1070</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1070</span>                  {</div>
+<div class="line"><span class="lineno"> 1071</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> now = millis();</div>
+<div class="line"><span class="lineno"> 1072</span> </div>
+<div class="line"><span class="lineno"> 1073</span>  <span class="comment">// Si el LED está encendido y han pasado 300 ms → apagar</span></div>
+<div class="line"><span class="lineno"> 1074</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="#gaec1357aab980bd99f6562ef8e6c06284">ledStateBlue</a> &amp;&amp; (now - <a class="code hl_variable" href="#ga3102648c9fe07b65fb17bba9932389a4">lastToggleBlue</a> &gt;= 300)) {</div>
+<div class="line"><span class="lineno"> 1075</span>    <a class="code hl_variable" href="#gaec1357aab980bd99f6562ef8e6c06284">ledStateBlue</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno"> 1076</span>    digitalWrite(<a class="code hl_define" href="group__pines__grupo.html#gae2e40566d27689f8581d7b0f12271d45">LED_BLUE</a>, LOW);</div>
+<div class="line"><span class="lineno"> 1077</span>    <a class="code hl_variable" href="#ga3102648c9fe07b65fb17bba9932389a4">lastToggleBlue</a> = now;</div>
+<div class="line"><span class="lineno"> 1078</span>    <a class="code hl_function" href="#ga068cb3aabb9b1e22d9a355f196ab8e89">TaskLedBlue</a>.SetIntervalMillis(400);  <span class="comment">// siguiente ciclo: 400 ms apagado</span></div>
+<div class="line"><span class="lineno"> 1079</span>  }</div>
+<div class="line"><span class="lineno"> 1080</span>  <span class="comment">// Si el LED está apagado y han pasado 400 ms → encender</span></div>
+<div class="line"><span class="lineno"> 1081</span>  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!<a class="code hl_variable" href="#gaec1357aab980bd99f6562ef8e6c06284">ledStateBlue</a> &amp;&amp; (now - <a class="code hl_variable" href="#ga3102648c9fe07b65fb17bba9932389a4">lastToggleBlue</a> &gt;= 400)) {</div>
+<div class="line"><span class="lineno"> 1082</span>    <a class="code hl_variable" href="#gaec1357aab980bd99f6562ef8e6c06284">ledStateBlue</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno"> 1083</span>    digitalWrite(<a class="code hl_define" href="group__pines__grupo.html#gae2e40566d27689f8581d7b0f12271d45">LED_BLUE</a>, HIGH);</div>
+<div class="line"><span class="lineno"> 1084</span>    <a class="code hl_variable" href="#ga3102648c9fe07b65fb17bba9932389a4">lastToggleBlue</a> = now;</div>
+<div class="line"><span class="lineno"> 1085</span>    <a class="code hl_function" href="#ga068cb3aabb9b1e22d9a355f196ab8e89">TaskLedBlue</a>.SetIntervalMillis(300);  <span class="comment">// siguiente ciclo: 300 ms encendido</span></div>
+<div class="line"><span class="lineno"> 1086</span>  }</div>
+<div class="line"><span class="lineno"> 1087</span>}</div>
+<div class="ttc" id="agroup__pines__grupo_html_gae2e40566d27689f8581d7b0f12271d45"><div class="ttname"><a href="group__pines__grupo.html#gae2e40566d27689f8581d7b0f12271d45">LED_BLUE</a></div><div class="ttdeci">#define LED_BLUE</div><div class="ttdoc">Pin digital para canal azul del LED RGB - Indicador de PMV_ALTO.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00117">sistema_confort_termico.ino:117</a></div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_ga068cb3aabb9b1e22d9a355f196ab8e89"><div class="ttname"><a href="#ga068cb3aabb9b1e22d9a355f196ab8e89">TaskLedBlue</a></div><div class="ttdeci">AsyncTask TaskLedBlue(300, true, toggleBlue)</div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_ga3102648c9fe07b65fb17bba9932389a4"><div class="ttname"><a href="#ga3102648c9fe07b65fb17bba9932389a4">lastToggleBlue</a></div><div class="ttdeci">unsigned long lastToggleBlue</div><div class="ttdoc">Último tiempo de cambio del LED azul.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00398">sistema_confort_termico.ino:398</a></div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_gaec1357aab980bd99f6562ef8e6c06284"><div class="ttname"><a href="#gaec1357aab980bd99f6562ef8e6c06284">ledStateBlue</a></div><div class="ttdeci">bool ledStateBlue</div><div class="ttdoc">Estado actual del LED azul.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00397">sistema_confort_termico.ino:397</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00398">lastToggleBlue</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00117">LED_BLUE</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00397">ledStateBlue</a> y <a class="el" href="#ga068cb3aabb9b1e22d9a355f196ab8e89">TaskLedBlue()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="#ga068cb3aabb9b1e22d9a355f196ab8e89">TaskLedBlue()</a>.</p>
+<div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__tareas__grupo_ga21dc7f71020a2ca4e192c5561dc5b8bb_cgraph.png" border="0" usemap="#agroup__tareas__grupo_ga21dc7f71020a2ca4e192c5561dc5b8bb_cgraph" loading="lazy" alt=""/></div>
+<map name="agroup__tareas__grupo_ga21dc7f71020a2ca4e192c5561dc5b8bb_cgraph" id="agroup__tareas__grupo_ga21dc7f71020a2ca4e192c5561dc5b8bb_cgraph">
+<area shape="rect" title="Tarea para parpadeo asíncrono del LED azul." alt="" coords="5,5,88,32"/>
+<area shape="rect" href="group__tareas__grupo.html#ga068cb3aabb9b1e22d9a355f196ab8e89" title=" " alt="" coords="136,5,232,32"/>
+<area shape="poly" title=" " alt="" coords="88,24,120,25,120,30,88,30"/>
+<area shape="poly" title=" " alt="" coords="135,13,103,12,103,7,135,7"/>
+</map>
+</div>
+<div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__tareas__grupo_ga21dc7f71020a2ca4e192c5561dc5b8bb_icgraph.png" border="0" usemap="#agroup__tareas__grupo_ga21dc7f71020a2ca4e192c5561dc5b8bb_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__tareas__grupo_ga21dc7f71020a2ca4e192c5561dc5b8bb_icgraph" id="agroup__tareas__grupo_ga21dc7f71020a2ca4e192c5561dc5b8bb_icgraph">
+<area shape="rect" title="Tarea para parpadeo asíncrono del LED azul." alt="" coords="335,56,417,83"/>
+<area shape="rect" href="group__tareas__grupo.html#ga068cb3aabb9b1e22d9a355f196ab8e89" title=" " alt="" coords="191,56,287,83"/>
+<area shape="poly" title=" " alt="" coords="319,81,288,81,288,75,319,76"/>
+<area shape="poly" title=" " alt="" coords="303,58,334,58,334,64,303,63"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="51,5,97,32"/>
+<area shape="poly" title=" " alt="" coords="178,53,96,28,98,23,179,48"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#acc9f02a17298f2a9fd2973d52572e986" title="Maneja la salida del estado PMV_ALTO &#45; limpieza de recursos." alt="" coords="5,56,143,83"/>
+<area shape="poly" title=" " alt="" coords="175,72,143,72,143,67,175,67"/>
+<area shape="rect" href="group__estados__grupo.html#ga7c048c997648ce81c01c9a5cc03e4734" title="Maneja la entrada al estado PMV_ALTO &#45; condiciones cálidas." alt="" coords="16,107,132,133"/>
+<area shape="poly" title=" " alt="" coords="179,90,121,109,119,104,178,85"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="gae75eb2ac3e3c9bac42e767dac6393359" name="gae75eb2ac3e3c9bac42e767dac6393359"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae75eb2ac3e3c9bac42e767dac6393359">&#9670;&#160;</a></span>toggleGreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toggleGreen </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tarea para parpadeo asíncrono del LED verde. </p>
+<p>Controla el parpadeo del LED verde con patrón asíncrono.</p>
+<p>Indicador visual para estado PMV_BAJO (condiciones frías)</p>
+<p>Implementa patrón: 200ms encendido, 300ms apagado @pattern ON: 200ms, OFF: 300ms @usage Estado PMV_BAJO (condiciones frías) </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l01045">1045</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1045</span>                   {</div>
+<div class="line"><span class="lineno"> 1046</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> now = millis();</div>
+<div class="line"><span class="lineno"> 1047</span> </div>
+<div class="line"><span class="lineno"> 1048</span>  <span class="comment">// Si el LED está encendido y han pasado 200 ms → apagar</span></div>
+<div class="line"><span class="lineno"> 1049</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="#ga515ef8202ac1b878bb16cea448ec3758">ledStateGreen</a> &amp;&amp; (now - <a class="code hl_variable" href="#ga7770eb34a2eeb2ff5bd41b0d8b39dfc7">lastToggleGreen</a> &gt;= 200)) {</div>
+<div class="line"><span class="lineno"> 1050</span>    <a class="code hl_variable" href="#ga515ef8202ac1b878bb16cea448ec3758">ledStateGreen</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno"> 1051</span>    digitalWrite(<a class="code hl_define" href="group__pines__grupo.html#gaca338dbd19d7940923334629f6e5f3b7">LED_GREEN</a>, LOW);</div>
+<div class="line"><span class="lineno"> 1052</span>    <a class="code hl_variable" href="#ga7770eb34a2eeb2ff5bd41b0d8b39dfc7">lastToggleGreen</a> = now;</div>
+<div class="line"><span class="lineno"> 1053</span>    <a class="code hl_function" href="#gafe8f90ba92b8e8513fc99081a7cce5ee">TaskLedGreen</a>.SetIntervalMillis(300);  <span class="comment">// siguiente ciclo: 300 ms apagado</span></div>
+<div class="line"><span class="lineno"> 1054</span>  }</div>
+<div class="line"><span class="lineno"> 1055</span>  <span class="comment">// Si el LED está apagado y han pasado 300 ms → encender</span></div>
+<div class="line"><span class="lineno"> 1056</span>  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!<a class="code hl_variable" href="#ga515ef8202ac1b878bb16cea448ec3758">ledStateGreen</a> &amp;&amp; (now - <a class="code hl_variable" href="#ga7770eb34a2eeb2ff5bd41b0d8b39dfc7">lastToggleGreen</a> &gt;= 300)) {</div>
+<div class="line"><span class="lineno"> 1057</span>    <a class="code hl_variable" href="#ga515ef8202ac1b878bb16cea448ec3758">ledStateGreen</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno"> 1058</span>    digitalWrite(<a class="code hl_define" href="group__pines__grupo.html#gaca338dbd19d7940923334629f6e5f3b7">LED_GREEN</a>, HIGH);</div>
+<div class="line"><span class="lineno"> 1059</span>    <a class="code hl_variable" href="#ga7770eb34a2eeb2ff5bd41b0d8b39dfc7">lastToggleGreen</a> = now;</div>
+<div class="line"><span class="lineno"> 1060</span>    <a class="code hl_function" href="#gafe8f90ba92b8e8513fc99081a7cce5ee">TaskLedGreen</a>.SetIntervalMillis(200);  <span class="comment">// siguiente ciclo: 200 ms encendido</span></div>
+<div class="line"><span class="lineno"> 1061</span>  }</div>
+<div class="line"><span class="lineno"> 1062</span>}</div>
+<div class="ttc" id="agroup__pines__grupo_html_gaca338dbd19d7940923334629f6e5f3b7"><div class="ttname"><a href="group__pines__grupo.html#gaca338dbd19d7940923334629f6e5f3b7">LED_GREEN</a></div><div class="ttdeci">#define LED_GREEN</div><div class="ttdoc">Pin digital para canal verde del LED RGB - Indicador de PMV_BAJO.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00116">sistema_confort_termico.ino:116</a></div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_ga515ef8202ac1b878bb16cea448ec3758"><div class="ttname"><a href="#ga515ef8202ac1b878bb16cea448ec3758">ledStateGreen</a></div><div class="ttdeci">bool ledStateGreen</div><div class="ttdoc">Estado actual del LED verde.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00387">sistema_confort_termico.ino:387</a></div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_ga7770eb34a2eeb2ff5bd41b0d8b39dfc7"><div class="ttname"><a href="#ga7770eb34a2eeb2ff5bd41b0d8b39dfc7">lastToggleGreen</a></div><div class="ttdeci">unsigned long lastToggleGreen</div><div class="ttdoc">Último tiempo de cambio del LED verde.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00388">sistema_confort_termico.ino:388</a></div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_gafe8f90ba92b8e8513fc99081a7cce5ee"><div class="ttname"><a href="#gafe8f90ba92b8e8513fc99081a7cce5ee">TaskLedGreen</a></div><div class="ttdeci">AsyncTask TaskLedGreen(200, true, toggleGreen)</div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00388">lastToggleGreen</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00116">LED_GREEN</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00387">ledStateGreen</a> y <a class="el" href="#gafe8f90ba92b8e8513fc99081a7cce5ee">TaskLedGreen()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="#gafe8f90ba92b8e8513fc99081a7cce5ee">TaskLedGreen()</a>.</p>
+<div id="dynsection-12" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__tareas__grupo_gae75eb2ac3e3c9bac42e767dac6393359_cgraph.png" border="0" usemap="#agroup__tareas__grupo_gae75eb2ac3e3c9bac42e767dac6393359_cgraph" loading="lazy" alt=""/></div>
+<map name="agroup__tareas__grupo_gae75eb2ac3e3c9bac42e767dac6393359_cgraph" id="agroup__tareas__grupo_gae75eb2ac3e3c9bac42e767dac6393359_cgraph">
+<area shape="rect" title="Tarea para parpadeo asíncrono del LED verde." alt="" coords="5,5,97,32"/>
+<area shape="rect" href="group__tareas__grupo.html#gafe8f90ba92b8e8513fc99081a7cce5ee" title=" " alt="" coords="145,5,250,32"/>
+<area shape="poly" title=" " alt="" coords="97,24,129,25,129,30,97,30"/>
+<area shape="poly" title=" " alt="" coords="144,13,112,12,112,7,144,7"/>
+</map>
+</div>
+<div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__tareas__grupo_gae75eb2ac3e3c9bac42e767dac6393359_icgraph.png" border="0" usemap="#agroup__tareas__grupo_gae75eb2ac3e3c9bac42e767dac6393359_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__tareas__grupo_gae75eb2ac3e3c9bac42e767dac6393359_icgraph" id="agroup__tareas__grupo_gae75eb2ac3e3c9bac42e767dac6393359_icgraph">
+<area shape="rect" title="Tarea para parpadeo asíncrono del LED verde." alt="" coords="347,56,438,83"/>
+<area shape="rect" href="group__tareas__grupo.html#gafe8f90ba92b8e8513fc99081a7cce5ee" title=" " alt="" coords="194,56,299,83"/>
+<area shape="poly" title=" " alt="" coords="331,81,299,81,299,75,331,76"/>
+<area shape="poly" title=" " alt="" coords="315,58,347,58,347,64,314,63"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="53,5,98,32"/>
+<area shape="poly" title=" " alt="" coords="183,53,98,28,99,23,185,48"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#aba650bcc5cc3ea0d7fb891fd4f5b21fe" title="Maneja la salida del estado PMV_BAJO &#45; limpieza de recursos." alt="" coords="5,56,146,83"/>
+<area shape="poly" title=" " alt="" coords="178,72,146,72,146,67,178,67"/>
+<area shape="rect" href="group__estados__grupo.html#ga02260e7a04347651d07c76eacf47b8b7" title="Maneja la entrada al estado PMV_BAJO &#45; condiciones frías." alt="" coords="16,107,135,133"/>
+<area shape="poly" title=" " alt="" coords="185,90,124,109,122,104,184,85"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga4fb27879b90fd24b957b6b6a358737af" name="ga4fb27879b90fd24b957b6b6a358737af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4fb27879b90fd24b957b6b6a358737af">&#9670;&#160;</a></span>toggleRed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toggleRed </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tarea para parpadeo asíncrono del LED rojo. </p>
+<p>Controla el parpadeo del LED rojo con patrón asíncrono.</p>
+<p>Indicador visual para estados de BLOQUEO y ALARMA</p>
+<p>Implementa patrón: 100ms encendido, 300ms apagado @pattern ON: 100ms, OFF: 300ms @usage Estados de BLOQUEO y ALARMA </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l01020">1020</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1020</span>                 {</div>
+<div class="line"><span class="lineno"> 1021</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> now = millis();</div>
+<div class="line"><span class="lineno"> 1022</span> </div>
+<div class="line"><span class="lineno"> 1023</span>  <span class="comment">// Si el LED está encendido y han pasado 100 ms → apagar</span></div>
+<div class="line"><span class="lineno"> 1024</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="#gaf84bc50f2d359647caf6731d9fc6be7b">ledStateRed</a> &amp;&amp; (now - <a class="code hl_variable" href="#gafde4ee9769ef5f5eae24c6cc5b84685d">lastToggleRed</a> &gt;= 100)) {</div>
+<div class="line"><span class="lineno"> 1025</span>    <a class="code hl_variable" href="#gaf84bc50f2d359647caf6731d9fc6be7b">ledStateRed</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno"> 1026</span>    digitalWrite(<a class="code hl_define" href="group__pines__grupo.html#ga31e20330f8ce94e0dd10b005a15c5898">LED_RED</a>, LOW);</div>
+<div class="line"><span class="lineno"> 1027</span>    <a class="code hl_variable" href="#gafde4ee9769ef5f5eae24c6cc5b84685d">lastToggleRed</a> = now;</div>
+<div class="line"><span class="lineno"> 1028</span>    <a class="code hl_function" href="#gaeb5ed948d82a3adfc0af3dbcf877c0c2">TaskLedRed</a>.SetIntervalMillis(300);  <span class="comment">// siguiente ciclo: 300 ms apagado</span></div>
+<div class="line"><span class="lineno"> 1029</span>  }</div>
+<div class="line"><span class="lineno"> 1030</span>  <span class="comment">// Si el LED está apagado y han pasado 300 ms → encender</span></div>
+<div class="line"><span class="lineno"> 1031</span>  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!<a class="code hl_variable" href="#gaf84bc50f2d359647caf6731d9fc6be7b">ledStateRed</a> &amp;&amp; (now - <a class="code hl_variable" href="#gafde4ee9769ef5f5eae24c6cc5b84685d">lastToggleRed</a> &gt;= 300)) {</div>
+<div class="line"><span class="lineno"> 1032</span>    <a class="code hl_variable" href="#gaf84bc50f2d359647caf6731d9fc6be7b">ledStateRed</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno"> 1033</span>    digitalWrite(<a class="code hl_define" href="group__pines__grupo.html#ga31e20330f8ce94e0dd10b005a15c5898">LED_RED</a>, HIGH);</div>
+<div class="line"><span class="lineno"> 1034</span>    <a class="code hl_variable" href="#gafde4ee9769ef5f5eae24c6cc5b84685d">lastToggleRed</a> = now;</div>
+<div class="line"><span class="lineno"> 1035</span>    <a class="code hl_function" href="#gaeb5ed948d82a3adfc0af3dbcf877c0c2">TaskLedRed</a>.SetIntervalMillis(100);  <span class="comment">// siguiente ciclo: 100 ms encendido</span></div>
+<div class="line"><span class="lineno"> 1036</span>  }</div>
+<div class="line"><span class="lineno"> 1037</span>}</div>
+<div class="ttc" id="agroup__pines__grupo_html_ga31e20330f8ce94e0dd10b005a15c5898"><div class="ttname"><a href="group__pines__grupo.html#ga31e20330f8ce94e0dd10b005a15c5898">LED_RED</a></div><div class="ttdeci">#define LED_RED</div><div class="ttdoc">Pin digital para canal rojo del LED RGB - Indicador de BLOQUEO/ALARMA.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00115">sistema_confort_termico.ino:115</a></div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_gaeb5ed948d82a3adfc0af3dbcf877c0c2"><div class="ttname"><a href="#gaeb5ed948d82a3adfc0af3dbcf877c0c2">TaskLedRed</a></div><div class="ttdeci">AsyncTask TaskLedRed(100, true, toggleRed)</div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_gaf84bc50f2d359647caf6731d9fc6be7b"><div class="ttname"><a href="#gaf84bc50f2d359647caf6731d9fc6be7b">ledStateRed</a></div><div class="ttdeci">bool ledStateRed</div><div class="ttdoc">Estado actual del LED rojo.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00377">sistema_confort_termico.ino:377</a></div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_gafde4ee9769ef5f5eae24c6cc5b84685d"><div class="ttname"><a href="#gafde4ee9769ef5f5eae24c6cc5b84685d">lastToggleRed</a></div><div class="ttdeci">unsigned long lastToggleRed</div><div class="ttdoc">Último tiempo de cambio del LED rojo.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00378">sistema_confort_termico.ino:378</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00378">lastToggleRed</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00115">LED_RED</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00377">ledStateRed</a> y <a class="el" href="#gaeb5ed948d82a3adfc0af3dbcf877c0c2">TaskLedRed()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="#gaeb5ed948d82a3adfc0af3dbcf877c0c2">TaskLedRed()</a>.</p>
+<div id="dynsection-14" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__tareas__grupo_ga4fb27879b90fd24b957b6b6a358737af_cgraph.png" border="0" usemap="#agroup__tareas__grupo_ga4fb27879b90fd24b957b6b6a358737af_cgraph" loading="lazy" alt=""/></div>
+<map name="agroup__tareas__grupo_ga4fb27879b90fd24b957b6b6a358737af_cgraph" id="agroup__tareas__grupo_ga4fb27879b90fd24b957b6b6a358737af_cgraph">
+<area shape="rect" title="Tarea para parpadeo asíncrono del LED rojo." alt="" coords="5,5,85,32"/>
+<area shape="rect" href="group__tareas__grupo.html#gaeb5ed948d82a3adfc0af3dbcf877c0c2" title=" " alt="" coords="133,5,226,32"/>
+<area shape="poly" title=" " alt="" coords="85,24,117,25,117,30,85,30"/>
+<area shape="poly" title=" " alt="" coords="132,13,100,12,100,7,132,7"/>
+</map>
+</div>
+<div id="dynsection-15" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__tareas__grupo_ga4fb27879b90fd24b957b6b6a358737af_icgraph.png" border="0" usemap="#agroup__tareas__grupo_ga4fb27879b90fd24b957b6b6a358737af_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__tareas__grupo_ga4fb27879b90fd24b957b6b6a358737af_icgraph" id="agroup__tareas__grupo_ga4fb27879b90fd24b957b6b6a358737af_icgraph">
+<area shape="rect" title="Tarea para parpadeo asíncrono del LED rojo." alt="" coords="320,56,399,83"/>
+<area shape="rect" href="group__tareas__grupo.html#gaeb5ed948d82a3adfc0af3dbcf877c0c2" title=" " alt="" coords="179,56,272,83"/>
+<area shape="poly" title=" " alt="" coords="304,81,273,81,273,75,305,76"/>
+<area shape="poly" title=" " alt="" coords="288,58,320,58,319,64,288,63"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="45,5,91,32"/>
+<area shape="poly" title=" " alt="" coords="166,53,90,28,92,23,168,48"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#aa592846580d9f3bebe4adc098ded791d" title="Maneja la salida del estado BLOQUEO &#45; limpieza de recursos." alt="" coords="5,56,131,83"/>
+<area shape="poly" title=" " alt="" coords="163,72,131,72,131,67,163,67"/>
+<area shape="rect" href="group__estados__grupo.html#gae7f7255177511950ea5ff9086d20a9ef" title="Maneja la entrada al estado BLOQUEO &#45; seguridad por fallos." alt="" coords="16,107,120,133"/>
+<area shape="poly" title=" " alt="" coords="168,91,113,109,111,104,166,85"/>
+</map>
+</div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentación de variables</h2>
+<a id="ga3102648c9fe07b65fb17bba9932389a4" name="ga3102648c9fe07b65fb17bba9932389a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3102648c9fe07b65fb17bba9932389a4">&#9670;&#160;</a></span>lastToggleBlue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long lastToggleBlue = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Último tiempo de cambio del LED azul. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00398">398</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00862">outputPMV_Alto()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l01070">toggleBlue()</a>.</p>
+
+</div>
+</div>
+<a id="ga7770eb34a2eeb2ff5bd41b0d8b39dfc7" name="ga7770eb34a2eeb2ff5bd41b0d8b39dfc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7770eb34a2eeb2ff5bd41b0d8b39dfc7">&#9670;&#160;</a></span>lastToggleGreen</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long lastToggleGreen = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Último tiempo de cambio del LED verde. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00388">388</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00824">outputPMV_Bajo()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l01045">toggleGreen()</a>.</p>
+
+</div>
+</div>
+<a id="gafde4ee9769ef5f5eae24c6cc5b84685d" name="gafde4ee9769ef5f5eae24c6cc5b84685d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafde4ee9769ef5f5eae24c6cc5b84685d">&#9670;&#160;</a></span>lastToggleRed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long lastToggleRed = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Último tiempo de cambio del LED rojo. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00378">378</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00749">outputBloqueo()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l01020">toggleRed()</a>.</p>
+
+</div>
+</div>
+<a id="gaec1357aab980bd99f6562ef8e6c06284" name="gaec1357aab980bd99f6562ef8e6c06284"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaec1357aab980bd99f6562ef8e6c06284">&#9670;&#160;</a></span>ledStateBlue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ledStateBlue = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estado actual del LED azul. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00397">397</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00862">outputPMV_Alto()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l01070">toggleBlue()</a>.</p>
+
+</div>
+</div>
+<a id="ga515ef8202ac1b878bb16cea448ec3758" name="ga515ef8202ac1b878bb16cea448ec3758"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga515ef8202ac1b878bb16cea448ec3758">&#9670;&#160;</a></span>ledStateGreen</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ledStateGreen = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estado actual del LED verde. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00387">387</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00824">outputPMV_Bajo()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l01045">toggleGreen()</a>.</p>
+
+</div>
+</div>
+<a id="gaf84bc50f2d359647caf6731d9fc6be7b" name="gaf84bc50f2d359647caf6731d9fc6be7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf84bc50f2d359647caf6731d9fc6be7b">&#9670;&#160;</a></span>ledStateRed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ledStateRed = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estado actual del LED rojo. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00377">377</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00749">outputBloqueo()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l01020">toggleRed()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generado el <span class="timestamp"></span> para Sistema de Confort Térmico Inteligente v3.1 por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

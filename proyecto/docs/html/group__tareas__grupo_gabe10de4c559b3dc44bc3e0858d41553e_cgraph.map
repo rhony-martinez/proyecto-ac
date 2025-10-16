@@ -1,0 +1,7 @@
+<map id="TaskTime" name="TaskTime">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,83,32"/>
+<area shape="rect" id="Node000002" href="$group__tareas__grupo.html#ga253c50d22391b4a847c214fe6aa3bd29" title="Tarea de temporizador principal del sistema." alt="" coords="131,5,198,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,16,115,16,115,21,83,21"/>
+<area shape="rect" id="Node000003" href="$group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d" title="Instancia de máquina de estados con 7 estados y 11 transiciones." alt="" coords="246,5,345,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="198,16,231,16,231,21,198,21"/>
+</map>

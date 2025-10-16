@@ -1,0 +1,10 @@
+<map id="outputBloqueo" name="outputBloqueo">
+<area shape="rect" id="Node000001" title="Maneja la entrada al estado BLOQUEO &#45; seguridad por fallos." alt="" coords="5,31,110,57"/>
+<area shape="rect" id="Node000002" href="$group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2" title="Objeto LCD para display 16x2 con configuración de pines." alt="" coords="185,5,224,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,32,169,22,170,27,111,38"/>
+<area shape="rect" id="Node000003" href="$group__tareas__grupo.html#gaeb5ed948d82a3adfc0af3dbcf877c0c2" title=" " alt="" coords="158,56,251,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="111,50,143,56,142,61,110,56"/>
+<area shape="rect" id="Node000004" href="$group__tareas__grupo.html#ga4fb27879b90fd24b957b6b6a358737af" title="Tarea para parpadeo asíncrono del LED rojo." alt="" coords="299,56,378,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="251,75,284,76,284,81,251,81"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="299,64,267,63,267,58,299,58"/>
+</map>

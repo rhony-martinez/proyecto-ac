@@ -1,0 +1,787 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Confort Térmico Inteligente v3.1: Funciones de Salida de Estados FSM</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Confort Térmico Inteligente v3.1<span id="projectnumber">&#160;3.1 - 2025</span>
+   </div>
+   <div id="projectbrief">Sistema FSM avanzado con PMV, RFID y actuadores completos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('group__estados__grupo.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Funciones de Salida de Estados FSM </div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:ga390833d0072e6440c9707a25c053dfb3" id="r_ga390833d0072e6440c9707a25c053dfb3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga390833d0072e6440c9707a25c053dfb3">outputInicio</a> ()</td></tr>
+<tr class="memdesc:ga390833d0072e6440c9707a25c053dfb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maneja la entrada al estado INICIO - autenticación de usuario.  <br /></td></tr>
+<tr class="memitem:ga3d20408bd7a9ca8c795fc543454b4e2d" id="r_ga3d20408bd7a9ca8c795fc543454b4e2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3d20408bd7a9ca8c795fc543454b4e2d">outputConfig</a> ()</td></tr>
+<tr class="memdesc:ga3d20408bd7a9ca8c795fc543454b4e2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maneja la entrada al estado CONFIG - configuración del sistema y RFID.  <br /></td></tr>
+<tr class="memitem:gaab9c5b060d49c9eae5717f5303a1984d" id="r_gaab9c5b060d49c9eae5717f5303a1984d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaab9c5b060d49c9eae5717f5303a1984d">outputAlarma</a> ()</td></tr>
+<tr class="memdesc:gaab9c5b060d49c9eae5717f5303a1984d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maneja la entrada al estado ALARMA - condiciones críticas.  <br /></td></tr>
+<tr class="memitem:gae7f7255177511950ea5ff9086d20a9ef" id="r_gae7f7255177511950ea5ff9086d20a9ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae7f7255177511950ea5ff9086d20a9ef">outputBloqueo</a> ()</td></tr>
+<tr class="memdesc:gae7f7255177511950ea5ff9086d20a9ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maneja la entrada al estado BLOQUEO - seguridad por fallos.  <br /></td></tr>
+<tr class="memitem:gac6e2aedfa62714338c55314abed3975a" id="r_gac6e2aedfa62714338c55314abed3975a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac6e2aedfa62714338c55314abed3975a">outputMonitor</a> ()</td></tr>
+<tr class="memdesc:gac6e2aedfa62714338c55314abed3975a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maneja la entrada al estado MONITOR - monitoreo principal.  <br /></td></tr>
+<tr class="memitem:ga02260e7a04347651d07c76eacf47b8b7" id="r_ga02260e7a04347651d07c76eacf47b8b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga02260e7a04347651d07c76eacf47b8b7">outputPMV_Bajo</a> ()</td></tr>
+<tr class="memdesc:ga02260e7a04347651d07c76eacf47b8b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maneja la entrada al estado PMV_BAJO - condiciones frías.  <br /></td></tr>
+<tr class="memitem:ga7c048c997648ce81c01c9a5cc03e4734" id="r_ga7c048c997648ce81c01c9a5cc03e4734"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7c048c997648ce81c01c9a5cc03e4734">outputPMV_Alto</a> ()</td></tr>
+<tr class="memdesc:ga7c048c997648ce81c01c9a5cc03e4734"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maneja la entrada al estado PMV_ALTO - condiciones cálidas.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descripción detallada</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentación de funciones</h2>
+<a id="gaab9c5b060d49c9eae5717f5303a1984d" name="gaab9c5b060d49c9eae5717f5303a1984d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaab9c5b060d49c9eae5717f5303a1984d">&#9670;&#160;</a></span>outputAlarma()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void outputAlarma </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maneja la entrada al estado ALARMA - condiciones críticas. </p>
+<p>Estado de emergencia activado por temperaturas críticas persistentes:</p><ul>
+<li>Muestra mensaje de alarma en LCD</li>
+<li>Activa buzzer con patrón intermitente (400ms)</li>
+<li>Requiere detección de movimiento (sensor PIR) para desactivarse</li>
+<li>Indica al usuario la acción requerida para resetear el sistema</li>
+</ul>
+<dl class="section warning"><dt>Atención</dt><dd>Estado que requiere intervención manual para salir @security Protección contra condiciones térmicas peligrosas </dd></dl>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="group__verificacion__grupo.html#gacbdcb2026ed2ede5d841e375f2d860d3" title="Detecta movimiento con sensor PIR para desactivar alarma.">checkMovimiento()</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00720">720</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  720</span>                    {</div>
+<div class="line"><span class="lineno">  721</span>  <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> = <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a4e81c184ac3ad48a389cd4454c4a05bb">Unknown</a>;</div>
+<div class="line"><span class="lineno">  722</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.clear();</div>
+<div class="line"><span class="lineno">  723</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.setCursor(0, 0);</div>
+<div class="line"><span class="lineno">  724</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;!!! ALARMA !!!&quot;</span>);</div>
+<div class="line"><span class="lineno">  725</span> </div>
+<div class="line"><span class="lineno">  726</span>  Serial.println(<span class="stringliteral">&quot;Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo&quot;</span>);</div>
+<div class="line"><span class="lineno">  727</span>  Serial.println(<span class="stringliteral">&quot;                               X                                  &quot;</span>);</div>
+<div class="line"><span class="lineno">  728</span>  Serial.println();</div>
+<div class="line"><span class="lineno">  729</span> </div>
+<div class="line"><span class="lineno">  730</span>  <a class="code hl_variable" href="sistema__confort__termico_8ino.html#aaab9d356ed5059cf1cab3515c86893fb">buzzerState</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  731</span>  digitalWrite(<a class="code hl_define" href="group__pines__grupo.html#gab61d0981ed42df9e18211b273d22cfcd">BUZZER_PIN</a>, LOW);</div>
+<div class="line"><span class="lineno">  732</span>  <a class="code hl_function" href="sistema__confort__termico_8ino.html#aeaef1f2203865f944eb917d96e5f9020">TaskBuzzer</a>.SetIntervalMillis(400);  <span class="comment">// Patrón de sonido más lento para alarma</span></div>
+<div class="line"><span class="lineno">  733</span>  <a class="code hl_function" href="sistema__confort__termico_8ino.html#aeaef1f2203865f944eb917d96e5f9020">TaskBuzzer</a>.Start();</div>
+<div class="line"><span class="lineno">  734</span>}</div>
+<div class="ttc" id="agroup__fsm__grupo_html_gad4db59ccea8946af2bb70f8269e99eeb"><div class="ttname"><a href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a></div><div class="ttdeci">Input input</div><div class="ttdoc">Almacena la última entrada del usuario para procesamiento FSM.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00336">sistema_confort_termico.ino:336</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga080a822f0093973313bd644e517a5090a4e81c184ac3ad48a389cd4454c4a05bb"><div class="ttname"><a href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a4e81c184ac3ad48a389cd4454c4a05bb">Unknown</a></div><div class="ttdeci">@ Unknown</div><div class="ttdoc">Entrada desconocida o no definida.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00332">sistema_confort_termico.ino:332</a></div></div>
+<div class="ttc" id="agroup__hardware__grupo_html_gaf97afdf00af0e116e9b5957f6a470fc2"><div class="ttname"><a href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a></div><div class="ttdeci">LiquidCrystal lcd(12, 11, 5, 4, 3, 2)</div><div class="ttdoc">Objeto LCD para display 16x2 con configuración de pines.</div></div>
+<div class="ttc" id="agroup__pines__grupo_html_gab61d0981ed42df9e18211b273d22cfcd"><div class="ttname"><a href="group__pines__grupo.html#gab61d0981ed42df9e18211b273d22cfcd">BUZZER_PIN</a></div><div class="ttdeci">#define BUZZER_PIN</div><div class="ttdoc">Pin digital para buzzer pasivo - Sistema de alertas audibles.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00125">sistema_confort_termico.ino:125</a></div></div>
+<div class="ttc" id="asistema__confort__termico_8ino_html_aaab9d356ed5059cf1cab3515c86893fb"><div class="ttname"><a href="sistema__confort__termico_8ino.html#aaab9d356ed5059cf1cab3515c86893fb">buzzerState</a></div><div class="ttdeci">bool buzzerState</div><div class="ttdoc">Estado actual del buzzer.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00232">sistema_confort_termico.ino:232</a></div></div>
+<div class="ttc" id="asistema__confort__termico_8ino_html_aeaef1f2203865f944eb917d96e5f9020"><div class="ttname"><a href="sistema__confort__termico_8ino.html#aeaef1f2203865f944eb917d96e5f9020">TaskBuzzer</a></div><div class="ttdeci">AsyncTask TaskBuzzer(200, true, toggleBuzzer)</div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00125">BUZZER_PIN</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00232">buzzerState</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00336">input</a>, <a class="el" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd()</a>, <a class="el" href="sistema__confort__termico_8ino.html#aeaef1f2203865f944eb917d96e5f9020">TaskBuzzer()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00332">Unknown</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00448">setupStateMachine()</a>.</p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__estados__grupo_gaab9c5b060d49c9eae5717f5303a1984d_cgraph.png" border="0" usemap="#agroup__estados__grupo_gaab9c5b060d49c9eae5717f5303a1984d_cgraph" loading="lazy" alt=""/></div>
+<map name="agroup__estados__grupo_gaab9c5b060d49c9eae5717f5303a1984d_cgraph" id="agroup__estados__grupo_gaab9c5b060d49c9eae5717f5303a1984d_cgraph">
+<area shape="rect" title="Maneja la entrada al estado ALARMA &#45; condiciones críticas." alt="" coords="5,31,104,57"/>
+<area shape="rect" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2" title="Objeto LCD para display 16x2 con configuración de pines." alt="" coords="178,5,216,32"/>
+<area shape="poly" title=" " alt="" coords="104,33,162,22,163,27,105,38"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#aeaef1f2203865f944eb917d96e5f9020" title=" " alt="" coords="152,56,242,83"/>
+<area shape="poly" title=" " alt="" coords="105,50,137,56,136,61,104,55"/>
+<area shape="rect" href="group__actuadores__grupo.html#ga61e006dee30fabbb8d28229f5e593a63" title="Tarea asíncrona para control del buzzer." alt="" coords="290,56,387,83"/>
+<area shape="poly" title=" " alt="" coords="243,67,274,67,274,72,243,72"/>
+</map>
+</div>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__estados__grupo_gaab9c5b060d49c9eae5717f5303a1984d_icgraph.png" border="0" usemap="#agroup__estados__grupo_gaab9c5b060d49c9eae5717f5303a1984d_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__estados__grupo_gaab9c5b060d49c9eae5717f5303a1984d_icgraph" id="agroup__estados__grupo_gaab9c5b060d49c9eae5717f5303a1984d_icgraph">
+<area shape="rect" title="Maneja la entrada al estado ALARMA &#45; condiciones críticas." alt="" coords="288,5,386,32"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="107,5,240,32"/>
+<area shape="poly" title=" " alt="" coords="272,21,240,21,240,16,272,16"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Función de inicialización del sistema Arduino." alt="" coords="5,5,59,32"/>
+<area shape="poly" title=" " alt="" coords="91,21,59,21,59,16,91,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="gae7f7255177511950ea5ff9086d20a9ef" name="gae7f7255177511950ea5ff9086d20a9ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae7f7255177511950ea5ff9086d20a9ef">&#9670;&#160;</a></span>outputBloqueo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void outputBloqueo </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maneja la entrada al estado BLOQUEO - seguridad por fallos. </p>
+<ul>
+<li>Muestra mensaje de sistema bloqueado en LCD</li>
+<li>Indica al usuario presionar '*' para desbloquear</li>
+<li>Activa parpadeo del LED rojo como indicador visual</li>
+<li>Espera entrada específica para regresar a INICIO</li>
+</ul>
+<p>@security Estado de protección contra intentos fallidos de autenticación </p><dl class="section see"><dt>Ver también</dt><dd><a class="el" href="group__tareas__grupo.html#ga4fb27879b90fd24b957b6b6a358737af" title="Tarea para parpadeo asíncrono del LED rojo.">toggleRed()</a> </dd>
+<dd>
+<a class="el" href="group__auxiliares__grupo.html#gaad5c2beac548774ab4b7b6f10afd2c64" title="Verifica entrada de desbloqueo en estado BLOQUEO.">checkBloqueo()</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00749">749</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  749</span>                     {</div>
+<div class="line"><span class="lineno">  750</span>  <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> = <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a4e81c184ac3ad48a389cd4454c4a05bb">Unknown</a>;</div>
+<div class="line"><span class="lineno">  751</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.clear();</div>
+<div class="line"><span class="lineno">  752</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.setCursor(0, 0);</div>
+<div class="line"><span class="lineno">  753</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;SISTEMA BLOQUEADO&quot;</span>);</div>
+<div class="line"><span class="lineno">  754</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.setCursor(0, 1);</div>
+<div class="line"><span class="lineno">  755</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;Presione &#39;*&#39;&quot;</span>);</div>
+<div class="line"><span class="lineno">  756</span> </div>
+<div class="line"><span class="lineno">  757</span>  Serial.println(<span class="stringliteral">&quot;Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo&quot;</span>);</div>
+<div class="line"><span class="lineno">  758</span>  Serial.println(<span class="stringliteral">&quot;                                                              X   &quot;</span>);</div>
+<div class="line"><span class="lineno">  759</span>  Serial.println();</div>
+<div class="line"><span class="lineno">  760</span> </div>
+<div class="line"><span class="lineno">  761</span>  <a class="code hl_variable" href="group__tareas__grupo.html#gaf84bc50f2d359647caf6731d9fc6be7b">ledStateRed</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  762</span>  digitalWrite(<a class="code hl_define" href="group__pines__grupo.html#ga31e20330f8ce94e0dd10b005a15c5898">LED_RED</a>, LOW);</div>
+<div class="line"><span class="lineno">  763</span>  <a class="code hl_variable" href="group__tareas__grupo.html#gafde4ee9769ef5f5eae24c6cc5b84685d">lastToggleRed</a> = millis();</div>
+<div class="line"><span class="lineno">  764</span>  <a class="code hl_function" href="group__tareas__grupo.html#gaeb5ed948d82a3adfc0af3dbcf877c0c2">TaskLedRed</a>.Start();</div>
+<div class="line"><span class="lineno">  765</span>}</div>
+<div class="ttc" id="agroup__pines__grupo_html_ga31e20330f8ce94e0dd10b005a15c5898"><div class="ttname"><a href="group__pines__grupo.html#ga31e20330f8ce94e0dd10b005a15c5898">LED_RED</a></div><div class="ttdeci">#define LED_RED</div><div class="ttdoc">Pin digital para canal rojo del LED RGB - Indicador de BLOQUEO/ALARMA.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00115">sistema_confort_termico.ino:115</a></div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_gaeb5ed948d82a3adfc0af3dbcf877c0c2"><div class="ttname"><a href="group__tareas__grupo.html#gaeb5ed948d82a3adfc0af3dbcf877c0c2">TaskLedRed</a></div><div class="ttdeci">AsyncTask TaskLedRed(100, true, toggleRed)</div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_gaf84bc50f2d359647caf6731d9fc6be7b"><div class="ttname"><a href="group__tareas__grupo.html#gaf84bc50f2d359647caf6731d9fc6be7b">ledStateRed</a></div><div class="ttdeci">bool ledStateRed</div><div class="ttdoc">Estado actual del LED rojo.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00377">sistema_confort_termico.ino:377</a></div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_gafde4ee9769ef5f5eae24c6cc5b84685d"><div class="ttname"><a href="group__tareas__grupo.html#gafde4ee9769ef5f5eae24c6cc5b84685d">lastToggleRed</a></div><div class="ttdeci">unsigned long lastToggleRed</div><div class="ttdoc">Último tiempo de cambio del LED rojo.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00378">sistema_confort_termico.ino:378</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00336">input</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00378">lastToggleRed</a>, <a class="el" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00115">LED_RED</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00377">ledStateRed</a>, <a class="el" href="group__tareas__grupo.html#gaeb5ed948d82a3adfc0af3dbcf877c0c2">TaskLedRed()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00332">Unknown</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00448">setupStateMachine()</a>.</p>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__estados__grupo_gae7f7255177511950ea5ff9086d20a9ef_cgraph.png" border="0" usemap="#agroup__estados__grupo_gae7f7255177511950ea5ff9086d20a9ef_cgraph" loading="lazy" alt=""/></div>
+<map name="agroup__estados__grupo_gae7f7255177511950ea5ff9086d20a9ef_cgraph" id="agroup__estados__grupo_gae7f7255177511950ea5ff9086d20a9ef_cgraph">
+<area shape="rect" title="Maneja la entrada al estado BLOQUEO &#45; seguridad por fallos." alt="" coords="5,31,110,57"/>
+<area shape="rect" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2" title="Objeto LCD para display 16x2 con configuración de pines." alt="" coords="185,5,224,32"/>
+<area shape="poly" title=" " alt="" coords="110,32,169,22,170,27,111,38"/>
+<area shape="rect" href="group__tareas__grupo.html#gaeb5ed948d82a3adfc0af3dbcf877c0c2" title=" " alt="" coords="158,56,251,83"/>
+<area shape="poly" title=" " alt="" coords="111,50,143,56,142,61,110,56"/>
+<area shape="rect" href="group__tareas__grupo.html#ga4fb27879b90fd24b957b6b6a358737af" title="Tarea para parpadeo asíncrono del LED rojo." alt="" coords="299,56,378,83"/>
+<area shape="poly" title=" " alt="" coords="251,75,284,76,284,81,251,81"/>
+<area shape="poly" title=" " alt="" coords="299,64,267,63,267,58,299,58"/>
+</map>
+</div>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__estados__grupo_gae7f7255177511950ea5ff9086d20a9ef_icgraph.png" border="0" usemap="#agroup__estados__grupo_gae7f7255177511950ea5ff9086d20a9ef_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__estados__grupo_gae7f7255177511950ea5ff9086d20a9ef_icgraph" id="agroup__estados__grupo_gae7f7255177511950ea5ff9086d20a9ef_icgraph">
+<area shape="rect" title="Maneja la entrada al estado BLOQUEO &#45; seguridad por fallos." alt="" coords="288,5,392,32"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="107,5,240,32"/>
+<area shape="poly" title=" " alt="" coords="272,21,240,21,240,16,272,16"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Función de inicialización del sistema Arduino." alt="" coords="5,5,59,32"/>
+<area shape="poly" title=" " alt="" coords="91,21,59,21,59,16,91,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga3d20408bd7a9ca8c795fc543454b4e2d" name="ga3d20408bd7a9ca8c795fc543454b4e2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3d20408bd7a9ca8c795fc543454b4e2d">&#9670;&#160;</a></span>outputConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void outputConfig </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maneja la entrada al estado CONFIG - configuración del sistema y RFID. </p>
+<p>Estado de configuración que espera 5 segundos antes de transicionar automáticamente a MONITOR. Permite la inicialización de parámetros del sistema y preparación de periféricos. Además, habilita el registro de nuevas tarjetas RFID.</p>
+<p>@timeout 5000 ms para transición automática a MONITOR </p><dl class="section see"><dt>Ver también</dt><dd><a class="el" href="group__rfid__funciones__grupo.html#ga6f1cf14a01e70595870c30bd3458a34f" title="Maneja la configuración de tarjetas RFID en estado CONFIG.">handleConfigRFID()</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00696">696</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  696</span>                    {</div>
+<div class="line"><span class="lineno">  697</span>  <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> = <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a4e81c184ac3ad48a389cd4454c4a05bb">Unknown</a>;</div>
+<div class="line"><span class="lineno">  698</span>  <a class="code hl_function" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a>.SetIntervalMillis(5000);  <span class="comment">// 5 Segs hasta monitor si no hay entrada</span></div>
+<div class="line"><span class="lineno">  699</span>  <a class="code hl_function" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a>.Start();</div>
+<div class="line"><span class="lineno">  700</span>  <a class="code hl_variable" href="group__rfid__grupo.html#ga0c0bf35d8dd60fa5bf86b5abfb1a9241">tarjetaProcesada</a> = <span class="keyword">false</span>;  <span class="comment">// Reset flag para nuevo procesamiento RFID</span></div>
+<div class="line"><span class="lineno">  701</span>  Serial.println(<span class="stringliteral">&quot;Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo&quot;</span>);</div>
+<div class="line"><span class="lineno">  702</span>  Serial.println(<span class="stringliteral">&quot;            X                                                     &quot;</span>);</div>
+<div class="line"><span class="lineno">  703</span>  Serial.println();</div>
+<div class="line"><span class="lineno">  704</span>}</div>
+<div class="ttc" id="agroup__rfid__grupo_html_ga0c0bf35d8dd60fa5bf86b5abfb1a9241"><div class="ttname"><a href="group__rfid__grupo.html#ga0c0bf35d8dd60fa5bf86b5abfb1a9241">tarjetaProcesada</a></div><div class="ttdeci">bool tarjetaProcesada</div><div class="ttdoc">Flag para controlar procesamiento único de tarjeta en estado CONFIG.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00160">sistema_confort_termico.ino:160</a></div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_gabe10de4c559b3dc44bc3e0858d41553e"><div class="ttname"><a href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a></div><div class="ttdeci">AsyncTask TaskTime(5000, true, runTime)</div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00336">input</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00160">tarjetaProcesada</a>, <a class="el" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00332">Unknown</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00448">setupStateMachine()</a>.</p>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__estados__grupo_ga3d20408bd7a9ca8c795fc543454b4e2d_cgraph.png" border="0" usemap="#agroup__estados__grupo_ga3d20408bd7a9ca8c795fc543454b4e2d_cgraph" loading="lazy" alt=""/></div>
+<map name="agroup__estados__grupo_ga3d20408bd7a9ca8c795fc543454b4e2d_cgraph" id="agroup__estados__grupo_ga3d20408bd7a9ca8c795fc543454b4e2d_cgraph">
+<area shape="rect" title="Maneja la entrada al estado CONFIG &#45; configuración del sistema y RFID." alt="" coords="5,5,99,32"/>
+<area shape="rect" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e" title=" " alt="" coords="147,5,224,32"/>
+<area shape="poly" title=" " alt="" coords="99,16,131,16,131,21,99,21"/>
+<area shape="rect" href="group__tareas__grupo.html#ga253c50d22391b4a847c214fe6aa3bd29" title="Tarea de temporizador principal del sistema." alt="" coords="272,5,339,32"/>
+<area shape="poly" title=" " alt="" coords="225,16,257,16,257,21,225,21"/>
+</map>
+</div>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__estados__grupo_ga3d20408bd7a9ca8c795fc543454b4e2d_icgraph.png" border="0" usemap="#agroup__estados__grupo_ga3d20408bd7a9ca8c795fc543454b4e2d_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__estados__grupo_ga3d20408bd7a9ca8c795fc543454b4e2d_icgraph" id="agroup__estados__grupo_ga3d20408bd7a9ca8c795fc543454b4e2d_icgraph">
+<area shape="rect" title="Maneja la entrada al estado CONFIG &#45; configuración del sistema y RFID." alt="" coords="288,5,381,32"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="107,5,240,32"/>
+<area shape="poly" title=" " alt="" coords="272,21,241,21,241,16,272,16"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Función de inicialización del sistema Arduino." alt="" coords="5,5,59,32"/>
+<area shape="poly" title=" " alt="" coords="91,21,59,21,59,16,91,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga390833d0072e6440c9707a25c053dfb3" name="ga390833d0072e6440c9707a25c053dfb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga390833d0072e6440c9707a25c053dfb3">&#9670;&#160;</a></span>outputInicio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void outputInicio </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maneja la entrada al estado INICIO - autenticación de usuario. </p>
+<ul>
+<li>Limpia entradas previas y prepara el sistema para autenticación</li>
+<li>Muestra mensaje de bienvenida en LCD</li>
+<li>Solicita y valida contraseña mediante keypad con feedback visual</li>
+<li>Transiciona a CONFIG (éxito) o BLOQUEO (fallo)</li>
+<li>Configura temporizador para transiciones automáticas</li>
+</ul>
+<dl class="section post"><dt>Postcondición</dt><dd>Sistema autenticado y listo para configuración o bloqueado por seguridad @timeout 5000 ms para transición automática</dd></dl>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="group__auxiliares__grupo.html#ga451fb754ff1057f95e36210846ea0aca" title="Lee la contraseña del keypad con feedback visual en LCD.">readPassword()</a> </dd>
+<dd>
+<a class="el" href="group__auxiliares__grupo.html#gaf8626fd53a9fd252db6f253207b78b87" title="Valida la contraseña ingresada contra la clave predefinida.">checkPassword()</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00646">646</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  646</span>                    {</div>
+<div class="line"><span class="lineno">  647</span>  <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> = <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a4e81c184ac3ad48a389cd4454c4a05bb">Unknown</a>;</div>
+<div class="line"><span class="lineno">  648</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.clear();</div>
+<div class="line"><span class="lineno">  649</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.setCursor(0, 0);</div>
+<div class="line"><span class="lineno">  650</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;Estado: INICIO&quot;</span>);</div>
+<div class="line"><span class="lineno">  651</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.setCursor(0, 1);</div>
+<div class="line"><span class="lineno">  652</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;Ingrese clave...&quot;</span>);</div>
+<div class="line"><span class="lineno">  653</span> </div>
+<div class="line"><span class="lineno">  654</span>  <span class="comment">// Leer la clave</span></div>
+<div class="line"><span class="lineno">  655</span>  <a class="code hl_function" href="group__auxiliares__grupo.html#ga451fb754ff1057f95e36210846ea0aca">readPassword</a>();</div>
+<div class="line"><span class="lineno">  656</span> </div>
+<div class="line"><span class="lineno">  657</span>  <span class="comment">// Verificar la clave</span></div>
+<div class="line"><span class="lineno">  658</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="group__auxiliares__grupo.html#gaf8626fd53a9fd252db6f253207b78b87">checkPassword</a>()) {</div>
+<div class="line"><span class="lineno">  659</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.clear();</div>
+<div class="line"><span class="lineno">  660</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.setCursor(0, 0);</div>
+<div class="line"><span class="lineno">  661</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;Clave correcta&quot;</span>);</div>
+<div class="line"><span class="lineno">  662</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.setCursor(0, 1);</div>
+<div class="line"><span class="lineno">  663</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;-&gt; CONFIG&quot;</span>);</div>
+<div class="line"><span class="lineno">  664</span>    <a class="code hl_function" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a>.SetIntervalMillis(5000);</div>
+<div class="line"><span class="lineno">  665</span>    <a class="code hl_function" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a>.Start();</div>
+<div class="line"><span class="lineno">  666</span>    <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> = <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a398b625d64c410187ddeac0ed88bc986">CLAVE_CORRECTA</a>;</div>
+<div class="line"><span class="lineno">  667</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  668</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.clear();</div>
+<div class="line"><span class="lineno">  669</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.setCursor(0, 0);</div>
+<div class="line"><span class="lineno">  670</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;Clave incorrecta&quot;</span>);</div>
+<div class="line"><span class="lineno">  671</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.setCursor(0, 1);</div>
+<div class="line"><span class="lineno">  672</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;-&gt; BLOQUEO&quot;</span>);</div>
+<div class="line"><span class="lineno">  673</span>    <a class="code hl_function" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a>.SetIntervalMillis(5000);</div>
+<div class="line"><span class="lineno">  674</span>    <a class="code hl_function" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a>.Start();</div>
+<div class="line"><span class="lineno">  675</span>    <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> = <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090ab652af68661ddf57916254db968b28eb">SISTEMA_BLOQUEADO</a>;</div>
+<div class="line"><span class="lineno">  676</span>  }</div>
+<div class="line"><span class="lineno">  677</span> </div>
+<div class="line"><span class="lineno">  678</span>  Serial.println(<span class="stringliteral">&quot;Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo&quot;</span>);</div>
+<div class="line"><span class="lineno">  679</span>  Serial.println(<span class="stringliteral">&quot;  X                                                               &quot;</span>);</div>
+<div class="line"><span class="lineno">  680</span>  Serial.println();</div>
+<div class="line"><span class="lineno">  681</span>}</div>
+<div class="ttc" id="agroup__auxiliares__grupo_html_ga451fb754ff1057f95e36210846ea0aca"><div class="ttname"><a href="group__auxiliares__grupo.html#ga451fb754ff1057f95e36210846ea0aca">readPassword</a></div><div class="ttdeci">void readPassword()</div><div class="ttdoc">Lee la contraseña del keypad con feedback visual en LCD.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l01390">sistema_confort_termico.ino:1390</a></div></div>
+<div class="ttc" id="agroup__auxiliares__grupo_html_gaf8626fd53a9fd252db6f253207b78b87"><div class="ttname"><a href="group__auxiliares__grupo.html#gaf8626fd53a9fd252db6f253207b78b87">checkPassword</a></div><div class="ttdeci">bool checkPassword()</div><div class="ttdoc">Valida la contraseña ingresada contra la clave predefinida.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l01429">sistema_confort_termico.ino:1429</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga080a822f0093973313bd644e517a5090a398b625d64c410187ddeac0ed88bc986"><div class="ttname"><a href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a398b625d64c410187ddeac0ed88bc986">CLAVE_CORRECTA</a></div><div class="ttdeci">@ CLAVE_CORRECTA</div><div class="ttdoc">Clave válida ingresada - Autenticación exitosa.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00326">sistema_confort_termico.ino:326</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga080a822f0093973313bd644e517a5090ab652af68661ddf57916254db968b28eb"><div class="ttname"><a href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090ab652af68661ddf57916254db968b28eb">SISTEMA_BLOQUEADO</a></div><div class="ttdeci">@ SISTEMA_BLOQUEADO</div><div class="ttdoc">Activación por condición de bloqueo de seguridad.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00324">sistema_confort_termico.ino:324</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l01429">checkPassword()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00326">CLAVE_CORRECTA</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00336">input</a>, <a class="el" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l01390">readPassword()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00324">SISTEMA_BLOQUEADO</a>, <a class="el" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00332">Unknown</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00448">setupStateMachine()</a>.</p>
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__estados__grupo_ga390833d0072e6440c9707a25c053dfb3_cgraph.png" border="0" usemap="#agroup__estados__grupo_ga390833d0072e6440c9707a25c053dfb3_cgraph" loading="lazy" alt=""/></div>
+<map name="agroup__estados__grupo_ga390833d0072e6440c9707a25c053dfb3_cgraph" id="agroup__estados__grupo_ga390833d0072e6440c9707a25c053dfb3_cgraph">
+<area shape="rect" title="Maneja la entrada al estado INICIO &#45; autenticación de usuario." alt="" coords="5,81,93,108"/>
+<area shape="rect" href="group__auxiliares__grupo.html#gaf8626fd53a9fd252db6f253207b78b87" title="Valida la contraseña ingresada contra la clave predefinida." alt="" coords="141,5,254,32"/>
+<area shape="poly" title=" " alt="" coords="76,78,155,37,157,42,78,83"/>
+<area shape="rect" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2" title="Objeto LCD para display 16x2 con configuración de pines." alt="" coords="321,56,360,83"/>
+<area shape="poly" title=" " alt="" coords="93,88,305,70,306,75,93,94"/>
+<area shape="rect" href="group__auxiliares__grupo.html#ga451fb754ff1057f95e36210846ea0aca" title="Lee la contraseña del keypad con feedback visual en LCD." alt="" coords="146,107,249,133"/>
+<area shape="poly" title=" " alt="" coords="94,100,131,106,130,111,93,105"/>
+<area shape="rect" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e" title=" " alt="" coords="302,132,379,159"/>
+<area shape="poly" title=" " alt="" coords="70,106,102,127,141,143,178,150,216,152,286,150,287,155,216,158,178,155,140,148,100,131,67,111"/>
+<area shape="poly" title=" " alt="" coords="238,30,307,55,306,60,237,35"/>
+<area shape="poly" title=" " alt="" coords="237,104,306,79,307,84,238,109"/>
+<area shape="poly" title=" " alt="" coords="250,127,287,133,286,138,249,132"/>
+</map>
+</div>
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__estados__grupo_ga390833d0072e6440c9707a25c053dfb3_icgraph.png" border="0" usemap="#agroup__estados__grupo_ga390833d0072e6440c9707a25c053dfb3_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__estados__grupo_ga390833d0072e6440c9707a25c053dfb3_icgraph" id="agroup__estados__grupo_ga390833d0072e6440c9707a25c053dfb3_icgraph">
+<area shape="rect" title="Maneja la entrada al estado INICIO &#45; autenticación de usuario." alt="" coords="288,5,375,32"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="107,5,240,32"/>
+<area shape="poly" title=" " alt="" coords="272,21,240,21,240,16,272,16"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Función de inicialización del sistema Arduino." alt="" coords="5,5,59,32"/>
+<area shape="poly" title=" " alt="" coords="91,21,59,21,59,16,91,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="gac6e2aedfa62714338c55314abed3975a" name="gac6e2aedfa62714338c55314abed3975a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac6e2aedfa62714338c55314abed3975a">&#9670;&#160;</a></span>outputMonitor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void outputMonitor </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maneja la entrada al estado MONITOR - monitoreo principal. </p>
+<p>Estado principal de monitoreo que prepara el sistema para:</p><ul>
+<li>Lectura de todos los sensores del sistema</li>
+<li>Cálculo del índice PMV en tiempo real</li>
+<li>Evaluación de condiciones de confort térmico</li>
+<li>Toma de decisiones de transición automática</li>
+<li>Permanece activo por 7 segundos antes de regresar a CONFIG</li>
+</ul>
+<p>@timeout 7000 ms para transición automática </p><dl class="section see"><dt>Ver también</dt><dd><a class="el" href="group__auxiliares__grupo.html#ga6488153c8ee9b1f1a7ef5db4ff81ca88" title="Lee y procesa datos de todos los sensores del sistema.">leerSensores()</a> </dd>
+<dd>
+<a class="el" href="group__pmv__grupo.html#ga010b0d3e4b1c2eb39075406703487960" title="Calcula el índice PMV (Predicted Mean Vote) usando modelo de Fanger.">calcularPMV_Fanger()</a> </dd>
+<dd>
+<a class="el" href="group__verificacion__grupo.html#gaec3d803c0bdc0d568fd8ebb776f93dd6" title="Verifica cálculo PMV y determina transiciones desde estado MONITOR.">checkPMV()</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00783">783</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  783</span>                     {</div>
+<div class="line"><span class="lineno">  784</span>  <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> = <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a4e81c184ac3ad48a389cd4454c4a05bb">Unknown</a>;</div>
+<div class="line"><span class="lineno">  785</span>  <a class="code hl_function" href="group__auxiliares__grupo.html#ga6488153c8ee9b1f1a7ef5db4ff81ca88">leerSensores</a>();</div>
+<div class="line"><span class="lineno">  786</span> </div>
+<div class="line"><span class="lineno">  787</span>  <span class="comment">// Mostrar datos de sensores en tiempo real en LCD</span></div>
+<div class="line"><span class="lineno">  788</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.setCursor(0, 0);</div>
+<div class="line"><span class="lineno">  789</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;T:&quot;</span>);</div>
+<div class="line"><span class="lineno">  790</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<a class="code hl_variable" href="group__variables__grupo.html#gac3170cbfa9a8c8b0c3d2ee9d0765c293">tempA</a>, 1);</div>
+<div class="line"><span class="lineno">  791</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;C  H:&quot;</span>);</div>
+<div class="line"><span class="lineno">  792</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<a class="code hl_variable" href="group__variables__grupo.html#ga34280c09711b9f4f72211e5c467b57bf">humedad</a>, 0);</div>
+<div class="line"><span class="lineno">  793</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;%   &quot;</span>);</div>
+<div class="line"><span class="lineno">  794</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.setCursor(0, 1);</div>
+<div class="line"><span class="lineno">  795</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;Luz:&quot;</span>);</div>
+<div class="line"><span class="lineno">  796</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<a class="code hl_variable" href="group__variables__grupo.html#gaa22435b55a8b84bf16cf00696cefbad1">luz</a>, 0);</div>
+<div class="line"><span class="lineno">  797</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;% Tr:&quot;</span>);</div>
+<div class="line"><span class="lineno">  798</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<a class="code hl_variable" href="group__variables__grupo.html#gab35f43c7567f70886ccbc1870761fd13">tempR</a>, 1);</div>
+<div class="line"><span class="lineno">  799</span>  <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;  &quot;</span>);</div>
+<div class="line"><span class="lineno">  800</span> </div>
+<div class="line"><span class="lineno">  801</span>  <span class="comment">// Iniciar temporizador para cálculo PMV</span></div>
+<div class="line"><span class="lineno">  802</span>  <a class="code hl_function" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a>.SetIntervalMillis(7000);  <span class="comment">// 7 segs hasta cambio de estado</span></div>
+<div class="line"><span class="lineno">  803</span>  <a class="code hl_function" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a>.Start();</div>
+<div class="line"><span class="lineno">  804</span> </div>
+<div class="line"><span class="lineno">  805</span>  Serial.println(<span class="stringliteral">&quot;Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo&quot;</span>);</div>
+<div class="line"><span class="lineno">  806</span>  Serial.println(<span class="stringliteral">&quot;                     X                                            &quot;</span>);</div>
+<div class="line"><span class="lineno">  807</span>  Serial.println();</div>
+<div class="line"><span class="lineno">  808</span>}</div>
+<div class="ttc" id="agroup__auxiliares__grupo_html_ga6488153c8ee9b1f1a7ef5db4ff81ca88"><div class="ttname"><a href="group__auxiliares__grupo.html#ga6488153c8ee9b1f1a7ef5db4ff81ca88">leerSensores</a></div><div class="ttdeci">void leerSensores()</div><div class="ttdoc">Lee y procesa datos de todos los sensores del sistema.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l01488">sistema_confort_termico.ino:1488</a></div></div>
+<div class="ttc" id="agroup__variables__grupo_html_ga34280c09711b9f4f72211e5c467b57bf"><div class="ttname"><a href="group__variables__grupo.html#ga34280c09711b9f4f72211e5c467b57bf">humedad</a></div><div class="ttdeci">float humedad</div><div class="ttdoc">Humedad relativa del ambiente [%] - Sensor DHT11.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00193">sistema_confort_termico.ino:193</a></div></div>
+<div class="ttc" id="agroup__variables__grupo_html_gaa22435b55a8b84bf16cf00696cefbad1"><div class="ttname"><a href="group__variables__grupo.html#gaa22435b55a8b84bf16cf00696cefbad1">luz</a></div><div class="ttdeci">float luz</div><div class="ttdoc">Nivel de luminosidad ambiental [%] - Sensor LDR.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00194">sistema_confort_termico.ino:194</a></div></div>
+<div class="ttc" id="agroup__variables__grupo_html_gab35f43c7567f70886ccbc1870761fd13"><div class="ttname"><a href="group__variables__grupo.html#gab35f43c7567f70886ccbc1870761fd13">tempR</a></div><div class="ttdeci">float tempR</div><div class="ttdoc">Temperatura radiante media [°C] - Sensor NTC.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00192">sistema_confort_termico.ino:192</a></div></div>
+<div class="ttc" id="agroup__variables__grupo_html_gac3170cbfa9a8c8b0c3d2ee9d0765c293"><div class="ttname"><a href="group__variables__grupo.html#gac3170cbfa9a8c8b0c3d2ee9d0765c293">tempA</a></div><div class="ttdeci">float tempA</div><div class="ttdoc">Temperatura del aire ambiente [°C] - Sensor DHT11.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00191">sistema_confort_termico.ino:191</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00193">humedad</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00336">input</a>, <a class="el" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l01488">leerSensores()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00194">luz</a>, <a class="el" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00191">tempA</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00192">tempR</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00332">Unknown</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00448">setupStateMachine()</a>.</p>
+<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__estados__grupo_gac6e2aedfa62714338c55314abed3975a_cgraph.png" border="0" usemap="#agroup__estados__grupo_gac6e2aedfa62714338c55314abed3975a_cgraph" loading="lazy" alt=""/></div>
+<map name="agroup__estados__grupo_gac6e2aedfa62714338c55314abed3975a_cgraph" id="agroup__estados__grupo_gac6e2aedfa62714338c55314abed3975a_cgraph">
+<area shape="rect" title="Maneja la entrada al estado MONITOR &#45; monitoreo principal." alt="" coords="5,56,106,83"/>
+<area shape="rect" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2" title="Objeto LCD para display 16x2 con configuración de pines." alt="" coords="183,5,222,32"/>
+<area shape="poly" title=" " alt="" coords="96,53,168,28,170,33,97,58"/>
+<area shape="rect" href="group__auxiliares__grupo.html#ga6488153c8ee9b1f1a7ef5db4ff81ca88" title="Lee y procesa datos de todos los sensores del sistema." alt="" coords="154,56,251,83"/>
+<area shape="poly" title=" " alt="" coords="106,67,138,67,138,72,106,72"/>
+<area shape="rect" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e" title=" " alt="" coords="164,107,241,133"/>
+<area shape="poly" title=" " alt="" coords="97,81,150,99,148,104,96,86"/>
+<area shape="rect" href="group__hardware__grupo.html#gad7a1df263f6f823242a112ec11297434" title="Objeto sensor DHT11 para medición de temperatura y humedad." alt="" coords="313,56,352,83"/>
+<area shape="poly" title=" " alt="" coords="252,67,297,67,297,72,252,72"/>
+<area shape="rect" href="group__tareas__grupo.html#ga253c50d22391b4a847c214fe6aa3bd29" title="Tarea de temporizador principal del sistema." alt="" coords="299,107,366,133"/>
+<area shape="poly" title=" " alt="" coords="242,117,283,117,283,123,242,123"/>
+</map>
+</div>
+<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__estados__grupo_gac6e2aedfa62714338c55314abed3975a_icgraph.png" border="0" usemap="#agroup__estados__grupo_gac6e2aedfa62714338c55314abed3975a_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__estados__grupo_gac6e2aedfa62714338c55314abed3975a_icgraph" id="agroup__estados__grupo_gac6e2aedfa62714338c55314abed3975a_icgraph">
+<area shape="rect" title="Maneja la entrada al estado MONITOR &#45; monitoreo principal." alt="" coords="288,5,388,32"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="107,5,240,32"/>
+<area shape="poly" title=" " alt="" coords="273,21,240,21,240,16,273,16"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Función de inicialización del sistema Arduino." alt="" coords="5,5,59,32"/>
+<area shape="poly" title=" " alt="" coords="91,21,59,21,59,16,91,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga7c048c997648ce81c01c9a5cc03e4734" name="ga7c048c997648ce81c01c9a5cc03e4734"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7c048c997648ce81c01c9a5cc03e4734">&#9670;&#160;</a></span>outputPMV_Alto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void outputPMV_Alto </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maneja la entrada al estado PMV_ALTO - condiciones cálidas. </p>
+<p>Estado activo cuando PMV &gt; 1 (condiciones de calor):</p><ul>
+<li>Activa LED azul con patrón de parpadeo específico</li>
+<li>Activa ventilador DC para enfriamiento</li>
+<li>Monitorea temperatura para detección de condiciones críticas</li>
+<li>Permanece activo por 4 segundos antes de regresar a MONITOR</li>
+<li>Transiciona a ALARMA si detecta 3 lecturas consecutivas &gt;30°C</li>
+</ul>
+<p>@timeout 4000 ms para transición automática </p><dl class="section see"><dt>Ver también</dt><dd><a class="el" href="group__tareas__grupo.html#ga21dc7f71020a2ca4e192c5561dc5b8bb" title="Tarea para parpadeo asíncrono del LED azul.">toggleBlue()</a> </dd>
+<dd>
+checkTemperaturaAlta() </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00862">862</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  862</span>                      {</div>
+<div class="line"><span class="lineno">  863</span>  <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> = <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a4e81c184ac3ad48a389cd4454c4a05bb">Unknown</a>;</div>
+<div class="line"><span class="lineno">  864</span>  </div>
+<div class="line"><span class="lineno">  865</span>  <span class="comment">// Monitoreo de temperatura para detección de condiciones críticas</span></div>
+<div class="line"><span class="lineno">  866</span>  <a class="code hl_variable" href="group__variables__grupo.html#gac3170cbfa9a8c8b0c3d2ee9d0765c293">tempA</a> = <a class="code hl_function" href="group__hardware__grupo.html#gad7a1df263f6f823242a112ec11297434">dht</a>.readTemperature();</div>
+<div class="line"><span class="lineno">  867</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="group__variables__grupo.html#gac3170cbfa9a8c8b0c3d2ee9d0765c293">tempA</a> &gt; 30.0) {</div>
+<div class="line"><span class="lineno">  868</span>    <a class="code hl_variable" href="group__variables__grupo.html#ga9f4f1908548616eb629643bc9cc956af">conteoTempAlta</a>++;</div>
+<div class="line"><span class="lineno">  869</span>    Serial.print(<span class="stringliteral">&quot;Temperatura alta detectada (&quot;</span>);</div>
+<div class="line"><span class="lineno">  870</span>    Serial.print(<a class="code hl_variable" href="group__variables__grupo.html#ga9f4f1908548616eb629643bc9cc956af">conteoTempAlta</a>);</div>
+<div class="line"><span class="lineno">  871</span>    Serial.println(<span class="stringliteral">&quot;/3)&quot;</span>);</div>
+<div class="line"><span class="lineno">  872</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.clear();</div>
+<div class="line"><span class="lineno">  873</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.setCursor(0, 0);</div>
+<div class="line"><span class="lineno">  874</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;Temp &gt; 30, Intentos: &quot;</span>);</div>
+<div class="line"><span class="lineno">  875</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.setCursor(0, 1);</div>
+<div class="line"><span class="lineno">  876</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<a class="code hl_variable" href="group__variables__grupo.html#ga9f4f1908548616eb629643bc9cc956af">conteoTempAlta</a>);</div>
+<div class="line"><span class="lineno">  877</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  878</span>    <a class="code hl_variable" href="group__variables__grupo.html#ga9f4f1908548616eb629643bc9cc956af">conteoTempAlta</a> = 0;  <span class="comment">// reset si baja la temperatura</span></div>
+<div class="line"><span class="lineno">  879</span>  }</div>
+<div class="line"><span class="lineno">  880</span>  </div>
+<div class="line"><span class="lineno">  881</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="group__variables__grupo.html#ga9f4f1908548616eb629643bc9cc956af">conteoTempAlta</a> &gt;= 3) {</div>
+<div class="line"><span class="lineno">  882</span>    <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> = <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a223d7803a7d9575e01e4b1cef3b3b9bd">TEMP_ALTA_3_INTENTOS</a>;</div>
+<div class="line"><span class="lineno">  883</span>    <a class="code hl_variable" href="group__variables__grupo.html#ga9f4f1908548616eb629643bc9cc956af">conteoTempAlta</a> = 0;  <span class="comment">// reinicia para futuras detecciones</span></div>
+<div class="line"><span class="lineno">  884</span>  }</div>
+<div class="line"><span class="lineno">  885</span>  </div>
+<div class="line"><span class="lineno">  886</span>  <a class="code hl_function" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a>.SetIntervalMillis(4000);  <span class="comment">// 4 segs hasta monitor si no hay entrada</span></div>
+<div class="line"><span class="lineno">  887</span>  <a class="code hl_function" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a>.Start();</div>
+<div class="line"><span class="lineno">  888</span>  Serial.println(<span class="stringliteral">&quot;Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo&quot;</span>);</div>
+<div class="line"><span class="lineno">  889</span>  Serial.println(<span class="stringliteral">&quot;                                                    X             &quot;</span>);</div>
+<div class="line"><span class="lineno">  890</span>  Serial.println();</div>
+<div class="line"><span class="lineno">  891</span> </div>
+<div class="line"><span class="lineno">  892</span>  <a class="code hl_variable" href="group__tareas__grupo.html#gaec1357aab980bd99f6562ef8e6c06284">ledStateBlue</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  893</span>  digitalWrite(<a class="code hl_define" href="group__pines__grupo.html#gae2e40566d27689f8581d7b0f12271d45">LED_BLUE</a>, LOW);</div>
+<div class="line"><span class="lineno">  894</span>  <a class="code hl_variable" href="group__tareas__grupo.html#ga3102648c9fe07b65fb17bba9932389a4">lastToggleBlue</a> = millis();</div>
+<div class="line"><span class="lineno">  895</span>  <a class="code hl_function" href="group__tareas__grupo.html#ga068cb3aabb9b1e22d9a355f196ab8e89">TaskLedBlue</a>.Start();</div>
+<div class="line"><span class="lineno">  896</span> </div>
+<div class="line"><span class="lineno">  897</span>  <span class="comment">// Activar ventilador para enfriamiento</span></div>
+<div class="line"><span class="lineno">  898</span>  digitalWrite(<a class="code hl_define" href="group__pines__grupo.html#ga2659364744f6d57a126d7199e3e11343">FAN_PIN</a>, HIGH);</div>
+<div class="line"><span class="lineno">  899</span>}</div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga080a822f0093973313bd644e517a5090a223d7803a7d9575e01e4b1cef3b3b9bd"><div class="ttname"><a href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a223d7803a7d9575e01e4b1cef3b3b9bd">TEMP_ALTA_3_INTENTOS</a></div><div class="ttdeci">@ TEMP_ALTA_3_INTENTOS</div><div class="ttdoc">Temperatura crítica persistente - Activa alarma.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00330">sistema_confort_termico.ino:330</a></div></div>
+<div class="ttc" id="agroup__hardware__grupo_html_gad7a1df263f6f823242a112ec11297434"><div class="ttname"><a href="group__hardware__grupo.html#gad7a1df263f6f823242a112ec11297434">dht</a></div><div class="ttdeci">DHT dht(DHTPIN, DHTTYPE)</div><div class="ttdoc">Objeto sensor DHT11 para medición de temperatura y humedad.</div></div>
+<div class="ttc" id="agroup__pines__grupo_html_ga2659364744f6d57a126d7199e3e11343"><div class="ttname"><a href="group__pines__grupo.html#ga2659364744f6d57a126d7199e3e11343">FAN_PIN</a></div><div class="ttdeci">#define FAN_PIN</div><div class="ttdoc">Pin digital para control de ventilador DC - Sistema de enfriamiento.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00124">sistema_confort_termico.ino:124</a></div></div>
+<div class="ttc" id="agroup__pines__grupo_html_gae2e40566d27689f8581d7b0f12271d45"><div class="ttname"><a href="group__pines__grupo.html#gae2e40566d27689f8581d7b0f12271d45">LED_BLUE</a></div><div class="ttdeci">#define LED_BLUE</div><div class="ttdoc">Pin digital para canal azul del LED RGB - Indicador de PMV_ALTO.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00117">sistema_confort_termico.ino:117</a></div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_ga068cb3aabb9b1e22d9a355f196ab8e89"><div class="ttname"><a href="group__tareas__grupo.html#ga068cb3aabb9b1e22d9a355f196ab8e89">TaskLedBlue</a></div><div class="ttdeci">AsyncTask TaskLedBlue(300, true, toggleBlue)</div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_ga3102648c9fe07b65fb17bba9932389a4"><div class="ttname"><a href="group__tareas__grupo.html#ga3102648c9fe07b65fb17bba9932389a4">lastToggleBlue</a></div><div class="ttdeci">unsigned long lastToggleBlue</div><div class="ttdoc">Último tiempo de cambio del LED azul.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00398">sistema_confort_termico.ino:398</a></div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_gaec1357aab980bd99f6562ef8e6c06284"><div class="ttname"><a href="group__tareas__grupo.html#gaec1357aab980bd99f6562ef8e6c06284">ledStateBlue</a></div><div class="ttdeci">bool ledStateBlue</div><div class="ttdoc">Estado actual del LED azul.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00397">sistema_confort_termico.ino:397</a></div></div>
+<div class="ttc" id="agroup__variables__grupo_html_ga9f4f1908548616eb629643bc9cc956af"><div class="ttname"><a href="group__variables__grupo.html#ga9f4f1908548616eb629643bc9cc956af">conteoTempAlta</a></div><div class="ttdeci">int conteoTempAlta</div><div class="ttdoc">Contador de temperaturas altas consecutivas.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00201">sistema_confort_termico.ino:201</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00201">conteoTempAlta</a>, <a class="el" href="group__hardware__grupo.html#gad7a1df263f6f823242a112ec11297434">dht()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00124">FAN_PIN</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00336">input</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00398">lastToggleBlue</a>, <a class="el" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00117">LED_BLUE</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00397">ledStateBlue</a>, <a class="el" href="group__tareas__grupo.html#ga068cb3aabb9b1e22d9a355f196ab8e89">TaskLedBlue()</a>, <a class="el" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00330">TEMP_ALTA_3_INTENTOS</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00191">tempA</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00332">Unknown</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00448">setupStateMachine()</a>.</p>
+<div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__estados__grupo_ga7c048c997648ce81c01c9a5cc03e4734_cgraph.png" border="0" usemap="#agroup__estados__grupo_ga7c048c997648ce81c01c9a5cc03e4734_cgraph" loading="lazy" alt=""/></div>
+<map name="agroup__estados__grupo_ga7c048c997648ce81c01c9a5cc03e4734_cgraph" id="agroup__estados__grupo_ga7c048c997648ce81c01c9a5cc03e4734_cgraph">
+<area shape="rect" title="Maneja la entrada al estado PMV_ALTO &#45; condiciones cálidas." alt="" coords="5,81,122,108"/>
+<area shape="rect" href="group__hardware__grupo.html#gad7a1df263f6f823242a112ec11297434" title="Objeto sensor DHT11 para medición de temperatura y humedad." alt="" coords="198,5,238,32"/>
+<area shape="poly" title=" " alt="" coords="91,78,183,32,186,37,94,83"/>
+<area shape="rect" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2" title="Objeto LCD para display 16x2 con configuración de pines." alt="" coords="199,56,237,83"/>
+<area shape="poly" title=" " alt="" coords="122,82,183,72,184,78,123,88"/>
+<area shape="rect" href="group__tareas__grupo.html#ga068cb3aabb9b1e22d9a355f196ab8e89" title=" " alt="" coords="170,107,266,133"/>
+<area shape="poly" title=" " alt="" coords="123,102,155,107,154,112,122,107"/>
+<area shape="rect" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e" title=" " alt="" coords="179,157,257,184"/>
+<area shape="poly" title=" " alt="" coords="94,106,177,148,174,153,91,111"/>
+<area shape="rect" href="group__tareas__grupo.html#ga21dc7f71020a2ca4e192c5561dc5b8bb" title="Tarea para parpadeo asíncrono del LED azul." alt="" coords="314,107,396,133"/>
+<area shape="poly" title=" " alt="" coords="267,126,298,126,298,132,267,131"/>
+<area shape="poly" title=" " alt="" coords="313,114,282,114,282,108,314,109"/>
+<area shape="rect" href="group__tareas__grupo.html#ga253c50d22391b4a847c214fe6aa3bd29" title="Tarea de temporizador principal del sistema." alt="" coords="322,157,389,184"/>
+<area shape="poly" title=" " alt="" coords="257,168,306,168,306,173,257,173"/>
+</map>
+</div>
+<div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__estados__grupo_ga7c048c997648ce81c01c9a5cc03e4734_icgraph.png" border="0" usemap="#agroup__estados__grupo_ga7c048c997648ce81c01c9a5cc03e4734_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__estados__grupo_ga7c048c997648ce81c01c9a5cc03e4734_icgraph" id="agroup__estados__grupo_ga7c048c997648ce81c01c9a5cc03e4734_icgraph">
+<area shape="rect" title="Maneja la entrada al estado PMV_ALTO &#45; condiciones cálidas." alt="" coords="288,5,404,32"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="107,5,240,32"/>
+<area shape="poly" title=" " alt="" coords="273,21,240,21,240,16,273,16"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Función de inicialización del sistema Arduino." alt="" coords="5,5,59,32"/>
+<area shape="poly" title=" " alt="" coords="91,21,59,21,59,16,91,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga02260e7a04347651d07c76eacf47b8b7" name="ga02260e7a04347651d07c76eacf47b8b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga02260e7a04347651d07c76eacf47b8b7">&#9670;&#160;</a></span>outputPMV_Bajo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void outputPMV_Bajo </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maneja la entrada al estado PMV_BAJO - condiciones frías. </p>
+<p>Estado activo cuando PMV &lt; -1 (condiciones de frío):</p><ul>
+<li>Activa LED verde con patrón de parpadeo específico</li>
+<li>Inicializa servomotor para control de persianas (cierre)</li>
+<li>Configura movimiento continuo del servomotor (20°-90°)</li>
+<li>Permanece activo por 3 segundos antes de regresar a MONITOR</li>
+</ul>
+<p>@timeout 3000 ms para transición automática </p><dl class="section see"><dt>Ver también</dt><dd><a class="el" href="group__tareas__grupo.html#gae75eb2ac3e3c9bac42e767dac6393359" title="Tarea para parpadeo asíncrono del LED verde.">toggleGreen()</a> </dd>
+<dd>
+<a class="el" href="group__actuadores__grupo.html#ga5fafd22b7f249c280b80241309bbe9d7" title="Tarea asíncrona para control del servomotor.">moverServo()</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00824">824</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  824</span>                      {</div>
+<div class="line"><span class="lineno">  825</span>  <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> = <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a4e81c184ac3ad48a389cd4454c4a05bb">Unknown</a>;</div>
+<div class="line"><span class="lineno">  826</span>  <a class="code hl_function" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a>.SetIntervalMillis(3000);  <span class="comment">// 3 segs hasta monitor si no hay entrada</span></div>
+<div class="line"><span class="lineno">  827</span>  <a class="code hl_function" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a>.Start();</div>
+<div class="line"><span class="lineno">  828</span>  Serial.println(<span class="stringliteral">&quot;Inicio   Config   Monitor   Alarma   PMV_Bajo   PMV_Alto   Bloqueo&quot;</span>);</div>
+<div class="line"><span class="lineno">  829</span>  Serial.println(<span class="stringliteral">&quot;                                        X                         &quot;</span>);</div>
+<div class="line"><span class="lineno">  830</span>  Serial.println();</div>
+<div class="line"><span class="lineno">  831</span> </div>
+<div class="line"><span class="lineno">  832</span>  <a class="code hl_variable" href="group__tareas__grupo.html#ga515ef8202ac1b878bb16cea448ec3758">ledStateGreen</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  833</span>  digitalWrite(<a class="code hl_define" href="group__pines__grupo.html#gaca338dbd19d7940923334629f6e5f3b7">LED_GREEN</a>, LOW);</div>
+<div class="line"><span class="lineno">  834</span>  <a class="code hl_variable" href="group__tareas__grupo.html#ga7770eb34a2eeb2ff5bd41b0d8b39dfc7">lastToggleGreen</a> = millis();</div>
+<div class="line"><span class="lineno">  835</span>  <a class="code hl_function" href="group__tareas__grupo.html#gafe8f90ba92b8e8513fc99081a7cce5ee">TaskLedGreen</a>.Start();</div>
+<div class="line"><span class="lineno">  836</span> </div>
+<div class="line"><span class="lineno">  837</span>  <span class="comment">// Reiniciar posición y dirección del servo</span></div>
+<div class="line"><span class="lineno">  838</span>  <a class="code hl_variable" href="group__hardware__grupo.html#ga79efceea669fb85a732c30f47cf7e59c">servo</a>.attach(<a class="code hl_define" href="group__pines__grupo.html#ga5218f89aa292654356a48989319aafb1">SERVO_PIN</a>);</div>
+<div class="line"><span class="lineno">  839</span>  <a class="code hl_variable" href="sistema__confort__termico_8ino.html#a7520f05cd691de2ef11bb2b9ffff9259">servoPos</a> = 0;</div>
+<div class="line"><span class="lineno">  840</span>  <a class="code hl_variable" href="sistema__confort__termico_8ino.html#a9760bca109bb5cd6f1b9a24854385ad0">servoUp</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  841</span>  <a class="code hl_variable" href="group__hardware__grupo.html#ga79efceea669fb85a732c30f47cf7e59c">servo</a>.write(<a class="code hl_variable" href="sistema__confort__termico_8ino.html#a7520f05cd691de2ef11bb2b9ffff9259">servoPos</a>);</div>
+<div class="line"><span class="lineno">  842</span> </div>
+<div class="line"><span class="lineno">  843</span>  <span class="comment">// Iniciar movimiento asíncrono</span></div>
+<div class="line"><span class="lineno">  844</span>  <a class="code hl_function" href="sistema__confort__termico_8ino.html#a15dee89810d496920bfd1ba815e97426">TaskServo</a>.Start();</div>
+<div class="line"><span class="lineno">  845</span>}</div>
+<div class="ttc" id="agroup__hardware__grupo_html_ga79efceea669fb85a732c30f47cf7e59c"><div class="ttname"><a href="group__hardware__grupo.html#ga79efceea669fb85a732c30f47cf7e59c">servo</a></div><div class="ttdeci">Servo servo</div><div class="ttdoc">Objeto servomotor para control de actuadores mecánicos.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00220">sistema_confort_termico.ino:220</a></div></div>
+<div class="ttc" id="agroup__pines__grupo_html_ga5218f89aa292654356a48989319aafb1"><div class="ttname"><a href="group__pines__grupo.html#ga5218f89aa292654356a48989319aafb1">SERVO_PIN</a></div><div class="ttdeci">#define SERVO_PIN</div><div class="ttdoc">Pin PWM para servomotor SG90 - Control de persianas/ventilación.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00123">sistema_confort_termico.ino:123</a></div></div>
+<div class="ttc" id="agroup__pines__grupo_html_gaca338dbd19d7940923334629f6e5f3b7"><div class="ttname"><a href="group__pines__grupo.html#gaca338dbd19d7940923334629f6e5f3b7">LED_GREEN</a></div><div class="ttdeci">#define LED_GREEN</div><div class="ttdoc">Pin digital para canal verde del LED RGB - Indicador de PMV_BAJO.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00116">sistema_confort_termico.ino:116</a></div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_ga515ef8202ac1b878bb16cea448ec3758"><div class="ttname"><a href="group__tareas__grupo.html#ga515ef8202ac1b878bb16cea448ec3758">ledStateGreen</a></div><div class="ttdeci">bool ledStateGreen</div><div class="ttdoc">Estado actual del LED verde.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00387">sistema_confort_termico.ino:387</a></div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_ga7770eb34a2eeb2ff5bd41b0d8b39dfc7"><div class="ttname"><a href="group__tareas__grupo.html#ga7770eb34a2eeb2ff5bd41b0d8b39dfc7">lastToggleGreen</a></div><div class="ttdeci">unsigned long lastToggleGreen</div><div class="ttdoc">Último tiempo de cambio del LED verde.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00388">sistema_confort_termico.ino:388</a></div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_gafe8f90ba92b8e8513fc99081a7cce5ee"><div class="ttname"><a href="group__tareas__grupo.html#gafe8f90ba92b8e8513fc99081a7cce5ee">TaskLedGreen</a></div><div class="ttdeci">AsyncTask TaskLedGreen(200, true, toggleGreen)</div></div>
+<div class="ttc" id="asistema__confort__termico_8ino_html_a15dee89810d496920bfd1ba815e97426"><div class="ttname"><a href="sistema__confort__termico_8ino.html#a15dee89810d496920bfd1ba815e97426">TaskServo</a></div><div class="ttdeci">AsyncTask TaskServo(15, true, moverServo)</div></div>
+<div class="ttc" id="asistema__confort__termico_8ino_html_a7520f05cd691de2ef11bb2b9ffff9259"><div class="ttname"><a href="sistema__confort__termico_8ino.html#a7520f05cd691de2ef11bb2b9ffff9259">servoPos</a></div><div class="ttdeci">int servoPos</div><div class="ttdoc">Posición actual del servomotor [grados].</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00281">sistema_confort_termico.ino:281</a></div></div>
+<div class="ttc" id="asistema__confort__termico_8ino_html_a9760bca109bb5cd6f1b9a24854385ad0"><div class="ttname"><a href="sistema__confort__termico_8ino.html#a9760bca109bb5cd6f1b9a24854385ad0">servoUp</a></div><div class="ttdeci">bool servoUp</div><div class="ttdoc">Dirección actual del movimiento del servomotor.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00287">sistema_confort_termico.ino:287</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00336">input</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00388">lastToggleGreen</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00116">LED_GREEN</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00387">ledStateGreen</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00220">servo</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00123">SERVO_PIN</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00281">servoPos</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00287">servoUp</a>, <a class="el" href="group__tareas__grupo.html#gafe8f90ba92b8e8513fc99081a7cce5ee">TaskLedGreen()</a>, <a class="el" href="sistema__confort__termico_8ino.html#a15dee89810d496920bfd1ba815e97426">TaskServo()</a>, <a class="el" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00332">Unknown</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00448">setupStateMachine()</a>.</p>
+<div id="dynsection-12" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__estados__grupo_ga02260e7a04347651d07c76eacf47b8b7_cgraph.png" border="0" usemap="#agroup__estados__grupo_ga02260e7a04347651d07c76eacf47b8b7_cgraph" loading="lazy" alt=""/></div>
+<map name="agroup__estados__grupo_ga02260e7a04347651d07c76eacf47b8b7_cgraph" id="agroup__estados__grupo_ga02260e7a04347651d07c76eacf47b8b7_cgraph">
+<area shape="rect" title="Maneja la entrada al estado PMV_BAJO &#45; condiciones frías." alt="" coords="5,56,125,83"/>
+<area shape="rect" href="group__tareas__grupo.html#gafe8f90ba92b8e8513fc99081a7cce5ee" title=" " alt="" coords="173,5,278,32"/>
+<area shape="poly" title=" " alt="" coords="109,53,165,35,167,40,111,58"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a15dee89810d496920bfd1ba815e97426" title=" " alt="" coords="185,56,266,83"/>
+<area shape="poly" title=" " alt="" coords="125,67,169,67,169,72,125,72"/>
+<area shape="rect" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e" title=" " alt="" coords="187,107,264,133"/>
+<area shape="poly" title=" " alt="" coords="111,81,173,101,171,106,109,86"/>
+<area shape="rect" href="group__tareas__grupo.html#gae75eb2ac3e3c9bac42e767dac6393359" title="Tarea para parpadeo asíncrono del LED verde." alt="" coords="326,5,417,32"/>
+<area shape="poly" title=" " alt="" coords="279,25,311,25,310,30,279,30"/>
+<area shape="poly" title=" " alt="" coords="326,13,294,12,294,7,326,8"/>
+<area shape="rect" href="group__actuadores__grupo.html#ga5fafd22b7f249c280b80241309bbe9d7" title="Tarea asíncrona para control del servomotor." alt="" coords="328,56,415,83"/>
+<area shape="poly" title=" " alt="" coords="266,67,313,67,313,72,266,72"/>
+<area shape="rect" href="group__tareas__grupo.html#ga253c50d22391b4a847c214fe6aa3bd29" title="Tarea de temporizador principal del sistema." alt="" coords="338,107,405,133"/>
+<area shape="poly" title=" " alt="" coords="264,117,323,117,323,123,264,123"/>
+</map>
+</div>
+<div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__estados__grupo_ga02260e7a04347651d07c76eacf47b8b7_icgraph.png" border="0" usemap="#agroup__estados__grupo_ga02260e7a04347651d07c76eacf47b8b7_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__estados__grupo_ga02260e7a04347651d07c76eacf47b8b7_icgraph" id="agroup__estados__grupo_ga02260e7a04347651d07c76eacf47b8b7_icgraph">
+<area shape="rect" title="Maneja la entrada al estado PMV_BAJO &#45; condiciones frías." alt="" coords="288,5,407,32"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="107,5,240,32"/>
+<area shape="poly" title=" " alt="" coords="272,21,241,21,241,16,272,16"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Función de inicialización del sistema Arduino." alt="" coords="5,5,59,32"/>
+<area shape="poly" title=" " alt="" coords="91,21,59,21,59,16,91,16"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generado el <span class="timestamp"></span> para Sistema de Confort Térmico Inteligente v3.1 por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

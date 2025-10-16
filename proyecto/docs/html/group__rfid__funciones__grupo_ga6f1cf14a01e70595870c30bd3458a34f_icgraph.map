@@ -1,0 +1,5 @@
+<map id="handleConfigRFID" name="handleConfigRFID">
+<area shape="rect" id="Node000001" title="Maneja la configuración de tarjetas RFID en estado CONFIG." alt="" coords="99,5,223,32"/>
+<area shape="rect" id="Node000002" href="$sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="5,5,51,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,21,51,21,51,16,83,16"/>
+</map>

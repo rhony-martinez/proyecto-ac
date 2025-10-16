@@ -1,0 +1,24 @@
+<map id="checkPMV" name="checkPMV">
+<area shape="rect" id="Node000001" title="Verifica cálculo PMV y determina transiciones desde estado MONITOR." alt="" coords="5,157,91,184"/>
+<area shape="rect" id="Node000002" href="$group__pmv__grupo.html#ga010b0d3e4b1c2eb39075406703487960" title="Calcula el índice PMV (Predicted Mean Vote) usando modelo de Fanger." alt="" coords="139,56,281,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,155,93,124,137,92,148,87,150,92,140,97,97,128,64,159"/>
+<area shape="rect" id="Node000006" href="$group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2" title="Objeto LCD para display 16x2 con configuración de pines." alt="" coords="191,107,229,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="90,155,175,128,177,133,92,160"/>
+<area shape="rect" id="Node000007" href="$group__auxiliares__grupo.html#ga6488153c8ee9b1f1a7ef5db4ff81ca88" title="Lee y procesa datos de todos los sensores del sistema." alt="" coords="161,157,259,184"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="91,168,146,168,146,173,91,173"/>
+<area shape="rect" id="Node000009" href="$group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d" title="Instancia de máquina de estados con 7 estados y 11 transiciones." alt="" coords="521,233,621,260"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="92,181,139,193,239,211,339,224,506,240,506,245,339,229,238,216,138,199,91,187"/>
+<area shape="rect" id="Node000010" href="$group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e" title=" " alt="" coords="171,259,249,285"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="67,183,100,210,140,238,161,249,159,254,137,242,96,214,63,187"/>
+<area shape="rect" id="Node000003" href="$group__pmv__grupo.html#ga0c0597b90e05b7eb8c2808f644c95a61" title="Calcula el factor de superficie de la ropa." alt="" coords="359,5,443,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="263,53,344,31,345,36,264,58"/>
+<area shape="rect" id="Node000004" href="$group__pmv__grupo.html#ga7ed73e40dd21909dc5922b342cdbe0c9" title="Calcula el coeficiente de transferencia de calor por convección." alt="" coords="360,56,442,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="281,67,345,67,345,72,281,72"/>
+<area shape="rect" id="Node000005" href="$group__pmv__grupo.html#ga9c12005928a2d38bbbe11e7e703b5007" title="Calcula la presión parcial de vapor de agua en el aire." alt="" coords="329,107,473,133"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="264,81,334,100,333,105,263,86"/>
+<area shape="rect" id="Node000008" href="$group__hardware__grupo.html#gad7a1df263f6f823242a112ec11297434" title="Objeto sensor DHT11 para medición de temperatura y humedad." alt="" coords="382,157,421,184"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="259,168,366,168,366,173,259,173"/>
+<area shape="rect" id="Node000011" href="$group__tareas__grupo.html#ga253c50d22391b4a847c214fe6aa3bd29" title="Tarea de temporizador principal del sistema." alt="" coords="368,259,435,285"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="249,269,352,269,352,275,249,275"/>
+<area shape="poly" id="edge11_Node000011_Node000009" title=" " alt="" coords="435,264,506,254,507,259,436,270"/>
+</map>

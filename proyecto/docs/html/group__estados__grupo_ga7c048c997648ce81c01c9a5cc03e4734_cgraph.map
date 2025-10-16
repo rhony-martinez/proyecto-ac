@@ -1,0 +1,16 @@
+<map id="outputPMV_Alto" name="outputPMV_Alto">
+<area shape="rect" id="Node000001" title="Maneja la entrada al estado PMV_ALTO &#45; condiciones cálidas." alt="" coords="5,81,122,108"/>
+<area shape="rect" id="Node000002" href="$group__hardware__grupo.html#gad7a1df263f6f823242a112ec11297434" title="Objeto sensor DHT11 para medición de temperatura y humedad." alt="" coords="198,5,238,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,78,183,32,186,37,94,83"/>
+<area shape="rect" id="Node000003" href="$group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2" title="Objeto LCD para display 16x2 con configuración de pines." alt="" coords="199,56,237,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="122,82,183,72,184,78,123,88"/>
+<area shape="rect" id="Node000004" href="$group__tareas__grupo.html#ga068cb3aabb9b1e22d9a355f196ab8e89" title=" " alt="" coords="170,107,266,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="123,102,155,107,154,112,122,107"/>
+<area shape="rect" id="Node000006" href="$group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e" title=" " alt="" coords="179,157,257,184"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="94,106,177,148,174,153,91,111"/>
+<area shape="rect" id="Node000005" href="$group__tareas__grupo.html#ga21dc7f71020a2ca4e192c5561dc5b8bb" title="Tarea para parpadeo asíncrono del LED azul." alt="" coords="314,107,396,133"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="267,126,298,126,298,132,267,131"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="313,114,282,114,282,108,314,109"/>
+<area shape="rect" id="Node000007" href="$group__tareas__grupo.html#ga253c50d22391b4a847c214fe6aa3bd29" title="Tarea de temporizador principal del sistema." alt="" coords="322,157,389,184"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="257,168,306,168,306,173,257,173"/>
+</map>

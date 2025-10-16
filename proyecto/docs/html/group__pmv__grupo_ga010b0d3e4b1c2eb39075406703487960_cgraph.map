@@ -1,0 +1,9 @@
+<map id="calcularPMV_Fanger" name="calcularPMV_Fanger">
+<area shape="rect" id="Node000001" title="Calcula el índice PMV (Predicted Mean Vote) usando modelo de Fanger." alt="" coords="5,56,148,83"/>
+<area shape="rect" id="Node000002" href="$group__pmv__grupo.html#ga0c0597b90e05b7eb8c2808f644c95a61" title="Calcula el factor de superficie de la ropa." alt="" coords="226,5,310,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,53,210,31,212,36,131,58"/>
+<area shape="rect" id="Node000003" href="$group__pmv__grupo.html#ga7ed73e40dd21909dc5922b342cdbe0c9" title="Calcula el coeficiente de transferencia de calor por convección." alt="" coords="227,56,309,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,67,211,67,211,72,148,72"/>
+<area shape="rect" id="Node000004" href="$group__pmv__grupo.html#ga9c12005928a2d38bbbe11e7e703b5007" title="Calcula la presión parcial de vapor de agua en el aire." alt="" coords="196,107,340,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="131,81,201,100,199,105,129,86"/>
+</map>

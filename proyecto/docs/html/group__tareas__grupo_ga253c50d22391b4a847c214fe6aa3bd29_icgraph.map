@@ -1,0 +1,26 @@
+<map id="runTime" name="runTime">
+<area shape="rect" id="Node000001" title="Tarea de temporizador principal del sistema." alt="" coords="438,208,506,235"/>
+<area shape="rect" id="Node000002" href="$group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e" title=" " alt="" coords="313,208,390,235"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="423,224,391,224,391,219,423,219"/>
+<area shape="rect" id="Node000003" href="$group__verificacion__grupo.html#gaec3d803c0bdc0d568fd8ebb776f93dd6" title="Verifica cálculo PMV y determina transiciones desde estado MONITOR." alt="" coords="160,5,246,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="340,194,312,125,290,87,263,53,238,35,241,30,267,49,295,84,317,123,345,192"/>
+<area shape="rect" id="Node000004" href="$sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="26,56,72,83"/>
+<area shape="poly" id="edge6_Node000002_Node000004" title=" " alt="" coords="338,195,309,143,289,117,264,97,240,85,214,76,160,67,111,66,72,69,72,64,110,61,161,62,215,71,242,80,266,92,293,114,314,140,342,192"/>
+<area shape="rect" id="Node000005" href="$group__rfid__funciones__grupo.html#ga6f1cf14a01e70595870c30bd3458a34f" title="Maneja la configuración de tarjetas RFID en estado CONFIG." alt="" coords="141,107,265,133"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="325,199,297,172,264,148,242,136,244,132,266,143,300,168,329,195"/>
+<area shape="rect" id="Node000006" href="$group__estados__grupo.html#ga3d20408bd7a9ca8c795fc543454b4e2d" title="Maneja la entrada al estado CONFIG &#45; configuración del sistema y RFID." alt="" coords="156,157,250,184"/>
+<area shape="poly" id="edge7_Node000002_Node000006" title=" " alt="" coords="297,206,243,187,245,182,299,201"/>
+<area shape="rect" id="Node000009" href="$group__estados__grupo.html#ga390833d0072e6440c9707a25c053dfb3" title="Maneja la entrada al estado INICIO &#45; autenticación de usuario." alt="" coords="5,309,93,336"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="298,222,222,228,181,236,142,249,118,262,96,279,63,311,60,307,93,275,115,258,140,244,179,231,221,222,297,217"/>
+<area shape="rect" id="Node000010" href="$group__estados__grupo.html#gac6e2aedfa62714338c55314abed3975a" title="Maneja la entrada al estado MONITOR &#45; monitoreo principal." alt="" coords="153,259,253,285"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="299,242,245,261,243,256,297,237"/>
+<area shape="rect" id="Node000011" href="$group__estados__grupo.html#ga7c048c997648ce81c01c9a5cc03e4734" title="Maneja la entrada al estado PMV_ALTO &#45; condiciones cálidas." alt="" coords="145,309,261,336"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="329,248,300,274,266,300,244,311,242,306,264,295,297,270,325,244"/>
+<area shape="rect" id="Node000012" href="$group__estados__grupo.html#ga02260e7a04347651d07c76eacf47b8b7" title="Maneja la entrada al estado PMV_BAJO &#45; condiciones frías." alt="" coords="143,360,263,387"/>
+<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="340,250,311,300,290,327,267,350,248,362,245,357,263,346,286,323,306,297,336,247"/>
+<area shape="rect" id="Node000013" href="$group__auxiliares__grupo.html#ga451fb754ff1057f95e36210846ea0aca" title="Lee la contraseña del keypad con feedback visual en LCD." alt="" coords="151,411,255,437"/>
+<area shape="poly" id="edge12_Node000002_Node000013" title=" " alt="" coords="346,250,336,284,319,324,297,365,267,401,250,412,247,408,263,397,292,362,314,322,331,282,341,248"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="146,40,73,64,71,59,144,35"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="144,104,71,79,73,74,146,99"/>
+<area shape="poly" id="edge13_Node000013_Node000009" title=" " alt="" coords="148,406,139,401,96,369,62,338,66,335,99,365,142,396,151,401"/>
+</map>

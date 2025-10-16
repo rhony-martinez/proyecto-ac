@@ -1,0 +1,10 @@
+<map id="TaskBuzzer" name="TaskBuzzer">
+<area shape="rect" id="Node000001" title=" " alt="" coords="333,56,423,83"/>
+<area shape="rect" id="Node000002" href="$sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="213,5,259,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="323,53,258,29,260,24,325,48"/>
+<area shape="rect" id="Node000003" href="$group__estados__grupo.html#gaab9c5b060d49c9eae5717f5303a1984d" title="Maneja la entrada al estado ALARMA &#45; condiciones críticas." alt="" coords="187,56,285,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="317,72,285,72,285,67,317,67"/>
+<area shape="rect" id="Node000004" href="$sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="5,81,139,108"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="322,90,285,97,210,103,139,102,139,97,209,97,285,92,321,85"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="171,82,139,87,139,82,171,77"/>
+</map>

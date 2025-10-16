@@ -1,0 +1,9 @@
+<map id="mfrc522" name="mfrc522">
+<area shape="rect" id="Node000001" title="Instancia del lector RFID MFRC522." alt="" coords="271,31,338,57"/>
+<area shape="rect" id="Node000002" href="$group__rfid__funciones__grupo.html#ga6f1cf14a01e70595870c30bd3458a34f" title="Maneja la configuración de tarjetas RFID en estado CONFIG." alt="" coords="99,5,223,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="255,38,223,32,224,27,256,33"/>
+<area shape="rect" id="Node000004" href="$sistema__confort__termico_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Función de inicialización del sistema Arduino." alt="" coords="134,56,188,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="256,55,189,67,188,62,255,50"/>
+<area shape="rect" id="Node000003" href="$sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="5,5,51,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="83,21,51,21,51,16,83,16"/>
+</map>

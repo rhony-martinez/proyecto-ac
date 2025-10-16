@@ -1,0 +1,23 @@
+<map id="sistema_confort_termico.ino" name="sistema_confort_termico.ino">
+<area shape="rect" id="Node000001" title="Sistema de Confort Térmico Inteligente con Actuadores Complejos y RFID." alt="" coords="506,5,690,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,135,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="506,34,151,82,150,77,505,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="158,80,273,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="531,35,288,81,287,76,530,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="296,80,404,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="556,35,409,78,407,73,554,30"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="428,80,504,107"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="576,35,503,75,501,70,574,30"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="528,80,585,107"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="593,34,574,68,569,65,588,31"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="610,80,671,107"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="608,31,628,65,623,68,603,34"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="695,80,760,107"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="622,30,693,70,690,74,619,35"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="783,80,837,107"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="636,30,769,75,768,80,634,35"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="861,80,951,107"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="653,30,846,75,845,81,651,35"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="975,80,1064,107"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="682,30,960,77,959,82,682,35"/>
+</map>

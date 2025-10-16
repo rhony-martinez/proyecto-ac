@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Confort Térmico Inteligente v3.1: Configuración Sistema RFID</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Confort Térmico Inteligente v3.1<span id="projectnumber">&#160;3.1 - 2025</span>
+   </div>
+   <div id="projectbrief">Sistema FSM avanzado con PMV, RFID y actuadores completos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('group__rfid__grupo.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Configuración Sistema RFID </div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:ga5042e4273edacf8236d70f393cee4c8e" id="r_ga5042e4273edacf8236d70f393cee4c8e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5042e4273edacf8236d70f393cee4c8e">MAX_UID_LENGTH</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:ga5042e4273edacf8236d70f393cee4c8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Longitud máxima UID RFID (4, 7 o 10 bytes)  <br /></td></tr>
+<tr class="memitem:gae43c74733b6ab324d038bd944c35ded9" id="r_gae43c74733b6ab324d038bd944c35ded9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae43c74733b6ab324d038bd944c35ded9">NAME_MAX_LENGTH</a>&#160;&#160;&#160;16</td></tr>
+<tr class="memdesc:gae43c74733b6ab324d038bd944c35ded9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Longitud máxima nombre por tarjeta.  <br /></td></tr>
+<tr class="memitem:gaf9fedaf1e9f864ee9393b80201ce6465" id="r_gaf9fedaf1e9f864ee9393b80201ce6465"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf9fedaf1e9f864ee9393b80201ce6465">RECORD_SIZE</a>&#160;&#160;&#160;(1 + <a class="el" href="#ga5042e4273edacf8236d70f393cee4c8e">MAX_UID_LENGTH</a> + <a class="el" href="#gae43c74733b6ab324d038bd944c35ded9">NAME_MAX_LENGTH</a>)</td></tr>
+<tr class="memdesc:gaf9fedaf1e9f864ee9393b80201ce6465"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tamaño registro EEPROM: [len][UID][nombre].  <br /></td></tr>
+<tr class="memitem:ga475c77257e5782fb60199a7d12a7e53f" id="r_ga475c77257e5782fb60199a7d12a7e53f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga475c77257e5782fb60199a7d12a7e53f">MAX_RECORDS</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:ga475c77257e5782fb60199a7d12a7e53f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Número máximo de tarjetas registrables.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:gac672f817299d07cc428fe3f456235273" id="r_gac672f817299d07cc428fe3f456235273"><td class="memItemLeft" align="right" valign="top">MFRC522&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac672f817299d07cc428fe3f456235273">mfrc522</a> (<a class="el" href="group__pines__grupo.html#ga86fac98c9b4c98a3e50fc45440878391">SS_PIN</a>, <a class="el" href="group__pines__grupo.html#ga36932b0e869e0114f32e255f61306d6b">RST_PIN</a>)</td></tr>
+<tr class="memdesc:gac672f817299d07cc428fe3f456235273"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instancia del lector RFID MFRC522.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga2f54f8fd2124e16b981df13b383e1232" id="r_ga2f54f8fd2124e16b981df13b383e1232"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2f54f8fd2124e16b981df13b383e1232">nombre</a> [<a class="el" href="#gae43c74733b6ab324d038bd944c35ded9">NAME_MAX_LENGTH</a>]</td></tr>
+<tr class="memdesc:ga2f54f8fd2124e16b981df13b383e1232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer para almacenar nombre de usuario de tarjeta RFID.  <br /></td></tr>
+<tr class="memitem:ga0c0bf35d8dd60fa5bf86b5abfb1a9241" id="r_ga0c0bf35d8dd60fa5bf86b5abfb1a9241"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0c0bf35d8dd60fa5bf86b5abfb1a9241">tarjetaProcesada</a> = false</td></tr>
+<tr class="memdesc:ga0c0bf35d8dd60fa5bf86b5abfb1a9241"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag para controlar procesamiento único de tarjeta en estado CONFIG.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descripción detallada</h2>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Documentación de «define»</h2>
+<a id="ga475c77257e5782fb60199a7d12a7e53f" name="ga475c77257e5782fb60199a7d12a7e53f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga475c77257e5782fb60199a7d12a7e53f">&#9670;&#160;</a></span>MAX_RECORDS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_RECORDS&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Número máximo de tarjetas registrables. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00150">150</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01131">findUIDInEEPROM()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l01236">printEEPROMRecords()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l01196">saveUIDAndName()</a>.</p>
+
+</div>
+</div>
+<a id="ga5042e4273edacf8236d70f393cee4c8e" name="ga5042e4273edacf8236d70f393cee4c8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5042e4273edacf8236d70f393cee4c8e">&#9670;&#160;</a></span>MAX_UID_LENGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_UID_LENGTH&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Longitud máxima UID RFID (4, 7 o 10 bytes) </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00147">147</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01236">printEEPROMRecords()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l01171">readNameFromEEPROM()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l01196">saveUIDAndName()</a>.</p>
+
+</div>
+</div>
+<a id="gae43c74733b6ab324d038bd944c35ded9" name="gae43c74733b6ab324d038bd944c35ded9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae43c74733b6ab324d038bd944c35ded9">&#9670;&#160;</a></span>NAME_MAX_LENGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NAME_MAX_LENGTH&#160;&#160;&#160;16</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Longitud máxima nombre por tarjeta. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00148">148</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01290">handleConfigRFID()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l01236">printEEPROMRecords()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l01196">saveUIDAndName()</a>.</p>
+
+</div>
+</div>
+<a id="gaf9fedaf1e9f864ee9393b80201ce6465" name="gaf9fedaf1e9f864ee9393b80201ce6465"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf9fedaf1e9f864ee9393b80201ce6465">&#9670;&#160;</a></span>RECORD_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RECORD_SIZE&#160;&#160;&#160;(1 + <a class="el" href="#ga5042e4273edacf8236d70f393cee4c8e">MAX_UID_LENGTH</a> + <a class="el" href="#gae43c74733b6ab324d038bd944c35ded9">NAME_MAX_LENGTH</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tamaño registro EEPROM: [len][UID][nombre]. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00149">149</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01131">findUIDInEEPROM()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l01236">printEEPROMRecords()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l01196">saveUIDAndName()</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentación de funciones</h2>
+<a id="gac672f817299d07cc428fe3f456235273" name="gac672f817299d07cc428fe3f456235273"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac672f817299d07cc428fe3f456235273">&#9670;&#160;</a></span>mfrc522()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MFRC522 mfrc522 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__pines__grupo.html#ga86fac98c9b4c98a3e50fc45440878391">SS_PIN</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__pines__grupo.html#ga36932b0e869e0114f32e255f61306d6b">RST_PIN</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Instancia del lector RFID MFRC522. </p>
+
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00129">RST_PIN</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00128">SS_PIN</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01290">handleConfigRFID()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00537">setup()</a>.</p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__rfid__grupo_gac672f817299d07cc428fe3f456235273_icgraph.png" border="0" usemap="#agroup__rfid__grupo_gac672f817299d07cc428fe3f456235273_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__rfid__grupo_gac672f817299d07cc428fe3f456235273_icgraph" id="agroup__rfid__grupo_gac672f817299d07cc428fe3f456235273_icgraph">
+<area shape="rect" title="Instancia del lector RFID MFRC522." alt="" coords="271,31,338,57"/>
+<area shape="rect" href="group__rfid__funciones__grupo.html#ga6f1cf14a01e70595870c30bd3458a34f" title="Maneja la configuración de tarjetas RFID en estado CONFIG." alt="" coords="99,5,223,32"/>
+<area shape="poly" title=" " alt="" coords="255,38,223,32,224,27,256,33"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Función de inicialización del sistema Arduino." alt="" coords="134,56,188,83"/>
+<area shape="poly" title=" " alt="" coords="256,55,189,67,188,62,255,50"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="5,5,51,32"/>
+<area shape="poly" title=" " alt="" coords="83,21,51,21,51,16,83,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentación de variables</h2>
+<a id="ga2f54f8fd2124e16b981df13b383e1232" name="ga2f54f8fd2124e16b981df13b383e1232"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2f54f8fd2124e16b981df13b383e1232">&#9670;&#160;</a></span>nombre</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char nombre[<a class="el" href="#gae43c74733b6ab324d038bd944c35ded9">NAME_MAX_LENGTH</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Buffer para almacenar nombre de usuario de tarjeta RFID. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00155">155</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01290">handleConfigRFID()</a>.</p>
+
+</div>
+</div>
+<a id="ga0c0bf35d8dd60fa5bf86b5abfb1a9241" name="ga0c0bf35d8dd60fa5bf86b5abfb1a9241"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0c0bf35d8dd60fa5bf86b5abfb1a9241">&#9670;&#160;</a></span>tarjetaProcesada</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tarjetaProcesada = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Flag para controlar procesamiento único de tarjeta en estado CONFIG. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l00160">160</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l01290">handleConfigRFID()</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00696">outputConfig()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generado el <span class="timestamp"></span> para Sistema de Confort Térmico Inteligente v3.1 por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<map id="toggleBlue" name="toggleBlue">
+<area shape="rect" id="Node000001" title="Tarea para parpadeo asíncrono del LED azul." alt="" coords="335,56,417,83"/>
+<area shape="rect" id="Node000002" href="$group__tareas__grupo.html#ga068cb3aabb9b1e22d9a355f196ab8e89" title=" " alt="" coords="191,56,287,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="319,81,288,81,288,75,319,76"/>
+<area shape="poly" id="edge5_Node000002_Node000001" title=" " alt="" coords="303,58,334,58,334,64,303,63"/>
+<area shape="rect" id="Node000003" href="$sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="51,5,97,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="178,53,96,28,98,23,179,48"/>
+<area shape="rect" id="Node000004" href="$sistema__confort__termico_8ino.html#acc9f02a17298f2a9fd2973d52572e986" title="Maneja la salida del estado PMV_ALTO &#45; limpieza de recursos." alt="" coords="5,56,143,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="175,72,143,72,143,67,175,67"/>
+<area shape="rect" id="Node000007" href="$group__estados__grupo.html#ga7c048c997648ce81c01c9a5cc03e4734" title="Maneja la entrada al estado PMV_ALTO &#45; condiciones cálidas." alt="" coords="16,107,132,133"/>
+<area shape="poly" id="edge4_Node000002_Node000007" title=" " alt="" coords="179,90,121,109,119,104,178,85"/>
+</map>

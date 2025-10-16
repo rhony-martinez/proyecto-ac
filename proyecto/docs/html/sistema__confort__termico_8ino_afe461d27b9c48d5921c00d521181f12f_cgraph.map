@@ -1,0 +1,61 @@
+<map id="loop" name="loop">
+<area shape="rect" id="Node000001" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="5,286,51,313"/>
+<area shape="rect" id="Node000002" href="$group__auxiliares__grupo.html#gaad5c2beac548774ab4b7b6f10afd2c64" title="Verifica entrada de desbloqueo en estado BLOQUEO." alt="" coords="109,58,213,85"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="28,286,32,249,43,198,64,144,79,118,97,95,100,92,104,96,101,99,83,121,69,146,49,200,37,250,33,286"/>
+<area shape="rect" id="Node000003" href="$group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d" title="Instancia de máquina de estados con 7 estados y 11 transiciones." alt="" coords="305,8,404,34"/>
+<area shape="poly" id="edge20_Node000001_Node000003" title=" " alt="" coords="28,286,50,160,71,90,83,62,97,44,118,29,142,18,192,6,243,3,290,6,289,12,243,8,193,11,144,23,121,34,101,48,87,65,76,91,56,161,34,287"/>
+<area shape="rect" id="Node000004" href="$group__verificacion__grupo.html#gacbdcb2026ed2ede5d841e375f2d860d3" title="Detecta movimiento con sensor PIR para desactivar alarma." alt="" coords="100,109,222,136"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="29,285,50,220,69,181,97,146,101,142,104,146,101,150,74,183,55,222,35,287"/>
+<area shape="rect" id="Node000005" href="$group__verificacion__grupo.html#gaec3d803c0bdc0d568fd8ebb776f93dd6" title="Verifica cálculo PMV y determina transiciones desde estado MONITOR." alt="" coords="118,160,204,186"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="34,284,59,245,97,203,112,192,115,196,100,207,64,249,39,287"/>
+<area shape="rect" id="Node000013" href="$group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e" title=" " alt="" coords="316,210,393,237"/>
+<area shape="poly" id="edge34_Node000001_Node000013" title=" " alt="" coords="42,284,66,264,98,247,150,231,204,222,300,218,301,224,205,228,151,236,100,251,69,268,45,288"/>
+<area shape="rect" id="Node000015" href="$group__rfid__funciones__grupo.html#ga6f1cf14a01e70595870c30bd3458a34f" title="Maneja la configuración de tarjetas RFID en estado CONFIG." alt="" coords="99,261,223,288"/>
+<area shape="poly" id="edge11_Node000001_Node000015" title=" " alt="" coords="50,293,83,287,84,292,51,298"/>
+<area shape="rect" id="Node000020" href="$group__auxiliares__grupo.html#ga60fb856dfde931eb206fe822fd5aba1c" title="Lee entrada del usuario desde el puerto serial." alt="" coords="107,312,215,338"/>
+<area shape="poly" id="edge19_Node000001_Node000020" title=" " alt="" coords="51,301,92,309,91,314,50,306"/>
+<area shape="rect" id="Node000021" href="$sistema__confort__termico_8ino.html#aeaef1f2203865f944eb917d96e5f9020" title=" " alt="" coords="116,413,206,440"/>
+<area shape="poly" id="edge21_Node000001_Node000021" title=" " alt="" coords="45,311,136,400,132,404,41,315"/>
+<area shape="rect" id="Node000023" href="$group__tareas__grupo.html#ga068cb3aabb9b1e22d9a355f196ab8e89" title=" " alt="" coords="113,514,209,541"/>
+<area shape="poly" id="edge23_Node000001_Node000023" title=" " alt="" coords="37,313,62,374,101,450,139,501,135,504,96,453,57,376,32,315"/>
+<area shape="rect" id="Node000025" href="$group__tareas__grupo.html#gafe8f90ba92b8e8513fc99081a7cce5ee" title=" " alt="" coords="108,565,214,592"/>
+<area shape="poly" id="edge26_Node000001_Node000025" title=" " alt="" coords="32,313,34,358,43,421,63,490,80,522,101,551,103,554,99,557,97,555,75,525,58,492,37,422,28,358,26,313"/>
+<area shape="rect" id="Node000027" href="$group__tareas__grupo.html#gaeb5ed948d82a3adfc0af3dbcf877c0c2" title=" " alt="" coords="114,616,208,642"/>
+<area shape="poly" id="edge29_Node000001_Node000027" title=" " alt="" coords="33,313,55,461,75,546,87,579,101,602,103,605,100,609,97,605,83,581,70,547,50,462,28,314"/>
+<area shape="rect" id="Node000029" href="$sistema__confort__termico_8ino.html#a15dee89810d496920bfd1ba815e97426" title=" " alt="" coords="120,666,202,693"/>
+<area shape="poly" id="edge32_Node000001_Node000029" title=" " alt="" coords="33,313,39,384,52,485,73,586,86,626,101,653,109,660,105,664,97,656,81,628,67,587,47,486,34,384,28,314"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="212,56,289,35,290,40,214,61"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="201,106,221,95,236,82,245,70,254,57,270,44,289,34,292,39,272,49,258,61,249,73,240,86,225,99,203,111"/>
+<area shape="poly" id="edge9_Node000005_Node000003" title=" " alt="" coords="202,158,221,146,238,121,244,96,250,70,257,57,269,44,289,32,292,36,273,48,262,60,255,72,249,97,243,123,225,150,205,163"/>
+<area shape="rect" id="Node000006" href="$group__pmv__grupo.html#ga010b0d3e4b1c2eb39075406703487960" title="Calcula el índice PMV (Predicted Mean Vote) usando modelo de Fanger." alt="" coords="284,58,426,85"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="201,157,221,145,236,133,245,120,254,108,270,95,279,89,282,94,272,99,258,111,249,123,240,136,225,150,203,162"/>
+<area shape="rect" id="Node000010" href="$group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2" title="Objeto LCD para display 16x2 con configuración de pines." alt="" coords="335,160,374,186"/>
+<area shape="poly" id="edge7_Node000005_Node000010" title=" " alt="" coords="204,170,320,170,320,176,204,176"/>
+<area shape="rect" id="Node000011" href="$group__auxiliares__grupo.html#ga6488153c8ee9b1f1a7ef5db4ff81ca88" title="Lee y procesa datos de todos los sensores del sistema." alt="" coords="306,109,403,136"/>
+<area shape="poly" id="edge8_Node000005_Node000011" title=" " alt="" coords="203,159,290,136,291,142,205,164"/>
+<area shape="poly" id="edge10_Node000005_Node000013" title=" " alt="" coords="205,182,301,207,300,212,203,187"/>
+<area shape="poly" id="edge17_Node000015_Node000003" title=" " alt="" coords="174,259,198,231,221,197,230,175,235,155,238,117,244,82,254,63,269,44,289,31,292,35,273,48,258,66,250,83,243,118,240,156,235,177,225,200,202,234,178,262"/>
+<area shape="poly" id="edge13_Node000015_Node000010" title=" " alt="" coords="177,258,218,227,270,196,319,178,321,183,272,201,221,232,180,263"/>
+<area shape="poly" id="edge18_Node000015_Node000013" title=" " alt="" coords="214,258,301,235,302,240,216,263"/>
+<area shape="rect" id="Node000016" href="$group__rfid__funciones__grupo.html#ga94702e19ac21bf3b8395bd8f2dfa2f4a" title="Busca un UID en la memoria EEPROM." alt="" coords="290,362,419,389"/>
+<area shape="poly" id="edge12_Node000015_Node000016" title=" " alt="" coords="203,286,225,297,240,311,249,324,258,336,272,348,282,353,279,358,270,353,254,340,245,327,236,314,221,302,201,290"/>
+<area shape="rect" id="Node000017" href="$group__rfid__grupo.html#gac672f817299d07cc428fe3f456235273" title="Instancia del lector RFID MFRC522." alt="" coords="321,413,388,440"/>
+<area shape="poly" id="edge14_Node000015_Node000017" title=" " alt="" coords="208,286,225,298,243,324,249,350,255,375,262,387,273,399,289,409,307,416,305,421,286,414,269,403,257,390,250,377,244,352,238,326,221,302,205,290"/>
+<area shape="rect" id="Node000018" href="$group__rfid__funciones__grupo.html#ga90c02d6c0d88a9d7c56347bd2b1ba6d7" title="Lee el nombre asociado a un registro desde EEPROM." alt="" coords="271,261,438,288"/>
+<area shape="poly" id="edge15_Node000015_Node000018" title=" " alt="" coords="223,272,256,272,256,277,223,277"/>
+<area shape="rect" id="Node000019" href="$group__rfid__funciones__grupo.html#gadc38582f256dac9b7b764d9526137b39" title="Guarda un nuevo UID y nombre en EEPROM." alt="" coords="292,312,417,338"/>
+<area shape="poly" id="edge16_Node000015_Node000019" title=" " alt="" coords="216,286,287,305,286,310,214,291"/>
+<area shape="rect" id="Node000022" href="$group__actuadores__grupo.html#ga61e006dee30fabbb8d28229f5e593a63" title="Tarea asíncrona para control del buzzer." alt="" coords="306,464,403,490"/>
+<area shape="poly" id="edge22_Node000021_Node000022" title=" " alt="" coords="207,436,291,458,290,463,206,441"/>
+<area shape="rect" id="Node000024" href="$group__tareas__grupo.html#ga21dc7f71020a2ca4e192c5561dc5b8bb" title="Tarea para parpadeo asíncrono del LED azul." alt="" coords="314,514,396,541"/>
+<area shape="poly" id="edge24_Node000023_Node000024" title=" " alt="" coords="209,533,298,533,298,539,209,538"/>
+<area shape="poly" id="edge25_Node000024_Node000023" title=" " alt="" coords="313,523,225,522,225,517,313,518"/>
+<area shape="rect" id="Node000026" href="$group__tareas__grupo.html#gae75eb2ac3e3c9bac42e767dac6393359" title="Tarea para parpadeo asíncrono del LED verde." alt="" coords="309,565,400,592"/>
+<area shape="poly" id="edge27_Node000025_Node000026" title=" " alt="" coords="214,584,293,584,293,589,214,589"/>
+<area shape="poly" id="edge28_Node000026_Node000025" title=" " alt="" coords="309,573,229,572,229,567,309,568"/>
+<area shape="rect" id="Node000028" href="$group__tareas__grupo.html#ga4fb27879b90fd24b957b6b6a358737af" title="Tarea para parpadeo asíncrono del LED rojo." alt="" coords="315,616,394,642"/>
+<area shape="poly" id="edge30_Node000027_Node000028" title=" " alt="" coords="208,634,299,635,299,640,208,639"/>
+<area shape="poly" id="edge31_Node000028_Node000027" title=" " alt="" coords="314,624,223,623,223,618,314,619"/>
+<area shape="rect" id="Node000030" href="$group__actuadores__grupo.html#ga5fafd22b7f249c280b80241309bbe9d7" title="Tarea asíncrona para control del servomotor." alt="" coords="311,666,398,693"/>
+<area shape="poly" id="edge33_Node000029_Node000030" title=" " alt="" coords="202,677,295,677,295,682,202,682"/>
+</map>
