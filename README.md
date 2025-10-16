@@ -23,6 +23,46 @@ En función de las condiciones detectadas, el sistema activa actuadores (ventila
 
 ---
 
+# Documentación del Sistema de Confort Térmico
+
+## Acceso a la Documentación
+
+### Opción 1: Documentación Pre-generada (Recomendada)
+
+La documentación ya se encuentra generada y disponible para visualización inmediata:
+
+1. Navegue a la carpeta docs/html/ dentro del proyecto
+2. Abra el archivo index.html con cualquier navegador web
+3. Explore la documentación completa con navegación, búsqueda y diagramas
+
+### Opción 2: Generar Documentación desde Código Fuente
+
+Si prefiere generar la documentación nuevamente:
+
+1. Descargue los archivos:
+   - sistema_confort_termico.ino (código con documentación Doxygen)
+   - Doxyfile (configuración de documentación)
+
+2. Ejecute en la línea de comandos:
+   
+   doxygen Doxyfile
+   
+
+3. La documentación se generará en la carpeta docs/html/
+4. Abra index.html para visualizar
+
+### Archivos del Proyecto
+
+* sistema_confort_termico.ino - Código fuente documentado con Doxygen
+* proyecto.ino - Código en limpio sin comentarios de documentación  
+* Doxyfile - Configuración para generación de documentación
+* docs/ - Carpeta con documentación HTML pre-generada
+
+### Nota
+La documentación incluye diagramas FSM, especificaciones técnicas, referencias cruzadas y búsqueda integrada. Se recomienda usar la opción 1 para acceso inmediato.
+
+---
+
 ## ⚙️ Estados principales
 
 | Estado | Descripción |
