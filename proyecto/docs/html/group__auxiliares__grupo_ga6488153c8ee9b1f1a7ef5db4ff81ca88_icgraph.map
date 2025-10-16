@@ -1,0 +1,11 @@
+<map id="leerSensores" name="leerSensores">
+<area shape="rect" id="Node000001" title="Lee y procesa datos de todos los sensores del sistema." alt="" coords="335,31,432,57"/>
+<area shape="rect" id="Node000002" href="$group__verificacion__grupo.html#gaec3d803c0bdc0d568fd8ebb776f93dd6" title="Verifica cálculo PMV y determina transiciones desde estado MONITOR." alt="" coords="194,5,280,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="319,36,279,29,280,23,320,30"/>
+<area shape="rect" id="Node000004" href="$group__estados__grupo.html#gac6e2aedfa62714338c55314abed3975a" title="Maneja la entrada al estado MONITOR &#45; monitoreo principal." alt="" coords="187,56,287,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="320,58,288,63,287,58,319,52"/>
+<area shape="rect" id="Node000003" href="$sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="49,5,95,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="179,21,95,21,95,16,179,16"/>
+<area shape="rect" id="Node000005" href="$sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="5,56,139,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="171,72,139,72,139,67,171,67"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="checkPassword" name="checkPassword">
+<area shape="rect" id="Node000001" title="Valida la contraseña ingresada contra la clave predefinida." alt="" coords="5,5,119,32"/>
+<area shape="rect" id="Node000002" href="$group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2" title="Objeto LCD para display 16x2 con configuración de pines." alt="" coords="167,5,205,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,16,151,16,151,21,119,21"/>
+</map>

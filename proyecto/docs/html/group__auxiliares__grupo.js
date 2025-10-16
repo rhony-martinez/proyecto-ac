@@ -1,0 +1,28 @@
+var group__auxiliares__grupo =
+[
+    [ "Funciones de Gestión RFID", "group__rfid__funciones__grupo.html", "group__rfid__funciones__grupo" ],
+    [ "Cálculo PMV según Modelo de Fanger", "group__pmv__grupo.html", "group__pmv__grupo" ],
+    [ "Sistema de Control de Actuadores", "group__actuadores__grupo.html", "group__actuadores__grupo" ],
+    [ "Funciones de Verificación en Loop", "group__verificacion__grupo.html", "group__verificacion__grupo" ],
+    [ "ALARMA", "group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a074349c9e60d68fa3f5a29ff3c91194c", null ],
+    [ "BLOQUEO", "group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a7b7eab4ff8ecba6e3566d75815f318fc", null ],
+    [ "CLAVE_CORRECTA", "group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a398b625d64c410187ddeac0ed88bc986", null ],
+    [ "CONFIG", "group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a702582f7f825ca83bdb076b15b4c0fc2", null ],
+    [ "INICIO", "group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8af6e4a90a4a7e46c98a5a12b965fb8354", null ],
+    [ "MONITOR", "group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a92e8e1033650c9fd30199df2d6ec23e7", null ],
+    [ "PMV_ALTO", "group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a72e6a374f575b0815315e1c012a5c6d9", null ],
+    [ "PMV_BAJO", "group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a9cd0933478d7b716e4a87f4d3f3055e8", null ],
+    [ "PMV_MAYOR_QUE_1", "group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090ad9d2a3689996042933580a10cfb2ee25", null ],
+    [ "PMV_MENOR_QUE_MENOS1", "group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a2b0381e4ee70ef37ce71420bbcac30b6", null ],
+    [ "SENSOR_INFRARROJO", "group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090ac644d7581577480f8b109e28d9d26b1a", null ],
+    [ "SISTEMA_BLOQUEADO", "group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090ab652af68661ddf57916254db968b28eb", null ],
+    [ "TECLA_ASTERISCO", "group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090af6ac79524f6fe1d95e4acebe357ea706", null ],
+    [ "TEMP_ALTA_3_INTENTOS", "group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a223d7803a7d9575e01e4b1cef3b3b9bd", null ],
+    [ "TIEMPO_EXPIRADO", "group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a1b2a320ec55c121b96574e682f8ff73c", null ],
+    [ "Unknown", "group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a4e81c184ac3ad48a389cd4454c4a05bb", null ],
+    [ "checkBloqueo", "group__auxiliares__grupo.html#gaad5c2beac548774ab4b7b6f10afd2c64", null ],
+    [ "checkPassword", "group__auxiliares__grupo.html#gaf8626fd53a9fd252db6f253207b78b87", null ],
+    [ "leerSensores", "group__auxiliares__grupo.html#ga6488153c8ee9b1f1a7ef5db4ff81ca88", null ],
+    [ "readInputSerial", "group__auxiliares__grupo.html#ga60fb856dfde931eb206fe822fd5aba1c", null ],
+    [ "readPassword", "group__auxiliares__grupo.html#ga451fb754ff1057f95e36210846ea0aca", null ]
+];

@@ -1,0 +1,11 @@
+<map id="moverServo" name="moverServo">
+<area shape="rect" id="Node000001" title="Tarea asíncrona para control del servomotor." alt="" coords="323,56,410,83"/>
+<area shape="rect" id="Node000002" href="$sistema__confort__termico_8ino.html#a15dee89810d496920bfd1ba815e97426" title=" " alt="" coords="194,56,275,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="307,72,275,72,275,67,307,67"/>
+<area shape="rect" id="Node000003" href="$sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="53,5,98,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="178,54,98,28,100,23,180,49"/>
+<area shape="rect" id="Node000004" href="$sistema__confort__termico_8ino.html#aba650bcc5cc3ea0d7fb891fd4f5b21fe" title="Maneja la salida del estado PMV_BAJO &#45; limpieza de recursos." alt="" coords="5,56,146,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="178,72,146,72,146,67,178,67"/>
+<area shape="rect" id="Node000007" href="$group__estados__grupo.html#ga02260e7a04347651d07c76eacf47b8b7" title="Maneja la entrada al estado PMV_BAJO &#45; condiciones frías." alt="" coords="16,107,135,133"/>
+<area shape="poly" id="edge4_Node000002_Node000007" title=" " alt="" coords="180,89,121,109,119,104,178,84"/>
+</map>

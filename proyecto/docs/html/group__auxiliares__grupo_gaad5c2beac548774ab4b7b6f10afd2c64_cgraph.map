@@ -1,0 +1,5 @@
+<map id="checkBloqueo" name="checkBloqueo">
+<area shape="rect" id="Node000001" title="Verifica entrada de desbloqueo en estado BLOQUEO." alt="" coords="5,5,109,32"/>
+<area shape="rect" id="Node000002" href="$group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d" title="Instancia de máquina de estados con 7 estados y 11 transiciones." alt="" coords="157,5,256,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,16,141,16,141,21,109,21"/>
+</map>

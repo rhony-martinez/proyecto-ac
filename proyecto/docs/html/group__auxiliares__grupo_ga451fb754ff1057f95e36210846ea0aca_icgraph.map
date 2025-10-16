@@ -1,0 +1,7 @@
+<map id="readPassword" name="readPassword">
+<area shape="rect" id="Node000001" title="Lee la contraseña del keypad con feedback visual en LCD." alt="" coords="322,5,425,32"/>
+<area shape="rect" id="Node000002" href="$group__estados__grupo.html#ga390833d0072e6440c9707a25c053dfb3" title="Maneja la entrada al estado INICIO &#45; autenticación de usuario." alt="" coords="187,5,274,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="306,21,274,21,274,16,306,16"/>
+<area shape="rect" id="Node000003" href="$sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="5,5,139,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="171,21,139,21,139,16,171,16"/>
+</map>
