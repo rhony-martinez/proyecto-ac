@@ -262,4 +262,4 @@ Este proyecto se distribuye con fines educativos y de libre acceso.
 ---
 
 ## 🔗 Enlaces adicionales
-*(Se agregarán próximamente los enlaces a documentación, diagramas y videos de demostración.)*
+Enlace al informe: *https://docs.google.com/document/d/1xh7Te55xh5gM3RyDVD6LNppT87jG3iUQk1z17sw2qN4/edit?usp=sharing*
