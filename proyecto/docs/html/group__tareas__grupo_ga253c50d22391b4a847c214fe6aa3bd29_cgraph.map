@@ -1,0 +1,5 @@
+<map id="runTime" name="runTime">
+<area shape="rect" id="Node000001" title="Tarea de temporizador principal del sistema." alt="" coords="5,5,73,32"/>
+<area shape="rect" id="Node000002" href="$group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d" title="Instancia de máquina de estados con 7 estados y 11 transiciones." alt="" coords="121,5,220,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,16,105,16,105,21,73,21"/>
+</map>

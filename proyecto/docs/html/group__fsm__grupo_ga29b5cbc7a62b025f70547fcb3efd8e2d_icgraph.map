@@ -1,0 +1,29 @@
+<map id="stateMachine" name="stateMachine">
+<area shape="rect" id="Node000001" title="Instancia de máquina de estados con 7 estados y 11 transiciones." alt="" coords="604,183,703,209"/>
+<area shape="rect" id="Node000002" href="$group__auxiliares__grupo.html#gaad5c2beac548774ab4b7b6f10afd2c64" title="Verifica entrada de desbloqueo en estado BLOQUEO." alt="" coords="271,5,374,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="639,169,626,141,608,109,584,78,554,53,510,33,463,21,416,17,375,17,375,12,416,12,464,16,512,28,557,48,588,74,612,106,631,138,644,167"/>
+<area shape="rect" id="Node000003" href="$sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="5,132,51,159"/>
+<area shape="poly" id="edge9_Node000001_Node000003" title=" " alt="" coords="619,176,589,158,555,143,465,116,392,106,223,97,160,89,133,90,100,97,69,113,44,134,41,129,66,109,98,92,132,84,160,84,223,92,393,100,466,111,557,137,591,153,622,171"/>
+<area shape="rect" id="Node000004" href="$group__verificacion__grupo.html#gacbdcb2026ed2ede5d841e375f2d860d3" title="Detecta movimiento con sensor PIR para desactivar alarma." alt="" coords="100,107,222,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="591,181,555,172,374,143,222,127,222,122,374,138,556,167,593,175"/>
+<area shape="rect" id="Node000005" href="$group__verificacion__grupo.html#gaec3d803c0bdc0d568fd8ebb776f93dd6" title="Verifica cálculo PMV y determina transiciones desde estado MONITOR." alt="" coords="118,157,204,184"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="588,195,204,175,204,170,588,190"/>
+<area shape="rect" id="Node000006" href="$group__rfid__funciones__grupo.html#ga6f1cf14a01e70595870c30bd3458a34f" title="Maneja la configuración de tarjetas RFID en estado CONFIG." alt="" coords="99,259,223,285"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="620,220,590,236,556,249,467,268,376,277,293,280,223,279,224,273,292,274,376,272,466,263,555,244,588,231,618,215"/>
+<area shape="rect" id="Node000007" href="$group__tareas__grupo.html#ga253c50d22391b4a847c214fe6aa3bd29" title="Tarea de temporizador principal del sistema." alt="" coords="455,208,523,235"/>
+<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="588,209,524,219,523,214,588,203"/>
+<area shape="rect" id="Node000011" href="$sistema__confort__termico_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Función de inicialización del sistema Arduino." alt="" coords="296,335,349,361"/>
+<area shape="poly" id="edge15_Node000001_Node000011" title=" " alt="" coords="635,223,601,260,557,293,502,317,445,334,350,349,350,343,443,328,500,312,554,288,597,256,631,220"/>
+<area shape="rect" id="Node000010" href="$sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="422,360,556,387"/>
+<area shape="poly" id="edge16_Node000001_Node000010" title=" " alt="" coords="642,225,608,283,585,315,557,343,529,362,526,357,554,339,581,311,604,280,637,222"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="256,18,218,19,178,25,137,36,100,53,78,70,61,92,37,133,33,130,56,89,75,67,97,48,136,31,177,20,218,14,255,12"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="86,137,52,144,51,138,85,132"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="102,162,51,152,52,147,103,157"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="112,253,97,242,59,200,34,161,39,158,64,196,100,238,115,249"/>
+<area shape="rect" id="Node000008" href="$group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e" title=" " alt="" coords="284,208,361,235"/>
+<area shape="poly" id="edge11_Node000007_Node000008" title=" " alt="" coords="440,224,362,224,362,219,440,219"/>
+<area shape="poly" id="edge14_Node000008_Node000003" title=" " alt="" coords="269,226,187,220,141,212,98,198,66,181,42,161,45,157,69,177,100,194,143,207,187,215,269,220"/>
+<area shape="poly" id="edge12_Node000008_Node000005" title=" " alt="" coords="269,207,203,187,205,181,270,202"/>
+<area shape="poly" id="edge13_Node000008_Node000006" title=" " alt="" coords="270,240,207,261,205,256,268,235"/>
+<area shape="poly" id="edge17_Node000010_Node000011" title=" " alt="" coords="407,363,350,355,350,349,407,358"/>
+</map>
