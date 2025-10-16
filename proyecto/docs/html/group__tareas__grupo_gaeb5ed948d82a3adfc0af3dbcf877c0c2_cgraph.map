@@ -1,0 +1,6 @@
+<map id="TaskLedRed" name="TaskLedRed">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,99,32"/>
+<area shape="rect" id="Node000002" href="$group__tareas__grupo.html#ga4fb27879b90fd24b957b6b6a358737af" title="Tarea para parpadeo asíncrono del LED rojo." alt="" coords="147,5,226,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,25,131,25,131,30,99,30"/>
+<area shape="poly" id="edge2_Node000002_Node000001" title=" " alt="" coords="146,13,114,12,114,7,146,8"/>
+</map>

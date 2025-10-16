@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Confort Térmico Inteligente v3.1: Funciones de Verificación en Loop</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Confort Térmico Inteligente v3.1<span id="projectnumber">&#160;3.1 - 2025</span>
+   </div>
+   <div id="projectbrief">Sistema FSM avanzado con PMV, RFID y actuadores completos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('group__verificacion__grupo.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Funciones de Verificación en Loop <div class="ingroups"><a class="el" href="group__auxiliares__grupo.html">Funciones Auxiliares del Sistema</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Diagrama de colaboración de Funciones de Verificación en Loop:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__verificacion__grupo.png" border="0" usemap="#agroup____verificacion____grupo" loading="lazy" alt=""/></div>
+<map name="agroup____verificacion____grupo" id="agroup____verificacion____grupo">
+<area shape="rect" href="group__auxiliares__grupo.html" title=" " alt="" coords="5,5,148,48"/>
+<area shape="rect" title=" " alt="" coords="196,5,366,48"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:gaec3d803c0bdc0d568fd8ebb776f93dd6" id="r_gaec3d803c0bdc0d568fd8ebb776f93dd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaec3d803c0bdc0d568fd8ebb776f93dd6">checkPMV</a> ()</td></tr>
+<tr class="memdesc:gaec3d803c0bdc0d568fd8ebb776f93dd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica cálculo PMV y determina transiciones desde estado MONITOR.  <br /></td></tr>
+<tr class="memitem:gacbdcb2026ed2ede5d841e375f2d860d3" id="r_gacbdcb2026ed2ede5d841e375f2d860d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gacbdcb2026ed2ede5d841e375f2d860d3">checkMovimiento</a> ()</td></tr>
+<tr class="memdesc:gacbdcb2026ed2ede5d841e375f2d860d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detecta movimiento con sensor PIR para desactivar alarma.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descripción detallada</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentación de funciones</h2>
+<a id="gacbdcb2026ed2ede5d841e375f2d860d3" name="gacbdcb2026ed2ede5d841e375f2d860d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacbdcb2026ed2ede5d841e375f2d860d3">&#9670;&#160;</a></span>checkMovimiento()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void checkMovimiento </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Detecta movimiento con sensor PIR para desactivar alarma. </p>
+<p>Ejecutado en cada iteración del loop cuando el sistema está en estado ALARMA:</p><ul>
+<li>Lee estado del sensor PIR (movimiento detectado = LOW)</li>
+<li>Al detectar movimiento, activa transición a INICIO</li>
+<li>Permite reset manual del sistema mediante detección de presencia</li>
+</ul>
+<p>@condition stateMachine.GetState() == ALARMA</p>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="group__estados__grupo.html#gaab9c5b060d49c9eae5717f5303a1984d" title="Maneja la entrada al estado ALARMA - condiciones críticas.">outputAlarma()</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l01805">1805</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1805</span>                       {</div>
+<div class="line"><span class="lineno"> 1806</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.GetState() == <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a074349c9e60d68fa3f5a29ff3c91194c">ALARMA</a>) {</div>
+<div class="line"><span class="lineno"> 1807</span>    <span class="keywordtype">int</span> pirValue = digitalRead(<a class="code hl_define" href="group__pines__grupo.html#ga379c6aca42757cab67a55b21ecb59f21">PIR_SENSOR</a>);</div>
+<div class="line"><span class="lineno"> 1808</span>    <span class="keywordflow">if</span> (pirValue == LOW) {</div>
+<div class="line"><span class="lineno"> 1809</span>      Serial.println(<span class="stringliteral">&quot;Movimiento detectado -&gt; Regresando a INICIO&quot;</span>);</div>
+<div class="line"><span class="lineno"> 1810</span>      <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> = <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090ac644d7581577480f8b109e28d9d26b1a">SENSOR_INFRARROJO</a>;</div>
+<div class="line"><span class="lineno"> 1811</span>    }</div>
+<div class="line"><span class="lineno"> 1812</span>  }</div>
+<div class="line"><span class="lineno"> 1813</span>}</div>
+<div class="ttc" id="agroup__fsm__grupo_html_ga29b5cbc7a62b025f70547fcb3efd8e2d"><div class="ttname"><a href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a></div><div class="ttdeci">StateMachine stateMachine(7, 11)</div><div class="ttdoc">Instancia de máquina de estados con 7 estados y 11 transiciones.</div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gad4db59ccea8946af2bb70f8269e99eeb"><div class="ttname"><a href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a></div><div class="ttdeci">Input input</div><div class="ttdoc">Almacena la última entrada del usuario para procesamiento FSM.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00336">sistema_confort_termico.ino:336</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga080a822f0093973313bd644e517a5090ac644d7581577480f8b109e28d9d26b1a"><div class="ttname"><a href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090ac644d7581577480f8b109e28d9d26b1a">SENSOR_INFRARROJO</a></div><div class="ttdeci">@ SENSOR_INFRARROJO</div><div class="ttdoc">Detección de movimiento - Desactiva alarma.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00331">sistema_confort_termico.ino:331</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga5d74787dedbc4e11c1ab15bf487e61f8a074349c9e60d68fa3f5a29ff3c91194c"><div class="ttname"><a href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a074349c9e60d68fa3f5a29ff3c91194c">ALARMA</a></div><div class="ttdeci">@ ALARMA</div><div class="ttdoc">Estado de alarma - Condiciones críticas detectadas.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00311">sistema_confort_termico.ino:311</a></div></div>
+<div class="ttc" id="agroup__pines__grupo_html_ga379c6aca42757cab67a55b21ecb59f21"><div class="ttname"><a href="group__pines__grupo.html#ga379c6aca42757cab67a55b21ecb59f21">PIR_SENSOR</a></div><div class="ttdeci">#define PIR_SENSOR</div><div class="ttdoc">Pin analógico para sensor PIR - Detección de movimiento.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00122">sistema_confort_termico.ino:122</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l00311">ALARMA</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00336">input</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00122">PIR_SENSOR</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00331">SENSOR_INFRARROJO</a> y <a class="el" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00590">loop()</a>.</p>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__verificacion__grupo_gacbdcb2026ed2ede5d841e375f2d860d3_cgraph.png" border="0" usemap="#agroup__verificacion__grupo_gacbdcb2026ed2ede5d841e375f2d860d3_cgraph" loading="lazy" alt=""/></div>
+<map name="agroup__verificacion__grupo_gacbdcb2026ed2ede5d841e375f2d860d3_cgraph" id="agroup__verificacion__grupo_gacbdcb2026ed2ede5d841e375f2d860d3_cgraph">
+<area shape="rect" title="Detecta movimiento con sensor PIR para desactivar alarma." alt="" coords="5,5,127,32"/>
+<area shape="rect" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d" title="Instancia de máquina de estados con 7 estados y 11 transiciones." alt="" coords="175,5,274,32"/>
+<area shape="poly" title=" " alt="" coords="127,16,159,16,159,21,127,21"/>
+</map>
+</div>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__verificacion__grupo_gacbdcb2026ed2ede5d841e375f2d860d3_icgraph.png" border="0" usemap="#agroup__verificacion__grupo_gacbdcb2026ed2ede5d841e375f2d860d3_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__verificacion__grupo_gacbdcb2026ed2ede5d841e375f2d860d3_icgraph" id="agroup__verificacion__grupo_gacbdcb2026ed2ede5d841e375f2d860d3_icgraph">
+<area shape="rect" title="Detecta movimiento con sensor PIR para desactivar alarma." alt="" coords="99,5,220,32"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="5,5,51,32"/>
+<area shape="poly" title=" " alt="" coords="83,21,51,21,51,16,83,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="gaec3d803c0bdc0d568fd8ebb776f93dd6" name="gaec3d803c0bdc0d568fd8ebb776f93dd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaec3d803c0bdc0d568fd8ebb776f93dd6">&#9670;&#160;</a></span>checkPMV()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void checkPMV </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica cálculo PMV y determina transiciones desde estado MONITOR. </p>
+<p>Ejecutado en cada iteración del loop cuando el sistema está en estado MONITOR y el tiempo de monitoreo ha vencido:</p><ul>
+<li>Lee sensores y calcula índice PMV</li>
+<li>Muestra resultado PMV en LCD y Serial</li>
+<li>Determina transición a PMV_BAJO, PMV_ALTO o CONFIG según resultado</li>
+<li>Reinicia temporizador para próximo ciclo de monitoreo</li>
+</ul>
+<p>@condition stateMachine.GetState() == MONITOR &amp;&amp; tiempoMonitorVencido == true</p>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="group__estados__grupo.html#gac6e2aedfa62714338c55314abed3975a" title="Maneja la entrada al estado MONITOR - monitoreo principal.">outputMonitor()</a> </dd>
+<dd>
+<a class="el" href="group__auxiliares__grupo.html#ga6488153c8ee9b1f1a7ef5db4ff81ca88" title="Lee y procesa datos de todos los sensores del sistema.">leerSensores()</a> </dd>
+<dd>
+<a class="el" href="group__pmv__grupo.html#ga010b0d3e4b1c2eb39075406703487960" title="Calcula el índice PMV (Predicted Mean Vote) usando modelo de Fanger.">calcularPMV_Fanger()</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="sistema__confort__termico_8ino_source.html#l01757">1757</a> del archivo <a class="el" href="sistema__confort__termico_8ino_source.html">sistema_confort_termico.ino</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1757</span>                {</div>
+<div class="line"><span class="lineno"> 1758</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine</a>.GetState() == <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a92e8e1033650c9fd30199df2d6ec23e7">MONITOR</a> &amp;&amp; <a class="code hl_variable" href="group__variables__grupo.html#ga5d521eacd7a2fee907e0573ddc6f34ee">tiempoMonitorVencido</a>) {</div>
+<div class="line"><span class="lineno"> 1759</span>    <a class="code hl_variable" href="group__variables__grupo.html#ga5d521eacd7a2fee907e0573ddc6f34ee">tiempoMonitorVencido</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno"> 1760</span>    <a class="code hl_function" href="group__auxiliares__grupo.html#ga6488153c8ee9b1f1a7ef5db4ff81ca88">leerSensores</a>();</div>
+<div class="line"><span class="lineno"> 1761</span> </div>
+<div class="line"><span class="lineno"> 1762</span>    <span class="comment">// Parámetros para cálculo PMV</span></div>
+<div class="line"><span class="lineno"> 1763</span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="group__variables__grupo.html#ga036e77f98fbf5ae1d19ec8dc38433c03">M</a> = 100;    <span class="comment">// metabolismo - actividad ligera [W/m²]</span></div>
+<div class="line"><span class="lineno"> 1764</span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="group__variables__grupo.html#gae739b5a639d79f73dd4c556eaaec18b2">clo</a> = 0.5;  <span class="comment">// vestimenta - ropa ligera [clo]</span></div>
+<div class="line"><span class="lineno"> 1765</span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="group__variables__grupo.html#ga23d3d189bb77135c9088b454b5a1e457">vel_ar</a> = 0.1; <span class="comment">// velocidad del aire [m/s]</span></div>
+<div class="line"><span class="lineno"> 1766</span>    </div>
+<div class="line"><span class="lineno"> 1767</span>    <span class="comment">// Cálculo del índice PMV</span></div>
+<div class="line"><span class="lineno"> 1768</span>    <span class="keywordtype">float</span> pmv = <a class="code hl_function" href="group__pmv__grupo.html#ga010b0d3e4b1c2eb39075406703487960">calcularPMV_Fanger</a>(<a class="code hl_variable" href="group__variables__grupo.html#gac3170cbfa9a8c8b0c3d2ee9d0765c293">tempA</a>, <a class="code hl_variable" href="group__variables__grupo.html#gab35f43c7567f70886ccbc1870761fd13">tempR</a>, <a class="code hl_variable" href="group__variables__grupo.html#ga34280c09711b9f4f72211e5c467b57bf">humedad</a>, <a class="code hl_variable" href="group__variables__grupo.html#ga23d3d189bb77135c9088b454b5a1e457">vel_ar</a>, <a class="code hl_variable" href="group__variables__grupo.html#ga036e77f98fbf5ae1d19ec8dc38433c03">M</a>, <a class="code hl_variable" href="group__variables__grupo.html#gae739b5a639d79f73dd4c556eaaec18b2">clo</a>);</div>
+<div class="line"><span class="lineno"> 1769</span>    </div>
+<div class="line"><span class="lineno"> 1770</span>    Serial.print(<span class="stringliteral">&quot;PMV calculado: &quot;</span>);</div>
+<div class="line"><span class="lineno"> 1771</span>    Serial.println(pmv, 2);</div>
+<div class="line"><span class="lineno"> 1772</span>    </div>
+<div class="line"><span class="lineno"> 1773</span>    <span class="comment">// Mostrar resultado en LCD</span></div>
+<div class="line"><span class="lineno"> 1774</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.clear();</div>
+<div class="line"><span class="lineno"> 1775</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.setCursor(0, 0);</div>
+<div class="line"><span class="lineno"> 1776</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(<span class="stringliteral">&quot;PMV: &quot;</span>);</div>
+<div class="line"><span class="lineno"> 1777</span>    <a class="code hl_function" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a>.print(pmv, 2);</div>
+<div class="line"><span class="lineno"> 1778</span>    </div>
+<div class="line"><span class="lineno"> 1779</span>    <span class="comment">// Determinar transición según valor PMV</span></div>
+<div class="line"><span class="lineno"> 1780</span>    <span class="keywordflow">if</span> (pmv &lt; -1)</div>
+<div class="line"><span class="lineno"> 1781</span>      <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> = <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a2b0381e4ee70ef37ce71420bbcac30b6">PMV_MENOR_QUE_MENOS1</a>;</div>
+<div class="line"><span class="lineno"> 1782</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (pmv &gt; 1)</div>
+<div class="line"><span class="lineno"> 1783</span>      <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> = <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090ad9d2a3689996042933580a10cfb2ee25">PMV_MAYOR_QUE_1</a>;</div>
+<div class="line"><span class="lineno"> 1784</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno"> 1785</span>      <a class="code hl_variable" href="group__fsm__grupo.html#gad4db59ccea8946af2bb70f8269e99eeb">input</a> = <a class="code hl_enumvalue" href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a1b2a320ec55c121b96574e682f8ff73c">TIEMPO_EXPIRADO</a>;</div>
+<div class="line"><span class="lineno"> 1786</span>      </div>
+<div class="line"><span class="lineno"> 1787</span>    <span class="comment">// Reinicia el timer para el siguiente cálculo</span></div>
+<div class="line"><span class="lineno"> 1788</span>    <a class="code hl_function" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a>.Start();</div>
+<div class="line"><span class="lineno"> 1789</span>  }</div>
+<div class="line"><span class="lineno"> 1790</span>}</div>
+<div class="ttc" id="agroup__auxiliares__grupo_html_ga6488153c8ee9b1f1a7ef5db4ff81ca88"><div class="ttname"><a href="group__auxiliares__grupo.html#ga6488153c8ee9b1f1a7ef5db4ff81ca88">leerSensores</a></div><div class="ttdeci">void leerSensores()</div><div class="ttdoc">Lee y procesa datos de todos los sensores del sistema.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l01488">sistema_confort_termico.ino:1488</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga080a822f0093973313bd644e517a5090a1b2a320ec55c121b96574e682f8ff73c"><div class="ttname"><a href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a1b2a320ec55c121b96574e682f8ff73c">TIEMPO_EXPIRADO</a></div><div class="ttdeci">@ TIEMPO_EXPIRADO</div><div class="ttdoc">Temporizador expirado - Transiciones automáticas.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00327">sistema_confort_termico.ino:327</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga080a822f0093973313bd644e517a5090a2b0381e4ee70ef37ce71420bbcac30b6"><div class="ttname"><a href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a2b0381e4ee70ef37ce71420bbcac30b6">PMV_MENOR_QUE_MENOS1</a></div><div class="ttdeci">@ PMV_MENOR_QUE_MENOS1</div><div class="ttdoc">Condición PMV &lt; -1 detectada - Requiere calefacción.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00328">sistema_confort_termico.ino:328</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga080a822f0093973313bd644e517a5090ad9d2a3689996042933580a10cfb2ee25"><div class="ttname"><a href="group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090ad9d2a3689996042933580a10cfb2ee25">PMV_MAYOR_QUE_1</a></div><div class="ttdeci">@ PMV_MAYOR_QUE_1</div><div class="ttdoc">Condición PMV &gt; 1 detectada - Requiere ventilación.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00329">sistema_confort_termico.ino:329</a></div></div>
+<div class="ttc" id="agroup__fsm__grupo_html_gga5d74787dedbc4e11c1ab15bf487e61f8a92e8e1033650c9fd30199df2d6ec23e7"><div class="ttname"><a href="group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a92e8e1033650c9fd30199df2d6ec23e7">MONITOR</a></div><div class="ttdeci">@ MONITOR</div><div class="ttdoc">Estado de monitoreo - Lectura de sensores y cálculo PMV.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00312">sistema_confort_termico.ino:312</a></div></div>
+<div class="ttc" id="agroup__hardware__grupo_html_gaf97afdf00af0e116e9b5957f6a470fc2"><div class="ttname"><a href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd</a></div><div class="ttdeci">LiquidCrystal lcd(12, 11, 5, 4, 3, 2)</div><div class="ttdoc">Objeto LCD para display 16x2 con configuración de pines.</div></div>
+<div class="ttc" id="agroup__pmv__grupo_html_ga010b0d3e4b1c2eb39075406703487960"><div class="ttname"><a href="group__pmv__grupo.html#ga010b0d3e4b1c2eb39075406703487960">calcularPMV_Fanger</a></div><div class="ttdeci">float calcularPMV_Fanger(float ta, float tr, float rh, float vel_ar, float M, float clo)</div><div class="ttdoc">Calcula el índice PMV (Predicted Mean Vote) usando modelo de Fanger.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l01612">sistema_confort_termico.ino:1612</a></div></div>
+<div class="ttc" id="agroup__tareas__grupo_html_gabe10de4c559b3dc44bc3e0858d41553e"><div class="ttname"><a href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime</a></div><div class="ttdeci">AsyncTask TaskTime(5000, true, runTime)</div></div>
+<div class="ttc" id="agroup__variables__grupo_html_ga036e77f98fbf5ae1d19ec8dc38433c03"><div class="ttname"><a href="group__variables__grupo.html#ga036e77f98fbf5ae1d19ec8dc38433c03">M</a></div><div class="ttdeci">float M</div><div class="ttdoc">Tasa metabólica de referencia [W/m²].</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00181">sistema_confort_termico.ino:181</a></div></div>
+<div class="ttc" id="agroup__variables__grupo_html_ga23d3d189bb77135c9088b454b5a1e457"><div class="ttname"><a href="group__variables__grupo.html#ga23d3d189bb77135c9088b454b5a1e457">vel_ar</a></div><div class="ttdeci">float vel_ar</div><div class="ttdoc">Velocidad del aire en el ambiente [m/s].</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00190">sistema_confort_termico.ino:190</a></div></div>
+<div class="ttc" id="agroup__variables__grupo_html_ga34280c09711b9f4f72211e5c467b57bf"><div class="ttname"><a href="group__variables__grupo.html#ga34280c09711b9f4f72211e5c467b57bf">humedad</a></div><div class="ttdeci">float humedad</div><div class="ttdoc">Humedad relativa del ambiente [%] - Sensor DHT11.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00193">sistema_confort_termico.ino:193</a></div></div>
+<div class="ttc" id="agroup__variables__grupo_html_ga5d521eacd7a2fee907e0573ddc6f34ee"><div class="ttname"><a href="group__variables__grupo.html#ga5d521eacd7a2fee907e0573ddc6f34ee">tiempoMonitorVencido</a></div><div class="ttdeci">bool tiempoMonitorVencido</div><div class="ttdoc">Flag de timeout del estado MONITOR.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00207">sistema_confort_termico.ino:207</a></div></div>
+<div class="ttc" id="agroup__variables__grupo_html_gab35f43c7567f70886ccbc1870761fd13"><div class="ttname"><a href="group__variables__grupo.html#gab35f43c7567f70886ccbc1870761fd13">tempR</a></div><div class="ttdeci">float tempR</div><div class="ttdoc">Temperatura radiante media [°C] - Sensor NTC.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00192">sistema_confort_termico.ino:192</a></div></div>
+<div class="ttc" id="agroup__variables__grupo_html_gac3170cbfa9a8c8b0c3d2ee9d0765c293"><div class="ttname"><a href="group__variables__grupo.html#gac3170cbfa9a8c8b0c3d2ee9d0765c293">tempA</a></div><div class="ttdeci">float tempA</div><div class="ttdoc">Temperatura del aire ambiente [°C] - Sensor DHT11.</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00191">sistema_confort_termico.ino:191</a></div></div>
+<div class="ttc" id="agroup__variables__grupo_html_gae739b5a639d79f73dd4c556eaaec18b2"><div class="ttname"><a href="group__variables__grupo.html#gae739b5a639d79f73dd4c556eaaec18b2">clo</a></div><div class="ttdeci">float clo</div><div class="ttdoc">Aislamiento térmico de la ropa [clo].</div><div class="ttdef"><b>Definition</b> <a href="sistema__confort__termico_8ino_source.html#l00188">sistema_confort_termico.ino:188</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Hace referencia a <a class="el" href="sistema__confort__termico_8ino_source.html#l01612">calcularPMV_Fanger()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00188">clo</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00193">humedad</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00336">input</a>, <a class="el" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2">lcd()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l01488">leerSensores()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00181">M</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00312">MONITOR</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00329">PMV_MAYOR_QUE_1</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00328">PMV_MENOR_QUE_MENOS1</a>, <a class="el" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d">stateMachine()</a>, <a class="el" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e">TaskTime()</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00191">tempA</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00192">tempR</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00327">TIEMPO_EXPIRADO</a>, <a class="el" href="sistema__confort__termico_8ino_source.html#l00207">tiempoMonitorVencido</a> y <a class="el" href="sistema__confort__termico_8ino_source.html#l00190">vel_ar</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="sistema__confort__termico_8ino_source.html#l00590">loop()</a>.</p>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas de esta función:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__verificacion__grupo_gaec3d803c0bdc0d568fd8ebb776f93dd6_cgraph.png" border="0" usemap="#agroup__verificacion__grupo_gaec3d803c0bdc0d568fd8ebb776f93dd6_cgraph" loading="lazy" alt=""/></div>
+<map name="agroup__verificacion__grupo_gaec3d803c0bdc0d568fd8ebb776f93dd6_cgraph" id="agroup__verificacion__grupo_gaec3d803c0bdc0d568fd8ebb776f93dd6_cgraph">
+<area shape="rect" title="Verifica cálculo PMV y determina transiciones desde estado MONITOR." alt="" coords="5,157,91,184"/>
+<area shape="rect" href="group__pmv__grupo.html#ga010b0d3e4b1c2eb39075406703487960" title="Calcula el índice PMV (Predicted Mean Vote) usando modelo de Fanger." alt="" coords="139,56,281,83"/>
+<area shape="poly" title=" " alt="" coords="60,155,93,124,137,92,148,87,150,92,140,97,97,128,64,159"/>
+<area shape="rect" href="group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2" title="Objeto LCD para display 16x2 con configuración de pines." alt="" coords="191,107,229,133"/>
+<area shape="poly" title=" " alt="" coords="90,155,175,128,177,133,92,160"/>
+<area shape="rect" href="group__auxiliares__grupo.html#ga6488153c8ee9b1f1a7ef5db4ff81ca88" title="Lee y procesa datos de todos los sensores del sistema." alt="" coords="161,157,259,184"/>
+<area shape="poly" title=" " alt="" coords="91,168,146,168,146,173,91,173"/>
+<area shape="rect" href="group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d" title="Instancia de máquina de estados con 7 estados y 11 transiciones." alt="" coords="521,233,621,260"/>
+<area shape="poly" title=" " alt="" coords="92,181,139,193,239,211,339,224,506,240,506,245,339,229,238,216,138,199,91,187"/>
+<area shape="rect" href="group__tareas__grupo.html#gabe10de4c559b3dc44bc3e0858d41553e" title=" " alt="" coords="171,259,249,285"/>
+<area shape="poly" title=" " alt="" coords="67,183,100,210,140,238,161,249,159,254,137,242,96,214,63,187"/>
+<area shape="rect" href="group__pmv__grupo.html#ga0c0597b90e05b7eb8c2808f644c95a61" title="Calcula el factor de superficie de la ropa." alt="" coords="359,5,443,32"/>
+<area shape="poly" title=" " alt="" coords="263,53,344,31,345,36,264,58"/>
+<area shape="rect" href="group__pmv__grupo.html#ga7ed73e40dd21909dc5922b342cdbe0c9" title="Calcula el coeficiente de transferencia de calor por convección." alt="" coords="360,56,442,83"/>
+<area shape="poly" title=" " alt="" coords="281,67,345,67,345,72,281,72"/>
+<area shape="rect" href="group__pmv__grupo.html#ga9c12005928a2d38bbbe11e7e703b5007" title="Calcula la presión parcial de vapor de agua en el aire." alt="" coords="329,107,473,133"/>
+<area shape="poly" title=" " alt="" coords="264,81,334,100,333,105,263,86"/>
+<area shape="rect" href="group__hardware__grupo.html#gad7a1df263f6f823242a112ec11297434" title="Objeto sensor DHT11 para medición de temperatura y humedad." alt="" coords="382,157,421,184"/>
+<area shape="poly" title=" " alt="" coords="259,168,366,168,366,173,259,173"/>
+<area shape="rect" href="group__tareas__grupo.html#ga253c50d22391b4a847c214fe6aa3bd29" title="Tarea de temporizador principal del sistema." alt="" coords="368,259,435,285"/>
+<area shape="poly" title=" " alt="" coords="249,269,352,269,352,275,249,275"/>
+<area shape="poly" title=" " alt="" coords="435,264,506,254,507,259,436,270"/>
+</map>
+</div>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Gráfico de llamadas a esta función:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="group__verificacion__grupo_gaec3d803c0bdc0d568fd8ebb776f93dd6_icgraph.png" border="0" usemap="#agroup__verificacion__grupo_gaec3d803c0bdc0d568fd8ebb776f93dd6_icgraph" loading="lazy" alt=""/></div>
+<map name="agroup__verificacion__grupo_gaec3d803c0bdc0d568fd8ebb776f93dd6_icgraph" id="agroup__verificacion__grupo_gaec3d803c0bdc0d568fd8ebb776f93dd6_icgraph">
+<area shape="rect" title="Verifica cálculo PMV y determina transiciones desde estado MONITOR." alt="" coords="99,5,184,32"/>
+<area shape="rect" href="sistema__confort__termico_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Bucle principal del sistema &#45; Ejecución continua." alt="" coords="5,5,51,32"/>
+<area shape="poly" title=" " alt="" coords="83,21,51,21,51,16,83,16"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generado el <span class="timestamp"></span> para Sistema de Confort Térmico Inteligente v3.1 por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

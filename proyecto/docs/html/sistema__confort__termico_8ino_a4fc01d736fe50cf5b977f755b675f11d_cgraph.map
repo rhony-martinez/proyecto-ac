@@ -1,0 +1,43 @@
+<map id="setup" name="setup">
+<area shape="rect" id="Node000001" title="Función de inicialización del sistema Arduino." alt="" coords="5,309,59,336"/>
+<area shape="rect" id="Node000002" href="$group__hardware__grupo.html#gad7a1df263f6f823242a112ec11297434" title="Objeto sensor DHT11 para medición de temperatura y humedad." alt="" coords="502,5,541,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="32,308,39,272,52,222,73,168,105,118,146,75,185,47,229,29,287,12,326,5,358,5,429,12,486,14,486,19,428,17,357,11,327,10,289,17,231,34,187,52,149,79,109,122,78,171,57,224,44,273,38,309"/>
+<area shape="rect" id="Node000003" href="$group__hardware__grupo.html#gaf97afdf00af0e116e9b5957f6a470fc2" title="Objeto LCD para display 16x2 con configuración de pines." alt="" coords="502,259,541,285"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="38,308,69,254,123,179,157,139,196,101,240,68,287,42,326,26,360,19,393,23,430,42,453,62,472,86,499,141,514,196,521,243,516,243,509,198,494,142,468,89,449,65,427,46,392,28,360,24,328,31,289,46,242,72,200,105,161,142,127,182,73,257,43,311"/>
+<area shape="rect" id="Node000004" href="$group__rfid__grupo.html#gac672f817299d07cc428fe3f456235273" title="Instancia del lector RFID MFRC522." alt="" coords="140,411,207,437"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="47,334,74,362,108,390,127,401,124,406,105,394,70,365,43,338"/>
+<area shape="rect" id="Node000005" href="$sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f" title="Configura todas las transiciones y callbacks de la FSM." alt="" coords="107,309,240,336"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="59,320,91,320,91,325,59,325"/>
+<area shape="rect" id="Node000024" href="$group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d" title="Instancia de máquina de estados con 7 estados y 11 transiciones." alt="" coords="309,613,408,640"/>
+<area shape="poly" id="edge24_Node000001_Node000024" title=" " alt="" coords="60,329,242,397,260,423,267,449,269,475,267,500,265,525,266,550,273,574,290,600,297,606,293,610,286,603,268,577,261,551,259,525,261,500,263,475,262,450,255,426,238,401,58,334"/>
+<area shape="rect" id="Node000006" href="$sistema__confort__termico_8ino.html#aa592846580d9f3bebe4adc098ded791d" title="Maneja la salida del estado BLOQUEO &#45; limpieza de recursos." alt="" coords="296,512,421,539"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="217,334,242,353,255,371,262,389,266,424,271,457,277,474,290,492,302,502,298,506,286,495,273,477,266,459,261,424,257,391,250,374,238,357,214,339"/>
+<area shape="rect" id="Node000009" href="$sistema__confort__termico_8ino.html#acc9f02a17298f2a9fd2973d52572e986" title="Maneja la salida del estado PMV_ALTO &#45; limpieza de recursos." alt="" coords="290,563,427,589"/>
+<area shape="poly" id="edge6_Node000005_Node000009" title=" " alt="" coords="219,335,242,353,258,379,265,405,265,454,264,478,266,501,273,525,290,549,292,551,288,555,286,552,269,527,261,502,259,478,260,454,260,406,253,381,238,356,215,339"/>
+<area shape="rect" id="Node000012" href="$sistema__confort__termico_8ino.html#aba650bcc5cc3ea0d7fb891fd4f5b21fe" title="Maneja la salida del estado PMV_BAJO &#45; limpieza de recursos." alt="" coords="288,107,428,133"/>
+<area shape="poly" id="edge7_Node000005_Node000012" title=" " alt="" coords="177,308,192,275,215,231,246,184,286,143,292,139,295,143,290,147,251,188,219,234,196,277,182,310"/>
+<area shape="rect" id="Node000017" href="$group__estados__grupo.html#gaab9c5b060d49c9eae5717f5303a1984d" title="Maneja la entrada al estado ALARMA &#45; condiciones críticas." alt="" coords="309,411,407,437"/>
+<area shape="poly" id="edge8_Node000005_Node000017" title=" " alt="" coords="209,334,242,353,265,375,290,396,299,402,296,406,286,401,262,379,238,357,206,339"/>
+<area shape="rect" id="Node000018" href="$sistema__confort__termico_8ino.html#aeaef1f2203865f944eb917d96e5f9020" title=" " alt="" coords="476,436,567,463"/>
+<area shape="poly" id="edge23_Node000005_Node000018" title=" " alt="" coords="215,334,242,353,258,379,264,405,271,428,278,438,289,447,331,464,375,470,420,469,461,463,462,468,421,474,375,476,329,469,287,452,274,441,266,430,259,406,254,381,238,357,212,339"/>
+<area shape="rect" id="Node000020" href="$group__estados__grupo.html#gae7f7255177511950ea5ff9086d20a9ef" title="Maneja la entrada al estado BLOQUEO &#45; seguridad por fallos." alt="" coords="306,360,410,387"/>
+<area shape="poly" id="edge11_Node000005_Node000020" title=" " alt="" coords="226,334,293,353,292,358,224,339"/>
+<area shape="rect" id="Node000021" href="$group__estados__grupo.html#ga3d20408bd7a9ca8c795fc543454b4e2d" title="Maneja la entrada al estado CONFIG &#45; configuración del sistema y RFID." alt="" coords="312,157,405,184"/>
+<area shape="poly" id="edge13_Node000005_Node000021" title=" " alt="" coords="181,307,223,253,253,221,286,194,296,188,299,193,290,198,256,225,227,256,186,310"/>
+<area shape="rect" id="Node000025" href="$group__estados__grupo.html#ga390833d0072e6440c9707a25c053dfb3" title="Maneja la entrada al estado INICIO &#45; autenticación de usuario." alt="" coords="315,208,402,235"/>
+<area shape="poly" id="edge14_Node000005_Node000025" title=" " alt="" coords="191,307,233,276,287,244,299,239,301,243,289,249,236,281,194,311"/>
+<area shape="rect" id="Node000028" href="$group__estados__grupo.html#gac6e2aedfa62714338c55314abed3975a" title="Maneja la entrada al estado MONITOR &#45; monitoreo principal." alt="" coords="308,309,408,336"/>
+<area shape="poly" id="edge16_Node000005_Node000028" title=" " alt="" coords="240,320,293,320,293,325,240,325"/>
+<area shape="rect" id="Node000030" href="$group__estados__grupo.html#ga7c048c997648ce81c01c9a5cc03e4734" title="Maneja la entrada al estado PMV_ALTO &#45; condiciones cálidas." alt="" coords="300,56,416,83"/>
+<area shape="poly" id="edge18_Node000005_Node000030" title=" " alt="" coords="175,308,187,266,208,209,241,147,262,118,286,93,291,89,294,93,290,97,266,122,245,150,213,211,192,268,180,309"/>
+<area shape="rect" id="Node000031" href="$group__estados__grupo.html#ga02260e7a04347651d07c76eacf47b8b7" title="Maneja la entrada al estado PMV_BAJO &#45; condiciones frías." alt="" coords="299,259,418,285"/>
+<area shape="poly" id="edge21_Node000005_Node000031" title=" " alt="" coords="224,306,292,287,293,292,226,311"/>
+<area shape="poly" id="edge22_Node000005_Node000024" title=" " alt="" coords="219,335,242,353,261,386,269,418,269,449,265,480,262,509,262,539,270,569,290,600,297,606,293,610,286,603,266,571,257,540,256,509,260,479,263,449,263,419,256,388,238,356,216,339"/>
+<area shape="poly" id="edge9_Node000017_Node000003" title=" " alt="" coords="406,408,427,397,451,374,473,348,504,298,509,301,477,351,455,378,430,401,409,413"/>
+<area shape="poly" id="edge10_Node000017_Node000018" title=" " alt="" coords="408,429,461,437,460,443,407,434"/>
+<area shape="poly" id="edge12_Node000020_Node000003" title=" " alt="" coords="403,357,427,346,463,321,494,294,498,298,467,325,430,350,405,362"/>
+<area shape="poly" id="edge15_Node000025_Node000003" title=" " alt="" coords="403,232,488,259,487,264,401,237"/>
+<area shape="poly" id="edge17_Node000028_Node000003" title=" " alt="" coords="403,306,487,280,488,285,405,311"/>
+<area shape="poly" id="edge19_Node000030_Node000002" title=" " alt="" coords="403,53,486,27,488,32,405,58"/>
+<area shape="poly" id="edge20_Node000030_Node000003" title=" " alt="" coords="412,81,430,93,461,128,486,169,503,209,515,243,510,245,498,211,481,171,457,131,427,97,409,85"/>
+</map>
