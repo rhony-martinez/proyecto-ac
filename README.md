@@ -127,7 +127,14 @@ La documentación incluye diagramas FSM, especificaciones técnicas, referencias
 ```
 ├── main/
 │ ├── proyecto/
-│ │ └── proyecto.ino
+│ │ ├── docs/
+│ │ │ ├── html/
+│ │ │ │ ├── search/
+│ │ │ │ │ └──varios archivos
+│ │ │ │ └── varios archivos
+│ │ ├── Doxyfile
+│ │ ├── proyecto.ino
+│ │ └── sistema_confort_termico.ino
 │ ├── FSM_ARQ_A.png
 │ ├── Definicion.docx
 │ └── README.md
