@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['cálculo_0',['Variables Globales de Estado y Cálculo',['../group__variables__grupo.html',1,'']]],
+  ['cálculo_20pmv_20predicted_20mean_20vote_1',['Cálculo PMV (Predicted Mean Vote)',['../sistema__confort__termico_8ino.html#pmv_sec',1,'']]],
+  ['cálculo_20pmv_20según_20modelo_20de_20fanger_2',['Cálculo PMV según Modelo de Fanger',['../group__pmv__grupo.html',1,'']]],
+  ['calcularfcl_3',['calcularFcl',['../group__pmv__grupo.html#ga0c0597b90e05b7eb8c2808f644c95a61',1,'sistema_confort_termico.ino']]],
+  ['calcularhc_4',['calcularHc',['../group__pmv__grupo.html#ga7ed73e40dd21909dc5922b342cdbe0c9',1,'sistema_confort_termico.ino']]],
+  ['calcularpmv_5ffanger_5',['calcularPMV_Fanger',['../group__pmv__grupo.html#ga010b0d3e4b1c2eb39075406703487960',1,'sistema_confort_termico.ino']]],
+  ['calcularpresionvapor_6',['calcularPresionVapor',['../group__pmv__grupo.html#ga9c12005928a2d38bbbe11e7e703b5007',1,'sistema_confort_termico.ino']]],
+  ['características_20principales_7',['Características Principales',['../sistema__confort__termico_8ino.html#features_sec',1,'']]],
+  ['checkbloqueo_8',['checkBloqueo',['../group__auxiliares__grupo.html#gaad5c2beac548774ab4b7b6f10afd2c64',1,'sistema_confort_termico.ino']]],
+  ['checkmovimiento_9',['checkMovimiento',['../group__verificacion__grupo.html#gacbdcb2026ed2ede5d841e375f2d860d3',1,'sistema_confort_termico.ino']]],
+  ['checkpassword_10',['checkPassword',['../group__auxiliares__grupo.html#gaf8626fd53a9fd252db6f253207b78b87',1,'sistema_confort_termico.ino']]],
+  ['checkpmv_11',['checkPMV',['../group__verificacion__grupo.html#gaec3d803c0bdc0d568fd8ebb776f93dd6',1,'sistema_confort_termico.ino']]],
+  ['clave_12',['clave',['../sistema__confort__termico_8ino.html#a96680a0788cd42f837c8962b9cf89a83',1,'sistema_confort_termico.ino']]],
+  ['clave_5fcorrecta_13',['CLAVE_CORRECTA',['../group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090a398b625d64c410187ddeac0ed88bc986',1,'sistema_confort_termico.ino']]],
+  ['clave_5fuser_14',['clave_user',['../sistema__confort__termico_8ino.html#a87806aa7f4565584aaf628f4dc5b18fd',1,'sistema_confort_termico.ino']]],
+  ['clo_15',['clo',['../group__variables__grupo.html#gae739b5a639d79f73dd4c556eaaec18b2',1,'sistema_confort_termico.ino']]],
+  ['colpins_16',['colPins',['../sistema__confort__termico_8ino.html#aa9fece7b062124080e4b2976f9a8b675',1,'sistema_confort_termico.ino']]],
+  ['cols_17',['COLS',['../sistema__confort__termico_8ino.html#aefd90f1160eaa105bc910d4d7c46b815',1,'sistema_confort_termico.ino']]],
+  ['config_18',['CONFIG',['../group__fsm__grupo.html#gga5d74787dedbc4e11c1ab15bf487e61f8a702582f7f825ca83bdb076b15b4c0fc2',1,'sistema_confort_termico.ino']]],
+  ['configuración_20de_20pines_20hardware_19',['Configuración de Pines Hardware',['../group__pines__grupo.html',1,'']]],
+  ['configuración_20sistema_20rfid_20',['Configuración Sistema RFID',['../group__rfid__grupo.html',1,'']]],
+  ['conteotempalta_21',['conteoTempAlta',['../group__variables__grupo.html#ga9f4f1908548616eb629643bc9cc956af',1,'sistema_confort_termico.ino']]],
+  ['control_20de_20actuadores_22',['Sistema de Control de Actuadores',['../group__actuadores__grupo.html',1,'']]]
+];

@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['salida_20de_20estados_20fsm_0',['Funciones de Salida de Estados FSM',['../group__estados__grupo.html',1,'']]],
+  ['saveuidandname_1',['saveUIDAndName',['../group__rfid__funciones__grupo.html#gadc38582f256dac9b7b764d9526137b39',1,'sistema_confort_termico.ino']]],
+  ['según_20modelo_20de_20fanger_2',['Cálculo PMV según Modelo de Fanger',['../group__pmv__grupo.html',1,'']]],
+  ['sensor_5finfrarrojo_3',['SENSOR_INFRARROJO',['../group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090ac644d7581577480f8b109e28d9d26b1a',1,'sistema_confort_termico.ino']]],
+  ['servo_4',['servo',['../group__hardware__grupo.html#ga79efceea669fb85a732c30f47cf7e59c',1,'sistema_confort_termico.ino']]],
+  ['servo_5fpin_5',['SERVO_PIN',['../group__pines__grupo.html#ga5218f89aa292654356a48989319aafb1',1,'sistema_confort_termico.ino']]],
+  ['servopos_6',['servoPos',['../sistema__confort__termico_8ino.html#a7520f05cd691de2ef11bb2b9ffff9259',1,'sistema_confort_termico.ino']]],
+  ['servoup_7',['servoUp',['../sistema__confort__termico_8ino.html#a9760bca109bb5cd6f1b9a24854385ad0',1,'sistema_confort_termico.ino']]],
+  ['setup_8',['setup',['../sistema__confort__termico_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'sistema_confort_termico.ino']]],
+  ['setupstatemachine_9',['setupStateMachine',['../sistema__confort__termico_8ino.html#a0f66d65ae208fa0a707755d77441dd5f',1,'sistema_confort_termico.ino']]],
+  ['sistema_10',['Funciones Auxiliares del Sistema',['../group__auxiliares__grupo.html',1,'']]],
+  ['sistema_20de_20control_20de_20actuadores_11',['Sistema de Control de Actuadores',['../group__actuadores__grupo.html',1,'']]],
+  ['sistema_20de_20identificación_20rfid_12',['Sistema de Identificación RFID',['../sistema__confort__termico_8ino.html#rfid_sec',1,'']]],
+  ['sistema_20de_20máquina_20de_20estados_20finitos_13',['Sistema de Máquina de Estados Finitos',['../group__fsm__grupo.html',1,'']]],
+  ['sistema_20de_20tareas_20asíncronas_20y_20temporizadores_14',['Sistema de Tareas Asíncronas y Temporizadores',['../group__tareas__grupo.html',1,'']]],
+  ['sistema_20fsm_15',['Estados del Sistema FSM',['../sistema__confort__termico_8ino.html#states_sec',1,'']]],
+  ['sistema_20rfid_16',['Configuración Sistema RFID',['../group__rfid__grupo.html',1,'']]],
+  ['sistema_5fbloqueado_17',['SISTEMA_BLOQUEADO',['../group__fsm__grupo.html#gga080a822f0093973313bd644e517a5090ab652af68661ddf57916254db968b28eb',1,'sistema_confort_termico.ino']]],
+  ['sistema_5fconfort_5ftermico_2eino_18',['sistema_confort_termico.ino',['../sistema__confort__termico_8ino.html',1,'']]],
+  ['ss_5fpin_19',['SS_PIN',['../group__pines__grupo.html#ga86fac98c9b4c98a3e50fc45440878391',1,'sistema_confort_termico.ino']]],
+  ['state_20',['State',['../group__fsm__grupo.html#ga5d74787dedbc4e11c1ab15bf487e61f8',1,'sistema_confort_termico.ino']]],
+  ['statemachine_21',['stateMachine',['../group__fsm__grupo.html#ga29b5cbc7a62b025f70547fcb3efd8e2d',1,'sistema_confort_termico.ino']]]
+];
